@@ -1,0 +1,10 @@
+#!/bin/sh
+
+pushd ~/*/*/${1}*
+
+#cjdfunction() {
+#	pushd ~/*/*/${1}*
+#}
+#
+#export cjdfunction
+#alias cjd='cjdfunction'

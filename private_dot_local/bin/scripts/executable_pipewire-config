@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Must be root!
+
+ln -s /usr/lib/pipewire-0.3/ /etc/pipewire
+cp $DOTFILES/etc/pipewire/pipewire.conf /etc/pipewire/pipewire.conf

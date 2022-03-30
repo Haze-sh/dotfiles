@@ -1,0 +1,3 @@
+#!/bin/sh
+url=$(sfeed_plain "$XDG_DATA_HOME/sfeed/feeds/"* | fzf | sed -n 's@^.* \([a-zA-Z]*://\)\(.*\)$@\1\2@p')
+test -n "${url}" && $BROWSER "${url}"

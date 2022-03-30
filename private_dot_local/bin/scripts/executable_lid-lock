@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while true; do
+	if grep -q closed /proc/acpi/button/lid/LID0/state
+		then swaylock -S -f
+	fi
+sleep 1
+done

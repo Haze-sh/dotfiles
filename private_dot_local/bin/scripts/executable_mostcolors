@@ -1,0 +1,10 @@
+#!/bin/sh
+
+### Start flavours
+### End flavours
+
+echo "color status $(flavours info -r $(flavours current) | sed -n '3 p') $(flavours info -r $(flavours current) | sed -n '16 p')" > $HOME/.config/most/mostrc
+
+echo "color underline $(flavours info -r $(flavours current) | sed -n '6 p') $(flavours info -r $(flavours current) | sed -n '3 p')" >> $HOME/.config/most/mostrc
+
+echo "color overstrike $(flavours info -r $(flavours current) | sed -n '14 p') $(flavours info -r $(flavours current) | sed -n '3 p')" >> $HOME/.config/most/mostrc

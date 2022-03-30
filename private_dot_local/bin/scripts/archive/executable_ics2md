@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+# '''Export from iCal to Markdown format'''
+import os.path
+import subprocess
+from icalendar import Calendar, Event
+from datetime import datetime
+
+g = open('/home/electron/Codebox/PythonPlayground/urlab.ics', 'rb')
+gcal = Calendar.from_ical(g.read())
+for component in gcal.walk():
+    if component.name == "VEVENT":
+        SUMMARY = component.get('summary')
+        DATE = component.get('dtstart').dt
+        STAMP = DATE.strftime("%m/%d/%Y %H:%M:%S")
+        HEADER = DATE.strftime("%m/%d/%Y")
+        TASK = "\"{} {}\"\n".format(STAMP, SUMMARY)
+        f = open('/home/electron/tasks.md', 'r')
+        readfile = f.read()
+        if HEADER in readfile:
+            subprocess.run(['tax', 'append', '--section', HEADER, TASK])
+        else:
+            subprocess.run(['tax', 'append', '--section', 'Events', TASK])
+g.close()

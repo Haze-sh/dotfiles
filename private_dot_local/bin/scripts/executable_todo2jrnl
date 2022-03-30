@@ -1,0 +1,2 @@
+#!/bin/sh
+jrnl Tasks. $(grep "$(date +"%Y-%m-%d")" $GTD_DIR/TODO/done.txt) $(grep "$(date +"%Y-%m-%d")" $GTD_DIR/TODO/todo.txt)

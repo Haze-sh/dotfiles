@@ -1,0 +1,28 @@
+#!/bin/sh
+
+buku --stag 'Main' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-main.urls
+buku --stag 'Media' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-media.urls
+buku --stag 'Art' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-art.urls
+buku --stag 'Books' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-books.urls
+buku --stag 'Cinema' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-cinema.urls
+buku --stag 'Cooking' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-cooking.urls
+buku --stag 'Defence' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-defence.urls
+buku --stag 'Economics' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-economics.urls
+buku --stag 'General' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-general.urls
+buku --stag 'Life' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-life.urls
+buku --stag 'Music' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-music.urls
+buku --stag 'News' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-news.urls
+buku --stag 'Politics' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-politics.urls
+buku --stag 'Science' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-science.urls
+buku --stag 'Sports' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-sports.urls
+buku --stag 'Tech' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-tech.urls
+buku --stag 'Wikis' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-wikis.urls
+buku --stag 'Learning' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-learning.urls
+buku --stag 'Courses' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-courses.urls
+buku --stag 'GIT' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-git.urls
+buku --stag 'Podcasts' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-podcasts.urls
+buku --stag 'Youtube' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-youtube.urls
+buku --stag 'Reddit' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-reddit.urls
+buku --stag 'Twitter' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-twitter.urls
+buku --stag 'Facebook' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-facebook.urls
+buku --stag 'Instagram' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-instagram.urls

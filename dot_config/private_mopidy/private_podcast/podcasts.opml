@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<opml version="1.0">
+  <head>
+    <title>Newsboat - Exported Feeds</title>
+  </head>
+  <body>
+    <outline type="rss" xmlUrl="----------------------------------podcasts-------------------------------------" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.dancarlin.com/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.dancarlin.com/comments/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.dancarlin.com/4845-2/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.lastpodcastontheleft.com/welcome?format=rss" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.fighterpilotpodcast.com/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.fighterpilotpodcast.com/comments/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.fighterpilotpodcast.com/sample-page/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.radio-mb.com/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.radio-mb.com/comments/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.truehiphopfm.de/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.truehiphopfm.de/comments/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.truehiphopfm.de/true-hip-hop-fm-radio-stream/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://arabist.net/bulaq?format=rss" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feed.thisamericanlife.org/talpodcast" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feeds.npr.org/1015/rss.xml" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feeds.npr.org/173754155/rss.xml" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feeds.npr.org/1002/rss.xml" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feeds.npr.org/1001/rss.xml" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feeds.npr.org/1039/rss.xml" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feeds.npr.org/1032/rss.xml" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feeds.npr.org/3/rss.xml" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feeds.npr.org/2/rss.xml" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://feeds.npr.org/35/rss.xml" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://waitbutwhy.com/feed" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://waitbutwhy.com/comments/feed" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://waitbutwhy.com/homepage/feed" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://historiaspodcast.org/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://historiaspodcast.org/comments/feed/" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fhistoriaspodcast.org%2F&amp;for=wpcom-auto-discovery" htmlUrl="" title=""/>
+    <outline type="rss" xmlUrl="https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/column/book-review-podcast/rss.xml" htmlUrl="" title=""/>
+  </body>
+</opml>

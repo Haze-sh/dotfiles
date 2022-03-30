@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#echo "----------------------------------$1-------------------------------------" >>~/.local/share/urls/tsv/$("date" +%Y-%m-%d)-$1.tsv
+while read line; do curl -L -s "$line" | sfeed_web "$line" >> ~/.local/share/urls/tsv/$("date" +%Y-%m-%d)-$1.tsv ; done < ~/.local/share/urls/$("date" +%Y-%m-%d)-$1.urls
+
+grep 'http://127.0.0.1:1200' ~/.local/share/urls/$("date" +%Y-%m-%d)-$1.urls >> ~/.local/share/urls/tsv/$("date" +%Y-%m-%d)-$1.tsv
+grep 'https://hnrss.org' ~/.local/share/urls/$("date" +%Y-%m-%d)-$1.urls >> ~/.local/share/urls/tsv/$("date" +%Y-%m-%d)-$1.tsv

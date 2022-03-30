@@ -1,0 +1,6 @@
+directory: ~/Music
+library: ~/.local/share/beets/beets.db
+import:
+    copy: no
+    write: yes
+plugins: chromia, web

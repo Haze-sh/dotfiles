@@ -1,0 +1,212 @@
+@import "colors.css";
+@define-color spotify-green #66CC99;
+@define-color pomodoro-red #FF6347;
+@define-color rss-orange #FF8C00;
+
+* {
+	font-size: 12px;
+	font-family: Hack, "Font Awesome 5 Free";
+}
+
+:hover {
+        border: 1px solid @base0E;
+        background: @base02;
+}
+
+window#waybar {
+	color: @base0D;
+	background-color: @base00;
+/*	border: 1px solid @base03; */
+	border-top: 4px transparent solid;
+	border-right: 6px transparent solid;
+	border-left: 6px transparent solid;
+	border-radius: 12px 12px 12px 12px;
+	/* border-radius: 10px 10px 10px 10px; */
+}
+
+/* Base styling for modules */
+#workspaces,
+#mode,
+#window,
+#idle_inhibitor,
+#language,
+#bluetooth,
+#mpd,
+#custom-playerctl,
+#custom-mpris,
+#pulseaudio,
+#clock,
+#battery,
+#backlight,
+#disk,
+#memory,
+#cpu,
+#temperature,
+#network,
+#custom-safeeyes,
+#custom-gamma,
+#custom-devices,
+#custom-separator,
+#custom-shutdown,
+#custom-menu,
+#taskbar,
+#custom-waybar-mpris,
+#custom-AUR,
+#custom-weather,
+#custom-events,
+#custom-chat,
+#custom-mail,
+#custom-rss,
+#custom-todo,
+#custom-todourgent,
+#custom-timer,
+#custom-pomo,
+#tray {
+/*	padding: 1px 10px 0px 10px; */
+	margin: 8px 0px 4px 0px;
+	background: @base02;
+  border-radius: 5px;
+}
+
+/* Grouping */
+
+/* left modules */
+#cpu,
+#language,
+#custom-safeeyes,
+#custom-weather,
+#custom-mpris,
+#custom-waybar-mpris,
+#custom-chat,
+#custom-todo {
+	border-radius: 5px 0px 0px 5px;
+}
+
+/* right modules */
+#pulseaudio,
+#network,
+#temperature,
+#custom-events,
+#idle_inhibitor,
+#custom-mail,
+#custom-timer {
+	border-radius: 0px 5px 5px 0px;
+}
+
+/* middle modules */
+#clock,
+#memory,
+#disk,
+#backlight,
+#custom-gamma,
+#custom-devices,
+#custom-AUR,
+#custom-pomo,
+#custom-todourgent {
+	border-radius: 0px 0px 0px 0px;
+}
+
+/* Customization */
+
+#mode {
+	color: @base08;
+}
+
+#custom-separator {
+	opacity: 0;
+	padding: 0px;
+}
+
+#custom-menu {
+        margin-left: 11px;
+}
+
+#custom-powermenu {
+	color: @pomodoro-red;
+	margin-top: 8px;
+}
+
+#custom-media {
+        color: @spotify-green;
+        min-width: 100px;
+}
+
+#custom-mpris,
+#custom-waybar-mpris,
+#custom-chat,
+#custom-mail,
+#pulseaudio {
+	color: @base0B;
+}
+
+#disk {
+	color: @base08;
+}
+
+#memory {
+	color: @base09;
+}
+
+#idle_inhibitor,
+#custom-AUR,
+#custom-vpn,
+#custom-devices,
+#language,
+#cpu {
+	color: @base0A;
+}
+
+#temperature {
+	color: @base0E;
+}
+
+#custom-todo,
+#custom-todourgent,
+#custom-timer,
+#custom-pomo {
+	color: @pomodoro-red;
+}
+
+#custom-rss {
+	color: @rss-orange;
+}
+
+/* Workspaces */
+
+#workspaces {
+        padding: 0px;
+}
+
+#workspaces button {
+	color: @base07;
+	margin: 0;
+	padding: 1px 5px 0px 5px;
+}
+#workspaces button.focused {
+        border: 1px solid @base0B;
+}
+
+#workspaces button.urgent {
+	background-color: @base08;
+}
+
+/* Battery */
+
+#battery.warning {
+	color: @base0A;
+}
+
+#battery.critical {
+	color: @base09;
+}
+
+/* Taskbar */
+
+#taskbar button {
+	color: @base07;
+	padding: 5px 3px 1px 3px;
+}
+
+#taskbar button.active {
+        border: 1px solid @base0B;
+}

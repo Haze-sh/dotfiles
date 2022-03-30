@@ -1,0 +1,14 @@
+{
+    "break": "Walk for a while",
+    "plugin": {
+        "healthstats": {
+            "last_screen_time": 19,
+            "next_reset_time": "2022-03-31 00:00:00",
+            "no_of_breaks": 9,
+            "no_of_cycles": 3,
+            "no_of_skipped_breaks": 4,
+            "safe_eyes_start_time": "2022-03-30 00:00:00",
+            "total_idle_time": 0
+        }
+    }
+}
