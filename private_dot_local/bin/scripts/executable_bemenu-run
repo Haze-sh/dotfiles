@@ -41,4 +41,4 @@ export BEMENU_OPTS="$BEMENU_OPTS"\
 _gen_bemenu_default_opts
 # End flavours bemenu
 
-/bin/bemenu-run
+/bin/bemenu-run -H 21

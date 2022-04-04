@@ -1,14 +1,14 @@
 #!/bin/sh
 
-safeeyes & disown;
-mopidy & disown;
-beet web & disown;
-yams & disown;
-otd.start & disown;
-rsshub.start & disown;
-bukuserver run --host 127.0.0.1 --port 5001 & disown;
-archivebox server 0.0.0.0:8000 & disown;
-promnesia serve & disown;
-syncthing -no-browser & disown;
-aw-server & disown;
-calcurse --daemon;
+#safeeyes & disown;
+#mopidy & disown;
+#beet web & disown;
+##yams & disown;
+#otd.start & disown;
+#rsshub.start & disown;
+#bukuserver run --host 127.0.0.1 --port 5001 & disown;
+#archivebox server 0.0.0.0:8000 & disown;
+#promnesia serve & disown;
+#syncthing -no-browser & disown;
+#aw-server & disown;
+#calcurse --daemon;

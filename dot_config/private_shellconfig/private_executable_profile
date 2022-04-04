@@ -1,9 +1,12 @@
 #!/bin/zsh
 
+#PS1="%B 🍺%{$fg[yellow]%}%~%{$reset_color%}%b "
+
 # $PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/.local/bin/scripts:$PATH
+export PATH=$HOME/.local/share/junest/bin:$PATH
 export PATH=$HOME/.local/lib/go/bin/:$PATH
 export PATH=$HOME/.local/lib/cargo/bin/:$PATH
 export PATH=$HOME/.local/lib/python3.10/site-packages/:$PATH
@@ -23,7 +26,8 @@ unsetopt PROMPT_SP
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
-export PAGER="bat"
+export PAGER="less"
+#export PAGER="bat"
 #export PAGER="most"
 export PLUMBER="web-xdg-open"
 #export GDK_BACKEND=wayland
@@ -41,6 +45,15 @@ export XDG_SESSION_TYPE=wayland
 #export XDG_CURRENT_DESKTOP=sway
 export DOTFILES=~/.local/share/repos/personal/dotfiles
 export YDOTOOL_SOCKET=/tmp/.ydotool_socket
+
+# Non-elogind system
+#if test -z "${XDG_RUNTIME_DIR}"; then
+#    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+#    if ! test -d "${XDG_RUNTIME_DIR}"; then
+#        mkdir "${XDG_RUNTIME_DIR}"
+#        chmod 0700 "${XDG_RUNTIME_DIR}"
+#    fi
+#fi
 
 # Remove CSD
 #export GTK_CSD=0
@@ -103,7 +116,8 @@ export GNUPGHOME="${XDG_DATA_HOME:-${HOME:-/home/$LOGNAME}/.local/share}/gnupg"
 export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
 export MAILCAP_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/mailcap"
-export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+#export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+#export ALSA_CONFIG_PATH=/usr/share/alsa/alsa.conf
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
@@ -119,7 +133,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 export PYDORO_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/pydoro/pydoro.conf"
 export DICS="/usr/share/stardict/dic/"
 export SUDO_ASKPASS="$HOME/.local/bin/wofipassmenu"
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 ## Directory Structure
 export NOTES_DIR="$HOME/Documents/Notes"

@@ -74,9 +74,10 @@
 # Autostart
     exec_always $background -i ~/.local/share/backgrounds/wallpaper.png
     exec_always --no-startup-id exec sway-dynamic-names
-    exec_always pipewire & pipewire -c pipewire-pulse.conf &
+#    exec gentoo-pipewire-launcher
+#    exec_always pipewire & pipewire -c pipewire-pulse.conf &
 #    exec pipewire-media-session
-    exec wireplumber &
+    exec_always pipewire & pipewire-pulse & wireplumber &
     exec mpDris2
     exec playerctld daemon
     exec play ~/Music/Classical\ Library/'1-01 Beethoven Symphony 5 in C Minor, Op. 67 - 1. Allegro Con Brio (CUT).mp3' >/dev/null 2>&1
@@ -119,8 +120,8 @@ exec $idle \
     timeout 300 '$lock --screenshots --daemonize' \
     timeout 600  '$msg "output * dpms off"' \
         resume '$msg "output * dpms on"' \
-    timeout 610 'pactl set-source-mute @DEFAULT_SOURCE@ yes' \
-        resume 'pactl set-source-mute @DEFAULT_SOURCE@ no' \
+#    timeout 610 'pactl set-source-mute @DEFAULT_SOURCE@ yes' \
+#        resume 'pactl set-source-mute @DEFAULT_SOURCE@ no' \
     timeout 620 'gpg-connect-agent reloadagent /bye'
 
     bindsym $mod+Shift+x exec $lock -S -f
@@ -158,14 +159,14 @@ client.urgent            $base02 $base00 $base04 $base00 $base00
 #font $font: Amiri 11
 
 # Sound and Brightness
-    bindsym XF86AudioRaiseVolume exec 'volume-up'
-    bindsym XF86AudioLowerVolume exec 'volume-down'
-    bindsym XF86AudioMute        exec $audio set-sink-mute 0 toggle
+    bindsym XF86AudioRaiseVolume    exec 'volume-up'
+    bindsym XF86AudioLowerVolume    exec 'volume-down'
+    bindsym XF86AudioMute           exec $audio set-sink-mute 0 toggle
 
-    bindsym XF86AudioPlay exec $audioctl play-pause
-    bindsym XF86AudioStop exec $audioctl stop
-    bindsym XF86AudioNext exec $audioctl next
-    bindsym XF86AudioPrev exec $audioctl previous
+    bindsym XF86AudioPlay           exec $audioctl play-pause
+    bindsym XF86AudioStop           exec $audioctl stop
+    bindsym XF86AudioNext           exec $audioctl next
+    bindsym XF86AudioPrev           exec $audioctl previous
 
     bindsym XF86MonBrightnessUp     exec 'brightness-up'
     bindsym XF86MonBrightnessDown   exec 'brightness-down'
@@ -249,10 +250,11 @@ client.urgent            $base02 $base00 $base04 $base00 $base00
     bindsym $mod+Shift+8 move container to workspace ""
     bindsym $mod+Shift+9 move container to workspace ""
 
-    assign [class="Ferdi"] workspace ""
+#    assign [class="Ferdi"] workspace ""
     assign [app_id="neomutt"] workspace ""
     assign [app_id="ncmpcpp"] workspace ""
     for_window [app_id="zenity"] floating enable
+    for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable
     for_window [app_id="org.kde.kdeconnect-urlhandler"] floating enable
     for_window [app_id="gnome-calculator"] floating enable
 
@@ -329,16 +331,16 @@ mode "resize" {
     bindsym $mod+b exec bemenu-run
     bindsym $mod+p exec keepmenu
 
-    bindsym $mod+i exec $browser
-    bindsym $mod+n exec $term -e $filemanager -C
+    bindsym $mod+i       exec $browser
+    bindsym $mod+n       exec $term -e $filemanager -C
     bindsym $mod+Shift+f exec $chat
     bindsym $mod+Shift+o exec $term -e $mail
     bindsym $mod+Shift+n exec $term -e $rss
     bindsym $mod+Shift+i exec $term -e $irc
-    bindsym $mod+m exec $term -e $musicplayer
+    bindsym $mod+m       exec $term -e $musicplayer
     bindsym $mod+Shift+m exec $mediaplayer
     bindsym $mod+Shift+s exec $vector_graphics
-    bindsym $mod+escape exec 'killall waybar -s USR1'
+    bindsym $mod+escape  exec 'killall waybar -s USR1'
 
     # Change scheme
     bindsym Alt+s exec 'old="$(flavours current)" && \
@@ -365,13 +367,13 @@ mode "resize" {
     bindsym Alt+x exec setwallpaper -R
 
 # Menu Configuration
-    bindsym Alt+a exec csv-launcher
-    bindsym Alt+p exec wofipassmenu $menu
-    bindsym Alt+b exec wofibukumenu $menu
-    bindsym Alt+r exec wofirssmenu $menu
-    bindsym Alt+e exec wofi-emoji $menu
-    bindsym Alt+Tab exec windows $menu
-    bindsym $mod+c exec $clipboard pick -t $menu
+    bindsym Alt+a        exec csv-launcher
+    bindsym Alt+p        exec wofipassmenu $menu
+    bindsym Alt+b        exec wofibukumenu $menu
+    bindsym Alt+r        exec wofirssmenu $menu
+    bindsym Alt+e        exec wofi-emoji $menu
+    bindsym Alt+Tab      exec windows $menu
+    bindsym $mod+c       exec $clipboard pick -t $menu
     bindsym $mod+Shift+c exec $clipboard clear -t $menu
 
 # Launchers

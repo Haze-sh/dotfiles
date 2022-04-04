@@ -65,6 +65,7 @@ chezmoi add -r \
 echo "[Adding special templates]";
 cd $XDG_CONFIG_HOME;
 chezmoi add -r --encrypt \
+    calcurse/caldav/config \
     mpv/playlists \
     msmtp/config \
     mutt/* \
