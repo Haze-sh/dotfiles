@@ -1,7 +1,7 @@
 #!/bin/sh
 @ 01 topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
 @ 15 CALCURSE_CALDAV_PASSWORD=$(pass show calcurse) calcurse-caldav
-@ 15 $HOME/.local/bin/syncmail ; date &>/tmp/cron-syncmail.log
+@ 15 $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
 @ 30 sfeed_update ~/.config/sfeed/sfeedrc $>/var/log/cron-sfeed.log
 @ 30 sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
 @ 30 sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
@@ -20,10 +20,11 @@
 @ 60 rm -r $HOME/.dotnet
 @ 20160 notify-send "Upgrade system"
 @ 20160 notify-send "Clear caches"
+%daily * 23 moonphase
 %daily * 23 flavours update all
 %daily * 23 fcrontab -l > $HOME/.config/fcron.backup
 %daily * 23 dconf dump / > $HOME/.config/saved_settings.dconf
-%daily * 23 cp -r $HOME/.mozilla/firefox/rpp6gs0y.default/extension* $HOME/.mozilla/firefox/rpp6gs0y.default/addons.json $HOME/.mozilla/firefox/rpp6gs0y.default/prefs.js $HOME/.mozilla/firefox/rpp6gs0y.default/bookmarkbackups/ $HOME/.config/firefox
+%daily * 23 cp -r $HOME/.mozilla/firefox/rpp6gs0y.default/extension* $HOME/.mozilla/firefox/rpp6gs0y.default/addons.json $HOME/.mozilla/firefox/rpp6gs0y.default/prefs.js $HOME/.config/firefox
 %daily * 23 cp -r $HOME/.mozilla/firefox/rpp6gs0y.default/bookmarkbackups/ $HOME/.local/share/urls
 %daily * 23 newsboat --url-file=~/.config/newsboat/daily-list -x print-unread | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
 %daily * 23 poku --access $(pass show poku) --consumer $(pass show consumer) ; buku -e $HOME/Documents/Notes/Personal/Journal/Collections/References/buku.md
