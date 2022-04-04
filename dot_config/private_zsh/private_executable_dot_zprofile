@@ -1,2 +1,0 @@
-[[ $XDG_VTNR -le 2 ]]
-#[[ $XDG_VTNR -le 2 ]] && tbsm
