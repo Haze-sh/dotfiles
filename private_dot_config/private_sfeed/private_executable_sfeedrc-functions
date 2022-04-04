@@ -1,0 +1,84 @@
+#!/bin/sh
+
+sfeedpath="$HOME/.local/share/sfeed/feeds"
+
+# tor
+fetch() {
+    if [ "$(netstat -nl | grep 9050)" ]; then
+        curl --socks5 localhost:9050 -L --max-redirs 1 -H "User-Agent:" -fs -m 15 "$2" 2>/dev/null
+    else
+        curl -L --max-redirs 1 -H "User-Agent:" -fs -m 15 "$2" 2>/dev/null
+    fi
+}
+
+# filter(name)
+filter() {
+	case "$1" in
+		("Daring Fireball")
+			awk -F '\t' '{ OFS = "\t" } $7 ~ /Gruber/ { print }'
+			;;
+		(*)
+			cat
+			;;
+	esac
+}
+
+# prune(sfeedfile, entries)
+prune() {
+	name="$1"
+	filename=$(printf '%s' "$name" | tr / _)
+	sfeedfile="${sfeedpath}/${filename}"
+	entries="${2:-20}"
+	tmpfeedfile=$(mktemp)
+	if [ -f "$sfeedfile" ]; then
+		log "$name" "PRUNE"
+		sed "${entries}q" < "$sfeedfile" > "$tmpfeedfile"
+		mv "$tmpfeedfile" "$sfeedfile"
+	else
+		log "$name" "PRUNE FAIL (NOT FOUND)"
+	fi
+}
+
+# postupdate()
+postupdate() {
+	# prune <feedfile> [entries]
+	prune "ABC Coronacast" 10
+	prune "Atlas Obscura" 30
+	prune "BIG by Matt Stoller"
+	prune "BNE Art"
+	prune "Bandcamp Daily"
+	prune "Criterion - The Current" 30
+	prune "Daring Fireball"
+	prune "Dinosaur Comics"
+	prune "Entertainment Strategy Guy"
+	prune "FACT Magazine"
+	prune "Film Comment"
+	prune "Film Lincoln Center"
+	prune "Filmmaker Magazine"
+	prune "John August" 30
+	prune "Lichess"
+	prune "London Review of Books"
+	prune "Low-Tech Magazine"
+	prune "NPR Music"
+	prune "Pokey the Penguin"
+	prune "Protesilaos Stavrou"
+	prune "Raspberry Pi Blog"
+	prune "SXSW"
+	prune "Sacha Chua"
+	prune "Screen Australia"
+	prune "Screen Queensland"
+	prune "Short of the Week"
+	# prune "Soren Peter Morch"
+	prune "TCI" 50
+	prune "The Art of Manliness" 30
+	prune "The Millions"
+	prune "The Moth" 50
+	prune "The Paris Review Blog"
+	prune "The Wire" 30
+	prune "YouTube - Movieclips Trailers"
+	prune "YouTube - Sundance Institute"
+	prune "YouTube - THR"
+	prune "YouTube - The Late Show"
+	prune "n+1" 50
+	prune "xkcd"
+}

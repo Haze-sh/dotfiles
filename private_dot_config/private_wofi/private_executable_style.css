@@ -1,0 +1,65 @@
+/* Start flavours */
+/*
+*
+* Base16 Nord
+* Author: arcticicestudio
+*
+*/
+
+@define-color base00 #2E3440;
+@define-color base01 #3B4252;
+@define-color base02 #434C5E;
+@define-color base03 #4C566A;
+@define-color base04 #D8DEE9;
+@define-color base05 #E5E9F0;
+@define-color base06 #ECEFF4;
+@define-color base07 #8FBCBB;
+@define-color base08 #BF616A;
+@define-color base09 #D08770;
+@define-color base0A #EBCB8B;
+@define-color base0B #A3BE8C;
+@define-color base0C #88C0D0;
+@define-color base0D #81A1C1;
+@define-color base0E #B48EAD;
+@define-color base0F #5E81AC;
+/* End flavours */
+
+window {
+    border: 0px solid white;
+    background-color: @base0B;
+    border-radius: 8px;
+}
+
+#outer-box {
+    border: 1px solid @base0B;
+    background-color: @base00;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+#inner-box {
+    background-color: @base00;
+    padding: 5px;
+}
+
+#input {
+    border: 1px;
+    background-color: @base00;
+    color: @base0B;
+    font-size: 18px;
+}
+
+#scroll {
+    lines: 10;
+    padding: 2px 0px 0px;
+}
+
+#text {
+    margin: 1px;
+    border: 0px solid black;
+    color: @base0D;
+}
+
+#text:selected {
+    color: @base0A;
+}

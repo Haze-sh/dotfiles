@@ -1,0 +1,17 @@
+clients:
+  google-chrome-beta: chrome
+  jetbrains-(.*):
+    icon: terminal
+    extra: "{0}"
+  firefox: firefox
+  x-terminal-emulator: terminal
+  thunderbird: envelope
+  nautilus: folder-open
+  clementine: music
+  vlc: play
+  signal: comment
+  code-oss: code
+deliminator: " "
+default_icon: dot-circle
+default:
+  new_desktop: true
