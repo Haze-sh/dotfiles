@@ -144,6 +144,8 @@ export GTD_DIR="$JOURNAL_DIR/GTD"
 export ZET_DIR="$JOURNAL_DIR/Collections"
 export ZK_NOTEBOOK_DIR="$JOURNAL_DIR/Collections"
 export TODOTXT_FILE="$GTD_DIR/TODO/todo.txt"
+export CODEBOX="$HOME/Documents/Notes/Workspace/Codebox"
+export REPOS="$HOME/Documents/Notes/Workspace/Repos"
 export HYPOTHESIS_PASS="$(pass show hypothesis)"
 export KEEPASS_FILE="$XDG_DATA_HOME/passwords.kbdx"
 

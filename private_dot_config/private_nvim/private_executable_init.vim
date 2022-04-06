@@ -129,9 +129,12 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'honza/vim-snippets'
   Plug 'sirver/ultisnips'
     let g:UltiSnipsSnippetDirectories=['/home/electron/.config/nvim/plugged/vim-snippets/UltiSnips', '/home/electron/.config/nvim/custom_snippets']
-    let g:UltiSnipsExpandTrigger='<C-a>'
-    let g:UltiSnipsJumpForwardTrigger='<C-b>'
-    let g:UltiSnipsJumpBackwardTrigger='<C-z>'
+    "let g:UltiSnipsExpandTrigger='<C-a>'
+    "let g:UltiSnipsJumpForwardTrigger='<C-b>'
+    "let g:UltiSnipsJumpBackwardTrigger='<C-z>'
+    let g:UltiSnipsExpandTrigger='<tab>'
+    let g:UltiSnipsJumpForwardTrigger='<tab>'
+    let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
   "Plug 'Shougo/neosnippet.vim'
   "Plug 'Shougo/neosnippet-snippets'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
