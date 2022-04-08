@@ -256,7 +256,8 @@ client.urgent            $base02 $base00 $base04 $base00 $base00
     for_window [app_id="zenity"] floating enable
     for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable
     for_window [app_id="org.kde.kdeconnect-urlhandler"] floating enable
-    for_window [app_id="gnome-calculator"] floating enable
+    for_window [app_id="org.gnome.Calculator"] floating enable
+    #for_window [app_id="gnome-calculator"] floating enable
 
     bindsym $mod+Control+Shift+Right move workspace to output right
     bindsym $mod+Control+Shift+Left move workspace to output left
