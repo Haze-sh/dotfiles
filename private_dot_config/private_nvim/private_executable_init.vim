@@ -106,12 +106,12 @@ call plug#begin("~/.config/nvim/plugged")
   "Plug 'jesseleite/vim-agriculture'
   "Plug 'Shougo/denite.nvim'
   "  let g:nv_search_paths = ['~/Documents/Notes/']
-  Plug 'voldikss/vim-floaterm'
   Plug 'benmills/vimux'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'preservim/nerdtree'
   Plug 'ptzz/lf.vim'
   let g:NERDTreeHijackNetrw = 0
+  Plug 'voldikss/vim-floaterm'
   "Plug 'Shougo/defx.nvim'
   Plug 'sirver/ultisnips'
     let g:UltiSnipsSnippetDirectories=['/home/electron/.config/nvim/plugged/vim-snippets/UltiSnips', '/home/electron/.config/nvim/custom_snippets']
