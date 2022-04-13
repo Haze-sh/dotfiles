@@ -69,6 +69,11 @@ start = "/* Start flavours */"
 end = "/* End flavours */"
 
 [[item]]
+file = "~/.config/rofi/config.rasi"
+template = "rofi"
+rewrite = true
+
+[[item]]
 file = "~/.config/wlogout/style.css"
 template = "waybar"
 start = "/* Start flavours */"

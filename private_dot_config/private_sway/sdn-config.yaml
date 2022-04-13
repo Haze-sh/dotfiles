@@ -9,16 +9,19 @@ clients:
   kitty: terminal
   thunderbird: envelope
   ferdi: envelope
+  signal: envelope
   nautilus: folder-open
   pcmanfm: folder-open
   clementine: music
+  ncmpcpp: music
   vlc: play
   mpv: play
-  signal: comment
   code-oss: code
+  vscodium: code
   inkscape: brush
-  drawio: brush
+  draw.io: brush
+  zathura: 
 deliminator: " "
 default_icon: dot-circle
 default:
-  #  new_desktop: true
+    new_desktop: false

@@ -67,7 +67,7 @@ def latex_document(latex):
     """ + latex + r"\end{document}"
 
 config = {
-    'rofi_theme': '~/.config/rofi/ribbon.rasi',
+    'rofi_theme': '~/.config/rofi/config.rasi',
     'font': 'Iosevka Term',
     'font_size': 10,
     'open_editor': open_editor,
