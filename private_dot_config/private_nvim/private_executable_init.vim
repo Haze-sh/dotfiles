@@ -2,29 +2,10 @@ let mapleader=","
 
 " Plugins
 call plug#begin("~/.config/nvim/plugged")
+" Basics
   Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'qpkorr/vim-renamer'
-  Plug 'chriskempson/base16-vim'
-  Plug 'rmehri01/onenord.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'danilo-augusto/vim-afterglow'
-  Plug 'preservim/vim-colors-pencil'
-  Plug 'ap/vim-css-color'
-  "Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
-  "  let g:Hexokinase_highlighters = ['backgroundfull']
-  Plug 'vim-syntastic/syntastic'
-  Plug 'python-mode/python-mode'
-  Plug 'sansyrox/vim-python-virtualenv'
-  Plug 'vim-scripts/indentpython.vim'
-  Plug 'nvie/vim-flake8'
-  "Plug 'pseewald/vim-anyfold'
-  Plug 'skywind3000/asyncrun.vim'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'nvim-treesitter/nvim-treesitter'
+  "Plug 'roxma/vim-hug-neovim-rpc'
   Plug 'ncm2/ncm2'
-  Plug 'roxma/nvim-yarp'
   Plug 'ncm2/ncm2-bufword'
   Plug 'ncm2/ncm2-path'
   Plug 'ncm2/ncm2-markdown-subscope'
@@ -33,43 +14,41 @@ call plug#begin("~/.config/nvim/plugged")
   "Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
   "  set runtimepath+=~/.config/nvim/plugged/deoplete.nvim
   "  let g:deoplete#enable_at_startup = 1
-  Plug 'pbrisbin/vim-mkdir'
-  Plug 'kien/ctrlp.vim'
-  Plug 'jremmen/vim-ripgrep'
-  "  let g:rg_command = 'rg --vimgrep -S'
-  "Plug '907th/vim-auto-save'
-  Plug 'jiangmiao/auto-pairs'
-  " Plug 'alpertuna/vim-header'
-  Plug 'benmills/vimux'
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'ptzz/lf.vim'
-  Plug 'Shougo/defx.nvim'
-  Plug 'junegunn/fzf.vim'
-    let g:fzf_preview_window = ['up:20%:hidden', 'ctrl-/']
-  Plug 'alok/notational-fzf-vim'
-  Plug 'jesseleite/vim-agriculture'
-  Plug 'Shougo/denite.nvim'
-    let g:nv_search_paths = ['~/Documents/Notes/']
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-repeat'
-  Plug 'wellle/targets.vim'
-  Plug 'preservim/nerdtree'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'preservim/vim-pencil'
-  Plug 'junegunn/limelight.vim'
-  Plug 'junegunn/goyo.vim'
-  Plug 'godlygeek/tabular'
-  Plug 'mechatroner/rainbow_csv'
-  Plug 'voldikss/vim-floaterm'
-  "Plug 'vim-pandoc/vim-pandoc'
-  "Plug 'vim-pandoc/vim-pandoc-syntax'
-  "Plug 'ellisonleao/glow.nvim'
-  "Plug 'preservim/vim-markdown'
+
+" Themes
+  Plug 'chriskempson/base16-vim'
+  "Plug 'mcchrish/vim-no-color-collections'
+  "Plug 'rmehri01/onenord.nvim'
+  "Plug 'preservim/vim-colors-pencil'
+  "Plug 'danilo-augusto/vim-afterglow'
+
+" Highlighting
+  Plug 'akinsho/bufferline.nvim'
+  "Plug 'bling/vim-bufferline'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+    let g:airline_theme='base16'
+  Plug 'romainl/vim-cool'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Language support
+""" IDE
+  Plug 'sheerun/vim-polyglot'
+  Plug 'vim-syntastic/syntastic'
+""" Golang
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+""" Rust
+  Plug 'racer-rust/racer'
+""" Python
+  Plug 'python-mode/python-mode'
+  Plug 'sansyrox/vim-python-virtualenv'
+  Plug 'vim-scripts/indentpython.vim'
+  Plug 'nvie/vim-flake8'
+""" Markdown
   Plug 'tpope/vim-markdown'
     "let g:markdown_fenced_languages = ['python']
   Plug 'masukomi/vim-markdown-folding'
   Plug 'prashanthellina/follow-markdown-links'
-  "Plug 'jtratner/vim-flavored-markdown'
   Plug 'dkarter/bullets.vim'
     let g:bullets_enabled_file_types = [
     \ 'markdown',
@@ -78,45 +57,12 @@ call plug#begin("~/.config/nvim/plugged")
     \ 'scratch'
     \]
   "  let g:bullets_checkbox_markers = '✗○◐●✓'
-  Plug 'mickael-menu/zk-nvim'
-  Plug 'jreybert/vimagit'
-  Plug 'lukesmithxyz/vimling'
-  Plug 'xolox/vim-misc'
-  Plug 'ActivityWatch/aw-watcher-vim'
-  Plug 'xolox/vim-notes'
-  "Plug 'fmoralesc/vim-pad'
-  "Plug 'MattesGroeger/vim-bookmarks'
-  "Plug 'plutonly/vim-annotate'
-  "Plug 'renerocksai/telekasten.nvim'
-  "Plug 'dobrovolsky/kb-notes.nvim'
-  "Plug 'nvim-neorg/neorg'
-  "Plug 'dhruvasagar/vim-dotoo'
-  "Plug 'kristijanhusak/orgmode.nvim'
-  "Plug 'vuciv/vim-bujo'
-  Plug 'junegunn/vim-journal'
-  Plug 'wren/jrnl.vim'
-  "Plug 'austintraver/vim-jrnl'
-  "Plug 'mode89/vim-jrnl-syntax'
-  Plug 'dbeniamine/todo.txt-vim'
-    let g:Todo_fold_char='@'
-  Plug 'lgalke/gather-todo.txt-vim'
-  "Plug ishchow/nvim-deardiary
-  "Plug 'vimwiki/vimwiki'
-  "Plug 'tools-life/taskwiki'
-  "Plug 'blindFS/vim-taskwarrior'
-  Plug 'mattn/calendar-vim'
-  "Plug 'itchyny/calendar.vim'
-  Plug 'dahu/Taggle'
-  "Plug 'preservim/tagbar'
-  "Plug 'bling/vim-bufferline'
-  Plug 'akinsho/bufferline.nvim'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-    let g:airline_theme='base16'
-  Plug 'vim-scripts/fountain.vim'
-  Plug 'tpope/vim-commentary'
-  "Plug 'jceb/vim-orgmode'
-  "Plug 'axvr/org.vim'
+  "Plug 'vim-pandoc/vim-pandoc'
+  "Plug 'vim-pandoc/vim-pandoc-syntax'
+  "Plug 'ellisonleao/glow.nvim'
+  "Plug 'preservim/vim-markdown'
+  "Plug 'jtratner/vim-flavored-markdown'
+""" LaTeX
   Plug 'lervag/vimtex'
     let g:tex_flavor='latex'
     let g:vimtex_view_method='zathura'
@@ -125,20 +71,97 @@ call plug#begin("~/.config/nvim/plugged")
     set conceallevel=1
     let g:tex_conceal='abdmg'
     hi Conceal ctermbg=none
-  Plug 'romainl/vim-cool'
-  Plug 'honza/vim-snippets'
+""" CSS
+  Plug 'ap/vim-css-color'
+  "Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+  "  let g:Hexokinase_highlighters = ['backgroundfull']
+""" CSV
+  Plug 'mechatroner/rainbow_csv'
+""" todo.txt
+  Plug 'dbeniamine/todo.txt-vim'
+    let g:Todo_fold_char='@'
+  Plug 'lgalke/gather-todo.txt-vim'
+""" jrnl
+  Plug 'junegunn/vim-journal'
+  Plug 'wren/jrnl.vim'
+  "Plug 'vuciv/vim-bujo'
+  "Plug 'austintraver/vim-jrnl'
+  "Plug 'mode89/vim-jrnl-syntax'
+
+" Tools
+  Plug 'xolox/vim-misc'
+  Plug 'dahu/Taggle'
+  Plug 'jreybert/vimagit'
+  "Plug 'airblade/vim-gitgutter'
+  Plug 'skywind3000/asyncrun.vim'
+  "Plug 'nvim-lua/plenary.nvim'
+  Plug 'junegunn/fzf.vim'
+    let g:fzf_preview_window = ['up:20%:hidden', 'ctrl-/']
+  Plug 'alok/notational-fzf-vim'
+   let g:nv_search_paths = ['~/Documents/Notes']
+  Plug 'kien/ctrlp.vim'
+  Plug 'jremmen/vim-ripgrep'
+  "  let g:rg_command = 'rg --vimgrep -S'
+  "Plug 'nvim-telescope/telescope.nvim'
+  "Plug 'jesseleite/vim-agriculture'
+  "Plug 'Shougo/denite.nvim'
+  "  let g:nv_search_paths = ['~/Documents/Notes/']
+  Plug 'voldikss/vim-floaterm'
+  Plug 'benmills/vimux'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'preservim/nerdtree'
+  Plug 'ptzz/lf.vim'
+  let g:NERDTreeHijackNetrw = 0
+  "Plug 'Shougo/defx.nvim'
   Plug 'sirver/ultisnips'
     let g:UltiSnipsSnippetDirectories=['/home/electron/.config/nvim/plugged/vim-snippets/UltiSnips', '/home/electron/.config/nvim/custom_snippets']
-    "let g:UltiSnipsExpandTrigger='<C-a>'
-    "let g:UltiSnipsJumpForwardTrigger='<C-b>'
-    "let g:UltiSnipsJumpBackwardTrigger='<C-z>'
     let g:UltiSnipsExpandTrigger='<tab>'
     let g:UltiSnipsJumpForwardTrigger='<tab>'
     let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+  "Plug 'honza/vim-snippets'
   "Plug 'Shougo/neosnippet.vim'
   "Plug 'Shougo/neosnippet-snippets'
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'racer-rust/racer'
+  Plug 'ActivityWatch/aw-watcher-vim'
+  Plug 'mattn/calendar-vim'
+  "Plug 'itchyny/calendar.vim'
+  "Plug 'preservim/tagbar'
+
+""" Functionality
+  Plug 'lukesmithxyz/vimling'
+  Plug 'vim-scripts/fountain.vim'
+  Plug 'tpope/vim-commentary'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'qpkorr/vim-renamer'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'wellle/targets.vim'
+  Plug 'preservim/vim-pencil'
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/limelight.vim'
+  Plug 'pbrisbin/vim-mkdir'
+  Plug 'godlygeek/tabular'
+  "Plug '907th/vim-auto-save'
+  "Plug 'alpertuna/vim-header'
+  "Plug 'pseewald/vim-anyfold'
+
+""" Zettelkasten
+  Plug 'mickael-menu/zk-nvim'
+  "Plug 'xolox/vim-notes'
+  "Plug 'fmoralesc/vim-pad'
+  "Plug 'MattesGroeger/vim-bookmarks'
+  "Plug 'plutonly/vim-annotate'
+  "Plug 'renerocksai/telekasten.nvim'
+  "Plug 'dobrovolsky/kb-notes.nvim'
+  "Plug 'nvim-neorg/neorg'
+  "Plug 'dhruvasagar/vim-dotoo'
+  "Plug 'kristijanhusak/orgmode.nvim'
+  "Plug ishchow/nvim-deardiary
+  "Plug 'vimwiki/vimwiki'
+  "Plug 'tools-life/taskwiki'
+  "Plug 'blindFS/vim-taskwarrior'
+  "Plug 'jceb/vim-orgmode'
+  "Plug 'axvr/org.vim'
+
 call plug#end()
 
 " Python
@@ -243,6 +266,12 @@ filetype plugin indent on
 
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
+
+" Prompt for a command to run in tmux from within vim
+  map <Leader>vp :VimuxPromptCommand<CR>
+
+" Run last command executed by VimuxRunCommand
+  map <Leader>vl :VimuxRunLastCommand<CR>
 
 " Insert date
   nmap <leader>d i<C-R>=strftime("%Y-%m-%d %a %H:%M:%S")<CR><Esc>
@@ -361,12 +390,6 @@ filetype plugin indent on
 	autocmd BufWritePre * %s/\s\+$//e
 	autocmd BufWritePre * %s/\n\+\%$//e
 	autocmd BufWritePre *.[ch] %s/\%$/\r/e
-
-" Prompt for a command to run in tmux from within vim
-  map <Leader>vp :VimuxPromptCommand<CR>
-
-" Run last command executed by VimuxRunCommand
-  map <Leader>vl :VimuxRunLastCommand<CR>
 
 " Deoplete
 "  autocmd VimEnter * call deoplete#custom#option('sources', {'md': []})
