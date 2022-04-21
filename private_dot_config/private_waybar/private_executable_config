@@ -317,7 +317,7 @@
 
 "custom/moonphase": {
     "format": " {} ",
-    "exec": "cat ~/.local/share/moonphase",
+    "exec": "moonphase",
 //    "exec": "moonphase",
     "interval": "86400",
     "tooltip": true
@@ -747,7 +747,7 @@
 
 "custom/moonphase": {
     "format": " {} ",
-    "exec": "cat ~/.local/share/moonphase",
+    "exec": "moonphase",
 //    "exec": "moonphase",
     "interval": "86400",
     "tooltip": true
