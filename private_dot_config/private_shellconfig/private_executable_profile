@@ -14,12 +14,12 @@ export PATH=$HOME/.local/lib/cabal/packages/hackage.haskell.org/:$PATH
 export PATH=$HOME/.local/lib/gem/ruby/3.0.0/bin/:$PATH
 export PATH=$HOME/.local/lib/node_modules/bin/:$PATH
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+export PATH="$PATH:${$(find /home/electron/.local/lib/cargo/bin -type d -printf %p:)%%:}"
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH=/usr/local/share/pkgconfig:$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
-export PATH="$PATH:${$(find /home/electron/.local/lib/cargo/bin -type d -printf %p:)%%:}"
 unsetopt PROMPT_SP
 
 # Default programs:
@@ -42,7 +42,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 export QT_SCALE_FACTOR=1
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export XDG_SESSION_TYPE=wayland
-#export XDG_CURRENT_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
 export DOTFILES=~/.local/share/repos/personal/dotfiles
 export YDOTOOL_SOCKET=/tmp/.ydotool_socket
 
@@ -65,8 +65,8 @@ export GPG_TTY=$(tty)
 export GPG_AGENT_INFO=""
 
 ## Defaults
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
+#export XDG_CONFIG_HOME="$HOME/.config"
+#export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_LIB_HOME="$HOME/.local/lib"
 export XDG_CACHE_HOME="$HOME/.cache"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
@@ -144,6 +144,7 @@ export GTD_DIR="$JOURNAL_DIR/GTD"
 export ZET_DIR="$JOURNAL_DIR/Collections"
 export ZK_NOTEBOOK_DIR="$JOURNAL_DIR/Collections"
 export TODOTXT_FILE="$GTD_DIR/TODO/todo.txt"
+export COURSES="$HOME/Documents/Notes/Personal/Courses"
 export CODEBOX="$HOME/Documents/Notes/Workspace/Codebox"
 export REPOS="$HOME/Documents/Notes/Workspace/Repos"
 export HYPOTHESIS_PASS="$(pass show hypothesis)"

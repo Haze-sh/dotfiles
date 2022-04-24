@@ -11,7 +11,7 @@ highlight: true
 indent_character: '|'
 journals:
   default: ~/Documents/Notes/Personal/Journal/GTD/Journal.jrnl
-  habits: ~/Documents/Notes/Personal/Journal/Collections/habits.jrnl
+  habits: ~/Documents/Notes/Personal/Journal/Collections/habitstracker.jrnl
   work: ~/Documents/Notes/Personal/Journal/Collections/work.jrnl
   workout: ~/Documents/Notes/Personal/Journal/Collections/workout.jrnl
 linewrap: 79
