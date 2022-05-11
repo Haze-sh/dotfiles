@@ -114,7 +114,7 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'voldikss/vim-floaterm'
   "Plug 'Shougo/defx.nvim'
   Plug 'sirver/ultisnips'
-    let g:UltiSnipsSnippetDirectories=['/home/electron/.config/nvim/plugged/vim-snippets/UltiSnips', '/home/electron/.config/nvim/custom_snippets']
+    let g:UltiSnipsSnippetDirectories=['/home/electron/.config/nvim/plugged/vim-snippets/UltiSnips', '/home/electron/Documents/Notes/Personal/Courses/Snippets']
     let g:UltiSnipsExpandTrigger='<tab>'
     let g:UltiSnipsJumpForwardTrigger='<tab>'
     let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
@@ -217,6 +217,7 @@ set iskeyword-=],_
 
 set tags+=./tags;,tags
 set path+=**
+set rtp+=~/Documents/Notes/Personal/Courses/current-course
 set wildmode=longest,list,full
 set wildmenu
 set nospell
