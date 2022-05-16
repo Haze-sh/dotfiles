@@ -15,7 +15,9 @@ xkb_symbols "euro" {
     key <AD09> { [ o, O, odiaeresis, Odiaeresis ] };
     key <AC02> { [ s, S, ssharp, U1E9E ] };
 
+    key <AE03>  { [ NoSymbol, NoSymbol, sterling, NoSymbol ] };
+
     // Toggle Level 3 with Caps-Lock
     //key <CAPS> { [ ISO_Level3_Shift ] };
-    key <MENU> { [ ISO_Level3_Shift ] };
+    //key <MENU> { [ ISO_Level3_Shift ] };
 };

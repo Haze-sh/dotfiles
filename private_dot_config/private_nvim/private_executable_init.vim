@@ -252,7 +252,7 @@ filetype plugin indent on
 " Spell-check set to <leader>s, 'o' for 'othography'
 	map <leader>o :setlocal spell! spelllang=en_us,de_de<CR>
 
-" Check file in shellcheck:
+" Check file in shellcheck
 	map <leader>s :!clear && shellcheck -x %<CR>
 
 " Goyo plugin makes text more readable when writing prose
