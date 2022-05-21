@@ -91,7 +91,7 @@
     exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     exec wl-paste -t text --watch clipman-clear
     exec autostart-services
-    exec lid-lock
+    #exec lid-lock
     #exec evscript
     #exec libinput-gestures
     #exec libuInputPlus
