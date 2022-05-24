@@ -318,7 +318,6 @@
 "custom/moonphase": {
     "format": " {} ",
     "exec": "moonphase",
-//    "exec": "moonphase",
     "interval": "86400",
     "tooltip": true
 },
@@ -748,7 +747,6 @@
 "custom/moonphase": {
     "format": " {} ",
     "exec": "moonphase",
-//    "exec": "moonphase",
     "interval": "86400",
     "tooltip": true
 },

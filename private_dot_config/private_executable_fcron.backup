@@ -24,8 +24,10 @@
 %daily * 23 flavours update all
 %daily * 23 fcrontab -l > $HOME/.config/fcron.backup
 %daily * 23 dconf dump / > $HOME/.config/saved_settings.dconf
-%daily * 23 cp -r $HOME/.mozilla/firefox/rpp6gs0y.default/extension* $HOME/.mozilla/firefox/rpp6gs0y.default/addons.json $HOME/.mozilla/firefox/rpp6gs0y.default/prefs.js $HOME/.config/firefox
-%daily * 23 cp -r $HOME/.mozilla/firefox/rpp6gs0y.default/bookmarkbackups/ $HOME/.local/share/urls
+#%daily * 23 rsync -rtvzP $HOME/.mozilla/firefox/rpp6gs0y.default/extension* $HOME/.mozilla/firefox/rpp6gs0y.default/search.json.mozlz4 $HOME/.mozilla/firefox/rpp6gs0y.default/addons.json $HOME/.mozilla/firefox/rpp6gs0y.default/prefs.js $HOME/.config/firefox/new-profile
+%daily * 23 rsync -rtvzP $HOME/.mozilla/firefox/rpp6gs0y.default/bookmarkbackups/ $HOME/.local/share/urls
 %daily * 23 newsboat --url-file=~/.config/newsboat/daily-list -x print-unread | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
 %daily * 23 poku --access $(pass show poku) --consumer $(pass show consumer) ; buku -e $HOME/Documents/Notes/Personal/Journal/Collections/References/buku.md
-%daily * 23 tree-index-md $ZET_DIR/000-index.md
+%daily * 23 cd $ZET_DIR ; tree-index-md > 000-index.md
+%daily * 23 cd $ZET_DIR ; markmap 000-index.md > 000-index.html
+%daily * 23 cd $ZET_DIR ; tree -f -L 1 -I "*.txt|*.html|*/" > 001-tree.txt
