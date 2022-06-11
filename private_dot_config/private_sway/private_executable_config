@@ -402,6 +402,14 @@ mode "resize" {
         border pixel 0
     }
 
+    # Launch journal MD file
+    bindsym Alt+h exec $term --class=journal-editor -e bash -c '$EDITOR $GTD_DIR/Journal.md'
+    for_window [app_id="^journal-editor$"] {
+        floating enable
+        resize set width 700 px height 500 px
+        border pixel 0
+    }
+
     # Launch projects file
     bindsym Alt+n exec $term --class=projects-launcher -e bash -c '$EDITOR $GTD_DIR/Projects.md'
     for_window [app_id="^projects-launcher$"] {
