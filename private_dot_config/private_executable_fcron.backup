@@ -8,9 +8,11 @@
 @ 30 sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
 @ 60 calcurse -x > $HOME/.local/share/calendars/main/main.ics
 @ 60 rm $HOME/core
+@ 60 rm $HOME/.bg
 @ 60 rm $HOME/.yarnrc
 @ 60 rm $HOME/package.json
 @ 60 rm $HOME/package-lock.json
+@ 60 rm $HOME/.autotiling.bolt
 @ 60 rm -r $HOME/.npm
 @ 60 rm -r $HOME/node_modules
 @ 60 rm -r $HOME/.node-gyp
