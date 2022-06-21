@@ -13,4 +13,3 @@ promnesia serve & disown;
 syncthing -no-browser & disown;
 aw-server & disown;
 calcurse --daemon;
-ssh -D 1337 -C -N -f root@hazemhussien.xyz;
