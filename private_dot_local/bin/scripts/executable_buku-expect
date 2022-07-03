@@ -1,7 +1,7 @@
 #!/usr/bin/expect -f
 ##  bukuexpect.sh : automatic answers to buku --ai prompts
 
-spawn buku --ai
+spawn buku --db $env(HOME)/.local/share/buku/firefox-bookmarks.db --ai
 expect "Generate auto-tag (YYYYMonDD)? (y/n):"
 send "n\r"
 expect "Add parent folder names as tags? (y/n):"

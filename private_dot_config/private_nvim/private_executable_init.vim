@@ -80,6 +80,8 @@ call plug#begin("~/.config/nvim/plugged")
 """ todo.txt
   Plug 'dbeniamine/todo.txt-vim'
     let g:Todo_fold_char='@'
+    let g:Todo_update_fold_on_sort=0
+    let g:TodoTxtSortDueDateCursorPos = "top"
   Plug 'lgalke/gather-todo.txt-vim'
 """ jrnl
   Plug 'junegunn/vim-journal'
@@ -277,6 +279,10 @@ filetype plugin indent on
 " Insert date
   nmap <leader>d i<C-R>=strftime("%Y-%m-%d %a %H:%M:%S")<CR><Esc>
   imap <leader>d <C-R>=strftime("%Y-%m-%d %a %H:%M %S")<CR>
+
+" Insert date in ledger format
+  nmap <leader>dl i<C-R>=strftime("%Y-%m-%d")<CR><Esc>
+  imap <leader>dl <C-R>=strftime("%Y-%m-%d")<CR>
 
 " Insert date in jrnl format
   nmap <leader>dj i[<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]<Esc>
