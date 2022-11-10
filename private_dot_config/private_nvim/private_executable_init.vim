@@ -134,7 +134,7 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'voldikss/vim-floaterm'
   "Plug 'Shougo/defx.nvim'
   Plug 'sirver/ultisnips'
-    let g:UltiSnipsSnippetDirectories=['/home/electron/.config/nvim/plugged/vim-snippets/UltiSnips', '/home/electron/Documents/Notes/Personal/Courses/Snippets']
+    let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $HOME.'/Documents/Notes/Personal/Courses/Snippets']
     let g:UltiSnipsExpandTrigger='<tab>'
     let g:UltiSnipsJumpForwardTrigger='<tab>'
     let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
@@ -245,7 +245,7 @@ set nospell
 
 set history=1000
 set undofile
-set undodir=/home/electron/.local/share/nvim/undo
+set undodir=~/.local/share/nvim/undo
 
 "set foldmethod=indent
 
