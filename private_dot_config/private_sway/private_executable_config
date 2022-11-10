@@ -74,6 +74,7 @@
 # Autostart
     exec_always $background -i $HOME/.local/share/backgrounds/wallpaper.png
     exec_always --no-startup-id exec sway-dynamic-names
+    exec otd.start
     exec $bar
     exec $notifications
     exec gammastep
