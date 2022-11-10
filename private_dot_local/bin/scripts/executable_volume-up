@@ -1,0 +1,16 @@
+#!/bin/sh
+x=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n 1 | tail -n 1 | sed -e 's,.* \(.*[0-9].*.*\.[0-9][0-9]*\).*dB.*,\1,')
+max1=7.00
+max2=21.00
+
+#function y() {
+#      pactl list sinks | grep 'Active Port' | grep -q headphones
+#}
+
+y=$( pactl list sinks | grep 'Active Port' | grep -c 'headphones' )
+
+if (( $(echo "$y == 1" | bc -l) )) && (( $(echo "$x < $max1" | bc -l) )); then
+      pactl set-sink-volume 0 +2db | pactl set-sink-mute 0 0
+elif (( $(echo "$y != 1" | bc -l) )) && (( $(echo "$x < $max2" | bc -l) )); then
+      pactl set-sink-volume 0 +2db | pactl set-sink-mute 0 0
+fi

@@ -1,0 +1,9 @@
+[settings]
+file = $GTD_DIR/TODO/todo.txt
+archive = $GTD_DIR/TODO/done.txt
+auto-save = True
+show-toolbar = False
+show-filter-panel = True
+enable-borders = False
+enable-word-wrap = True
+colorscheme = base16-dark

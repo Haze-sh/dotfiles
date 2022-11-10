@@ -1,0 +1,10 @@
+#!/bin/sh
+
+size=29
+middle=$((($size/2)))
+
+#dir="$HOME/.config/sway/"
+svg="$dir/$1.svg"
+png="$dir/$1.png"
+
+/bin/inkscape --export-type="png" --export-background-opacity=0 $svg -w $size -h $size

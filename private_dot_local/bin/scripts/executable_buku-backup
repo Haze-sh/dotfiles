@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#cp $HOME/.local/share/buku/bookmarks.db $HOME/.local/share/buku/bookmarks_$(date +%Y_%m_%d_%H_%M_%S).db
+#rm -f $HOME/.local/share/buku/bookmarks.db
+buku --db ~/.local/share/buku/firefox-bookmarks.db -d --stag --tacit 'menu'
+exec /home/electron/.local/bin/scripts/buku-expect

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+TryExec=web-xdg-open
+Exec=web-xdg-open
+Terminal=false
+Categories=Network;WebBrowser;
+Name=Web XDG Open
+GenericName=WebBrowser
+Comment=A smart browser that picks the right tool for the link
+StartupWMClass=WebXDGOpen

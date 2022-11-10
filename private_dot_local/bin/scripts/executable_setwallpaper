@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Query
+if [[ $* == *-Q* ]]; then
+    basename $(cat ~/.bg)
+    exit
+fi
+
+# List
+if [[ $* == *-L* ]]; then
+    ls -1R ~/Pictures/Wallpapers/ | grep -E ".png|.jpg|.jpeg"
+    exit
+fi
+
+# Random
+if [[ $* == *-R* ]]; then
+    wallpaper=$(setwallpaper -L | shuf -n 1)
+# Specified
+else
+    wallpaper=$1
+fi
+
+wallpaper=~/Pictures/Wallpapers/"${wallpaper}"
+
+echo "${wallpaper}" > ~/.bg
+~/.config/sway/swaybg.sh & \
+
+if [[ $(flavours current) == "generated" ]]; then
+    flavours generate $(darkmode query) "${wallpaper}" && flavours apply -l generated
+fi

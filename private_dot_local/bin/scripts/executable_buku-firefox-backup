@@ -1,0 +1,3 @@
+#!/bin/sh
+
+$HOME/.local/bin/scripts/buku-backup ; buku --db $HOME/.local/share/buku/firefox-bookmarks.db -d --stag --tacit 'buku'

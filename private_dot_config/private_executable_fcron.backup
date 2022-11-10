@@ -1,0 +1,52 @@
+#!/bin/sh
+
+# Sync Tasks
+@ 01 topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
+@ 01 jrnl --format md > $HOME/Documents/Notes/Personal/Journal/GTD/Journal.md
+@ 01 $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
+@ 15 $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
+@ 15 $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
+@ 30 calcurse -x > $HOME/.local/share/calendars/main/main.ics
+@ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/annotations.json
+@ 60 torsimany $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/annotations.json
+
+# Total Feed
+@ 30 sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
+@ 30 sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
+@ 30 sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
+@ 60 newsboat --url-file=$HOME/.config/newsboat/urls -x reload
+
+# Cleanup
+@ 60 rm $HOME/core
+@ 60 rm $HOME/.bg
+@ 60 rm $HOME/.yarnrc
+@ 60 rm $HOME/package.json
+@ 60 rm $HOME/package-lock.json
+@ 60 rm $HOME/.autotiling.bolt
+@ 60 rm -r $HOME/.npm
+@ 60 rm -r $HOME/node_modules
+@ 60 rm -r $HOME/.node-gyp
+@ 60 rm -r $HOME/.electron
+@ 60 rm -r $HOME/.electron-gyp
+@ 60 rm -r $HOME/.nuget
+@ 60 rm -r $HOME/.dotnet
+
+# Daily Feed
+%daily * 06 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
+%daily * 06 sfeed_html $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.html
+%daily * 06 sfeed_plain $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.txt
+%daily * 06 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=~/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
+
+# Daily Tasks
+%daily * 06 moonphase
+%daily * 00 tree -f -L 1 -I "*.txt|*.html|*/" $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/001-tree.txt
+%daily * 00 tree-index-md $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md
+%daily * 00 markmap $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.html
+%daily * 00 dconf dump / > $HOME/.config/saved_settings.dconf
+
+# Backup
+@ 360 rsync -r $HOME/Documents/Notes/Personal/Journal $HOME/Documents/Notes/Workspace/Repos/personal/backup/
+
+# Notifications
+@ 20160 notify-send "Upgrade system"
+@ 20160 notify-send "Clear caches"

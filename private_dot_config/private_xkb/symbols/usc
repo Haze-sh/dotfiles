@@ -1,0 +1,23 @@
+default partial alphanumeric_keys
+
+xkb_symbols "euro" {
+    // Contents of original us(euro)
+    include "us(basic)"
+    name[Group1]= "Custom (US) English";
+
+    include "eurosign(5)"
+    include "level3(ralt_switch)"
+    // End contents of original us(euro)
+
+    // German & French keys hiding in Level 3
+    key <AC01> { [ a, A, adiaeresis, Adiaeresis ] };
+    key <AD07> { [ u, U, udiaeresis, Udiaeresis ] };
+    key <AD09> { [ o, O, odiaeresis, Odiaeresis ] };
+    key <AC02> { [ s, S, ssharp, U1E9E ] };
+
+    key <AE03>  { [ NoSymbol, NoSymbol, sterling, NoSymbol ] };
+
+    // Toggle Level 3 with Caps-Lock
+    //key <CAPS> { [ ISO_Level3_Shift ] };
+    //key <MENU> { [ ISO_Level3_Shift ] };
+};

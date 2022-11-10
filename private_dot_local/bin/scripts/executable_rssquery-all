@@ -1,0 +1,29 @@
+#!/bin/sh
+
+rssquery main
+rssquery media
+rssquery art
+rssquery books
+rssquery sports
+rssquery cinema
+rssquery cooking
+rssquery defence
+rssquery economics
+rssquery general
+rssquery life
+rssquery music
+rssquery news
+rssquery politics
+rssquery science
+rssquery sports
+rssquery tech
+rssquery wikis
+rssquery learning
+rssquery courses
+rssquery 'git'
+rssquery podcasts
+rssquery youtube
+rssquery reddit
+rssquery twitter
+rssquery facebook
+rssquery instagram

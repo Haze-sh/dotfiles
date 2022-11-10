@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Create temp directory
+directory="/run/user/$UID/flavours-terminal-fzf"
+mkdir -p "${directory}"
+
+# Get input from stdin
+cat > "${directory}/input"
+
+# This script gets its input from directory/input, runs fzf (with passed arguments)
+# returns its output to directory/output, and outputs fzf return code to directory/exitcode
+cat <<'EOF' > "${directory}/inner"
+#!/usr/bin/env bash
+sleep 0.1
+directory="/run/user/$UID/flavours-terminal-fzf"
+output=$(cat "${directory}/input" | fzf --color=16 "$@")
+echo $? > "${directory}/exitcode"
+echo "${output}" > "${directory}/output"
+EOF
+# Make it executable
+chmod +x "${directory}/inner"
+
+alacritty --title "Selector" --class FloatingSelector -e "${directory}/inner" "$@"
+
+# Outputs fzf output
+cat "${directory}/output"
+# Get fzf exit code
+exitcode="$(cat "${directory}/exitcode")"
+# Remove tmp directory
+rm "${directory}"/* &> /dev/null
+# Exit with fzf exit code
+exit "${exitcode}"

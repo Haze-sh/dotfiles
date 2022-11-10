@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "----------------------------------$1-------------------------------------" >> ~/.local/share/urls/rss/$("date" +%Y-%m-%d)-$1.tsv
+echo "\"query:$1:tags # \\\"$1\\\"\"" >> ~/.local/share/urls/rss/$("date" +%Y-%m-%d)-$1.tsv
+
+sed 's/$/ '$1' "!"/' ~/.local/share/urls/tsv/$("date" +%Y-%m-%d)-$1.tsv >> ~/.local/share/urls/rss/$("date" +%Y-%m-%d)-$1.tsv
+#sed '3,$ s/$/ '$1' "!"/' ~/.local/share/urls/tsv/$("date" +%Y-%m-%d)-$1.tsv >> ~/.local/share/urls/rss/$("date" +%Y-%m-%d)-$1.tsv
+
+#x=`echo "'query:$1:tags # \\\"$1\\\"'" ; cat ~/.local/share/urls/rss/$("date" +%Y-%m-%d)-$1.tsv`
+#echo "$x" > ~/.local/share/urls/rss/$("date" +%Y-%m-%d)-$1.tsv
+#y=`echo "----------------------------------$1-------------------------------------" ; cat ~/.local/share/urls/rss/$("date" +%Y-%m-%d)-$1.tsv`
+#echo "$y" > ~/.local/share/urls/rss/$("date" +%Y-%m-%d)-$1.tsv

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+poku ;
+buku-backup;
+buku-export-unmerge;
+url2rss-all;
+rssquery-all;
+rss2newsboat;

@@ -1,0 +1,92 @@
+#!/bin/sh
+
+echo "[Adding home files]";
+chezmoi add ~/.pam_environment;
+chezmoi add ~/.zshenv;
+
+echo "[Adding configs]";
+cd $XDG_CONFIG_HOME;
+chezmoi add -r \
+    .ctags.d/md.ctags \
+    abook \
+    alacritty \
+    beets/config.yaml \
+    calcurse \
+    clipman \
+    emacs \
+    fcron.backup \
+    firefox \
+    flavours \
+    fontconfig \
+    gammastep \
+    gtk-2.0 \
+    gtk-3.0/settings.ini \
+    gtk-4.0/settings.ini \
+    hypothesis \
+    imv \
+    inkscape-shortcut-manager \
+    jrnl \
+    kanshi \
+    keepmenu \
+    kitty \
+    lf \
+    mako \
+    mimeapps.list \
+    mopidy \
+    mpd/mpd.conf \
+    mpv/scripts \
+    mpv/script-opts \
+    ncmpcpp \
+    newsboat/config \
+    nvim/init.vim \
+    paru \
+    promnesia/config.py \
+    radicale/config \
+    safeeyes \
+    security \
+    sfeed/sfeedrc-functions \
+    sfeed/style.css \
+    shellconfig \
+    supercat \
+    sway \
+    swaylock \
+    tickrs \
+    topydo \
+    todotxt-machine \
+    waybar \
+    wlogout \
+    wofi \
+    xkb \
+    xournalpp/settings.xml \
+    zathura \
+    zsh/.zshrc \
+    zsh/.zprofile \
+    zsh/.zlogin;
+
+echo "[Adding special templates]";
+cd $XDG_CONFIG_HOME;
+chezmoi add -r --encrypt \
+    calcurse/caldav/config \
+    mpv/playlists \
+    msmtp/config \
+    mutt/* \
+    newsboat/urls* \
+    newsboat/daily-list* \
+    newsboat/podcasts* \
+    pam-gnupg \
+    sfeed/sfeedrc \
+    sfeed/sfeedrc-daily \
+
+echo "[Adding SSH]";
+chezmoi add -r --encrypt ~/.ssh
+
+echo "[Adding bin]";
+chezmoi add -r ~/.local/bin/scripts;
+
+echo "[Adding share]";
+chezmoi add -r ~/.local/share/gnupg/gpg-agent.conf ~/.local/share/gnupg/gpg.conf;
+#chezmoi add -r ~/.local/share/themes/dummy ~/.local/share/themes/FlatColor;
+chezmoi add ~/.local/share/themes/FlatColor/gtk-2.0/gtkrc;
+chezmoi add ~/.local/share/themes/FlatColor/gtk-3.20/gtk.css;
+chezmoi add -r ~/.local/share/backgrounds;
+chezmoi add -r ~/.local/share/applications;

@@ -1,0 +1,5 @@
+--langdef=markdowntags
+--languages=markdowntags
+--langmap=markdowntags:.md
+--kinddef-markdowntags=t,tag,tags
+--mline-regex-markdowntags=/(^|[[:space:]])#(\w\S*)/\2/t/{mgroup=1}

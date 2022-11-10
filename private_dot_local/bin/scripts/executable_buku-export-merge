@@ -1,0 +1,48 @@
+#!/bin/sh
+
+buku --stag 'General' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Media' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Art' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Blogs' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Books' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Sports' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Cinema' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Cooking' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Defence' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Economics' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'News' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Science' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Technology' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Wikis' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Learning' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Courses' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'GIT' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Podcasts' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Youtube' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Reddit' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Twitter' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Facebook' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls
+buku --stag 'Instagram' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-all.urls
+echo "------------------------------------------------------------------------------------------------" >> ~/.local/share/urls/$("date" +%Y-%m-%d)-urls

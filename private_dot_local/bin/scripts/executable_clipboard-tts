@@ -1,0 +1,4 @@
+#!/bin/sh
+
+wl-paste > /tmp/zathura-clipboard.txt
+festival --tts /tmp/zathura-clipboard.txt

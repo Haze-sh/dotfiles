@@ -1,0 +1,71 @@
+/* Start flavours */
+/*
+*
+* Base16 Nord
+* Author: arcticicestudio
+*
+*/
+
+@define-color base00 #2E3440;
+@define-color base01 #3B4252;
+@define-color base02 #434C5E;
+@define-color base03 #4C566A;
+@define-color base04 #D8DEE9;
+@define-color base05 #E5E9F0;
+@define-color base06 #ECEFF4;
+@define-color base07 #8FBCBB;
+@define-color base08 #BF616A;
+@define-color base09 #D08770;
+@define-color base0A #EBCB8B;
+@define-color base0B #A3BE8C;
+@define-color base0C #88C0D0;
+@define-color base0D #81A1C1;
+@define-color base0E #B48EAD;
+@define-color base0F #5E81AC;
+/* End flavours */
+
+* {
+	background-image: none;
+}
+window {
+	background-color: @base00;
+	/* background-color: rgba(12, 12, 12, 0.9); */
+}
+button {
+    color: @base02;
+	background-color: @base0D;
+	border-style: solid;
+	border-width: 2px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+}
+
+button:focus, button:active, button:hover {
+	background-color: @base0B;
+	outline-style: none;
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+}

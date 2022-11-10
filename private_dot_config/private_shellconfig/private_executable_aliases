@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# Basics
+alias cl='clear'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm="rm -vI"
+alias bc="bc -ql"
+alias mkdir='mkdir -pv'
+alias ls='lsd --group-dirs=first'
+alias cat='bat'
+alias vi='nvim'
+alias vim='nvim'
+alias oldvim='\vim'
+alias emerge='emerge --color y'
+alias pacman='pacman --color=auto'
+alias paru='paru --color=auto'
+alias grep='grep --color=auto'
+alias diff="diff --color=auto"
+alias ip="ip -color=auto"
+alias sudo='doas'
+alias bemenu='bemenu -i -b'
+alias bemenu-run='bemenu-run -i -b'
+alias nnn='nnn -C'
+alias mpv='swayhide mpv'
+alias zathura='swayhide zathura'
+alias orphans='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rs $(pacman -Qdtq) || echo "no orphans to remove"'
+alias clear-cache='sudo pacman -Scc'
+alias rss='rss-fzf'
+alias books='library-fzf'
+alias bookmarks='buku-fzf'
+alias mail='neomutt'
+alias irssi='irssi --config=~/.config/irssi/config --home=~/.local/share/irssi'
+alias mbsync='mbsync -c ~/.config/mbsync/config'
+alias news-eg-en='googler -N egypt -c eg -l en -n 10 --np | most'
+alias news-eg-ar='googler -N egypt -c eg -l ar -n 10 --np | most'
+alias inkscape-shortcut='python3 ~/.local/bin/inkscape-shortcut-manager/main.py'
+alias todo='todotxt-machine --config ~/.config/todotxt-machine/todotxt-machinerc'
+alias scat='spc -c ~/.config/supercat/markdown.conf'
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
+alias zet='$EDITOR $ZET_DIR/$(date "+%Y%m%d%H%M%S").md'
+alias collection='cd $ZET_DIR'
+alias gtd='cd $GTD_DIR'
+alias morning='jrnl < $GTD_DIR/Morning.txt ; jrnl -1 --edit'
+alias night='jrnl < $GTD_DIR/Night.txt ; jrnl -1 --edit'
+alias pip-upgrade='pip freeze --user | cut -d"=" -f1 | xargs -n1 pip install -U'
+alias swallow='swayhide'
+alias tree-markdown='tree -f -L 1 -I "*.txt|*.html|*/"'
+alias course-url='firefox "$(yq read current-course/info.yaml url)"'
+
+# Total Feed
+alias feed='SFEED_URL_FILE=~/.local/share/sfeed/urls sfeed_curses ~/.local/share/sfeed/feeds/*'
+alias feed-update='sfeed_update ~/.config/sfeed/sfeedrc'
+alias feed-html='sfeed_html ~/.local/share/sfeed/feeds/* > ~/.local/share/sfeed/feeds.html'
+alias feed-plain='sfeed_plain ~/.local/share/sfeed/feeds/* > ~/.local/share/sfeed/feeds.txt'
+alias newsboat='newsboat --url-file=~/.config/urls'
+
+# Daily Feed
+alias feed-daily='SFEED_URL_FILE=~/.local/share/sfeed/urls sfeed_curses ~/.local/share/sfeed/feeds-daily/*'
+alias feed-update-daily='sfeed_update ~/.config/sfeed/sfeedrc-daily'
+alias feed-html-daily='sfeed_html ~/.local/share/sfeed/feeds-daily/* > ~/.local/share/sfeed/feeds-daily.html'
+alias feed-plain-daily='sfeed_plain ~/.local/share/sfeed/feeds-daily/* > ~/.local/share/sfeed/feeds-daily.txt'
+alias newsboat-daily='newsboat --url-file=~/.config/newsboat/daily-list --cache-file=~/.local/share/newsboat/daily-cache.db'
+
+# Launch WM/DE
+alias launch-sway='dbus-run-session sway'
+alias launch-gnome='pipewire & pipewire-pulse & wireplumber & MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland dbus-run-session gnome-session'

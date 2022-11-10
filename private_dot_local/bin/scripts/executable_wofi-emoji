@@ -1,0 +1,3 @@
+#!/bin/sh
+
+grep -v "#" ~/.local/share/emoji.txt | wofi -d -i | awk '{print $1}' | wl-copy -n

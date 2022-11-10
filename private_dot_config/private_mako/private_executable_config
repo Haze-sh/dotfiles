@@ -1,0 +1,28 @@
+max-icon-size=32
+padding=10,20
+anchor=top-right
+default-timeout=2400
+width=400
+height=150
+border-size=2
+
+# Start flavours
+## Base16 Nord
+# Author: arcticicestudio
+#
+# You can use these variables anywhere in the mako configuration file.
+
+background-color=#2E3440
+text-color=#E5E9F0
+border-color=#81A1C1
+
+[urgency=low]
+background-color=#2E3440
+text-color=#EBCB8B
+border-color=#81A1C1
+
+[urgency=high]
+background-color=#2E3440
+text-color=#BF616A
+border-color=#81A1C1
+# End flavours

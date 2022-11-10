@@ -1,0 +1,281 @@
+#!/bin/zsh
+
+#PS1="%B 🍺%{$fg[yellow]%}%~%{$reset_color%}%b "
+
+# $PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin/:$PATH
+export PATH=$HOME/.local/bin/scripts:$PATH
+export PATH=$HOME/.local/share/junest/bin:$PATH
+export PATH=$HOME/.local/lib/go/bin/:$PATH
+export PATH=$HOME/.local/lib/cargo/bin/:$PATH
+export PATH=$HOME/.local/lib/python3.10/site-packages/:$PATH
+export PATH=$HOME/.local/lib/cabal/packages/hackage.haskell.org/:$PATH
+export PATH=$HOME/.local/lib/node_modules/bin/:$PATH
+export PATH=$HOME/.local/lib/gem/ruby/3.0.0/bin/:$PATH
+export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
+export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+export PATH="$PATH:${$(find $HOME/.local/lib/cargo/bin -type d -printf %p:)%%:}"
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/usr/local/share/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
+unsetopt PROMPT_SP
+
+# Default programs:
+export EDITOR="nvim"
+export TERMINAL="kitty"
+export BROWSER="firefox"
+export PAGER="bat"
+    #export PAGER="less"
+    #export PAGER="most"
+export PLUMBER="web-xdg-open"
+#export GDK_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=wayland
+export QT_SCALE_FACTOR=1
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
+export DOTFILES=~/.local/share/repos/personal/dotfiles
+export YDOTOOL_SOCKET=/tmp/.ydotool_socket
+
+# Themes
+    export GTK3_THEME=adw-gtk3
+    export GTK4_THEME=Adwaita
+    #export GTK_THEME=FlatColor
+    #export GTK_THEME=Arc-Dark
+    #export CLUTTER_BACKEND=wayland
+    export QT_QPA_PLATFORMTHEME='gnome'
+    #export QT_QPA_PLATFORMTHEME=adwaita-qt6
+    #export QT_QPA_PLATFORM=wayland-egl
+    #export QT_QPA_PLATFORMTHEME=gtk2
+    #export QT_QPA_PLATFORMTHEME=qt5ct
+    #export QT_QPA_PLATFORMTHEME=qt6ct
+
+# Non-elogind system
+#if test -z "${XDG_RUNTIME_DIR}"; then
+#    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+#    if ! test -d "${XDG_RUNTIME_DIR}"; then
+#        mkdir "${XDG_RUNTIME_DIR}"
+#        chmod 0700 "${XDG_RUNTIME_DIR}"
+#    fi
+#fi
+
+# Remove CSD
+#export GTK_CSD=0
+#export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
+
+# Clean-up:
+## GPG
+export GPG_TTY=$(tty)
+export GPG_AGENT_INFO=""
+
+## Defaults
+#export XDG_CONFIG_HOME="$HOME/.config"
+#export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_LIB_HOME="$HOME/.local/lib"
+export XDG_CACHE_HOME="$HOME/.cache"
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export LESSHISTFILE="-"
+export HISTFILE="$HOME/.cache/zsh/history"
+export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shellconfig/inputrc"
+export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
+export MOST_INITFILE="${XDG_CONFIG_HOME:-$HOME/.config}/most/mostrc"
+
+## Libraries
+export GOROOT="/usr/lib/go"
+export GOPATH="${XDG_LIB_HOME:-$HOME/.local/lib}/go"
+export CARGO_HOME="${XDG_LIB_HOME:-$HOME/.local/lib}/cargo"
+export CABAL_DIR="${XDG_LIB_HOME:-$HOME/.local/lib}/cabal"
+export GEM_HOME="${XDG_LIB_HOME:-$HOME/.local/lib}gem"
+export DOTNET_ROOT="${XDG_LIB_HOME:-$HOME/.local/lib}/dotnet"
+export NUGET_PACKAGES="${XDG_LIB_HOME:-$HOME/.local/lib}/nuget/packages"
+export NPM_CONFIG_PREFIX="${XDG_LIB_HOME:-$HOME/.local/lib}/node_modules"
+export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/npm"
+export YARN_CACHE_FOLDER="${XDG_CACHE_HOME:-$HOME/.cache}/yarn"
+
+## Other
+export LESS=-R
+#export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+#export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+#export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+#export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+#export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+#export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+#export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}/java"
+export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
+export CABAL_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/cabal/config"
+export JUNEST_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/junest"
+export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-${HOME:-/home/$LOGNAME}/.local/share}/password-store"
+export GNUPGHOME="${XDG_DATA_HOME:-${HOME:-/home/$LOGNAME}/.local/share}/gnupg"
+export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
+export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
+export MAILCAP_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/mailcap"
+#export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+#export ALSA_CONFIG_PATH=/usr/share/alsa/alsa.conf
+export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
+export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
+export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
+export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/weechat"
+export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
+export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
+export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
+export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
+export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
+export PYDORO_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/pydoro/pydoro.conf"
+export DICS="/usr/share/stardict/dic/"
+export SUDO_ASKPASS="$HOME/.local/bin/wofipassmenu"
+#eval $(thefuck --alias)
+
+## Directory Structure
+export NOTES_DIR="$HOME/Documents/Notes"
+export PERSONAL_NOTES_DIR="$HOME/Documents/Notes/Personal"
+export WORK_NOTES_DIR="$HOME/Documents/Notes/Workspace"
+export JOURNAL_DIR="$HOME/Documents/Notes/Personal/Journal"
+export GTD_DIR="$JOURNAL_DIR/GTD"
+export ZET_DIR="$JOURNAL_DIR/Collections"
+export ZK_NOTEBOOK_DIR="$JOURNAL_DIR/Collections"
+export TODOTXT_FILE="$GTD_DIR/TODO/todo.txt"
+export TODO_FILE="$GTD_DIR/TODO/todo.txt"
+export DONE_FILE="$GTD_DIR/TODO/done.txt"
+export LEDGER_FILE="$ZET_DIR/wealth.ledger"
+export TIME_FILE="$ZET_DIR/timetracking.ledger"
+export COURSES="$HOME/Documents/Notes/Personal/Courses"
+export CODEBOX="$HOME/Documents/Notes/Workspace/Codebox"
+export REPOS="$HOME/Documents/Notes/Workspace/Repos"
+export HYPOTHESIS_PASS="$(pass show hypothesis)"
+export KEEPASS_FILE="$ZET_DIR/References/passwords.kbdx"
+export BUKU_XBEL="$ZET_DIR/References/buku.xbel"
+
+# lfcd
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp" >/dev/null
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
+
+# Icons:
+export LF_ICONS="di=📁:\
+fi=📃:\
+tw=🤝:\
+ow=📂:\
+ln=⛓:\
+or=❌:\
+ex=🎯:\
+*.txt=✍:\
+*.mom=✍:\
+*.me=✍:\
+*.ms=✍:\
+*.png=🖼:\
+*.webp=🖼:\
+*.ico=🖼:\
+*.jpg=📸:\
+*.jpe=📸:\
+*.jpeg=📸:\
+*.gif=🖼:\
+*.svg=🗺:\
+*.tif=🖼:\
+*.tiff=🖼:\
+*.xcf=🖌:\
+*.html=🌎:\
+*.xml=📰:\
+*.gpg=🔒:\
+*.css=🎨:\
+*.pdf=📚:\
+*.djvu=📚:\
+*.epub=📚:\
+*.csv=📓:\
+*.xlsx=📓:\
+*.tex=📜:\
+*.md=📘:\
+*.r=📊:\
+*.R=📊:\
+*.rmd=📊:\
+*.Rmd=📊:\
+*.m=📊:\
+*.mp3=🎵:\
+*.opus=🎵:\
+*.ogg=🎵:\
+*.m4a=🎵:\
+*.flac=🎼:\
+*.wav=🎼:\
+*.mkv=🎥:\
+*.mp4=🎥:\
+*.webm=🎥:\
+*.mpeg=🎥:\
+*.avi=🎥:\
+*.mov=🎥:\
+*.mpg=🎥:\
+*.wmv=🎥:\
+*.m4b=🎥:\
+*.flv=🎥:\
+*.zip=📦:\
+*.rar=📦:\
+*.7z=📦:\
+*.tar.gz=📦:\
+*.z64=🎮:\
+*.v64=🎮:\
+*.n64=🎮:\
+*.gba=🎮:\
+*.nes=🎮:\
+*.gdi=🎮:\
+*.1=ℹ:\
+*.nfo=ℹ:\
+*.info=ℹ:\
+*.log=📙:\
+*.iso=📀:\
+*.img=📀:\
+*.bib=🎓:\
+*.ged=👪:\
+*.part=💔:\
+*.torrent=🔽:\
+*.jar=♨:\
+*.java=♨:\
+"
+
+# Keyring
+#eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) &
+#
+#if [ -x /usr/bin/gpg-agent ]; then
+# eval "$(/usr/bin/gpg-agent --daemon)"
+#fi
+#
+#if [ -n "${GPG_AGENT_INFO}" ]; then
+#  kill $(echo ${GPG_AGENT_INFO} | cut -d':' -f 2) >/dev/null 2>&1
+#fi
+
+#[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shellconfig/shortcutrc ] && shortcuts >/dev/null 2>&1 &
+#
+#if pacman -Qs libxft-bgra >/dev/null 2>&1; then
+#	# Start graphical server on user's current tty if not already running.
+#	[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+#else
+#	echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
+#Please run:
+#	\033[32myay -S libxft-bgra-git\033[0m
+#and replace \`libxft\`. Afterwards, you may start the graphical server by running \`startx\`."
+#fi
+#
+## Switch escape and caps if tty and no passwd required:
+#sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null

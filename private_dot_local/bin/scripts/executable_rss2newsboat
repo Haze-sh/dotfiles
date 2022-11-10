@@ -1,0 +1,32 @@
+#!/bin/sh
+
+RSS_DIR=$HOME/.local/share/urls/rss
+NEWSBOAT_DIR=$HOME/.config/newsboat/urls
+mv $NEWSBOAT_DIR $NEWSBOAT_DIR-$("date" +%Y-%m-%d)
+
+cat $RSS_DIR/$("date" +%Y-%m-%d)-main.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-media.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-art.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-books.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-cinema.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-cooking.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-defence.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-economics.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-general.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-life.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-music.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-news.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-politics.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-science.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-sports.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-tech.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-wikis.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-learning.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-git.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-courses.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-podcasts.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-youtube.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-reddit.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-twitter.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-facebook.tsv >> $NEWSBOAT_DIR
+cat $RSS_DIR/$("date" +%Y-%m-%d)-instagram.tsv >> $NEWSBOAT_DIR

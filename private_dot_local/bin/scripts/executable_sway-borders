@@ -1,0 +1,13 @@
+#!/bin/sh
+
+COLOR1=$(flavours info -r $(flavours current) | sed -n '3 p')
+COLOR2=$(flavours info -r $(flavours current) | sed -n '4 p')
+
+sed -i -E 's/fill\="[^"]+"//g; s/stroke\="[^"]+"//g' $HOME/.config/sway/borders/border.svg ;
+sed -i "s/<circle/<circle fill=\"$COLOR1\" stroke=\"$COLOR1\"/g" $HOME/.config/sway/borders/border.svg ;
+
+sed -i -E 's/fill\="[^"]+"//g; s/stroke\="[^"]+"//g' $HOME/.config/sway/borders/border-selected.svg ;
+sed -i "s/<circle/<circle fill=\"$COLOR1\" stroke=\"$COLOR2\"/g" $HOME/.config/sway/borders/border-selected.svg ;
+
+$HOME/.local/bin/scripts/svg-render $HOME/.config/sway/borders/border ;
+$HOME/.local/bin/scripts/svg-render $HOME/.config/sway/borders/border-selected ;

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled true ;
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'ara')]" ;
+gsettings set org.gnome.desktop.input-sources xkb-options "['grp:alt_shift_toggle']" ;
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true ;
+gsettings set org.gnome.desktop.interface gtk-theme FlatColor ;
+#gsettings set org.gnome.shell.extensions.user-theme name "Nordic" ;
+gsettings set org.gnome.desktop.interface icon-theme Arc ;
+gsettings set org.gnome.desktop.background picture-uri $HOME/.local/share/backgrounds/wallpaper.png ;
+gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com ;
+gnome-extensions enable apps-menu@gnome-shell-extensions.gcampax.github.com ;
+gnome-extensions enable System_Monitor@bghome.gmail.com ;
+gnome-extensions enable pomodoro@arun.codito.in ;
+gnome-extensions enable todo.txt@bart.libert.gmail.com ;
+gnome-extensions enable new-mail-indicator@fthx ;

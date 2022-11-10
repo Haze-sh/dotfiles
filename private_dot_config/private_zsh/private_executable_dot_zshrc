@@ -1,0 +1,100 @@
+# Defaults
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+#PS1="%B 🍺%{$fg[yellow]%}%~%{$reset_color%}%b "
+
+## GiT
+my_precmd() {
+  vcs_info
+  psvar[1]=$vcs_info_msg_0_
+  if [[ -n ${psvar[1]} ]]; then
+    psvar[1]=" (${psvar[1]})"
+  fi
+}
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats '%b'
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd my_precmd
+PROMPT='%B 🍺%{$fg[yellow]%}%~%{$fg[blue]%}%1v%{$reset_color%}%b '
+
+autoload -U colors && colors
+setopt autocd		# Automatically cd into typed directory.
+stty stop undef		# Disable ctrl-s to freeze terminal.
+setopt interactive_comments
+setopt prompt_subst
+
+# Tab completion
+autoload -U compinit && compinit -u
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+_comp_options+=(globdots)		# Include hidden files.
+
+# History
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE=~/.cache/zsh/history
+
+# Aliases
+if [ -f ~/.config/shellconfig/aliases ]; then
+  . ~/.config/shellconfig/aliases
+fi
+
+# VI mode
+bindkey -v
+export KEYTIMEOUT=1
+
+## Change cursor shape for different vi modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+## Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+### Added by Zinit's installer
+if [[ ! -f $ZDOTDIR/zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$ZDOTDIR/zinit" && command chmod g-rwX "$ZDOTDIR/zinit"
+    command git clone https://github.com/zdharma/zinit "$ZDOTDIR/zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$ZDOTDIR/zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+### End of Zinit's installer chunk
+
+# Plugins
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZ::lib/git.zsh
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+#zinit light softmoth/zsh-vim-mode
+#zinit light zsh-users/zsh-history-substring-search
+#zinit light TyWR/Nord-zsh
+#zinit light geometry-zsh/geometry
+#zinit light fecat233/garden
+#zinit light tcnksm/oh-my-zsh-beer-theme

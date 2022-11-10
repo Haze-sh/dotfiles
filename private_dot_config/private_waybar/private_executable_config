@@ -1,0 +1,874 @@
+[{
+    "layer": "bottom",
+      "output": "eDP-1",
+    "position": "top",
+    "gtk-layer-shell": true,
+
+//    "modules-center":
+//      [
+//      "sway/window",
+//      "wlr/taskbar",
+//      "tray"
+//      ],
+
+    "modules-left":
+      [
+      "custom/menu",
+      //"custom/separator",
+      "sway/workspaces",
+      //"custom/separator",
+      "custom/chat",
+      "custom/mail",
+      //"custom/protonmail",
+      //"custom/separator",
+      "custom/stock",
+      //"custom/separator",
+      "custom/rss",
+      //"custom/separator",
+      "custom/todo",
+      //"custom/todourgent",
+      "custom/timer",
+      //"custom/separator",
+      "custom/moonphase",
+      "custom/weather",
+      "clock",
+      "custom/events"
+      ],
+
+    "modules-right":
+      [
+      //"custom/separator",
+      "custom/waybar-mpris",
+      "pulseaudio",
+      "custom/bluetooth",
+      //"custom/separator",
+      "cpu",
+      "memory",
+      "disk",
+      "temperature",
+      //"custom/separator",
+      "custom/safeeyes",
+      "custom/gamma",
+      "backlight",
+      "network",
+      //"custom/separator",
+      "sway/language",
+      "custom/AUR",
+      "custom/vpn",
+      "custom/devices",
+      "idle_inhibitor",
+      //"custom/separator",
+      "battery#bat0",
+      "custom/powermenu"
+      //"custom/separator"
+      ],
+
+"custom/menu": {
+    "format": "  ",
+    "on-click": "nwggrid -f"
+//    "on-click": "wofi --show drun"
+},
+
+"custom/separator": {
+    "format": " ",
+//    "format": "",
+    "tooltip": false
+},
+
+"sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+},
+
+"clock": {
+    "interval": 1,
+	  "format": "{: %H:%M:%S}",
+	  "format-alt": "{: <b>%H:%M:%S</b>   %a %d %b #%j}",
+//    "format-alt": "{:%Y-%m-%d}",
+    "tooltip-format": "<big><b>{:%Y %B}</b></big>\n<span font_desc='Hack 10'>{calendar}</span>"
+},
+
+"wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close"
+},
+
+"custom/powermenu": {
+	  "format": "<big></big>",
+	  "on-click": "wlogout",
+	  "tooltip": false
+},
+
+"network": {
+//    "interface": "*",
+    "interface": "wlan0",
+    "format": "{ifname}",
+//    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-wifi": "  {signalStrength}% ",
+    "format-ethernet": "  {ifname} ",
+    "format-disconnected": "  ", //An empty format will hide the module.
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "  {essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "  {ifname} ",
+    "tooltip-format-disconnected": " Disconnected ",
+    "max-length": 50,
+    "on-click": "iwgtk",
+    "on-click-right": "$TERMINAL --hold -e wifi-stations",
+    "interval": 60
+},
+
+"idle_inhibitor": {
+   "format": "{icon}",
+   "format-icons": {
+     "activated": "",
+     "deactivated": ""
+//     "activated": "",
+//     "deactivated": ""
+    }
+},
+
+"battery#bat0": {
+	"bat": "BAT0",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}",
+        "format-charging": "{capacity} \uf0e7",
+        "format-plugged":  "",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+},
+
+"battery#bat1": {
+        "bat": "BAT1",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}",
+        "format-charging": "{capacity} \uf0e7",
+        "format-plugged": "",
+        "format-alt": "{time} {icon}",
+        "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+},
+
+"temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", "", "", ""]
+},
+
+"pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}",
+        "format-bluetooth": "{icon} {volume} ",
+        "format-bluetooth-muted": "{icon}  ",
+        "format-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+},
+
+"mpd": {
+	  "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+	  "format-disconnected": "Disconnected ",
+	  "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+	  "interval": 10,
+	  "consume-icons": {
+	    "on": " " // Icon shows only when "consume" is on
+	  },
+	  "random-icons": {
+	  "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+	  "on": " "
+	  },
+	  "repeat-icons": {
+    "on": " "
+	  },
+	  "single-icons": {
+    "on": "1 "
+	  },
+	  "state-icons": {
+	    "paused": "",
+      "playing": ""
+	  },
+	  "tooltip-format": "MPD (connected)",
+	  "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+
+//"custom/waybar-mpris": {
+//    "format":"{icon} {}",
+//    "return-type": "json",
+//    "format-icons": {
+//      "Playing": "",
+//      "Paused": ""
+//    },
+//    "exec": "waybar-mpris --position --autofocus",
+//    "on-click": "waybar-mpris --send toggle",
+//    "on-click-right": "waybar-mpris --send player-next",
+//    //"on-scroll-up": "waybar-mpris --send player-next",
+//    //"on-scroll-down": "waybar-mpris --send player-prev",
+//    "on-scroll-up": "waybar-mpris --send next",
+//    "on-scroll-down": "waybar-mpris --send prev",
+//    "max-length": 10,
+//    "escape": true
+//},
+
+"custom/waybar-mpris": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "waybar-mpris --position --autofocus",
+    "on-click": "waybar-mpris --send toggle",
+    "on-click-right": "waybar-mpris --send player-next",
+//  "on-scroll-up": "waybar-mpris --send player-next",
+//  "on-scroll-down": "waybar-mpris --send player-prev",
+    "on-scroll-up": "waybar-mpris --send next",
+    "on-scroll-down": "waybar-mpris --send prev",
+    "max-length": 10,
+    "escape": true
+},
+
+"custom/bluetooth": {
+  "format": "",
+  "on-click": "blueman-manager"
+},
+
+"custom/safeeyes": {
+    "format": "",
+    "format-alt": "",
+    "on-click": "safeeyes-toggle"
+},
+
+"backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}",
+    "format-icons": ["", ""],
+    "on-scroll-up": "brillo -A 2",
+    "on-scroll-down": "brillo -U 2"
+},
+
+"custom/gamma": {
+    "format": "",
+    "format-alt": "",
+    "on-click": "pkill -USR1 gammastep"
+},
+
+"memory": {
+    "format": " {}",
+    "states": {
+        "warning": 60,
+        "critical": 90
+        },
+	  "interval": 2,
+	  "on-click": "$TERMINAL -e btm"
+},
+
+"disk": {
+    "interval": 86400,
+    "format": " {used}",
+    "path": "/"
+},
+
+"cpu": {
+    "format": " {usage}",
+    "states": {
+        "warning": 60,
+        "critical": 90
+        },
+    "tooltip": true,
+	  "interval": 2,
+	  "on-click": "$TERMINAL -e btm"
+},
+
+"custom/memory": {
+	  "format": " <span background='#303030'>{}</span>",
+	  "exec": "mem_bar",
+	  "tooltip": false
+},
+
+"custom/cpu": {
+	  "format": " <span background='#303030'>{}</span>",
+	  "return-type": "json",
+	  "exec": "sleep 1 && cpu_bar",
+	  "tooltip": false,
+	  "on-click": "$TERMINAL -e btm"
+},
+
+"sway/language": {
+	  "format": " <b>{}</b>"
+},
+
+"custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "waybar-wttr",
+    "on-click": "$TERMINAL --hold -e curl https://wttr.in/Cairo",
+    "on-click-right": "$TERMINAL --hold -e curl https://wttr.in/Alexandria",
+    "return-type": "json"
+},
+
+"custom/moonphase": {
+    "format": "{}",
+    "exec": "moonphase",
+//    "exec": "moonphase",
+    "interval": "86400",
+    "tooltip": true
+},
+
+"custom/timer":{
+    "format": "{}",
+    //"exec": "polypomo",
+    "exec": "polypomo > /tmp/polypomo.status | tail -f /tmp/polypomo.status",
+    "on-click": "polypomo toggle",
+    "on-click-right": "polypomo end",
+    "on-click-middle": "polypomo lock",
+    "on-scroll-up": "polypomo time +60",
+    "on-scroll-down": "polypomo time -60",
+    "tail": true
+},
+
+"custom/stock": {
+    "format": "",
+    "on-click": "$TERMINAL -e tickrs --summary"
+},
+
+"custom/rss": {
+    "format": " {}",
+    //"exec": "rss-count",
+    "exec": "cat ~/.config/newsboat/today-unread-count",
+    "on-click": "$TERMINAL -e sfeed_curses ~/.local/share/sfeed/feeds-daily/*",
+    "on-click-right": "$TERMINAL -e newsboat --url-file=~/.config/newsboat/daily-list --cache-file=~/.local/share/newsboat/daily-cache.db",
+    "interval": 1,
+    "tooltip": true
+},
+
+"custom/chat": {
+    "format": "",
+//    "format": "  ",
+//    "format": "  ",
+//    "format": "  ",
+    "on-click": "ferdi"
+},
+
+"custom/mail": {
+    //"format": " 📬 {} ",
+    "format": " {}",
+    "exec": "find ~/.local/share/mail/*/[Ii][Nn][Bb][Oo][Xx]/new -type f | wc -l",
+    //"exec": "unread-mail-count",
+    "on-click": "$TERMINAL -e neomutt",
+    "on-click-right": "thunderbird",
+    "tooltip": true,
+    "interval": 1
+},
+
+"custom/protonmail": {
+    "exec": "bar-protonmail",
+    "return-type": "json",
+    "interval": 10,
+    "tooltip": false,
+    "on-click": "xdg-open https://mail.protonmail.com/u/0/inbox"
+},
+
+"custom/events": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 1,
+    "format-icons": {
+        "default": " "
+    },
+    "exec": "waybar-calcurse",
+    "return-type": "json",
+    "max-length": 100,
+    "on-click": "$TERMINAL -e calcurse --read-only"
+},
+
+"custom/todo": {
+    "format": " {}",
+    "exec": "topydo ls | wc -l",
+    //"exec": "todo list --sort=status | wc -l",
+    //"exec": "task status:pending count",
+    "on-click": "$TERMINAL todotxt-machine --config ~/.config/todotxt-machine/todotxt-machinerc",
+    "on-click-middle": "$TERMINAL --hold -e topydo ls",
+    "on-click-right": "$TERMINAL --hold -e topydo edit",
+    "interval": 1
+},
+
+"custom/todourgent": {
+    "format": " {}",
+    "exec": "task-urgent.sh",
+    "on-click": "task-done.sh",
+    "interval": 1
+},
+
+"custom/devices": {
+    "format": "",
+    "exec": "grep 'Flash Disk' /sys/bus/usb/devices/*/product",
+    "interval": 600
+},
+
+"custom/vpn": {
+    "format": "VPN ",
+    "exec": "echo '{\"class\": \"connected\"}'",
+    "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
+    "return-type": "json",
+    "interval": 600
+},
+
+"custom/AUR": {
+    "exec": "AUR-waybar",
+    "interval": 3600,
+    "format": "{}",
+    "tooltip": true
+},
+
+"custom/wireshark": {
+    "format": "{  }",
+    "on-click": "$TERMINAL -e wireshark",
+    "tooltip": true
+},
+
+},
+{
+    "layer": "bottom",
+      "output": "DP-1",
+    "position": "top",
+    "gtk-layer-shell": true,
+
+//    "modules-center":
+//      [
+//      "sway/window",
+//      "wlr/taskbar",
+//      "tray"
+//      ],
+
+    "modules-left":
+      [
+      "custom/menu",
+      //"custom/separator",
+      "sway/workspaces",
+      //"custom/separator",
+      "custom/chat",
+      "custom/mail",
+      //"custom/separator",
+      "custom/stock",
+      //"custom/separator",
+      "custom/rss",
+      //"custom/separator",
+      "custom/todo",
+      //"custom/todourgent",
+      "custom/timer",
+      //"custom/separator",
+      "custom/moonphase",
+      "custom/weather",
+      "clock",
+      "custom/events"
+      ],
+
+    "modules-right":
+      [
+      //"custom/separator",
+      "custom/waybar-mpris",
+      "pulseaudio",
+      //"custom/separator",
+      "cpu",
+      "memory",
+      "disk",
+      "temperature",
+      //"custom/separator",
+      //"custom/safeeyes",
+      //"custom/gamma",
+      "backlight",
+      "network",
+      //"custom/separator",
+      "sway/language",
+      "custom/AUR",
+      "custom/vpn",
+      "custom/devices",
+      "idle_inhibitor",
+      //"custom/separator",
+      "battery#bat0",
+      "custom/powermenu"
+      //"custom/separator"
+      ],
+
+"custom/menu": {
+    "format": "  ",
+    "on-click": "nwggrid -f"
+//    "on-click": "wofi --show drun"
+},
+
+"custom/separator": {
+    "format": " ",
+//    "format": "",
+    "tooltip": false
+},
+
+"sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+},
+
+"clock": {
+    "interval": 1,
+	  "format": "{: <b>%H:%M:%S</b>   %a %d %b #%j}",
+	  "format-alt": "{: %H:%M:%S}",
+//    "format-alt": "{:%Y-%m-%d}",
+    "tooltip-format": "<big><b>{:%Y %B}</b></big>\n<span font_desc='Hack 10'>{calendar}</span>"
+},
+
+"wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close"
+},
+
+"custom/powermenu": {
+	  "format": "<big></big>",
+	  "on-click": "wlogout",
+	  "tooltip": false
+},
+
+"network": {
+//    "interface": "*",
+    "interface": "wlan0",
+    "format": "{ifname}",
+//    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-wifi": "  {signalStrength}% ",
+    "format-ethernet": "  {ifname} ",
+    "format-disconnected": "  ", //An empty format will hide the module.
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "  {essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "  {ifname} ",
+    "tooltip-format-disconnected": " Disconnected ",
+    "max-length": 50,
+    "on-click": "iwgtk",
+    "on-click-right": "$TERMINAL --hold -e wifi-stations",
+    "interval": 60
+},
+
+"idle_inhibitor": {
+   "format": "{icon}",
+   "format-icons": {
+     "activated": "",
+     "deactivated": ""
+//     "activated": "",
+//     "deactivated": ""
+    }
+},
+
+"battery#bat0": {
+	"bat": "BAT0",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}",
+        "format-charging": "{capacity} \uf0e7",
+        "format-plugged":  "",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+},
+
+"battery#bat1": {
+        "bat": "BAT1",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}",
+        "format-charging": "{capacity} \uf0e7",
+        "format-plugged": "",
+        "format-alt": "{time} {icon}",
+        "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+},
+
+"temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", "", "", ""]
+},
+
+"pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}",
+        "format-bluetooth": "{icon} {volume} ",
+        "format-bluetooth-muted": "{icon}  ",
+        "format-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+},
+
+"mpd": {
+	  "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+	  "format-disconnected": "Disconnected ",
+	  "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+	  "interval": 10,
+	  "consume-icons": {
+	    "on": " " // Icon shows only when "consume" is on
+	  },
+	  "random-icons": {
+	  "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+	  "on": " "
+	  },
+	  "repeat-icons": {
+    "on": " "
+	  },
+	  "single-icons": {
+    "on": "1 "
+	  },
+	  "state-icons": {
+	    "paused": "",
+      "playing": ""
+	  },
+	  "tooltip-format": "MPD (connected)",
+	  "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+
+//"custom/waybar-mpris": {
+//    "format":"{icon} {}",
+//    "return-type": "json",
+//    "format-icons": {
+//      "Playing": "",
+//      "Paused": ""
+//    },
+//    "exec": "waybar-mpris --position --autofocus",
+//    "on-click": "waybar-mpris --send toggle",
+//    "on-click-right": "waybar-mpris --send player-next",
+//    //"on-scroll-up": "waybar-mpris --send player-next",
+//    //"on-scroll-down": "waybar-mpris --send player-prev",
+//    "on-scroll-up": "waybar-mpris --send next",
+//    "on-scroll-down": "waybar-mpris --send prev",
+//    "max-length": 10,
+//    "escape": true
+//},
+
+"custom/waybar-mpris": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "waybar-mpris --position --autofocus",
+    "on-click": "waybar-mpris --send toggle",
+    "on-click-right": "waybar-mpris --send player-next",
+//  "on-scroll-up": "waybar-mpris --send player-next",
+//  "on-scroll-down": "waybar-mpris --send player-prev",
+    "on-scroll-up": "waybar-mpris --send next",
+    "on-scroll-down": "waybar-mpris --send prev",
+    "max-length": 10,
+    "escape": true
+},
+
+"custom/safeeyes": {
+    "format": "",
+    "format-alt": "",
+    "on-click": "safeeyes-toggle"
+},
+
+"backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}",
+    "format-icons": ["", ""],
+    "on-scroll-up": "brillo -A 2",
+    "on-scroll-down": "brillo -U 2"
+},
+
+"custom/gamma": {
+    "format": "",
+    "format-alt": "",
+    "on-click": "pkill -USR1 gammastep"
+},
+
+"memory": {
+    "format": " {}",
+    "states": {
+        "warning": 60,
+        "critical": 90
+        },
+	  "interval": 2,
+	  "on-click": "$TERMINAL -e btm"
+},
+
+"disk": {
+    "interval": 86400,
+    "format": " {used}",
+    "path": "/"
+},
+
+"cpu": {
+    "format": " {usage}",
+    "states": {
+        "warning": 60,
+        "critical": 90
+        },
+    "tooltip": true,
+	  "interval": 2,
+	  "on-click": "$TERMINAL -e btm"
+},
+
+"custom/memory": {
+	  "format": " <span background='#303030'>{}</span>",
+	  "exec": "mem_bar",
+	  "tooltip": false
+},
+
+"custom/cpu": {
+	  "format": " <span background='#303030'>{}</span>",
+	  "return-type": "json",
+	  "exec": "sleep 1 && cpu_bar",
+	  "tooltip": false,
+	  "on-click": "$TERMINAL -e btm"
+},
+
+"sway/language": {
+	  "format": " <b>{}</b>"
+},
+
+"custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "waybar-wttr",
+    "on-click": "$TERMINAL --hold -e curl https://wttr.in/Cairo",
+    "on-click-right": "$TERMINAL --hold -e curl https://wttr.in/Alexandria",
+    "return-type": "json"
+},
+
+"custom/moonphase": {
+    "format": "{}",
+    "exec": "moonphase",
+//    "exec": "moonphase",
+    "interval": "86400",
+    "tooltip": true
+},
+
+"custom/timer":{
+    "format": "{}",
+    //"exec": "polypomo",
+    "exec": "polypomo > /tmp/polypomo.status | tail -f /tmp/polypomo.status",
+    "on-click": "polypomo toggle",
+    "on-click-right": "polypomo end",
+    "on-click-middle": "polypomo lock",
+    "on-scroll-up": "polypomo time +60",
+    "on-scroll-down": "polypomo time -60",
+    "tail": true
+},
+
+"custom/stock": {
+    "format": "",
+    "on-click": "$TERMINAL -e tickrs --summary"
+},
+
+"custom/rss": {
+    "format": " {}",
+    //"exec": "rss-count",
+    "exec": "cat ~/.config/newsboat/today-unread-count",
+    "on-click": "$TERMINAL -e sfeed_curses ~/.local/share/sfeed/feeds-daily/*",
+    "on-click-right": "$TERMINAL -e newsboat --url-file=~/.config/newsboat/daily-list --cache-file=~/.local/share/newsboat/daily-cache.db",
+    "interval": 1,
+    "tooltip": true
+},
+
+"custom/chat": {
+    "format": "",
+//    "format": "  ",
+//    "format": "  ",
+//    "format": "  ",
+    "on-click": "ferdi"
+},
+
+"custom/mail": {
+    //"format": "📬 {}",
+    "format": " {}",
+    "exec": "find ~/.local/share/mail/*/[Ii][Nn][Bb][Oo][Xx]/new -type f | wc -l",
+    //"exec": "unread-mail-count",
+    "on-click": "$TERMINAL -e neomutt",
+    "on-click-right": "thunderbird",
+    "tooltip": true,
+    "interval": 1
+},
+
+"custom/events": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 1,
+    "format-icons": {
+        "default": " "
+    },
+    "exec": "waybar-calcurse",
+    "return-type": "json",
+    "max-length": 100,
+    "on-click": "$TERMINAL -e calcurse --read-only"
+},
+
+"custom/todo": {
+    "format": " {}",
+    "exec": "topydo ls | wc -l",
+    //"exec": "todo list --sort=status | wc -l",
+    //"exec": "task status:pending count",
+    "on-click": "$TERMINAL todotxt-machine --config ~/.config/todotxt-machine/todotxt-machinerc",
+    "on-click-middle": "$TERMINAL --hold -e topydo ls",
+    "on-click-right": "$TERMINAL --hold -e topydo edit",
+    "interval": 1
+},
+
+"custom/todourgent": {
+    "format": " {}",
+    "exec": "task-urgent.sh",
+    "on-click": "task-done.sh",
+    "interval": 1
+},
+
+"custom/devices": {
+    "format": "",
+    "exec": "grep 'Flash Disk' /sys/bus/usb/devices/*/product",
+    "interval": 600
+},
+
+"custom/vpn": {
+    "format": "VPN ",
+    "exec": "echo '{\"class\": \"connected\"}'",
+    "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
+    "return-type": "json",
+    "interval": 600
+},
+
+"custom/AUR": {
+    "exec": "AUR-waybar",
+    "interval": 3600,
+    "format": "{}",
+    "tooltip": true
+},
+
+"custom/wireshark": {
+    "format": "{  }",
+    "on-click": "$TERMINAL -e wireshark",
+    "tooltip": true
+},
+}]
+
+/* vim: set filetype=json : */

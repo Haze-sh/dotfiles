@@ -1,0 +1,27 @@
+clients:
+  google-chrome-beta: chrome
+  brave: chrome
+  jetbrains-(.*):
+    icon: terminal
+    extra: "{0}"
+  firefox: firefox
+  x-terminal-emulator: terminal
+  kitty: terminal
+  thunderbird: envelope
+  ferdi: envelope
+  signal: envelope
+  nautilus: folder-open
+  pcmanfm: folder-open
+  clementine: music
+  ncmpcpp: music
+  vlc: play
+  mpv: play
+  code-oss: code
+  vscodium: code
+  inkscape: brush
+  draw.io: brush
+  zathura: 
+deliminator: " "
+default_icon: dot-circle
+default:
+    new_desktop: false

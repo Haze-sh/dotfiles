@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/bin/swayhide /bin/imv -b $(flavours info -r $(flavours current) | sed -n '3 p') "$@"

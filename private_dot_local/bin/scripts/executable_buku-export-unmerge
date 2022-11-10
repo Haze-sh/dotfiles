@@ -1,0 +1,28 @@
+#!/bin/sh
+
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Main' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-main.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Media' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-media.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Art' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-art.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Books' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-books.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Cinema' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-cinema.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Cooking' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-cooking.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Defence' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-defence.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Economics' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-economics.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'General' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-general.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Life' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-life.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Music' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-music.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'News' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-news.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Politics' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-politics.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Science' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-science.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Sports' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-sports.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Tech' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-tech.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Wikis' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-wikis.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Learning' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-learning.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Courses' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-courses.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'GIT' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-git.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Podcasts' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-podcasts.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Youtube' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-youtube.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Reddit' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-reddit.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Twitter' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-twitter.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Facebook' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-facebook.urls
+buku --db ~/.local/share/buku/firefox-bookmarks.db --stag 'Instagram' -f 10 >> ~/.local/share/urls/$("date" +%Y-%m-%d)-instagram.urls

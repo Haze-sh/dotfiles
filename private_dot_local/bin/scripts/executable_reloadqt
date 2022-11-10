@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $(darkmode query) = "dark" ]; then
+    sed -i 's/c.colors.webpage.preferred_color_scheme = "light"/c.colors.webpage.preferred_color_scheme = "dark"/' ~/.config/qutebrowser/config.py
+else
+    sed -i 's/c.colors.webpage.preferred_color_scheme = "dark"/c.colors.webpage.preferred_color_scheme = "light"/' ~/.config/qutebrowser/config.py
+fi
+pgrep -x qutebrowser && qutebrowser :config-source

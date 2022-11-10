@@ -1,0 +1,21 @@
+colors:
+  body: none
+  date: green
+  tags: red
+  title: blue
+default_hour: 9
+default_minute: 0
+editor: nvim
+encrypt: false
+highlight: true
+indent_character: '|'
+journals:
+  default: ~/Documents/Notes/Personal/Journal/GTD/Journal.jrnl
+  habits: ~/Documents/Notes/Personal/Journal/Collections/habitstracker.jrnl
+  work: ~/Documents/Notes/Personal/Journal/Collections/work.jrnl
+  workout: ~/Documents/Notes/Personal/Journal/Collections/workout.jrnl
+linewrap: 79
+tagsymbols: '@'
+template: false
+timeformat: '%Y-%m-%d %H:%M'
+version: v2.8.3

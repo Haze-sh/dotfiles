@@ -1,0 +1,17 @@
+#!/usr/bin/expect -f
+##  bukuexpect.sh : automatic answers to buku --ai prompts
+
+spawn buku --db $env(HOME)/.local/share/buku/firefox-bookmarks.db --ai
+expect "Generate auto-tag (YYYYMonDD)? (y/n):"
+send "n\r"
+expect "Add parent folder names as tags? (y/n):"
+send "y\r"
+expect "Import bookmarks from google chrome? (y/n):"
+send "n\r"
+expect "Import bookmarks from chromium? (y/n):"
+send "n\r"
+expect "Import bookmarks from Firefox? (y/n):"
+send "y\r"
+expect "Import bookmarks from microsoft edge? (y/n):"
+send "n\r"
+expect eof

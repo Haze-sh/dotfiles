@@ -1,0 +1,16 @@
+#!/bin/sh
+
+safeeyes & disown;
+mopidy & disown;
+beet web & disown;
+#yams & disown;
+python3 ~/.local/bin/inkscape-shortcut-manager/main.py & disown;
+otd.start & disown;
+rsshub.start & disown;
+bukuserver run --host 127.0.0.1 --port 5001 & disown;
+cd ~/Documents/Notes/Personal/Archive/archivebox ; archivebox server 0.0.0.0:8000 & disown;
+promnesia serve & disown;
+syncthing -no-browser & disown;
+aw-server & disown;
+calcurse --daemon;
+ssh -D 1337 -C -N -f root@hazemhussien.xyz;

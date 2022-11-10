@@ -1,0 +1,29 @@
+#!/bin/sh
+
+url2rss main
+url2rss media
+url2rss art
+url2rss books
+url2rss sports
+url2rss cinema
+url2rss cooking
+url2rss defence
+url2rss economics
+url2rss general
+url2rss life
+url2rss music
+url2rss news
+url2rss politics
+url2rss science
+url2rss sports
+url2rss tech
+url2rss wikis
+url2rss learning
+url2rss courses
+url2rss 'git'
+url2rss podcasts
+url2rss youtube
+url2rss reddit
+url2rss twitter
+url2rss facebook
+url2rss instagram

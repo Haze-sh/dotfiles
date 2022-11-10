@@ -1,0 +1,5 @@
+#!/bin/sh
+sfeed_update ~/.config/sfeed/sfeedrc
+url=$(sfeed_plain "$XDG_DATA_HOME/sfeed/feeds/"* | wofi -d -i | \
+	sed -n 's@^.* \([a-zA-Z]*://\)\(.*\)$@\1\2@p')
+test -n "${url}" && $BROWSER "${url}"

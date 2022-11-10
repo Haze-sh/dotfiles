@@ -1,0 +1,152 @@
+@import "color.css";
+@define-color spotify-green #66cc99;
+
+* {
+	font-size: 13px;
+	font-family: Hack, "Font Awesome 5 Free";
+}
+
+:hover {
+        border: 1px solid @base0F;
+        background: @base02;
+}
+
+window#waybar {
+	color: @base08;
+	background: @base00;
+	border: 1px solid @base03;
+}
+
+/* Base styling for modules */
+#workspaces,
+#mode,
+#window,
+#idle_inhibitor,
+#bluetooth,
+#pulseaudio,
+#clock,
+#battery,
+#backlight,
+#disk,
+#memory,
+#cpu,
+#temperature,
+#network,
+#custom-separator,
+#custom-shutdown,
+#custom-menu,
+#taskbar,
+#tray {
+	padding: 1px 10px 0px 10px;
+	margin: 5px 0px 5px 0px;
+	background: @base02;
+    	border-radius: 5px;
+}
+
+/* Grouping */
+
+/* left modules */
+#disk,
+#clock,
+#memory {
+	border-radius: 5px 0px 0px 5px;
+}
+
+/* middle modules */
+#disk.zfs,
+#network,
+#backlight,
+#battery,
+#cpu {
+	border-radius: 0px 0px 0px 0px;
+}
+
+/* right modules */
+#temperature,
+#custom-shutdown {
+	border-radius: 0px 5px 5px 0px;
+}
+
+/* Customization */
+
+#mode {
+	color: @base0B;
+}
+
+#custom-separator {
+	opacity: 0;
+	padding: 0px;
+}
+
+#custom-menu {
+        margin-left: 5px;
+}
+
+#custom-shutdown {
+	margin-right: 5px;
+}
+
+#custom-media {
+        color: @spotify-green;
+        min-width: 100px;
+}
+
+#pulseaudio {
+	color: @base0E;
+}
+
+#disk {
+	color: @base0B;
+}
+
+#memory {
+	color: @base0C;
+}
+
+#cpu {
+	color: @base0D;
+}
+
+#temperature {
+	color: @base0F;
+}
+
+/* Workspaces */
+
+#workspaces {
+        padding: 0px;
+}
+
+#workspaces button {
+	color: @base07;
+	margin: 0;
+	padding: 1px 5px 0px 5px;
+}
+#workspaces button.focused {
+        border: 1px solid @base0E;
+}
+
+#workspaces button.urgent {
+	background-color: @base0B;
+}
+
+/* Battery */
+
+#battery.warning {
+	color: @base0D;
+}
+
+#battery.critical {
+	color: @base0C;
+}
+
+/* Taskbar */
+
+#taskbar button {
+	color: @base07;
+	padding: 5px 3px 1px 3px;
+}
+
+#taskbar button.active {
+        border: 1px solid @base0E;
+}
