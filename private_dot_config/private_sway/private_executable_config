@@ -78,7 +78,7 @@
     exec $bar
     exec $notifications
     exec gammastep
-    exec_always pipewire & pipewire-pulse & wireplumber &
+    exec pipewire & pipewire-pulse & wireplumber &
     exec mpDris2
     exec playerctld daemon
     exec play $HOME/Music/Classical\ Library/'1-01 Beethoven Symphony 5 in C Minor, Op. 67 - 1. Allegro Con Brio (CUT).mp3' >/dev/null 2>&1
