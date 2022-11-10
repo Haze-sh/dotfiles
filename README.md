@@ -22,4 +22,5 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 flavours update all
 ```
 
-Add user preset to gradience (Until there is a command to do so)
+- Add user preset to gradience (Until there is a command to do so)
+- Add fcron.backup > fcrontab entries
