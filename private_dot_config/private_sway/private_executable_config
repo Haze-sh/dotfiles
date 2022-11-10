@@ -336,6 +336,7 @@ mode "resize" {
     bindsym $mod+Shift+n exec $term -e $rss
     bindsym $mod+Shift+i exec $term -e $irc
     bindsym $mod+m       exec $term -e $musicplayer
+    bindsym $mod+Shift+period exec $calculator-gui
     bindsym $mod+Shift+m exec $mediaplayer
     bindsym $mod+Shift+s exec $vector_graphics
     bindsym $mod+escape  exec 'killall waybar -s USR1'
