@@ -485,17 +485,17 @@ filetype plugin indent on
 
 " Function to insert Markdown notes with fzf search
   fu! HandleFZF(file)
-      let filename = fnameescape(fnamemodify(a:file, ":t"))
-      let filename_wo_timestamp = fnameescape(fnamemodify(a:file, ":t:s/^[0-9]*-//"))
-      let mdlink = "[".filename_wo_timestamp."](".filename.")"
-      put=mdlink
-"      let curfilename = fnameescape(expand("%:t"))
-"      let curfilename_wo_timestamp = fnameescape(fnamemodify(expand("%"), ":t:s/^[0-9]*-//"))
-"      let curmdlink = "[ ".curfilename_wo_timestamp." ]( ".curfilename." )"
+      let filename = fnameescape(fnamemodify(a:file, ':t'))
+      let filename_wo_timestamp = fnameescape(fnamemodify(a:file, ':t:s/^[0-9]*-//'))
+      let mdlink = '['.filename_wo_timestamp.']('.filename.')'
+      put = mdlink
+"      let curfilename = fnameescape(expand('%:t'))
+"      let curfilename_wo_timestamp = fnameescape(fnamemodify(expand('%'), ':t:s/^[0-9]*-//'))
+"      let curmdlink = '[ '.curfilename_wo_timestamp." ]( '.curfilename.' )'
 "      call writefile(add(readfile(filename), curmdlink), filename)
   endfunction
-    command! -nargs=1 HandleFZF :call HandleFZF(<f-args>)
-    inoremap <buffer> <C-X><C-F> <esc>:call fzf#run({'sink': 'HandleFZF'})<CR>
+  command! -nargs=1 HandleFZF :call HandleFZF(<f-args>)
+  inoremap <buffer> <C-X><C-F> <esc>:call fzf#run({'sink': 'HandleFZF'})<CR>
 
 " Switch to Arabic - mapping
   nnoremap <Leader>a :<C-U>call AraType()<CR>

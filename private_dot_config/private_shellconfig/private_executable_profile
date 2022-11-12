@@ -14,13 +14,14 @@ export PATH=$HOME/.local/lib/cabal/packages/hackage.haskell.org/:$PATH
 export PATH=$HOME/.local/lib/node_modules/bin/:$PATH
 export PATH=$HOME/.local/lib/gem/ruby/3.0.0/bin/:$PATH
 export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
-export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
-export PATH="$PATH:${$(find $HOME/.local/lib/cargo/bin -type d -printf %p:)%%:}"
+export PATH=$HOME/.loca/lib/cargo/bin/:$PATH
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH=/usr/local/share/pkgconfig:$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
+# export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+# export PATH="$PATH:${$(find $HOME/.local/lib/cargo/bin -type d -printf %p:)%%:}"
 unsetopt PROMPT_SP
 
 # Default programs:
@@ -159,7 +160,7 @@ export TIME_FILE="$ZET_DIR/timetracking.ledger"
 export COURSES="$HOME/Documents/Notes/Personal/Courses"
 export CODEBOX="$HOME/Documents/Notes/Workspace/Codebox"
 export REPOS="$HOME/Documents/Notes/Workspace/Repos"
-export HYPOTHESIS_PASS="$(pass show hypothesis)"
+# export HYPOTHESIS_PASS="$(pass show hypothesis)"
 export KEEPASS_FILE="$ZET_DIR/References/passwords.kbdx"
 export BUKU_XBEL="$ZET_DIR/References/buku.xbel"
 

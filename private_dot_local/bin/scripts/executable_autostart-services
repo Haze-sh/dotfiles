@@ -1,14 +1,28 @@
 #!/bin/sh
 
-safeeyes & disown;
-mopidy & disown;
-beet web & disown;
-#yams & disown;
-python3 ~/.local/bin/inkscape-shortcut-manager/main.py & disown;
-rsshub.start & disown;
-bukuserver run --host 127.0.0.1 --port 5001 & disown;
-cd ~/Documents/Notes/Personal/Archive/archivebox ; archivebox server 0.0.0.0:8000 & disown;
-promnesia serve & disown;
-syncthing -no-browser & disown;
-aw-server & disown;
-calcurse --daemon;
+# Autostart
+safeeyes & disown
+mopidy & disown
+beet web & disown
+# yams & disown
+python3 ~/.local/bin/inkscape-shortcut-manager/main.py & disown
+rsshub.start & disown
+bukuserver run --host 127.0.0.1 --port 5001 & disown
+cd $ARCHIVE/archivebox ; archivebox server 0.0.0.0:8000 & disown
+promnesia serve & disown
+syncthing -no-browser & disown
+aw-server & disown
+calcurse --daemon
+
+# Daily Feed
+sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
+sfeed_html $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.html
+sfeed_plain $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.txt
+newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=~/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
+
+# Daily Tasks
+moonphase
+tree -f -L 1 -I "*.txt|*.html|*/" $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/001-tree.txt
+tree-index-md $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md
+# markmap $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.html
+dconf dump / > $HOME/.config/saved_settings.dconf
