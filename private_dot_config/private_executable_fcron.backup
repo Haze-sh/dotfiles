@@ -11,9 +11,9 @@
 @ 60 torsimany $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/annotations.json
 
 # Total Feed
-@ 30 sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
-@ 30 sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
-@ 30 sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
+@ 60 sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
+@ 60 sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
+@ 60 sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
 @ 60 newsboat --url-file=$HOME/.config/newsboat/urls -x reload
 
 # Cleanup

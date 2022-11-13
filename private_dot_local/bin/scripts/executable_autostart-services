@@ -25,4 +25,5 @@ moonphase
 tree -f -L 1 -I "*.txt|*.html|*/" $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/001-tree.txt
 tree-index-md $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md
 # markmap $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.html
+python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/annotations.json
 dconf dump / > $HOME/.config/saved_settings.dconf
