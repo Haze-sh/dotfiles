@@ -7,6 +7,7 @@
 @ 15 $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
 @ 15 $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
 @ 30 calcurse -x > $HOME/.local/share/calendars/main/main.ics
+@ 60 promnesia index
 @ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/annotations.json
 @ 60 torsimany $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/annotations.json
 
