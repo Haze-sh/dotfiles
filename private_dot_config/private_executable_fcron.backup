@@ -8,8 +8,9 @@
 @ 15 $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
 @ 30 calcurse -x > $HOME/.local/share/calendars/main/main.ics
 @ 60 promnesia index
-@ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/annotations.json
-@ 60 torsimany $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/annotations.json
+@ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
+@ 60 python -m orger.modules.hypothesis --to $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.org
+@ 60 torsimany $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
 
 # Total Feed
 @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
