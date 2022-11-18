@@ -1,33 +1,39 @@
 #!/usr/bin/env python3
+
 # '''Create spaced repetitions iCal file from an Event'''
 from supermemo2 import SMTwo, day_mon_year
 from ics import Calendar, Event
+from os import environ
+import os.path
 import sys
 
 arg1 = sys.argv[1]
 arg2 = sys.argv[2]
 c = Calendar()
 
-#e0 = Event()
-#e0.name = arg1
-#e0.begin = arg2
-#c.events.add(e0)
-#c.events
-#with open('/home/electron/.local/share/calendars/spaced/{}.ics'.format(arg1), 'w') as f:
-#    f.writelines(c)
+# e0 = Event()
+# e0.name = arg1
+# e0.begin = arg2
+# c.events.add(e0)
+# c.events
+# with open(os.path.join(CALENDIR, '{}.ics').format(arg1), 'w') as f:
+#     f.writelines(c)
 
 review = SMTwo.first_review(5, arg2, day_mon_year)
 # print(review.review_date)
+
+CALENDIR = environ.get('CALENDIR')
 
 e1 = Event()
 e1.name = arg1
 e1.begin = review.review_date
 c.events.add(e1)
 c.events
-with open('/home/electron/.local/share/calendars/spaced/{}.ics'.format(arg1), 'w') as f:
+with open(os.path.join(CALENDIR, '{}.ics').format(arg1), 'w') as f:
     f.writelines(c)
 
-review = SMTwo(review.easiness, review.interval, review.repetitions).review(5, review.review_date)
+review = SMTwo(review.easiness, review.interval, review.repetitions)\
+    .review(5, review.review_date)
 # print(review.review_date)
 
 e2 = Event()
@@ -35,10 +41,11 @@ e2.name = arg1
 e2.begin = review.review_date
 c.events.add(e2)
 c.events
-with open('/home/electron/.local/share/calendars/spaced/{}.ics'.format(arg1), 'w') as f:
+with open(os.path.join(CALENDIR, '{}.ics').format(arg1), 'w') as f:
     f.writelines(c)
 
-review = SMTwo(review.easiness, review.interval, review.repetitions).review(5, review.review_date)
+review = SMTwo(review.easiness, review.interval, review.repetitions)\
+    .review(5, review.review_date)
 # print(review.review_date)
 
 e3 = Event()
@@ -46,10 +53,11 @@ e3.name = arg1
 e3.begin = review.review_date
 c.events.add(e3)
 c.events
-with open('/home/electron/.local/share/calendars/spaced/{}.ics'.format(arg1), 'w') as f:
+with open(os.path.join(CALENDIR, '{}.ics').format(arg1), 'w') as f:
     f.writelines(c)
 
-review = SMTwo(review.easiness, review.interval, review.repetitions).review(5, review.review_date)
+review = SMTwo(review.easiness, review.interval, review.repetitions)\
+    .review(5, review.review_date)
 # print(review.review_date)
 
 e4 = Event()
@@ -57,10 +65,11 @@ e4.name = arg1
 e4.begin = review.review_date
 c.events.add(e4)
 c.events
-with open('/home/electron/.local/share/calendars/spaced/{}.ics'.format(arg1), 'w') as f:
+with open(os.path.join(CALENDIR, '{}.ics').format(arg1), 'w') as f:
     f.writelines(c)
 
-review = SMTwo(review.easiness, review.interval, review.repetitions).review(5, review.review_date)
+review = SMTwo(review.easiness, review.interval, review.repetitions)\
+    .review(5, review.review_date)
 # print(review.review_date)
 
 e5 = Event()
@@ -68,10 +77,11 @@ e5.name = arg1
 e5.begin = review.review_date
 c.events.add(e5)
 c.events
-with open('/home/electron/.local/share/calendars/spaced/{}.ics'.format(arg1), 'w') as f:
+with open(os.path.join(CALENDIR, '{}.ics').format(arg1), 'w') as f:
     f.writelines(c)
 
-review = SMTwo(review.easiness, review.interval, review.repetitions).review(5, review.review_date)
+review = SMTwo(review.easiness, review.interval, review.repetitions)\
+    .review(5, review.review_date)
 # print(review.review_date)
 
 e6 = Event()
@@ -79,5 +89,5 @@ e6.name = arg1
 e6.begin = review.review_date
 c.events.add(e6)
 c.events
-with open('/home/electron/.local/share/calendars/spaced/{}.ics'.format(arg1), 'w') as f:
+with open(os.path.join(CALENDIR, '{}.ics').format(arg1), 'w') as f:
     f.writelines(c)

@@ -170,6 +170,7 @@ export REPOS="$HOME/Documents/Notes/Workspace/Repos"
 export KEEPASS_FILE="$ZET_DIR/References/passwords.kbdx"
 export BUKU_XBEL="$ZET_DIR/References/buku.xbel"
 export HPIDATA="$ZET_DIR/References/Data"
+export CALENDIR="$XDG_DATA_HOME/calendars/spaced"
 
 # lfcd
 lfcd () {
