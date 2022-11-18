@@ -49,11 +49,11 @@ export YDOTOOL_SOCKET=/tmp/.ydotool_socket
     #export GTK_THEME=Arc-Dark
     #export CLUTTER_BACKEND=wayland
     export QT_QPA_PLATFORMTHEME='gnome'
-    #export QT_QPA_PLATFORMTHEME=adwaita-qt6
+        #export QT_QPA_PLATFORMTHEME=adwaita-qt6
+        #export QT_QPA_PLATFORMTHEME=gtk2
+        #export QT_QPA_PLATFORMTHEME=qt5ct
+        #export QT_QPA_PLATFORMTHEME=qt6ct
     #export QT_QPA_PLATFORM=wayland-egl
-    #export QT_QPA_PLATFORMTHEME=gtk2
-    #export QT_QPA_PLATFORMTHEME=qt5ct
-    #export QT_QPA_PLATFORMTHEME=qt6ct
 
 # Non-elogind system
 #if test -z "${XDG_RUNTIME_DIR}"; then
@@ -74,8 +74,8 @@ export GPG_TTY=$(tty)
 export GPG_AGENT_INFO=""
 
 ## Defaults
-#export XDG_CONFIG_HOME="$HOME/.config"
-#export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_LIB_HOME="$HOME/.local/lib"
 export XDG_CACHE_HOME="$HOME/.cache"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
@@ -125,6 +125,7 @@ export GNUPGHOME="${XDG_DATA_HOME:-${HOME:-/home/$LOGNAME}/.local/share}/gnupg"
 export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
 export MAILCAP_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/mailcap"
+export MAILDIR="${XDG_CONFIG_HOME:-$HOME/.local/share}/mail"
 #export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
 #export ALSA_CONFIG_PATH=/usr/share/alsa/alsa.conf
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
@@ -145,6 +146,8 @@ export SUDO_ASKPASS="$HOME/.local/bin/wofipassmenu"
 #eval $(thefuck --alias)
 
 ## Directory Structure
+export HYPOTHESIS_USER="$(pass show user)"
+export HYPOTHESIS_PASS="$(pass show hypothesis)"
 export NOTES_DIR="$HOME/Documents/Notes"
 export PERSONAL_NOTES_DIR="$HOME/Documents/Notes/Personal"
 export WORK_NOTES_DIR="$HOME/Documents/Notes/Workspace"
@@ -152,6 +155,10 @@ export JOURNAL_DIR="$HOME/Documents/Notes/Personal/Journal"
 export GTD_DIR="$JOURNAL_DIR/GTD"
 export ZET_DIR="$JOURNAL_DIR/Collections"
 export ZK_NOTEBOOK_DIR="$JOURNAL_DIR/Collections"
+export DEFAULT_JRNL="$GTD_DIR/Journal.jrnl"
+export HABITS_JRNL="$GTD_DIR/habitstracker.jrnl"
+export WORK_JRNL="$GTD_DIR/work.jrnl"
+export WORKOUT_JRNL="$GTD_DIR/workout.jrnl"
 export TODOTXT_FILE="$GTD_DIR/TODO/todo.txt"
 export TODO_FILE="$GTD_DIR/TODO/todo.txt"
 export DONE_FILE="$GTD_DIR/TODO/done.txt"
@@ -160,9 +167,9 @@ export TIME_FILE="$ZET_DIR/timetracking.ledger"
 export COURSES="$HOME/Documents/Notes/Personal/Courses"
 export CODEBOX="$HOME/Documents/Notes/Workspace/Codebox"
 export REPOS="$HOME/Documents/Notes/Workspace/Repos"
-# export HYPOTHESIS_PASS="$(pass show hypothesis)"
 export KEEPASS_FILE="$ZET_DIR/References/passwords.kbdx"
 export BUKU_XBEL="$ZET_DIR/References/buku.xbel"
+export HPIDATA="$ZET_DIR/References/Data"
 
 # lfcd
 lfcd () {

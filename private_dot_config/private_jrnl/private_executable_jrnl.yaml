@@ -10,10 +10,10 @@ encrypt: false
 highlight: true
 indent_character: '|'
 journals:
-  default: ~/Documents/Notes/Personal/Journal/GTD/Journal.jrnl
-  habits: ~/Documents/Notes/Personal/Journal/Collections/habitstracker.jrnl
-  work: ~/Documents/Notes/Personal/Journal/Collections/work.jrnl
-  workout: ~/Documents/Notes/Personal/Journal/Collections/workout.jrnl
+  default: $DEFAULT_JRNL
+  habits: $HABITS_JRNL
+  work: $WORK_JRNL
+  workout: $WORKOUT_JRNL
 linewrap: 79
 tagsymbols: '@'
 template: false
