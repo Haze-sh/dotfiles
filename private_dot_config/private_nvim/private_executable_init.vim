@@ -107,7 +107,7 @@ call plug#begin("~/.config/nvim/plugged")
     let g:TodoTxtSortDueDateCursorPos = "top"
   Plug 'lgalke/gather-todo.txt-vim'
   Plug 'EdwinWenink/capture-todo.vim'
-    let g:todo_location="~/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt"
+    let g:todo_location=$TODO_FILE
 """ jrnl
   Plug 'junegunn/vim-journal'
   Plug 'wren/jrnl.vim'
@@ -125,7 +125,7 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'junegunn/fzf.vim'
     let g:fzf_preview_window = ['up:20%:hidden', 'ctrl-/']
   Plug 'alok/notational-fzf-vim'
-   let g:nv_search_paths = ['~/Documents']
+   let g:nv_search_paths = [$ZET_DIR]
   Plug 'kien/ctrlp.vim'
   Plug 'jremmen/vim-ripgrep'
   "  let g:rg_command = 'rg --vimgrep -S'
@@ -142,7 +142,7 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'voldikss/vim-floaterm'
   "Plug 'Shougo/defx.nvim'
   Plug 'sirver/ultisnips'
-    let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $HOME.'/Documents/Notes/Personal/Courses/Snippets']
+    let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $COURSES.'/Snippets']
     let g:UltiSnipsExpandTrigger='<tab>'
     let g:UltiSnipsJumpForwardTrigger='<tab>'
     let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
@@ -246,7 +246,7 @@ set iskeyword-=],_
 
 set tags+=./tags;,tags
 set path+=**
-set rtp+=~/Documents/Notes/Personal/Courses/current-course
+set rtp+=$COURSES/current-course
 set wildmode=longest,list,full
 set wildmenu
 set nospell
