@@ -2,6 +2,10 @@
 
 # Sync Tasks
 @ 01 topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt --reverse
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.txt
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.txt --reverse
 @ 01 jrnl --format md > $HOME/Documents/Notes/Personal/Journal/GTD/Journal.md
 @ 01 $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
 @ 15 $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
@@ -42,8 +46,7 @@
 # Daily Tasks
 %daily * 06 moonphase
 %daily * 00 tree -f -L 1 -I "*.txt|*.html|*/" $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/001-tree.txt
-%daily * 00 tree-index-md $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md
-%daily * 00 markmap $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.html
+%daily * 00 $HOME/.local/bin/scripts/tree-index-md $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md
 %daily * 00 dconf dump / > $HOME/.config/saved_settings.dconf
 
 # Backup

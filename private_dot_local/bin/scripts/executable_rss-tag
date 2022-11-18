@@ -1,4 +1,5 @@
 #!/bin/sh
+
 buku --stag -f 10 $1 > $XDG_DATA_HOME/buku/tmp-tag-search
 url=$(sfeed_plain $XDG_DATA_HOME/sfeed/feeds/* | grep -f $XDG_DATA_HOME/buku/tmp-tag-search | fzf | sed -n 's@^.* \([a-zA-Z]*://\)\(.*\)$@\1\2@p')
 test -n "${url}" && $BROWSER "${url}"

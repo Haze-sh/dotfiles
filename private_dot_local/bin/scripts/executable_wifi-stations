@@ -1,3 +1,4 @@
 #!/bin/sh
+
 iwctl station wlan0 get-networks | awk '{print}'
 iwctl

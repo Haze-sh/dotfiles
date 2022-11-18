@@ -9,7 +9,6 @@ cd $XDG_CONFIG_HOME;
 chezmoi add -r \
     .ctags.d/md.ctags \
     abook \
-    alacritty \
     beets/config.yaml \
     calcurse \
     clipman \

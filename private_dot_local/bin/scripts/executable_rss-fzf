@@ -1,3 +1,4 @@
 #!/bin/sh
+
 url=$(sfeed_plain "$HOME/.local/share/sfeed/feeds/"* | fzf | sed -n 's@^.* \([a-zA-Z]*://\)\(.*\)$@\1\2@p')
 test -n "${url}" && $BROWSER "${url}"

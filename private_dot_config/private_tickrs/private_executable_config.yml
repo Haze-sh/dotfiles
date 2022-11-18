@@ -1,10 +1,8 @@
----
-# List of ticker symbols to start app with
 symbols:
-  #  - SPY
-  #  - AMD
   - CL=F
   - GC=F
+  - SPY
+  - AMD
   - ^GSPC
   - ^DJI
   - ^IXIC
@@ -19,43 +17,38 @@ symbols:
   - ETH-USD
   - XMR-USD
 
-# Chart type to start app with
-# Default is line
 # Possible values: line, candle, kagi
 chart_type: line
 
-# Use specified time frame when starting program and when new stocks are added
-# Default is 1D
 # Possible values: 1D, 1W, 1M, 3M, 6M, 1Y, 5Y
-#time_frame: 1D
+time_frame: 1D
 
-# Interval to update data from API (seconds)
 # Default is 1
-#update_interval: 1
+update_interval: 1
 
 # Enable pre / post market hours for graphs
-#enable_pre_post: true
+enable_pre_post: true
 
 # Hide help icon in top right
-#hide_help: true
+hide_help: true
 
 # Hide previous close line on 1D chart
-#hide_prev_close: true
+hide_prev_close: true
 
 # Hide toggle block
-#hide_toggle: true
+hide_toggle: true
 
 # Show volumes graph
-#show_volumes: true
+show_volumes: true
 
 # Show x-axis labels
-#show_x_labels: true
+show_x_labels: true
 
 # Start in summary mode
-#summary: true
+summary: true
 
 # Truncate pre market graphing to only 30 minutes prior to markets opening
-#trunc_pre: true
+trunc_pre: true
 
 # Ticker options for Kagi charts
 #
@@ -70,41 +63,23 @@ chart_type: line
 #
 # price can be 'close' or 'high_low'
 #
-#kagi_options:
-#  SPY:
-#    reversal:
-#      type: amount
-#      value: 5.00
-#    price: close
-#  AMD:
-#    price: high_low
-#  TSLA:
-#    reversal:
-#      type: pct
-#      value: 0.08
-#  NVDA:
-#    reversal:
-#      1D:
-#        type: pct
-#        value: 0.02
-#      5Y:
-#        type: pct
-#        value: 0.10
-
-# Apply a custom theme
-#
-# All colors are optional. If commented out / omitted, the color will get sourced
-# from your terminal color scheme
-#theme:
-#  background: '#403E41'
-#  gray: '#727072'
-#  profit: '#ADD977'
-#  loss: '#FA648A'
-#  text_normal: '#FCFCFA'
-#  text_primary: '#FFDA65'
-#  text_secondary: '#79DBEA'
-#  border_primary: '#FC9766'
-#  border_secondary: '#FCFCFA'
-#  border_axis: '#FC9766'
-#  highlight_focused: '#FC9766'
-#  highlight_unfocused: '#727072'
+kagi_options:
+  SPY:
+    reversal:
+      type: amount
+      value: 5.00
+    price: close
+  AMD:
+    price: high_low
+  TSLA:
+    reversal:
+      type: pct
+      value: 0.08
+  NVDA:
+    reversal:
+      1D:
+        type: pct
+        value: 0.02
+      5Y:
+        type: pct
+        value: 0.10

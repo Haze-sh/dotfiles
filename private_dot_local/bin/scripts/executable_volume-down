@@ -1,4 +1,5 @@
 #!/bin/sh
+
 x=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n 1 | tail -n 1 | sed -e 's,.* \(.*[0-9].*.*\.[0-9][0-9]*\).*dB.*,\1,' )
 min=-120.00
 if (( $(echo "$x > $min" | bc -l) ))

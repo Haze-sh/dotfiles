@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # Needs neovim-remote
 
 nvr --serverlist | \

@@ -4,7 +4,6 @@
 safeeyes & disown
 mopidy & disown
 beet web & disown
-# yams & disown
 python3 ~/.local/bin/inkscape-shortcut-manager/main.py & disown
 rsshub.start & disown
 bukuserver run --host 127.0.0.1 --port 5001 & disown
@@ -13,6 +12,7 @@ promnesia serve & disown
 syncthing -no-browser & disown
 aw-server & disown
 calcurse --daemon
+# yams & disown
 
 # Daily Feed
 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
@@ -22,8 +22,7 @@ newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --c
 
 # Daily Tasks
 moonphase
-tree -f -L 1 -I "*.txt|*.html|*/" $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/001-tree.txt
-tree-index-md $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md
-# markmap $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.html
-python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/annotations.json
+# markmap $ZET_DIR/000-index.md > $ZET_DIR/000-index.html
+tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/001-tree.txt
+tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
 dconf dump / > $HOME/.config/saved_settings.dconf
