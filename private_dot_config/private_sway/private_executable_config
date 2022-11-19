@@ -394,7 +394,7 @@ mode "resize" {
     }
 
     # Launch journal file
-    bindsym Alt+k exec $term --class=journal-editor -e bash -c '$EDITOR $GTD_DIR/Journal.jrnl'
+    bindsym Alt+k exec $term --class=journal-editor -e bash -c 'jrnl --edit default'
     for_window [app_id="^journal-editor$"] {
         floating enable
         resize set width 700 px height 500 px
@@ -419,7 +419,7 @@ mode "resize" {
     }
 
     # Launch todo.txt file
-    bindsym Alt+t exec $term --class=todo -e bash -c '$EDITOR $TODOTXT_FILE'
+    bindsym Alt+t exec $term --class=todo -e bash -c '$EDITOR $TODO_FILE'
     for_window [app_id="^todo$"] {
         floating enable
         resize set width 700 px height 500 px
@@ -427,7 +427,7 @@ mode "resize" {
     }
 
     # Launch done.txt file
-    bindsym Alt+d exec $term --class=done -e bash -c '$EDITOR $GTD_DIR/TODO/done.txt'
+    bindsym Alt+d exec $term --class=done -e bash -c '$EDITOR $DONE_FILE'
     for_window [app_id="^done$"] {
         floating enable
         resize set width 700 px height 500 px

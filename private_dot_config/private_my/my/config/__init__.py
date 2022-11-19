@@ -2,7 +2,7 @@ from os import environ, path
 from typing import Optional, Callable, List, Set
 from pathlib import Path
 from my.core import Paths, PathIsh
-from .common import repo
+# from .common import repo
 
 
 def if_exists(p: PathIsh) -> Optional[Path]:
@@ -69,10 +69,10 @@ except Exception:
 
 
 class browser:      # https://github.com/seanbreckenridge/browserexport
-    export_path: Paths = data('browser')
+    export_path: Paths = data('Browser')
 
     class active_browser:
-        export_path: Paths = data('browser')
+        export_path: Paths = data('Browser')
 
 
 class location:
@@ -98,25 +98,25 @@ def annotations(p: PathIsh) -> Path:
     return PREFIX / p
 
 
-class hypothesis:
+class hypothesis:       # https://github.com/karlicoss/hypexport
     export_path: Paths = annotations('Annotations/hyp-annotations.json')
 
 
-class commits:
-    try:
-        from .commits_secret import emails, names
-
-        emails = emails
-        names = names
-    except ImportError:
-        pass
-
-    roots: Paths = filter_exists(
-        [
-            repo(""),
-            path.expanduser(environ.get('REPOS')),
-        ]
-    )
+# class commits:
+#     try:
+#         from .commits_secret import emails, names
+#
+#         emails = emails
+#         names = names
+#     except ImportError:
+#         pass
+#
+#     roots: Paths = filter_exists(
+#         [
+#             repo(""),
+#             path.expanduser(environ.get('REPOS')),
+#         ]
+#     )
 
 
 class mpv:      # https://github.com/seanbreckenridge/mpv-history-daemon

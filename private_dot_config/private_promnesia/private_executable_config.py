@@ -1,18 +1,15 @@
 from promnesia.common import Source
 from promnesia.sources import auto
+from promnesia.sources import hypothesis
 
-'''
-List of sources to use.
-
-You can specify your own, add more sources, etc.
-See https://github.com/karlicoss/promnesia#setup for more information
-'''
 SOURCES = [
     Source(
         auto.index,
         '~/Documents/Notes/Personal/Journal/Collections',
-        ignored=[ '.lock', '*.html', '*.json', '*.yml', '*.toml', '*.org', '*.xbel', '*.ods', '*.xlsx', '*.csv', '*.kdbx', '*.xopp', '*.pdf', '*.jrnl', '*.ledger', '*.db'],
-        name='Markdown Notes',
+        ignored=['.lock', '*.html', '*.json', '*.yml', '*.toml', '*.org',
+                 '*.xbel', '*.ods', '*.xlsx', '*.csv', '*.kdbx', '*.xopp',
+                 '*.pdf', '*.jrnl', '*.ledger', '*.db'],
+        name='Notes',
     ),
     Source(
         auto.index,
@@ -20,4 +17,25 @@ SOURCES = [
         ignored=['*.org', '*.jrnl', '*.bak'],
         name='Journals & TODO',
     ),
+    Source(
+        auto.index,
+        '~/Documents/Notes/Personal/Courses'
+    ),
+    Source(
+        auto.index,
+        '~/Documents/Notes/Workspace'
+    ),
+    Source(
+        auto.index,
+        '~/.local/share/calendars'
+    ),
+    Source(
+        auto.index,
+        '~/.local/share/mail'
+    ),
+    Source(
+        auto.index,
+        '~/.cache/zsh/history'
+    ),
+    hypothesis,
 ]
