@@ -1,4 +1,4 @@
 import os
 
-username = "HYPOTHESIS_USER"
+username = os.environ['HYPOTHESIS_USER']
 token = os.environ['HYPOTHESIS_PASS']

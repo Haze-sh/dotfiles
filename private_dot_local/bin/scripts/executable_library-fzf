@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#find ~/Documents/Library | fzf | sed 's/.*/"&"/' | xargs -r zathura
-#zathura $(find ~/Documents/Library | fzf | sed 's/.*/"&"/')
-#book=$(find ~/Documents/Library | fzf | sed 's/.*/"&"/') && zathura $book
+# find ~/Documents/Library | fzf | sed 's/.*/"&"/' | xargs -r zathura
+# zathura $(find ~/Documents/Library | fzf | sed 's/.*/"&"/')
+# book=$(find ~/Documents/Library | fzf | sed 's/.*/"&"/') && zathura $book
 
-#cd ~/Documents/Library ; find . | fzf | (nohup xargs -I{} zathura "{}" >/dev/null 2>&1 &)
+# cd ~/Documents/Library ; find . | fzf | (nohup xargs -I{} zathura "{}" >/dev/null 2>&1 &)
 cd ~/Documents/Library ; fzf --keep-right | (nohup xargs -I{} zathura "{}" >/dev/null 2>&1 &)

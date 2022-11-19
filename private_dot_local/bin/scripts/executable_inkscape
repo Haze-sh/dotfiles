@@ -1,3 +1,4 @@
 #!/bin/sh
-#python3 ~/.local/bin/inkscape-shortcut-manager/main.py & disown ;
+
+# python3 ~/.local/bin/inkscape-shortcut-manager/main.py & disown ;
 GDK_BACKEND=x11 /usr/bin/inkscape "$@"

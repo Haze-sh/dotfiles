@@ -21,8 +21,7 @@ def filter_exists(pths: List[PathIsh]) -> List[Path]:
     return res
 
 
-PREFIX: Path = Path(environ.get("HPIDATA", path.expanduser(
-            "~/Documents/Notes/Personal/Journal/Collections/References/Data")))
+PREFIX: Path = Path(environ.get("HPIDATA"))
 
 
 def data(p: PathIsh) -> Path:
@@ -52,9 +51,7 @@ class smscalls:
 
 class zsh:
     export_path: Paths = data("zsh_history")
-    live_file: Optional[PathIsh] = if_exists(
-        path.join(environ["HISTFILE"], "~/.cache/zsh/history")
-    )
+    live_file: Optional[PathIsh] = if_exists(environ.get("HISTFILE"))
 
 
 class todotxt:
@@ -62,17 +59,25 @@ class todotxt:
         export_path: Paths = environ.get("TODO_FILE", "DONE_FILE")
 
 
-class browser:
-    export_path: Paths = data('*.sqlite')
+live_dbs: List[Path] = []
+try:
+    from browserexport.browsers.firefox import Firefox
+
+    live_dbs.append(Firefox.locate_database())
+except Exception:
+    pass
+
+
+class browser:      # https://github.com/seanbreckenridge/browserexport
+    export_path: Paths = data('browser')
 
     class active_browser:
-        export_path: Paths = data('.sqlite')
+        export_path: Paths = data('browser')
 
 
 class location:
     class gpslogger:
-        export_path: Paths = \
-            '~/Documents/Notes/Personal/Journal/Collections/References/Places'
+        export_path: Paths = data('Places')
         accuracy: float = 50.0
 
 
@@ -86,9 +91,15 @@ class time:
             require_accuracy: float = 5_000
 
 
+PREFIX: Path = Path(environ.get("ZET_DIR"))
+
+
+def annotations(p: PathIsh) -> Path:
+    return PREFIX / p
+
+
 class hypothesis:
-    export_path: Paths = '~/Documents/Notes/Personal/Journal/Collections\
-        /Annotations/hyp-annotations.json'
+    export_path: Paths = annotations('Annotations/hyp-annotations.json')
 
 
 class commits:
@@ -103,12 +114,12 @@ class commits:
     roots: Paths = filter_exists(
         [
             repo(""),
-            path.expanduser("~/Documents/Notes/Workspace/Repos"),
+            path.expanduser(environ.get('REPOS')),
         ]
     )
 
 
-class mpv:     # mpv-history-daemon
+class mpv:      # https://github.com/seanbreckenridge/mpv-history-daemon
     class history_daemon:
         export_path: Paths = data("mpv/*.json")
         require_percent = 0.5
