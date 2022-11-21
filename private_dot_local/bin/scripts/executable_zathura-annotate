@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NOTES_FOLDER="${JOURNAL_DIR}/Collections"
+NOTES_FOLDER="$ZET_DIR"
 JSON_DB="${NOTES_FOLDER}/Annotations/books.yml"
 
 function exists_or_create() {
