@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -o pipefail
+set -ex
+
+epoch() {
+	date +"%s"
+}
+
+main() {
+	local tmpdir tmpfile browsing_dir
+	tmpdir="$(mktemp -d)"
+	browsing_dir=${HPIDATA}/Browser
+	echo $HPIDATA
+	echo $browsing_dir
+	rsync -Pavh "${browsing_dir}"/ ~/.cache/removed/browsing
+	tmpfile="${tmpdir}/browsing-$(epoch).json"
+	browserexport --debug merge --json "${browsing_dir}/"* | jq -c >"$tmpfile"
+	rm -v "${browsing_dir}/"*
+	mv -v "${tmpfile}" "${browsing_dir}"
+	dust "${browsing_dir}"
+}
+
+main || exit $?

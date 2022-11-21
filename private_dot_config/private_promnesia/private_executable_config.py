@@ -1,12 +1,12 @@
 from promnesia.common import Source
 from promnesia.sources import auto
-from promnesia.sources import hypothesis
+# from promnesia.sources import hypothesis
 
 SOURCES = [
     Source(
         auto.index,
         '~/Documents/Notes/Personal/Journal/Collections',
-        ignored=['.lock', '*.html', '*.json', '*.yml', '*.toml', '*.org',
+        ignored=['*.lock', '*.html', '*.json', '*.yml', '*.toml', '*.org',
                  '*.xbel', '*.ods', '*.xlsx', '*.csv', '*.kdbx', '*.xopp',
                  '*.pdf', '*.jrnl', '*.ledger', '*.db'],
         name='Notes',
@@ -37,5 +37,4 @@ SOURCES = [
         auto.index,
         '~/.cache/zsh/history'
     ),
-    hypothesis,
 ]

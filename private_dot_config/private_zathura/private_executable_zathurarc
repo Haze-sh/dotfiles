@@ -1,5 +1,5 @@
 map <C-f> feedkeys ":exec clipboard-tts<Return>"
-map <C-o> feedkeys ":exec zathura-annotate<Return>"
+map <C-o> feedkeys ":exec zathura-annotate $FILE<Return>"
 set selection-clipboard clipboard
 
 # Start flavours

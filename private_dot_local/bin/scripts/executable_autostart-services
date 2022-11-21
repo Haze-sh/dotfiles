@@ -9,6 +9,7 @@ rsshub.start & disown
 bukuserver run --host 127.0.0.1 --port 5001 & disown
 cd $ARCHIVE/archivebox ; archivebox server 0.0.0.0:8000 & disown
 promnesia serve & disown
+mpv_history_daemon_restart $HPIDATA/MPV
 syncthing -no-browser & disown
 aw-server & disown
 calcurse --daemon
