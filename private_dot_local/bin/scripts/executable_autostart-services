@@ -24,6 +24,6 @@ newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --c
 # Daily Tasks
 moonphase
 # markmap $ZET_DIR/000-index.md > $ZET_DIR/000-index.html
-tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/001-tree.txt
+tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $HPIDATA/001-tree.txt
 tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
 dconf dump / > $HOME/.config/saved_settings.dconf

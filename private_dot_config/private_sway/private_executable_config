@@ -332,6 +332,7 @@ mode "resize" {
 
     bindsym $mod+i       exec $browser
     bindsym $mod+n       exec $term -e $filemanager -C
+    bindsym $mod+Shift+a exec annotate
     bindsym $mod+Shift+f exec $chat
     bindsym $mod+Shift+o exec $term -e $mail
     bindsym $mod+Shift+n exec $term -e $rss

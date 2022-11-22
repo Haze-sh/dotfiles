@@ -5,8 +5,16 @@ from promnesia.sources import auto
 SOURCES = [
     Source(
         auto.index,
+        '~/.local/share/mail'
+    ),
+    Source(
+        auto.index,
+        '~/.cache/zsh/history'
+    ),
+    Source(
+        auto.index,
         '~/Documents/Notes/Personal/Journal/Collections',
-        ignored=['*.lock', '*.html', '*.json', '*.yml', '*.toml', '*.org',
+        ignored=['*.lock', '*.html', '*.yml', '*.toml', '*.org',
                  '*.xbel', '*.ods', '*.xlsx', '*.csv', '*.kdbx', '*.xopp',
                  '*.pdf', '*.jrnl', '*.ledger', '*.db'],
         name='Notes',
@@ -21,20 +29,13 @@ SOURCES = [
         auto.index,
         '~/Documents/Notes/Personal/Courses'
     ),
-    Source(
-        auto.index,
-        '~/Documents/Notes/Workspace'
-    ),
-    Source(
-        auto.index,
-        '~/.local/share/calendars'
-    ),
-    Source(
-        auto.index,
-        '~/.local/share/mail'
-    ),
-    Source(
-        auto.index,
-        '~/.cache/zsh/history'
-    ),
 ]
+#    Source(
+#        auto.index,
+#        '~/Documents/Notes/Workspace'
+#    ),
+#    Source(
+#        auto.index,
+#        '~/.local/share/calendars'
+#    ),
+#   ]

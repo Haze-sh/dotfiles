@@ -53,36 +53,38 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'vim-scripts/indentpython.vim'
   Plug 'nvie/vim-flake8'
 """ Markdown
-  Plug 'plasticboy/vim-markdown'
-    " disable header folding
-    let g:vim_markdown_folding_disabled = 1
-    " do not use conceal feature, the implementation is not so good
-    let g:vim_markdown_conceal = 0
-    " disable math tex conceal feature
-    let g:tex_conceal = ""
-    let g:vim_markdown_math = 1
-    " support front matter of various format
-    let g:vim_markdown_frontmatter = 1  " for YAML format
-    let g:vim_markdown_toml_frontmatter = 1  " for TOML format
-    let g:vim_markdown_json_frontmatter = 1  " for JSON format
-  Plug 'masukomi/vim-markdown-folding'
-  Plug 'prashanthellina/follow-markdown-links'
+  Plug 'vim-pandoc/vim-pandoc'
+  Plug 'vim-pandoc/vim-pandoc-syntax'
+    let g:pandoc#syntax#conceal#urls = 1
+  "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+    let g:mkdp_auto_close = 0
+  "Plug 'ellisonleao/glow.nvim'
+  "Plug 'tpope/vim-markdown'
+    "let g:markdown_fenced_languages = ['python']
+  "Plug 'plasticboy/vim-markdown'
+  "  " disable header folding
+  "  let g:vim_markdown_folding_disabled = 0
+  "  " do not use conceal feature, the implementation is not so good
+  "  let g:vim_markdown_conceal = 1
+  "  " disable math tex conceal feature
+  "  let g:tex_conceal = ""
+  "  let g:vim_markdown_math = 1
+  "  " support front matter of various format
+  "  let g:vim_markdown_frontmatter = 1  " for YAML format
+  "  let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+  "  let g:vim_markdown_json_frontmatter = 1  " for JSON format
+  "Plug 'masukomi/vim-markdown-folding'
+  "Plug 'prashanthellina/follow-markdown-links'
   Plug 'dkarter/bullets.vim'
     let g:bullets_enabled_file_types = [
     \ 'markdown',
+    \ 'markdown.pandoc',
     \ 'text',
     \ 'gitcommit',
     \ 'scratch'
     \]
   "  let g:bullets_checkbox_markers = '✗○◐●✓'
-  Plug 'vim-pandoc/vim-pandoc'
-  Plug 'vim-pandoc/vim-pandoc-syntax'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-  "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-    let g:mkdp_auto_close = 0
-  "Plug 'ellisonleao/glow.nvim'
-  "Plug 'tpope/vim-markdown'
-    "let g:markdown_fenced_languages = ['python']
   "Plug 'preservim/vim-markdown'
   "Plug 'jtratner/vim-flavored-markdown'
 """ LaTeX
@@ -126,7 +128,7 @@ call plug#begin("~/.config/nvim/plugged")
     let g:fzf_preview_window = ['up:20%:hidden', 'ctrl-/']
   Plug 'alok/notational-fzf-vim'
    let g:nv_search_paths = [$ZET_DIR]
-  Plug 'kien/ctrlp.vim'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'jremmen/vim-ripgrep'
   "  let g:rg_command = 'rg --vimgrep -S'
   "Plug 'nvim-telescope/telescope.nvim'
@@ -344,7 +346,7 @@ filetype plugin indent on
 " Find backlinks to current file and open quickfix list with the results
   function! s:markdown_backlinks()
       call fzf#vim#grep(
-                  \ "rg --column --line-number --no-heading --color=always --smart-case ".expand('%'), 1,
+                  \ "rg --column --line-number --no-heading --color=always --smart-case --max-depth 1 ".expand('%'), 1,
                   \ fzf#vim#with_preview('right:50%:hidden', '?'), 0)
   endfunction
   command! Backlinks call s:markdown_backlinks()
@@ -383,9 +385,9 @@ filetype plugin indent on
   autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
 " Automatically add header to markdown files
-"  au BufNewFile *.md 0r ~/.local/share/nvim/markdown-header.template
-"  autocmd bufnewfile *.c exe "1," . 10 . "g/File Name :.*/s//File Name : " .expand("%")
-"  autocmd BufNewFile *.md exe "1," . 10 . "g/Creation Date :.*/s//Creation Date : " .strftime("%d-%m-%Y")
+  " au BufNewFile *.md 0r ~/.local/share/nvim/markdown-header.template
+  " autocmd bufnewfile *.c exe "1," . 10 . "g/File Name:.*/s//File Name: " .expand("%")
+  " autocmd BufNewFile *.md exe "1," . 10 . "g/Creation Date:.*/s//Creation Date: " .strftime("%d-%m-%Y")
 
 " Enable markdown for calcurse notes
   autocmd BufRead,BufNewFile /tmp/calcurse*,~/.config/calcurse/notes/* set filetype=markdown
@@ -427,6 +429,16 @@ filetype plugin indent on
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
   augroup END
 
+  "augroup pandoc
+  "  autocmd!
+  "  autocmd Filetype pandoc,markdown set filetype=pandoc.markdown
+  "  autocmd Filetype pandoc,markdown set conceallevel=1
+  "  autocmd Filetype pandoc,markdown highlight Conceal ctermbg=NONE
+  "  autocmd Filetype pandoc,markdown highlight Folded ctermbg=NONE
+  "  autocmd Filetype pandoc,markdown call AutoCorrect()
+  "  autocmd Filetype pandoc,markdown EnableAutocorrect
+  "augroup END
+
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 	autocmd BufWritePre * %s/\s\+$//e
 	autocmd BufWritePre * %s/\n\+\%$//e
@@ -466,30 +478,35 @@ filetype plugin indent on
   endfunction
   nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
+"" Add link to next buffer
+  function! s:copy_filename_as_mdlink()
+      let @a = "[" . expand("%") . "](" . expand("%") . ")"
+  endfunction
+  command! FileName call s:copy_filename_as_mdlink()
+  autocmd BufLeave * call s:copy_filename_as_mdlink()
+  "autocmd BufNewFile *.md,*.txt :normal "kp
+  "autocmd BufNewFile *.md,*.txt :let @a = ''
+
 "" CtrlP function for inserting a markdown link with Ctrl-X
-"  function! CtrlPOpenFunc(action, line)
-"     if a:action =~ '^h$'
-"        " Get the filename
-"        let filename = fnameescape(fnamemodify(a:line, ':t'))
-"  	  let filename_wo_timestamp = fnameescape(fnamemodify(a:line, ':t:s/\d\+-//'))
-"
-"        " Close CtrlP
-"        call ctrlp#exit()
-"        call ctrlp#mrufiles#add(filename)
-"
-"        " Insert the markdown link to the file in the current buffer
-"  	  let mdlink = "[ ".filename_wo_timestamp." ]( ".filename." )"
-"        put=mdlink
-"    else
-"        " Use CtrlP's default file opening function
-"        call call('ctrlp#acceptfile', [a:action, a:line])
-"     endif
-"  endfunction
-"
-"  let g:ctrlp_open_func = {
-"           \ 'files': 'CtrlPOpenFunc',
-"           \ 'mru files': 'CtrlPOpenFunc'
-"           \ }
+  fu! CtrlPOpenFunc(action, line)
+     if a:action =~ '^h$'
+        let filename = fnameescape(fnamemodify(a:line, ':t'))
+  	    let filename_wo_timestamp = fnameescape(fnamemodify(a:line, ':t:s/\d*-//'))
+
+        call ctrlp#exit()
+        call ctrlp#mrufiles#add(filename)
+
+  	    let mdlink = '['.filename_wo_timestamp.']('.filename.')'
+        put = mdlink
+      else
+        call call('ctrlp#acceptfile', [a:action, a:line])
+     endif
+  endfunction
+
+  let g:ctrlp_open_func = {
+           \ 'files': 'CtrlPOpenFunc',
+           \ 'mru files': 'CtrlPOpenFunc'
+           \ }
 
 " Function to insert Markdown notes with fzf search
   fu! HandleFZF(file)
@@ -503,7 +520,9 @@ filetype plugin indent on
 "      call writefile(add(readfile(filename), curmdlink), filename)
   endfunction
   command! -nargs=1 HandleFZF :call HandleFZF(<f-args>)
-  inoremap <buffer> <C-X><C-F> <esc>:call fzf#run({'sink': 'HandleFZF'})<CR>
+  inoremap <buffer> <C-X><C-F> <esc>:call fzf#run({'source': 'rg --files --max-depth 1 .', 'sink': 'HandleFZF', 'options': '--delimiter / --with-nth -1', 'window': {'width': 0.9, 'height': 0.6}})<CR>
+  "inoremap <buffer> <C-X><C-F> <esc>:call fzf#run({'source': 'find . -maxdepth 1 -type f',
+  "      \ 'sink': 'HandleFZF', 'window': {'width': 0.9, 'height': 0.6}})<CR>
 
 " Switch to Arabic - mapping
   nnoremap <Leader>a :<C-U>call AraType()<CR>

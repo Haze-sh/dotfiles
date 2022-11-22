@@ -5,4 +5,5 @@
 # book=$(find ~/Documents/Library | fzf | sed 's/.*/"&"/') && zathura $book
 
 # cd ~/Documents/Library ; find . | fzf | (nohup xargs -I{} zathura "{}" >/dev/null 2>&1 &)
-cd ~/Documents/Library ; fzf --keep-right | (nohup xargs -I{} zathura "{}" >/dev/null 2>&1 &)
+# cd ~/Documents/Library ; fzf --keep-right | (nohup xargs -I{} zathura "{}" >/dev/null 2>&1 &)
+cd ~/Documents/Library ; fzf --delimiter / --with-nth -1 | (nohup xargs -I{} zathura "{}" >/dev/null 2>&1 &)
