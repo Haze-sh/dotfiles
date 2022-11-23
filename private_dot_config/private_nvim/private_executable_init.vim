@@ -57,8 +57,8 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'vim-pandoc/vim-pandoc-syntax'
     let g:pandoc#syntax#conceal#urls = 1
   "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-    let g:mkdp_auto_close = 0
+  "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+  "  let g:mkdp_auto_close = 0
   "Plug 'ellisonleao/glow.nvim'
   "Plug 'tpope/vim-markdown'
     "let g:markdown_fenced_languages = ['python']
