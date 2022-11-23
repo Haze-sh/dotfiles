@@ -1,4 +1,4 @@
-let mapleader="\\"
+let mapleader=","
 
 " Vim-plug install
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
