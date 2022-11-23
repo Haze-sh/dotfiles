@@ -1,0 +1,60 @@
+#!/bin/sh
+
+# Sync Tasks
+@ 01 topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt --reverse
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.txt
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.txt --reverse
+@ 01 jrnl --format md > $HOME/Documents/Notes/Personal/Journal/GTD/Journal.md
+@ 01 $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
+@ 15 $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
+@ 15 $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
+@ 15 calcurse -x > $HOME/.local/share/calendars/main/main.ics
+@ 30 promnesia index
+
+## Exports
+@ 60 browserexport save --profile sx15jrar.User.js -b firefox --to $HOME/Documents/Notes/Personal/Journal/Collections/References/Data/Browser
+@ 60 browserexport merge --json $HOME/Documents/Notes/Personal/Journal/Collections/References/Data/Browser/*.sqlite > $HOME/Documents/Notes/Personal/Journal/Collections/References/Data/Browser/firefox-history.json
+@ 60 $HOME/.local/bin/scripts/merge-browser-history
+@ 60 $HOME/.local/bin/scripts/merge-mpv-data
+@ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
+@ 60 python -m orger.modules.hypothesis --to $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.org
+@ 60 torsimany $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
+@ 60 wget http://localhost:5600/api/0/export -O $HOME/Documents/Notes/Personal/References/Data/ActivityWatch/export.json
+@ 1d tree -f -L 1 -I "*.txt|*.html|*/" $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/References/tree.txt
+
+# Daily Feed
+@ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
+@ 60 sfeed_html $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.html
+@ 60 sfeed_plain $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.txt
+@ 60 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=~/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
+
+# Total Feed
+%hours * 06-09,21-00 * * * sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
+%hours * 06-09,21-00 * * * sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
+%hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
+%hours * 06-09,21-00 * * * newsboat --url-file=$HOME/.config/newsboat/urls -x reload
+
+# Cleanup
+@ 1d rm $HOME/core
+@ 1d rm $HOME/.bg
+@ 1d rm $HOME/.yarnrc
+@ 1d rm $HOME/package.json
+@ 1d rm $HOME/package-lock.json
+@ 1d rm $HOME/.autotiling.bolt
+@ 1d rm -r $HOME/.npm
+@ 1d rm -r $HOME/node_modules
+@ 1d rm -r $HOME/.node-gyp
+@ 1d rm -r $HOME/.electron
+@ 1d rm -r $HOME/.electron-gyp
+@ 1d rm -r $HOME/.nuget
+@ 1d rm -r $HOME/.dotnet
+
+# Backup
+@ 1d rsync -r $HOME/Documents/Notes/Personal/Journal $HOME/Documents/Notes/Workspace/Repos/personal/backup/
+@ 1d dconf dump / > $HOME/.config/saved_settings.dconf
+
+# Notifications
+@ 20160 notify-send "Upgrade system"
+@ 20160 notify-send "Clear caches"

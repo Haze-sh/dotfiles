@@ -1,16 +1,18 @@
 #!/bin/sh
 
 # Autostart
+# yams & disown ;
+moonphase ;
 safeeyes & disown ;
 mopidy & disown ;
 beet web & disown ;
 python3 ~/.local/bin/inkscape-shortcut-manager/main.py & disown ;
 rsshub.start & disown ;
 bukuserver run --host 127.0.0.1 --port 5001 & disown ;
+aw-server & disown ;
+calcurse --daemon ;
 cd $ARCHIVE/archivebox ; archivebox server 0.0.0.0:8000 & disown ;
 promnesia serve & disown ;
 mpv_history_daemon_restart $HPIDATA/MPV ;
 syncthing -no-browser & disown ;
-aw-server & disown ;
-calcurse --daemon ;
-# yams & disown ;
+newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=~/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count ;
