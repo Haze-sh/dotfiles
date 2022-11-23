@@ -1,4 +1,4 @@
-let mapleader=","
+let mapleader="\\"
 
 " Vim-plug install
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
@@ -151,7 +151,9 @@ call plug#begin("~/.config/nvim/plugged")
   "Plug 'honza/vim-snippets'
   "Plug 'Shougo/neosnippet.vim'
   "Plug 'Shougo/neosnippet-snippets'
-  Plug 'ActivityWatch/aw-watcher-vim'
+  if system('pgrep aw-server')
+    Plug 'ActivityWatch/aw-watcher-vim'
+  endif
   Plug 'mattn/calendar-vim'
   "Plug 'itchyny/calendar.vim'
   "Plug 'preservim/tagbar'
@@ -385,9 +387,9 @@ filetype plugin indent on
   autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
 " Automatically add header to markdown files
-  " au BufNewFile *.md 0r ~/.local/share/nvim/markdown-header.template
-  " autocmd bufnewfile *.c exe "1," . 10 . "g/File Name:.*/s//File Name: " .expand("%")
-  " autocmd BufNewFile *.md exe "1," . 10 . "g/Creation Date:.*/s//Creation Date: " .strftime("%d-%m-%Y")
+  autocmd BufNewFile *.md 0r ~/.local/share/nvim/markdown-header.template
+  autocmd BufNewFile *.md | 1put='Title: '.expand('%')
+  autocmd BufNewFile *.md | 2put='Creation: '.strftime('%Y%m%d%H%M%S')
 
 " Enable markdown for calcurse notes
   autocmd BufRead,BufNewFile /tmp/calcurse*,~/.config/calcurse/notes/* set filetype=markdown

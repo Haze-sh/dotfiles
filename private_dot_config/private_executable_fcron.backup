@@ -10,11 +10,19 @@
 @ 01 $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
 @ 15 $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
 @ 15 $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
-@ 30 calcurse -x > $HOME/.local/share/calendars/main/main.ics
+@ 20 calcurse -x > $HOME/.local/share/calendars/main/main.ics
 @ 60 promnesia index
-@ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
-@ 60 python -m orger.modules.hypothesis --to $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.org
-@ 60 torsimany $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
+
+## Exports
+# @ 60 browserexport save --profile sx15jrar.User.js -b firefox --to $HOME/Documents/Notes/Personal/Journal/Collections/References/Data/Browser
+# @ 60 browserexport merge --json $HOME/Documents/Notes/Personal/Journal/Collections/References/Data/Browser/*.sqlite > $HOME/Documents/Notes/Personal/Journal/Collections/References/Data/Browser/firefox-history.json
+# @ 60 $HOME/.local/bin/scripts/merge-browser-history
+# @ 60 mpv_history_daemon_restart $HPIDATA/MPV
+# @ 60 $HOME/.local/bin/scripts/merge-mpv-data
+# @ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
+# @ 60 python -m orger.modules.hypothesis --to $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.org
+# @ 60 torsimany $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
+# @ 60 wget http://localhost:5600/api/0/export -O $HOME/Documents/Notes/Personal/References/Data/ActivityWatch/export.json
 
 # Total Feed
 @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
@@ -45,8 +53,7 @@
 
 # Daily Tasks
 %daily * 06 moonphase
-%daily * 00 tree -f -L 1 -I "*.txt|*.html|*/" $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/001-tree.txt
-%daily * 00 $HOME/.local/bin/scripts/tree-index-md $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/000-index.md
+%daily * 00 tree -f -L 1 -I "*.txt|*.html|*/" $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/References/tree.txt
 %daily * 00 dconf dump / > $HOME/.config/saved_settings.dconf
 
 # Backup
