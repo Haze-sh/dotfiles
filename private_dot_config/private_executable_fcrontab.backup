@@ -1,12 +1,36 @@
 #!/bin/sh
 
+NOTES_DIR="$HOME/Documents/Notes"
+PERSONAL_NOTES_DIR="$HOME/Documents/Notes/Personal"
+WORK_NOTES_DIR="$HOME/Documents/Notes/Workspace"
+JOURNAL_DIR="$HOME/Documents/Notes/Personal/Journal"
+GTD_DIR="$JOURNAL_DIR/GTD"
+ZET_DIR="$JOURNAL_DIR/Collections"
+ZK_NOTEBOOK_DIR="$JOURNAL_DIR/Collections"
+DEFAULT_JRNL="$GTD_DIR/Journal.txt"
+HABITS_JRNL="$GTD_DIR/habitstracker.txt"
+WORK_JRNL="$GTD_DIR/work.txt"
+WORKOUT_JRNL="$GTD_DIR/workout.txt"
+TODOTXT_FILE="$GTD_DIR/TODO/todo.txt"
+TODO_FILE="$GTD_DIR/TODO/todo.txt"
+DONE_FILE="$GTD_DIR/TODO/done.txt"
+LEDGER_FILE="$ZET_DIR/wealth.ledger"
+TIME_FILE="$ZET_DIR/timetracking.ledger"
+COURSES="$HOME/Documents/Notes/Personal/Courses"
+CODEBOX="$HOME/Documents/Notes/Workspace/Codebox"
+REPOS="$HOME/Documents/Notes/Workspace/Repos"
+KEEPASS_FILE="$ZET_DIR/References/passwords.kbdx"
+BUKU_XBEL="$ZET_DIR/References/buku.xbel"
+BUKU_MD="$ZET_DIR/References/buku.md"
+HPIDATA="$ZET_DIR/References/Data"
+
 # Sync Tasks
 @ 01 topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
-@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt
-@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt --reverse
-@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.txt
-@ 01 python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.txt --reverse
-@ 01 jrnl --format md > $HOME/Documents/Notes/Personal/Journal/GTD/Journal.md
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE --reverse
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE
+@ 01 python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE --reverse
+@ 01 jrnl --config-override journals.default $DEFAULT_JRNL --format md > $GTD_DIR/Journal.md
 @ 01 $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
 @ 15 $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
 @ 15 $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
@@ -14,15 +38,15 @@
 @ 30 promnesia index
 
 ## Exports
-@ 60 browserexport save --profile sx15jrar.User.js -b firefox --to $HOME/Documents/Notes/Personal/Journal/Collections/References/Data/Browser
-@ 60 browserexport merge --json $HOME/Documents/Notes/Personal/Journal/Collections/References/Data/Browser/*.sqlite > $HOME/Documents/Notes/Personal/Journal/Collections/References/Data/Browser/firefox-history.json
+@ 60 wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
+@ 60 $HOME/.local/bin/scripts/browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser
+@ 60 $HOME/.local/bin/scripts/browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
 @ 60 $HOME/.local/bin/scripts/merge-browser-history
 @ 60 $HOME/.local/bin/scripts/merge-mpv-data
-@ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
-@ 60 python -m orger.modules.hypothesis --to $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.org
-@ 60 torsimany $HOME/Documents/Notes/Personal/Journal/Collections/Annotations/hyp-annotations.json
-@ 60 wget http://localhost:5600/api/0/export -O $HOME/Documents/Notes/Personal/References/Data/ActivityWatch/export.json
-@ 1d tree -f -L 1 -I "*.txt|*.html|*/" $HOME/Documents/Notes/Personal/Journal/Collections > $HOME/Documents/Notes/Personal/Journal/Collections/References/tree.txt
+@ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $ZET_DIR/Annotations/hyp-annotations.json
+@ 60 python -m orger.modules.hypothesis --to $ZET_DIR/Annotations/hyp-annotations.org
+@ 60 torsimany $ZET_DIR/Annotations/hyp-annotations.json
+@ 1d tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
 
 # Daily Feed
 @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
@@ -52,7 +76,7 @@
 @ 1d rm -r $HOME/.dotnet
 
 # Backup
-@ 1d rsync -r $HOME/Documents/Notes/Personal/Journal $HOME/Documents/Notes/Workspace/Repos/personal/backup/
+@ 1d rsync -r $JOURNAL_DIR $REPOS/personal/backup/
 @ 1d dconf dump / > $HOME/.config/saved_settings.dconf
 
 # Notifications
