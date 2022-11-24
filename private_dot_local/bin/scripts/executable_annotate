@@ -1,6 +1,6 @@
 #!/bin/sh
 
-file="$ZET_DIR/webmarks.md"
+file="$ZET_DIR/Annotations/annotations.markdown"
 
 function exists_or_create() {
     if [[ -f "$2" ]]; then

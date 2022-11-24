@@ -1,5 +1,7 @@
 #!/bin/sh
 
+HYPOTHESIS_USER="$(pass show user)"
+HYPOTHESIS_PASS="$(pass show hypothesis)"
 NOTES_DIR="$HOME/Documents/Notes"
 PERSONAL_NOTES_DIR="$HOME/Documents/Notes/Personal"
 WORK_NOTES_DIR="$HOME/Documents/Notes/Workspace"
@@ -43,7 +45,7 @@ HPIDATA="$ZET_DIR/References/Data"
 @ 60 $HOME/.local/bin/scripts/browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
 @ 60 $HOME/.local/bin/scripts/merge-browser-history
 @ 60 $HOME/.local/bin/scripts/merge-mpv-data
-@ 60 python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $ZET_DIR/Annotations/hyp-annotations.json
+@ 60 python -m hypexport.export --username $HYPOTHESIS_USER --token $HYPOTHESIS_PASS > $ZET_DIR/Annotations/hyp-annotations.json
 @ 60 python -m orger.modules.hypothesis --to $ZET_DIR/Annotations/hyp-annotations.org
 @ 60 torsimany $ZET_DIR/Annotations/hyp-annotations.json
 @ 1d tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
