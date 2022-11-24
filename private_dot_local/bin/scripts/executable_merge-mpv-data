@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -o pipefail
+set -ex
+
+HPIDATA=$HOME/Documents/Notes/Personal/Journal/Collections/References/Data
+
+main() {
+	local write_to mpv_dir move_to
+	mpv_dir=${HPIDATA}/MPV
+	move_to="${HOME}/.cache/mpv_removed"
+	rsync -Pavh "${mpv_dir}"/ "$move_to"
+	write_to="${mpv_dir}/merged-$(epoch).json"
+	mpv-history-daemon merge "${mpv_dir}" --move "${move_to}" --write-to "${write_to}"
+	dust "${mpv_dir}"
+	rm -f "${move_to}"/merged-*.json
+}
+
+main || exit $?
