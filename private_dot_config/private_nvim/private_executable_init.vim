@@ -387,9 +387,9 @@ filetype plugin indent on
   autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
 " Automatically add header to markdown files
-  autocmd BufNewFile *.md 0r ~/.local/share/nvim/markdown-header.template
-  autocmd BufNewFile *.md | 1put='Title: '.expand('%')
-  autocmd BufNewFile *.md | 2put='Creation: '.strftime('%Y%m%d%H%M%S')
+"  autocmd BufNewFile *.md 0r ~/.local/share/nvim/markdown-header.template
+"  autocmd BufNewFile *.md | 1put='Title: '.expand('%')
+"  autocmd BufNewFile *.md | 2put='Creation: '.strftime('%Y%m%d%H%M%S')
 
 " Enable markdown for calcurse notes
   autocmd BufRead,BufNewFile /tmp/calcurse*,~/.config/calcurse/notes/* set filetype=markdown

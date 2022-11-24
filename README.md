@@ -20,6 +20,7 @@ flavours apply $SCHEME
 ## Caveats
 
 - Some config files are path dependant
+	- fcrontab
 	* keepmenu
 
 - Some scripts are path dependant
