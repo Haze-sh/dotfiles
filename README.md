@@ -11,10 +11,11 @@ chezmoi init --apply --exclude=encrypted https://github.com/Haze-sh/dotfiles.git
 
 ```
 flavours update all
+flavours apply $SCHEME
 ```
 
 - Add user preset to gradience (Until there is a command to do so)
-- Add fcron.backup > fcrontab entries
+- Add fcrontab.backup > fcrontab entries
 
 ## Caveats
 
@@ -25,3 +26,5 @@ flavours update all
 	* bukusync
 	* setwallpaper
 	* zathura-annotate
+	* merge-browser-history
+	* merge-mpv-data
