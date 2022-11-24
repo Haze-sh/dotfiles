@@ -326,7 +326,6 @@ mode "resize" {
     bindsym $mod+Shift+q kill
     bindsym $mod+Return exec $term
     bindsym $mod+d exec $menu -i --show drun | xargs swaymsg exec --
-    bindsym $mod+Alt+d exec $menu -i --show run | xargs swaymsg exec --
     bindsym $mod+b exec bemenu-run
     bindsym $mod+p exec keepmenu
 
@@ -359,20 +358,20 @@ mode "resize" {
     bindsym Alt+m exec flavours generate $(darkmode q) ~/.local/share/backgrounds/wallpaper.png && flavours apply generated
 
     # Toggle light/dark mode themes
-    bindsym Alt+0 exec darkmode
+    bindsym Alt+u exec darkmode
 
     # Random theme
-    bindsym Alt+8 exec flavours apply
+    bindsym Alt+v exec flavours apply
 
     # Random wallpaper
     bindsym Alt+x exec setwallpaper -R
 
 # Menu Configuration
     bindsym Alt+a        exec csv-launcher
-    bindsym Alt+p        exec wofipassmenu $menu
     bindsym Alt+b        exec wofibukumenu $menu
-    bindsym Alt+r        exec wofirssmenu $menu
     bindsym Alt+e        exec wofi-emoji $menu
+    bindsym Alt+p        exec wofipassmenu $menu
+    bindsym Alt+r        exec wofirssmenu $menu
     bindsym Alt+Tab      exec windows $menu
     bindsym $mod+c       exec $clipboard pick -t $menu
     bindsym $mod+Shift+c exec $clipboard clear -t $menu
