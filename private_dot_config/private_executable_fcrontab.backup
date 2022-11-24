@@ -78,7 +78,6 @@ HPIDATA="$ZET_DIR/References/Data"
 @ 1d rm -r $HOME/.dotnet
 
 # Backup
-@ 1d rsync -r $JOURNAL_DIR $REPOS/personal/backup/
 @ 1d dconf dump / > $HOME/.config/saved_settings.dconf
 
 # Notifications
