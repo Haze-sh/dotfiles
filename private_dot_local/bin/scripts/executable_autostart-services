@@ -13,6 +13,6 @@ aw-server & disown ;
 calcurse --daemon ;
 cd $ARCHIVE/archivebox ; archivebox server 0.0.0.0:8000 & disown ;
 promnesia serve & disown ;
-mpv_history_daemon_restart $HPIDATA/MPV ;
 syncthing -no-browser & disown ;
 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=~/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count ;
+mpv_history_daemon_restart $HPIDATA/MPV ;
