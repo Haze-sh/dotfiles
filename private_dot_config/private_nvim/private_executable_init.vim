@@ -75,7 +75,7 @@ call plug#begin("~/.config/nvim/plugged")
   "  let g:vim_markdown_toml_frontmatter = 1  " for TOML format
   "  let g:vim_markdown_json_frontmatter = 1  " for JSON format
   "Plug 'masukomi/vim-markdown-folding'
-  "Plug 'prashanthellina/follow-markdown-links'
+  Plug 'prashanthellina/follow-markdown-links'
   Plug 'dkarter/bullets.vim'
     let g:bullets_enabled_file_types = [
     \ 'markdown',

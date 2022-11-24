@@ -14,6 +14,7 @@ journals:
   habits: $HABITS_JRNL
   work: $WORK_JRNL
   workout: $WORKOUT_JRNL
+  people: $PEOPLE_JRNL
 linewrap: 79
 tagsymbols: '@'
 template: false
