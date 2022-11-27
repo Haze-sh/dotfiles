@@ -12,9 +12,10 @@ indent_character: '|'
 journals:
   default: $DEFAULT_JRNL
   habits: $HABITS_JRNL
+  learn: $LEARN_JRNL
   work: $WORK_JRNL
   workout: $WORKOUT_JRNL
-  people: $PEOPLE_JRNL
+  meetings: $MEETINGS_JRNL
 linewrap: 79
 tagsymbols: '@'
 template: false
