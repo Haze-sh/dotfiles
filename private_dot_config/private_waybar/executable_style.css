@@ -5,9 +5,9 @@
 	  font-size: 10px;
 	  font-family: Hack, "Font Awesome 5 Free";
     color: @base07;
-    /*font-family: Fira Sans, Fira Code NerdFont;
-    font-size: 12pt; */
-    /* margin: 1.8px 12px 1.8px 12px; */
+    /*font-family: Fira Sans, Fira Code NerdFont; */
+    font-size: 8pt;
+    margin: 0px 5px 0px 5px;
 }
 
 window#waybar.top {
