@@ -13,7 +13,7 @@ main() {
 	write_to="${mpv_dir}/merged-$(epoch).json"
 	mpv-history-daemon merge "${mpv_dir}" --move "${move_to}" --write-to "${write_to}"
 	dust "${mpv_dir}"
-	rm -f "${move_to}"/merged-*.json
+	rm -f "${move_to}"/merged.json
 }
 
 main || exit $?

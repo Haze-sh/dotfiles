@@ -45,10 +45,11 @@ HPIDATA="$ZET_DIR/References/Data"
 @ 60 $HOME/.local/bin/scripts/browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
 @ 60 $HOME/.local/bin/scripts/merge-browser-history
 @ 60 $HOME/.local/bin/scripts/merge-mpv-data
-@ 60 python -m hypexport.export --username $HYPOTHESIS_USER --token $HYPOTHESIS_PASS > $ZET_DIR/Annotations/hyp-annotations.json
-@ 60 python -m orger.modules.hypothesis --to $ZET_DIR/Annotations/hyp-annotations.org
-@ 60 torsimany $ZET_DIR/Annotations/hyp-annotations.json
-@ 1d tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
+@ 60 python -m hypexport.export --username $HYPOTHESIS_USER --token $HYPOTHESIS_PASS > $ZET_DIR/hyp-annotations.json
+@ 60 python -m orger.modules.hypothesis --to $ZET_DIR/hyp-annotations.org
+@ 60 torsimany $ZET_DIR/hyp-annotations.json
+@ 60 tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
+@ 60 tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
 
 # Daily Feed
 @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
@@ -63,7 +64,7 @@ HPIDATA="$ZET_DIR/References/Data"
 %hours * 06-09,21-00 * * * newsboat --url-file=$HOME/.config/newsboat/urls -x reload
 
 # Cleanup
-@ 1d rm $HOME/core
+@ 60 rm $HOME/core
 @ 1d rm $HOME/.bg
 @ 1d rm $HOME/.yarnrc
 @ 1d rm $HOME/package.json
