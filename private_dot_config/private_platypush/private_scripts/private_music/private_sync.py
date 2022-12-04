@@ -1,8 +1,11 @@
+from os import environ
 from logging import getLogger
 
 from platypush.context import get_plugin
 from platypush.event.hook import hook
 from platypush.message.event.music import NewPlayingTrackEvent
+
+USER = environ.get("USER")
 
 logger = getLogger('music_sync')
 

@@ -50,6 +50,7 @@ HPIDATA="$ZET_DIR/References/Data"
 @ 60 torsimany $ZET_DIR/hyp-annotations.json
 @ 60 tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
 @ 60 tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
+@ 60 cp $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA
 @ 60 cp $HOME/.cache/zsh/history $HPIDATA
 
 # Daily Feed

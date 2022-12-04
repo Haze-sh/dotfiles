@@ -31,7 +31,7 @@ template = "emacs"
 rewrite = true
 
 [[item]]
-file = "~/.vscode-oss/extensions/golf1052.base16-generator-1.19.1/themes/base16-default-dark.json"
+file = "~/.vscode-oss/extensions/golf1052.base16-generator/themes/base16-default-dark.json"
 # file = "~/.local/share/vscode/golf1052.base16-generator-1.15.0/themes/base16-default-dark.json"
 template = "vscode"
 rewrite = true
@@ -129,7 +129,7 @@ hook = "killall waybar ; waybar & disown"
 rewrite = true
 
 [[item]]
-file = '~/Documents/Notes/Personal/Journal/logseq/custom.css'
+file = '$JOURNAL_DIR/logseq/custom.css'
 template = "logseq"
 start = "/* Start flavours */"
 end = "/* End flavours */"

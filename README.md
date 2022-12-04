@@ -9,9 +9,8 @@ My dotfiles Repo!
 chezmoi init --apply --exclude=encrypted https://github.com/Haze-sh/dotfiles.git
 ```
 
-## After Applying
+## Themes
 
-### Themes
 ```
 flavours update all
 flavours apply $SCHEME
@@ -19,13 +18,14 @@ flavours apply $SCHEME
 
 - Add user preset to gradience (Until there is a command to do so)
 
-### Backups
+## Backups
+
 - permessions.backup
 - fcrontab.backup
 
 ## Passwords
 
-It is easier to use some scripts by saving passwords to gnupass:
+It is easier to use some scripts by saving passwords to gnupass rather than manually doing stuff:
 
 - Hypothesis username as "user"
 - Hypothesis token as "hypothesis"
@@ -35,8 +35,7 @@ It is easier to use some scripts by saving passwords to gnupass:
 ## Minor Caveats
 
 - Some scripts are path dependant
-	* bukusync
 	* setwallpaper
-	* zathura-annotate
+	* syncbuku
 	* merge-browser-history
 	* merge-mpv-data
