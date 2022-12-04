@@ -35,10 +35,12 @@ sudo cp $HOME/.config/totem.thumbnailer /usr/share/thumbnailers/totem.thumbnaile
 
 It is easier to use some scripts by saving passwords to gnupass rather than manually doing stuff:
 
-- Hypothesis username as "user"
-- Hypothesis token as "hypothesis"
-- KeePass password as "keepass"
-- KeePass TOTP password as "totp"
+```bash
+pass add user # Hypothesis username
+pass add hypothesis # Hypothesis token
+pass add keepass # KeePass password
+pass add totp # KeePass TOTP
+```
 
 ## Minor Caveats
 
