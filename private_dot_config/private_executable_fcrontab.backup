@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Environment Variables
 HYPOTHESIS_USER="$(pass show user)"
 HYPOTHESIS_PASS="$(pass show hypothesis)"
 NOTES_DIR="$HOME/Documents/Notes"

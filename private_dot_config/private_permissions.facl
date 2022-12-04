@@ -1,5 +1,4 @@
-# file: home/$USER/Music
-# owner: $USER
+# file: Music
 # group: audio
 user::rwx
 group::rwx
