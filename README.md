@@ -2,7 +2,6 @@
 
 My dotfiles Repo!
 
-```
 [H[2J
 
 
@@ -37,7 +36,6 @@ My dotfiles Repo!
 \d
 \s \v \r
 \U
-```
 
 ## To Apply
 
