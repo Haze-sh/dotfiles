@@ -1,6 +1,12 @@
+from os import environ
 from promnesia.common import Source
 from promnesia.sources import auto
 # from promnesia.sources import hypothesis
+
+ZET_DIR = environ.get("ZET_DIR")
+GTD_DIR = environ.get("GTD_DIR")
+COURSES = environ.get("COURSES")
+WORK_NOTES_DIR = environ.get("WORK_NOTES_DIR")
 
 SOURCES = [
     Source(
@@ -13,7 +19,7 @@ SOURCES = [
     ),
     Source(
         auto.index,
-        '~/Documents/Notes/Personal/Journal/Collections',
+        ZET_DIR,
         ignored=['*.lock', '*.html', '*.yml', '*.toml', '*.org',
                  '*.xbel', '*.ods', '*.xlsx', '*.csv', '*.kdbx', '*.xopp',
                  '*.pdf', '*.jrnl', '*.ledger', '*.db'],
@@ -21,18 +27,18 @@ SOURCES = [
     ),
     Source(
         auto.index,
-        '~/Documents/Notes/Personal/Journal/GTD',
+        GTD_DIR,
         ignored=['*.org', '*.jrnl', '*.bak'],
         name='Journals & TODO',
     ),
     Source(
         auto.index,
-        '~/Documents/Notes/Personal/Courses'
+        COURSES,
     ),
 ]
 #    Source(
 #        auto.index,
-#        '~/Documents/Notes/Workspace'
+#        WORK_NOTES_DIR,
 #    ),
 #    Source(
 #        auto.index,

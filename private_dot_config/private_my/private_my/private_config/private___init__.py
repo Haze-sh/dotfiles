@@ -1,4 +1,4 @@
-from os import environ, path
+from os import environ
 from typing import Optional, Callable, List, Set
 from pathlib import Path
 from my.core import Paths, PathIsh
@@ -99,7 +99,7 @@ def annotations(p: PathIsh) -> Path:
 
 
 class hypothesis:       # https://github.com/karlicoss/hypexport
-    export_path: Paths = annotations('Annotations/hyp-annotations.json')
+    export_path: Paths = annotations('hyp-annotations.json')
 
 
 # class commits:
