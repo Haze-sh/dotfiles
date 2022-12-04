@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# Must be root
-
-cp $DOTFILES/etc/iwd/main /etc/iwd/main.conf

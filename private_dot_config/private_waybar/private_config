@@ -483,6 +483,7 @@
       //"custom/separator",
       "custom/waybar-mpris",
       "pulseaudio",
+      "custom/bluetooth",
       //"custom/separator",
       "cpu",
       "memory",
@@ -681,6 +682,11 @@
     "on-scroll-down": "waybar-mpris --send prev",
     "max-length": 10,
     "escape": true
+},
+
+  "custom/bluetooth": {
+  "format": "",
+  "on-click": "blueman-manager"
 },
 
 "custom/safeeyes": {

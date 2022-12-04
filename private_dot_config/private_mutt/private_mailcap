@@ -1,0 +1,2 @@
+text/calendar; mutt_icalparser; description=iCal details; copiousoutput; print=calcurse -i
+application/ics; mutt_icalparser; description=iCal details; copiousoutput; print=calcurse -i

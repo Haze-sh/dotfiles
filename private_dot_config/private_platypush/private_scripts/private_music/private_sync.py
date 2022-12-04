@@ -7,7 +7,7 @@ from platypush.message.event.music import NewPlayingTrackEvent
 logger = getLogger('music_sync')
 
 # SQLAlchemy connection string that points to your database
-music_db_engine = 'postgresql+pg5432://electron@localhost/music'
+music_db_engine = 'postgresql+pg5432://$USER@localhost/music'
 
 
 # Hook that react to NewPlayingTrackEvent events
