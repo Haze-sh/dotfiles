@@ -107,12 +107,12 @@ call plug#begin("~/.config/nvim/plugged")
     "let g:Todo_fold_char='+'
     let g:Todo_update_fold_on_sort=1
     let g:TodoTxtSortDueDateCursorPos = "top"
-  Plug 'lgalke/gather-todo.txt-vim'
   Plug 'EdwinWenink/capture-todo.vim'
     let g:todo_location=$TODO_FILE
+  Plug 'lgalke/gather-todo.txt-vim'
 """ jrnl
-  Plug 'junegunn/vim-journal'
   Plug 'wren/jrnl.vim'
+  "Plug 'junegunn/vim-journal'
   "Plug 'vuciv/vim-bujo'
   "Plug 'austintraver/vim-jrnl'
   "Plug 'mode89/vim-jrnl-syntax'
@@ -283,7 +283,7 @@ filetype plugin indent on
 	map <C-l> <C-w>l
 
 " Spell-check set to <leader>s, 'o' for 'othography'
-	map <leader>o :setlocal spell! spelllang=en_us,de_de<CR>
+	map <leader>o :setlocal spell! spelllang=en_us,de_de,ar_ar<CR>
 
 " Check file in shellcheck
 	map <leader>s :!clear && shellcheck -x %<CR>
@@ -323,17 +323,21 @@ filetype plugin indent on
 
 " Adding new note
   let g:zettelkasten = $ZET_DIR
-  command! -nargs=1 Zet :execute ":e" zettelkasten . "<args>.md"
+  command! -nargs=1 Zet :execute ":e" zettelkasten . "/<args>.md"
   nnoremap <leader>nz :Zet
   " cnoremap :nz e $ZET_DIR<c-r>=strftime("%Y%m%d%H%M")<CR>-
-  " nnoremap <leader>z :e $NOTES_DIR
+  " nnoremap <leader>z :e $ZET_DIR
 
 " Go to index of notes and set working directory to my notes
-  nnoremap <leader>ni :e $NOTES_DIR/index.md<CR>:cd $NOTES_DIR<CR>
+  nnoremap <leader>ni :e $ZET_DIR/000-index.md<CR>:cd $ZET_DIR<CR>
 
 " 'Notes Grep' with ripgrep
-  command! -nargs=1 Ngrep :silent grep! "<args>" -i -g '*.md' $NOTES_DIR | execute ':redraw!' | copen
+  command! -nargs=1 Ngrep :silent grep! "<args>" -i -g '*.md' $ZET_DIR | execute ':redraw!' | copen
   nnoremap <leader>nn :Ngrep
+
+" Quickfix list in vertical sidbar
+  command! Vlist botright vertical copen | vertical resize 50
+  nnoremap <leader>v :Vlist<CR>
 
 " Add table of content to markdown
   nnoremap <silent> <Leader>t :Toc<cr>
@@ -454,6 +458,9 @@ filetype plugin indent on
       call matchadd('Conceal', '- \[i\]', 10, -1, { 'conceal': ''})
       call matchadd('Conceal', '- \[\.\]', 10, -1, { 'conceal': ''})
       call matchadd('Conceal', '- \[\*\]', 10, -1, { 'conceal': ''})
+      call matchadd('Conceal', '- \TODO', 10, -1, { 'conceal': ''})
+      call matchadd('Conceal', '- \LATER', 10, -1, { 'conceal': ''})
+      call matchadd('Conceal', '- \DONE', 10, -1, { 'conceal': ''})
       call matchadd('Conceal', '^\s*\zs-\ze [^\[]', 10, -1, { 'conceal': ''})
   augroup END
 

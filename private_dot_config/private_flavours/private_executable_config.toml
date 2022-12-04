@@ -127,3 +127,9 @@ template = "waybar"
 #hook = "pkill -SIGRTMIN+7 waybar"
 hook = "killall waybar ; waybar & disown"
 rewrite = true
+
+[[item]]
+file = '~/Documents/Notes/Personal/Journal/logseq/custom.css'
+template = "logseq"
+start = "/* Start flavours */"
+end = "/* End flavours */"
