@@ -23,11 +23,16 @@ flavours apply $SCHEME
 - permessions.backup
 - fcrontab.backup
 
-## Minor Caveats
+## Passwords
 
-- Some config files are path dependant
-	- fcrontab
-	* keepmenu
+It is easier to use some scripts by saving passwords to gnupass:
+
+- Hypothesis username as "user"
+- Hypothesis token as "hypothesis"
+- KeePass password as "keepass"
+- KeePass TOTP password as "totp"
+
+## Minor Caveats
 
 - Some scripts are path dependant
 	* bukusync
