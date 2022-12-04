@@ -1,4 +1,5 @@
-# dotfiles
+# ~ dotfiles ~ 🐈 🍻
+
 My dotfiles Repo!
 
 ## To Apply
