@@ -1,7 +1,6 @@
 # file: home/electron/Music
-# owner: electron
+# owner: $USER
 # group: audio
 user::rwx
 group::rwx
 other::---
-
