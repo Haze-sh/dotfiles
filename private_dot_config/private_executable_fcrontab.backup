@@ -42,15 +42,15 @@ HPIDATA="$ZET_DIR/References/Data"
 
 ## Exports
 @ 60 wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
-@ 60 $HOME/.local/bin/scripts/browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser
-@ 60 $HOME/.local/bin/scripts/browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
+@ 60 browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser
+@ 60 browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
 @ 60 $HOME/.local/bin/scripts/merge-browser-history
 @ 60 $HOME/.local/bin/scripts/merge-mpv-data
 @ 60 python -m hypexport.export --username $HYPOTHESIS_USER --token $HYPOTHESIS_PASS > $ZET_DIR/hyp-annotations.json
 @ 60 python -m orger.modules.hypothesis --to $ZET_DIR/hyp-annotations.org
 @ 60 torsimany $ZET_DIR/hyp-annotations.json
 @ 60 tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
-@ 60 tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
+@ 60 $HOME/.local/bin/scripts/tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
 @ 60 cp $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA
 @ 60 cp $HOME/.cache/zsh/history $HPIDATA
 
