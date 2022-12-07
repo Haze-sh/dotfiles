@@ -1,12 +1,6 @@
 shell = "sh -c '{}'"
 
 [[item]]
-file = "~/.config/alacritty/alacritty.yml"
-template = "alacritty"
-start = "# Start flavours #"
-end = "# End flavours #"
-
-[[item]]
 file = "~/.config/kitty/kitty.conf"
 template = "kitty"
 hook = "kitty @ set-colors -a -c ~/.config/kitty/kitty.conf"
@@ -26,13 +20,8 @@ hook = "reloadnvim"
 rewrite = true
 
 [[item]]
-file = "~/.config/emacs/init.el"
-template = "emacs"
-rewrite = true
-
-[[item]]
-file = "~/.loca/share/vscode/extensions/golf1052.base16-generator/themes/base16-default-dark.json"
-# file = "~/.vscode-oss/extensions/golf1052.base16-generator/themes/base16-default-dark.json"
+file = "~/.vscode-oss/extensions/golf1052.base16-generator/themes/base16-default-dark.json"
+# file = "~/.local/share/vscode/golf1052.base16-generator-1.15.0/themes/base16-default-dark.json"
 template = "vscode"
 rewrite = true
 
@@ -42,18 +31,18 @@ template = "zathura"
 start = "# Start flavours"
 end = "# End flavours"
 
-[[item]]
-file = "~/.local/share/themes/FlatColor/colors2"
-template = "gtk-flatcolor"
-subtemplate = "gtk-2"
-rewrite = true
-
-[[item]]
-file = "~/.local/share/themes/FlatColor/colors3"
-template = "gtk-flatcolor"
-subtemplate = "gtk-3"
-rewrite = true
-#hook = "gsettings set org.gnome.desktop.interface gtk-theme dummy && gsettings set org.gnome.desktop.interface gtk-theme FlatColor"
+# [[item]]
+# file = "~/.local/share/themes/FlatColor/colors2"
+# template = "gtk-flatcolor"
+# subtemplate = "gtk-2"
+# rewrite = true
+#
+# [[item]]
+# file = "~/.local/share/themes/FlatColor/colors3"
+# template = "gtk-flatcolor"
+# subtemplate = "gtk-3"
+# rewrite = true
+## hook = "gsettings set org.gnome.desktop.interface gtk-theme dummy && gsettings set org.gnome.desktop.interface gtk-theme FlatColor"
 
 [[item]]
 file = "~/.config/presets/user/User.json"
@@ -114,12 +103,12 @@ template = "bemenu"
 start = "# Start flavours bemenu"
 end = "# End flavours bemenu"
 
-[[item]]
-file = "~/.config/qutebrowser/config.py"
-template = "qutebrowser"
-start = "# Start flavours"
-end = "# End flavours"
-hook = "reloadqb"
+# [[item]]
+# file = "~/.config/qutebrowser/config.py"
+# template = "qutebrowser"
+# start = "# Start flavours"
+# end = "# End flavours"
+# hook = "reloadqb"
 
 [[item]]
 file = "~/.config/waybar/colors.css"

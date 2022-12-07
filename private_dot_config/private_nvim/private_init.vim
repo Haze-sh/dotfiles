@@ -37,14 +37,14 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'vim-airline/vim-airline-themes'
     let g:airline_theme='base16'
   Plug 'romainl/vim-cool'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter' " , {'do': ':TSUpdate'}
 
 " Language support
 """ IDE
   Plug 'sheerun/vim-polyglot'
   Plug 'vim-syntastic/syntastic'
 """ Golang
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'fatih/vim-go' " , { 'do': ':GoUpdateBinaries' }
 """ Rust
   Plug 'racer-rust/racer'
 """ Python
@@ -119,6 +119,8 @@ call plug#begin("~/.config/nvim/plugged")
 
 " Tools
   Plug 'xolox/vim-misc'
+  Plug 'pacha/vem-tabline'
+  Plug 'Yggdroot/indentLine'
   Plug 'dahu/Taggle'
   Plug 'jreybert/vimagit'
   "Plug 'airblade/vim-gitgutter'
@@ -140,7 +142,7 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'preservim/nerdtree'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'ptzz/lf.vim'
     "let g:NERDTreeHijackNetrw = 0
   Plug 'voldikss/vim-floaterm'
