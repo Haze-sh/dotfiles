@@ -1,0 +1,15 @@
+#panel { background-color: #3B4252; }
+#panel:overview { background-color: #4C566A; }
+
+.popup-menu {
+  min-width: 15em;
+  color: #8FBCBB; }
+  .popup-menu.panel-menu {
+    margin-bottom: 1.75em; }
+
+.popup-menu-content, .candidate-popup-content {
+  padding: 6px;
+  border-radius: 20px;
+  border: 1px solid #4C566A;
+  box-shadow: 0 2px 4px 0 #2E3440;
+  background-color: #3B4252; }
