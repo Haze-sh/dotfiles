@@ -8,7 +8,6 @@ alias rm="rm -vI"
 alias bc="bc -ql"
 alias mkdir='mkdir -pv'
 alias ls='lsd --group-dirs=first'
-alias cat='bat'
 alias vi='nvim'
 alias vim='nvim'
 alias oldvim='\vim'
