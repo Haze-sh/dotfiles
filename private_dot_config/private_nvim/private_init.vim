@@ -128,8 +128,8 @@ call plug#begin("~/.config/nvim/plugged")
   "Plug 'nvim-lua/plenary.nvim'
   Plug 'junegunn/fzf.vim'
     let g:fzf_preview_window = ['up:20%:hidden', 'ctrl-/']
-  Plug 'alok/notational-fzf-vim'
-   let g:nv_search_paths = [$ZET_DIR]
+  "Plug 'alok/notational-fzf-vim'
+   "let g:nv_search_paths = [$ZET_DIR]
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'jremmen/vim-ripgrep'
   "  let g:rg_command = 'rg --vimgrep -S'
