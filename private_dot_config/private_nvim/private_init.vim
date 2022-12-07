@@ -123,7 +123,7 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'Yggdroot/indentLine'
   Plug 'dahu/Taggle'
   Plug 'jreybert/vimagit'
-  "Plug 'airblade/vim-gitgutter'
+  Plug 'airblade/vim-gitgutter'
   Plug 'skywind3000/asyncrun.vim'
   "Plug 'nvim-lua/plenary.nvim'
   Plug 'junegunn/fzf.vim'
