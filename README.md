@@ -6,7 +6,7 @@ My dotfiles Repo!
 ## To Apply
 
 ```
-chezmoi init --apply --exclude=encrypted https://github.com/Haze-sh/dotfiles.git
+chezmoi init --apply --exclude=encrypted,templates https://github.com/Haze-sh/dotfiles.git
 ```
 
 ## Themes
