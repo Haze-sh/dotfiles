@@ -65,7 +65,8 @@
 
 "custom/menu": {
     "format": "  ",
-    "on-click": "nwggrid -f"
+    "on-click": "nwg-drawer"
+//    "on-click": "nwggrid -o 0.5"
 //    "on-click": "wofi --show drun"
 },
 
@@ -508,7 +509,8 @@
 
 "custom/menu": {
     "format": "  ",
-    "on-click": "nwggrid -f"
+    "on-click": "nwg-drawer"
+//    "on-click": "nwggrid -o 0.5"
 //    "on-click": "wofi --show drun"
 },
 

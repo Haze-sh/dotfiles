@@ -39,7 +39,8 @@
     set $network waypipe
     set $monitor baru
     set $launcher nwg-launchers
-    set $launchbar lavalauncher
+    set $panel nwg-panel
+    set $dock nwg-dock
     set $notifications mako
     set $keys wshowkeys
     set $draw gromit-mpx

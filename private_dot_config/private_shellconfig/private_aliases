@@ -64,4 +64,4 @@ alias newsboat-daily='newsboat --url-file=~/.config/newsboat/daily-list --cache-
 
 # Launch WM/DE
 alias launch-sway='dbus-run-session sway'
-alias launch-gnome='pipewire & pipewire-pulse & wireplumber & MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland dbus-run-session gnome-session'
+alias launch-gnome='pipewire & pipewire-pulse & wireplumber & otd.start & dbus-run-session gnome-session'

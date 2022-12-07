@@ -56,6 +56,16 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'vim-pandoc/vim-pandoc'
   Plug 'vim-pandoc/vim-pandoc-syntax'
     let g:pandoc#syntax#conceal#urls = 1
+  Plug 'prashanthellina/follow-markdown-links'
+  Plug 'dkarter/bullets.vim'
+    let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'markdown.pandoc',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
+  "  let g:bullets_checkbox_markers = '✗○◐●✓'
   "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
   "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
   "  let g:mkdp_auto_close = 0
@@ -75,16 +85,6 @@ call plug#begin("~/.config/nvim/plugged")
   "  let g:vim_markdown_toml_frontmatter = 1  " for TOML format
   "  let g:vim_markdown_json_frontmatter = 1  " for JSON format
   "Plug 'masukomi/vim-markdown-folding'
-  Plug 'prashanthellina/follow-markdown-links'
-  Plug 'dkarter/bullets.vim'
-    let g:bullets_enabled_file_types = [
-    \ 'markdown',
-    \ 'markdown.pandoc',
-    \ 'text',
-    \ 'gitcommit',
-    \ 'scratch'
-    \]
-  "  let g:bullets_checkbox_markers = '✗○◐●✓'
   "Plug 'preservim/vim-markdown'
   "Plug 'jtratner/vim-flavored-markdown'
 """ LaTeX
@@ -139,8 +139,10 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'benmills/vimux'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'preservim/nerdtree'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'ptzz/lf.vim'
-  let g:NERDTreeHijackNetrw = 0
+    "let g:NERDTreeHijackNetrw = 0
   Plug 'voldikss/vim-floaterm'
   "Plug 'Shougo/defx.nvim'
   Plug 'sirver/ultisnips'
@@ -176,6 +178,7 @@ call plug#begin("~/.config/nvim/plugged")
   "Plug '907th/vim-auto-save'
   "Plug 'alpertuna/vim-header'
   "Plug 'pseewald/vim-anyfold'
+  "Plug 'goolord/alpha-nvim'
 
 """ Zettelkasten
   Plug 'mickael-menu/zk-nvim'
