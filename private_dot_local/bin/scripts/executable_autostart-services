@@ -3,6 +3,7 @@
 # Autostart
 # yams & disown ;
 moonphase ;
+otd.start & disown ;
 safeeyes & disown ;
 mopidy & disown ;
 beet web & disown ;
