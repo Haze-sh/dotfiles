@@ -1,9 +1,6 @@
 #!/bin/sh
 
-BUKU_XBEL="$HOME/Documents/Notes/Personal/Journal/Collections/References/buku.xbel"
-BUKU_MD="$HOME/Documents/Notes/Personal/Journal/Collections/References/buku.md"
 BUKU_DB="$HOME/.local/share/buku/bookmarks.db"
-
 XBELSUM="$HOME/.local/share/buku/XBELSUM"
 DBSUM="$HOME/.local/share/buku/DBSUM"
 
