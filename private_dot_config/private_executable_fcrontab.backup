@@ -10,22 +10,23 @@
 @ 01 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
 @ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
 @ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
-@ 30 . $HOME/.zshenv; promnesia index
 @ 30 calcurse -x > $HOME/.local/share/calendars/main/main.ics
+@ 180 . $HOME/.zshenv; promnesia index
 
 ## Exports
-@ 60 . $HOME/.zshenv; python -m hypexport.export --username $(pass show user) --token $(pass show hypothesis) > $ZET_DIR/hyp-annotations.json
-@ 60 . $HOME/.zshenv; python -m orger.modules.hypothesis --to $ZET_DIR/hyp-annotations.org
-@ 60 . $HOME/.zshenv; torsimany $ZET_DIR/hyp-annotations.json
+@ 1d . $HOME/.zshenv; python -m hypexport.export --username $(pass show user) --token $(pass show hypothesis) > $ZET_DIR/hyp-annotations.json
+@ 1d . $HOME/.zshenv; python -m orger.modules.hypothesis --to $ZET_DIR/hyp-annotations.org
+@ 1d . $HOME/.zshenv; torsimany $ZET_DIR/hyp-annotations.json
 @ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
 @ 60 . $HOME/.zshenv; tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
-@ 60 . $HOME/.zshenv; alias cp='cp -f'; cp $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA
-@ 60 . $HOME/.zshenv; alias cp='cp -f'; cp $HOME/.cache/zsh/history $HPIDATA
+@ 60 . $HOME/.zshenv; rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA
 @ 60 . $HOME/.zshenv; wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
 @ 60 . $HOME/.zshenv; browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser
 @ 60 . $HOME/.zshenv; browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
 @ 60 . $HOME/.zshenv; merge-browser-history
 @ 60 . $HOME/.zshenv; merge-mpv-data
+@ 60 chezmoi add --encrypted $HOME/.cache/zsh
+
 # Daily Feed
 @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
 @ 60 sfeed_html $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.html

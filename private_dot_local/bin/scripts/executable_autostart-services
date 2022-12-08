@@ -15,6 +15,7 @@ calcurse --daemon ;
 cd $ARCHIVE/archivebox ; archivebox server 0.0.0.0:8000 & disown ;
 promnesia serve & disown ;
 syncthing -no-browser & disown ;
+openbooks server & disown ;
 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=~/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count ;
 mpv_history_daemon_restart $HPIDATA/MPV ;
 tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt ;
