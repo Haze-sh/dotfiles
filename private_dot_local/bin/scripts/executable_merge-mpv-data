@@ -10,7 +10,7 @@ main() {
 	mpv_dir=${HPIDATA}/MPV
 	move_to="${HOME}/.cache/mpv_removed"
 	rsync -Pavh "${mpv_dir}"/ "$move_to"
-	write_to="${mpv_dir}/merged-$(epoch).json"
+	write_to="${mpv_dir}/merged.json"
 	mpv-history-daemon merge "${mpv_dir}" --move "${move_to}" --write-to "${write_to}"
 	dust "${mpv_dir}"
 	rm -f "${move_to}"/merged.json
