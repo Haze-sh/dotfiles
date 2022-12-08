@@ -147,8 +147,8 @@ export SUDO_ASKPASS="$HOME/.local/bin/wofipassmenu"
 #eval $(thefuck --alias)
 
 ## Passwords
-export HYPOTHESIS_USER="$(pass show user)"
-export HYPOTHESIS_PASS="$(pass show hypothesis)"
+# export HYPOTHESIS_USER="$(pass show user)"
+# export HYPOTHESIS_PASS="$(pass show hypothesis)"
 
 ## Directory Structure
 export NOTES_DIR="$HOME/Documents/Notes"
