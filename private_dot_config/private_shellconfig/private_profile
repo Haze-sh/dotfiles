@@ -22,7 +22,7 @@ export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
 # export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 # export PATH="$PATH:${$(find $HOME/.local/lib/cargo/bin -type d -printf %p:)%%:}"
-unsetopt PROMPT_SP
+# unsetopt PROMPT_SP
 
 # Default programs:
 export EDITOR="nvim"
@@ -175,18 +175,6 @@ export BUKU_XBEL="$ZET_DIR/References/buku.xbel"
 export BUKU_MD="$ZET_DIR/References/buku.md"
 export HPIDATA="$ZET_DIR/References/Data"
 export CALENDIR="$XDG_DATA_HOME/calendars/spaced"
-
-# lfcd
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp" >/dev/null
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s '^o' 'lfcd\n'
 
 # Icons:
 export LF_ICONS="di=📁:\

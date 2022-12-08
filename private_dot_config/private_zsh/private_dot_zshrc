@@ -3,7 +3,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 #PS1="%B 🍺%{$fg[yellow]%}%~%{$reset_color%}%b "
 
-## GiT
+## Git
 my_precmd() {
   vcs_info
   psvar[1]=$vcs_info_msg_0_
@@ -11,6 +11,18 @@ my_precmd() {
     psvar[1]=" (${psvar[1]})"
   fi
 }
+
+# lfcd
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp" >/dev/null
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats '%b'

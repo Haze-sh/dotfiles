@@ -1,64 +1,36 @@
 #!/bin/sh
 
-# Environment Variables
-HYPOTHESIS_USER="$(pass show user)"
-HYPOTHESIS_PASS="$(pass show hypothesis)"
-NOTES_DIR="$HOME/Documents/Notes"
-PERSONAL_NOTES_DIR="$HOME/Documents/Notes/Personal"
-WORK_NOTES_DIR="$HOME/Documents/Notes/Workspace"
-JOURNAL_DIR="$HOME/Documents/Notes/Personal/Journal"
-GTD_DIR="$JOURNAL_DIR/GTD"
-ZET_DIR="$JOURNAL_DIR/Collections"
-ZK_NOTEBOOK_DIR="$JOURNAL_DIR/Collections"
-DEFAULT_JRNL="$GTD_DIR/Journal.txt"
-HABITS_JRNL="$GTD_DIR/habitstracker.txt"
-WORK_JRNL="$GTD_DIR/work.txt"
-WORKOUT_JRNL="$GTD_DIR/workout.txt"
-TODOTXT_FILE="$GTD_DIR/TODO/todo.txt"
-TODO_FILE="$GTD_DIR/TODO/todo.txt"
-DONE_FILE="$GTD_DIR/TODO/done.txt"
-LEDGER_FILE="$ZET_DIR/wealth.ledger"
-TIME_FILE="$ZET_DIR/timetracking.ledger"
-COURSES="$HOME/Documents/Notes/Personal/Courses"
-CODEBOX="$HOME/Documents/Notes/Workspace/Codebox"
-REPOS="$HOME/Documents/Notes/Workspace/Repos"
-KEEPASS_FILE="$ZET_DIR/References/passwords.kbdx"
-BUKU_XBEL="$ZET_DIR/References/buku.xbel"
-BUKU_MD="$ZET_DIR/References/buku.md"
-HPIDATA="$ZET_DIR/References/Data"
-
 # Sync Tasks
 @ 01 topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
-@ 01 python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE
-@ 01 python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE --reverse
-@ 01 python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE
-@ 01 python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE --reverse
-@ 01 jrnl --config-override journals.default $DEFAULT_JRNL --format md > $GTD_DIR/Journal.md
-@ 01 $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
-@ 15 $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
-@ 15 $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
-@ 15 calcurse -x > $HOME/.local/share/calendars/main/main.ics
-@ 30 promnesia index
+@ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE
+@ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE --reverse
+@ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE
+@ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE --reverse
+@ 01 . $HOME/.zshenv; jrnl --config-override journals.default $DEFAULT_JRNL --format md > $GTD_DIR/Journal.md
+@ 01 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
+@ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
+@ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
+@ 30 . $HOME/.zshenv; promnesia index
+@ 30 calcurse -x > $HOME/.local/share/calendars/main/main.ics
 
 ## Exports
-@ 60 wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
-@ 60 browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser
-@ 60 browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
-@ 60 $HOME/.local/bin/scripts/merge-browser-history
-@ 60 $HOME/.local/bin/scripts/merge-mpv-data
-@ 60 python -m hypexport.export --username $HYPOTHESIS_USER --token $HYPOTHESIS_PASS > $ZET_DIR/hyp-annotations.json
-@ 60 python -m orger.modules.hypothesis --to $ZET_DIR/hyp-annotations.org
-@ 60 torsimany $ZET_DIR/hyp-annotations.json
-@ 60 tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
-@ 60 $HOME/.local/bin/scripts/tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
-@ 60 cp $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA
-@ 60 cp $HOME/.cache/zsh/history $HPIDATA
-
+@ 60 . $HOME/.zshenv; python -m hypexport.export --username $(pass show user) --token $(pass show hypothesis) > $ZET_DIR/hyp-annotations.json
+@ 60 . $HOME/.zshenv; python -m orger.modules.hypothesis --to $ZET_DIR/hyp-annotations.org
+@ 60 . $HOME/.zshenv; torsimany $ZET_DIR/hyp-annotations.json
+@ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
+@ 60 . $HOME/.zshenv; tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
+@ 60 . $HOME/.zshenv; alias cp='cp -f'; cp $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA
+@ 60 . $HOME/.zshenv; alias cp='cp -f'; cp $HOME/.cache/zsh/history $HPIDATA
+@ 60 . $HOME/.zshenv; wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
+@ 60 . $HOME/.zshenv; browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser
+@ 60 . $HOME/.zshenv; browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
+@ 60 . $HOME/.zshenv; merge-browser-history
+@ 60 . $HOME/.zshenv; merge-mpv-data
 # Daily Feed
 @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
 @ 60 sfeed_html $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.html
 @ 60 sfeed_plain $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.txt
-@ 60 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=~/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
+@ 60 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
 
 # Total Feed
 %hours * 06-09,21-00 * * * sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
