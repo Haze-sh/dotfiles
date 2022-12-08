@@ -120,7 +120,7 @@ call plug#begin("~/.config/nvim/plugged")
 " Tools
   Plug 'xolox/vim-misc'
   Plug 'pacha/vem-tabline'
-  Plug 'Yggdroot/indentLine'
+  "Plug 'Yggdroot/indentLine'
   Plug 'dahu/Taggle'
   Plug 'jreybert/vimagit'
   Plug 'airblade/vim-gitgutter'
