@@ -146,9 +146,11 @@ export DICS="/usr/share/stardict/dic/"
 export SUDO_ASKPASS="$HOME/.local/bin/wofipassmenu"
 #eval $(thefuck --alias)
 
-## Directory Structure
+## Passwords
 export HYPOTHESIS_USER="$(pass show user)"
 export HYPOTHESIS_PASS="$(pass show hypothesis)"
+
+## Directory Structure
 export NOTES_DIR="$HOME/Documents/Notes"
 export PERSONAL_NOTES_DIR="$HOME/Documents/Notes/Personal"
 export WORK_NOTES_DIR="$HOME/Documents/Notes/Workspace"
