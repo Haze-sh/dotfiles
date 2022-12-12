@@ -355,7 +355,7 @@ mode "resize" {
                       setwallpaper "$(setwallpaper -Q)" && flavours apply "$(flavours current)"
 
     # Theme according to wallpaper
-    bindsym Alt+m exec flavours generate $(darkmode q) ~/.local/share/backgrounds/wallpaper.png && flavours apply generated
+    bindsym Alt+i exec flavours generate $(darkmode q) ~/.local/share/backgrounds/wallpaper.png && flavours apply generated
 
     # Toggle light/dark mode themes
     bindsym Alt+u exec darkmode
@@ -364,7 +364,7 @@ mode "resize" {
     bindsym Alt+v exec flavours apply
 
     # Random wallpaper
-    bindsym Alt+x exec setwallpaper -R
+    bindsym Alt+y exec setwallpaper -R
 
 # Menu Configuration
     bindsym Alt+a        exec csv-launcher
@@ -409,14 +409,24 @@ mode "resize" {
         border pixel 0
     }
 
-    # Launch projects file
     # Launch ledger file
-    bindsym Alt+n exec $term --class=projects-launcher -e bash -c '$EDITOR $LEDGER_FILE'
+    bindsym Alt+m exec $term --class=projects-launcher -e bash -c '$EDITOR $LEDGER_FILE'
     for_window [app_id="^projects-launcher$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
     }
+
+    # Launch ledger file
+    bindsym Alt+n exec $term --class=note-launcher -e bash -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
+    for_window [app_id="^note-launcher$"] {
+        floating enable
+        resize set width 700 px height 500 px
+        border pixel 0
+    }
+
+    # Launch xournal app
+    bindsym Alt+x exec xournalpp
 
     # Launch todo.txt file
     bindsym Alt+t exec $term --class=todo -e bash -c '$EDITOR $TODO_FILE'

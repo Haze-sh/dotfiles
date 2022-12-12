@@ -1,0 +1,5 @@
+#!/bin/sh
+
+selected=$(xsel)
+url='\'urlref{$selected}{}
+wl-copy $url

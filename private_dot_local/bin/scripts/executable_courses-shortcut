@@ -1,0 +1,30 @@
+#!/bin/sh
+
+root="$(dirname "$(realpath "$0")")"
+key="$1"
+# terminal="x-terminal-emulator -e zsh -i -c"
+node="/usr/bin/node"
+
+open_xournal () {
+    cd $COURSES/Notes/$(date +"%F");
+    if [ -f "note.xopp" ]; then
+        xournalpp note.xopp;
+    else
+        cp $COURSES/Scripts/template.xopp note.xopp;
+        xournalpp note.xopp;
+    fi
+}
+
+mkdir -p $COURSES/Notes/$(date +"%F");
+
+case $key in
+   p ) cd $COURSES/Papers;
+       pdf_file="$(ls . | rofi -theme ~/.config/rofi/config.rasi -i -dmenu)";
+       [ -z "$pdf_file" ] && exit 0;
+       [ -f "$pdf_file" ] && zathura "$(realpath "$pdf_file")" || sensible-browser "https://google.com/search?q=$pdf_file" ;;
+   r ) kitty -e nnn $COURSES/Notes/$(date +"%F") ;;
+   n ) kitty -e cd $COURSES/Notes/$(date +"%F"); $EDITOR $COURSES/Notes/$(date +"%F")/note.tex ;;
+   o ) zathura $COURSES/Notes/master.pdf ;;
+   x ) open_xournal ;;
+   f ) $node $root/copy-pdf-reference.js ;;
+esac

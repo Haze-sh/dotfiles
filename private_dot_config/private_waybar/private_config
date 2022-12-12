@@ -27,8 +27,12 @@
       //"custom/separator",
       "custom/todo",
       //"custom/todourgent",
-      "custom/timer",
+      "custom/timer"
       //"custom/separator",
+      ],
+
+    "modules-center":
+      [
       "custom/moonphase",
       "custom/weather",
       "clock",
@@ -471,8 +475,16 @@
       //"custom/separator",
       "custom/todo",
       //"custom/todourgent",
-      "custom/timer",
+      "custom/timer"
       //"custom/separator",
+      //"custom/moonphase",
+      //"custom/weather",
+      //"clock",
+      //"custom/events"
+      ],
+
+    "modules-center":
+      [
       "custom/moonphase",
       "custom/weather",
       "clock",
