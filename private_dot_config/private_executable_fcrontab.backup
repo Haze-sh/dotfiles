@@ -25,7 +25,7 @@
 @ 60 . $HOME/.zshenv; browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
 @ 60 . $HOME/.zshenv; merge-browser-history
 @ 60 . $HOME/.zshenv; merge-mpv-data
-@ 60 chezmoi add --encrypted $HOME/.cache/zsh
+@ 60 chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
 @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
