@@ -6,79 +6,14 @@
     set $up k
     set $right l
 
-# Basic Controls
-    set $idle swayidle
-    set $lock swaylock
-    set $msg swaymsg
-    set $logout wlogout
-
-    set $wifi iwd
-    set $wifictl iwctl
-    set $wifimon iwmon
-
-    set $power tlp
-    set $cpu cpupower
-    set $cpustat turbostat
-
-    set $audio pactl
-    set $audioctl playerctl
-    set $brightness brillo
-
-# Display and Colours
-    set $display kanshi
-    set $background swaybg
-    set $backgroundctl azote
-    set $colors flavours
-    set $font pango
-    set $wal wal
-
-# Waytools
-    set $menu wofi
-    set $bar waybar
-    set $vnc wayvnc
-    set $network waypipe
-    set $monitor baru
-    set $launcher nwg-launchers
-    set $panel nwg-panel
-    set $dock nwg-dock
-    set $notifications mako
-    set $keys wshowkeys
-    set $draw gromit-mpx
-    set $screenshot grim
-    set $screenclip slurp
-    set $snapedit swappy
-    set $screenrecorder wf-recorder
-    set $clipboard clipman
-    set $autotiling autotiling
-
-# Defaults
-    set $term $TERMINAL
-    set $browser $BROWSER
-    set $calculator bc
-    set $calculator-gui gnome-calculator
-    set $filemanager nnn
-    set $notes neovim
-    set $notes_gui standardnotes
-    set $rss newsboat
-    set $mail neomutt
-    set $irc irssi
-    set $chat ferdi
-    set $chat-cli gomuks
-    set $chat-server element
-    set $books papis
-    set $bookmarks buku
-    set $mediaplayer mpv
-    set $musicplayer ncmpcpp
-    set $vector_graphics inkscape
-    set $xdg handlr
-
 # Autostart
-    exec_always $background -i $HOME/.local/share/backgrounds/wallpaper.png
+    exec_always $BACKGROUND -i $HOME/.local/share/backgrounds/wallpaper.png
     exec_always --no-startup-id exec sway-dynamic-names
-    exec $bar
-    exec $notifications
+    exec_always swhks & pkexec swhkd -c $HOME/.config/swhkd/swhkdrc
+    exec $BAR
+    exec $NOTIFICATIONS
     exec gammastep
-    exec pipewire & pipewire-pulse & wireplumber &
+    exec pipewire & pipewire-pulse & wireplumber
     exec mpDris2
     exec playerctld daemon
     exec play $HOME/Music/Classical\ Library/'1-01 Beethoven Symphony 5 in C Minor, Op. 67 - 1. Allegro Con Brio (CUT).mp3' >/dev/null 2>&1
@@ -109,88 +44,31 @@
     input type:keyboard {
         xkb_layout "usc",ara
         xkb_options grp:alt_shift_toggle
+        }
 ##        xkb_file $HOME/.config/xkb/usc
 ##        xkb_options grp:super_space_toggle
-        }
 
 # Idle, Lock and Logout
-exec $idle \
-    timeout 300 '$lock --screenshots --daemonize' \
-    timeout 600  '$msg "output * dpms off"' \
-        resume '$msg "output * dpms on"' \
+exec swayidle \
 #    timeout 610 'pactl set-source-mute @DEFAULT_SOURCE@ yes' \
 #        resume 'pactl set-source-mute @DEFAULT_SOURCE@ no' \
+    timeout 300 'swaylock --screenshots --daemonize' \
+    timeout 600  'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
     timeout 620 'gpg-connect-agent reloadagent /bye'
 
-    bindsym $mod+Shift+x exec $lock -S -f
-    bindsym $mod+Shift+y exec $logout
-
-# Colors & Fonts
-
-# Start flavours
-## Base16 Nord
-# Author: arcticicestudio
-
-set $base00 #2E3440
-set $base01 #3B4252
-set $base02 #434C5E
-set $base03 #4C566A
-set $base04 #D8DEE9
-set $base05 #E5E9F0
-set $base06 #ECEFF4
-set $base07 #8FBCBB
-set $base08 #BF616A
-set $base09 #D08770
-set $base0A #EBCB8B
-set $base0B #A3BE8C
-set $base0C #88C0D0
-set $base0D #81A1C1
-set $base0E #B48EAD
-set $base0F #5E81AC
-# End flavours
-
-client.focused           $base04 $base00 $base05 $base01 $base03
-client.unfocused         $base02 $base00 $base04 $base00 $base00
-client.focused_inactive  $base02 $base00 $base04 $base00 $base00
-client.urgent            $base02 $base00 $base04 $base00 $base00
-
-#font $font: Amiri 11
-
-# Sound and Brightness
-    bindsym XF86AudioRaiseVolume    exec 'volume-up'
-    bindsym XF86AudioLowerVolume    exec 'volume-down'
-    bindsym XF86AudioMute           exec $audio set-sink-mute 0 toggle
-
-    bindsym XF86AudioPlay           exec $audioctl play-pause
-    bindsym XF86AudioStop           exec $audioctl stop
-    bindsym XF86AudioNext           exec $audioctl next
-    bindsym XF86AudioPrev           exec $audioctl previous
-
-    bindsym XF86MonBrightnessUp     exec 'brightness-up'
-    bindsym XF86MonBrightnessDown   exec 'brightness-down'
-
-# Screenshots and Screenrecords
-    bindsym Print exec '$screenshot ~/Pictures/Screenshots/scrn-$(date +%d-%m-%Y,%H:%M:%S.png)'
-    bindsym Print+Shift exec '$screenshot -g "$($screenclip)" ~/Pictures/Screenshots/scrn-$(date +%d-%m-%Y,%H:%M:%S.png)'
-    bindsym $mod+Print exec '$screenshot - | $snapedit -f - -o ~/Pictures/Screenshots/Swappshots/scrn-swp-$(date +%d-%m-%Y,%H:%M:%S.png)'
-    bindsym $mod+Print+Shift exec '$screenshot -g "$($screenclip)" - | $snapedit -f - -o ~/Pictures/Screenshots/Swappshots/scrn-swp-$(date +%d-%m-%Y,%H:%M:%S.png)'
-    bindsym $mod+F11 exec '$term -e $screenrecorder -a -f ~/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4'
-    bindsym $mod+F11+Shift exec '$term -e $screenrecorder -g "$($screenclip)" -a -f ~/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4'
-
-# Basics
+# Basic Shortcuts
+    bindsym $mod+Shift+q kill
+    bindsym $mod+Return exec $TERMINAL
     floating_modifier $mod normal
-
     bindsym $mod+Shift+r reload
-
     bindsym $mod+Shift+e exec swaymsg -t warning -m \
-    'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b \
+    'Yes, exit sway' 'swaymsg exit'
 
 # Borders & Gaps
     smart_borders on
     default_border none
-
-    bindsym $mod+g exec '$msg gaps inner 5 | $msg gaps outer 5 | $msg gaps horizontal 5 | $msg gaps vertical 5 | $msg gaps top 5 | $msg gaps right 5 | $msg gaps bottom 5 | $msg gaps left 5'
-    bindsym $mod+Shift+g exec '$msg gaps inner 0 | $msg gaps outer 0 | $msg gaps horizontal 0 | $msg gaps vertical 0 | $msg gaps top 0 | $msg gaps right 0 | $msg gaps bottom 0 | $msg gaps left 0'
 
     gaps inner 25
     gaps outer -10
@@ -199,10 +77,10 @@ client.urgent            $base02 $base00 $base04 $base00 $base00
     default_border pixel 0
     for_window [class=".*"] border pixel 0
 
-    border_images.focused ~/.config/sway/borders/border-selected.png
-    border_images.focused_inactive ~/.config/sway/borders/border.png
-    border_images.unfocused ~/.config/sway/borders/border.png
-    border_images.urgent ~/.config/sway/borders/border.png
+    border_images.focused $HOME/.config/sway/borders/border-selected.png
+    border_images.focused_inactive $HOME/.config/sway/borders/border.png
+    border_images.unfocused $HOME/.config/sway/borders/border.png
+    border_images.urgent $HOME/.config/sway/borders/border.png
 
 # Moving
     bindsym $mod+$left focus left
@@ -248,15 +126,6 @@ client.urgent            $base02 $base00 $base04 $base00 $base00
     bindsym $mod+Shift+8 move container to workspace ""
     bindsym $mod+Shift+9 move container to workspace ""
 
-#    assign [class="Ferdi"] workspace ""
-    assign [app_id="neomutt"] workspace ""
-    assign [app_id="ncmpcpp"] workspace ""
-    for_window [app_id="zenity"] floating enable
-    for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable
-    for_window [app_id="org.kde.kdeconnect-urlhandler"] floating enable
-    for_window [app_id="org.gnome.Calculator"] floating enable
-    #for_window [app_id="gnome-calculator"] floating enable
-
     bindsym $mod+Control+Shift+Right move workspace to output right
     bindsym $mod+Control+Shift+Left move workspace to output left
     bindsym $mod+Control+Shift+Down move workspace to output down
@@ -265,17 +134,12 @@ client.urgent            $base02 $base00 $base04 $base00 $base00
 # Layout
     bindsym $mod+u splith
     bindsym $mod+v splitv
-
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
-
     bindsym $mod+f fullscreen
-
     bindsym $mod+Shift+space floating toggle
-
     bindsym $mod+space focus mode_toggle
-
     bindsym $mod+a focus parent
 
 # Scratchpad
@@ -287,9 +151,6 @@ client.urgent            $base02 $base00 $base04 $base00 $base00
     bindsym --to-code $mod+Alt+l exec swaymgr -s 'set left'
     bindsym --to-code $mod+Alt+m exec swaymgr -s 'set manual'
 
-    bindsym $mod+t exec $autotiling
-    bindsym $mod+Shift+t exec pkill $autotiling
-
 #   Parent/Child Layout
 
 # Resizing
@@ -298,18 +159,16 @@ mode "resize" {
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
-
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
     bindsym Right resize grow width 10px
-
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
     bindsym $mod+r mode "resize"
 
-# Multimedia
+# Multimedia Keys
 #    bindsym XF86HomePage   exec
     bindsym XF86Mail       exec $term -e $mail
 #    bindsym XF86Back       exec
@@ -322,166 +181,96 @@ mode "resize" {
     bindsym XF86Explorer   exec $term -e $filemanager -de
     bindsym XF86Calculator exec $term -e $calculator-gui
 
-# Shortcuts
-    bindsym $mod+Shift+q kill
-    bindsym $mod+Return exec $term
-    bindsym $mod+d exec $menu -i --show drun | xargs swaymsg exec --
-    bindsym $mod+b exec bemenu-run
-    bindsym $mod+p exec keepmenu
-
-    bindsym $mod+i       exec $browser
-    bindsym $mod+n       exec $term -e $filemanager -de
-    bindsym $mod+Shift+a exec annotate
-    bindsym $mod+Shift+f exec $chat
-    bindsym $mod+Shift+o exec $term -e $mail
-    bindsym $mod+Shift+n exec $term -e $rss
-    bindsym $mod+Shift+i exec $term -e $irc
-    bindsym $mod+m       exec $term -e $musicplayer
-    bindsym $mod+Shift+period exec $calculator-gui
-    bindsym $mod+Shift+m exec $mediaplayer
-    bindsym $mod+Shift+s exec $vector_graphics
-    bindsym $mod+escape  exec 'killall waybar -s USR1'
-
-    # Change scheme
-    bindsym Alt+s exec 'old="$(flavours current)" && \
-                    flavours list -l | flavours-terminal-fzf --preview="flavours apply -l {}" || \
-                    flavours apply "${old}" && \
-                    flavours apply "$(flavours current)"'
-
-    # Change wallpaper (update scheme if it was generated)
-    bindsym Alt+w exec old="$(setwallpaper -Q)" && \
-                      setwallpaper -L | flavours-terminal-fzf --preview='setwallpaper {}' || \
-                      setwallpaper "${old}" && \
-                      setwallpaper "$(setwallpaper -Q)" && flavours apply "$(flavours current)"
-
-    # Theme according to wallpaper
-    bindsym Alt+i exec flavours generate $(darkmode q) ~/.local/share/backgrounds/wallpaper.png && flavours apply generated
-
-    # Toggle light/dark mode themes
-    bindsym Alt+u exec darkmode
-
-    # Random theme
-    bindsym Alt+v exec flavours apply
-
-    # Random wallpaper
-    bindsym Alt+y exec setwallpaper -R
-
-# Menu Configuration
-    bindsym Alt+a        exec csv-launcher
-    bindsym Alt+b        exec wofibukumenu $menu
-    bindsym Alt+e        exec wofi-emoji $menu
-    bindsym Alt+p        exec wofipassmenu $menu
-    bindsym Alt+r        exec wofirssmenu $menu
-    bindsym Alt+Tab      exec windows $menu
-    bindsym $mod+c       exec $clipboard pick -t $menu
-    bindsym $mod+Shift+c exec $clipboard clear -t $menu
-
-# Launchers
-    # Launch terminal
-    bindsym Alt+Return exec $term --class=term-launcher
+# Windows
+    assign [app_id="neomutt"] workspace ""
+    assign [app_id="ncmpcpp"] workspace ""
+    for_window [app_id="zenity"] floating enable
+    for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable
+    for_window [app_id="org.kde.kdeconnect-urlhandler"] floating enable
+    for_window [app_id="org.gnome.Calculator"] floating enable
     for_window [app_id="^term-launcher$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch journal entry
-    bindsym Alt+j exec $term --class=journal-launcher -e bash -c jrnl
+        }
     for_window [app_id="^journal-launcher$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch journal file
-    bindsym Alt+k exec $term --class=journal-editor -e bash -c 'jrnl --edit default'
+        }
     for_window [app_id="^journal-editor$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch journal MD file
-    bindsym Alt+h exec $term --class=journal-editor-md -e bash -c '$EDITOR $GTD_DIR/Journal.md'
+        }
     for_window [app_id="^journal-editor-md$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch ledger file
-    bindsym Alt+m exec $term --class=projects-launcher -e bash -c '$EDITOR $LEDGER_FILE'
+        }
     for_window [app_id="^projects-launcher$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch ledger file
-    bindsym Alt+n exec $term --class=note-launcher -e bash -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
+        }
     for_window [app_id="^note-launcher$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch xournal app
-    bindsym Alt+x exec xournalpp
-
-    # Launch todo.txt file
-    bindsym Alt+t exec $term --class=todo -e bash -c '$EDITOR $TODO_FILE'
+        }
     for_window [app_id="^todo$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch done.txt file
-    bindsym Alt+d exec $term --class=done -e bash -c '$EDITOR $DONE_FILE'
-    for_window [app_id="^done$"] {
+        }
+    for_window [app_id="^done-file$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch zettelkasten entry
-    bindsym Alt+z exec $term --class=zettelkasten -e bash -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
+        }
     for_window [app_id="^zettelkasten$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch zettelkasten directory
-    bindsym Alt+c exec $term --class=fzf-zettelkasten -e bash -c 'cd $ZET_DIR ; $EDITOR $(FZF_DEFAULT_COMMAND="find . -maxdepth 1 -type f | sed "s/^..//"" fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")'
+        }
     for_window [app_id="^fzf-zettelkasten$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch library directory
-    bindsym Alt+l exec $term --class=fzf-library -e library-fzf
+        }
     for_window [app_id="^fzf-library$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch RSS front-end
-    bindsym Alt+f exec $term --class=fzf-rss -e rss-fzf
+        }
     for_window [app_id="^fzf-rss$"] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
-
-    # Launch bookmarks front-end
-    bindsym Alt+o exec $term --class=oil -e oil
+        }
     for_window [app_id=^oil] {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
-    }
+        }
 
-include /etc/sway/config.d/*
+# Alternative Gaps
+    bindsym $mod+g swaymsg gaps inner 25 swaymsg gaps outer -10
+
+    bindsym $mod+Alt+g swaymsg gaps inner 5 |\
+    swaymsg gaps outer 5 |\
+    swaymsg gaps horizontal 5 |\
+    swaymsg gaps vertical 5 |\
+    swaymsg gaps top 5 |\
+    swaymsg gaps right 5 |\
+    swaymsg gaps bottom 5 |\
+    swaymsg gaps left 5
+
+    bindsym $mod+Shift+g swaymsg gaps inner 0 |\
+    swaymsg gaps outer 0 |\
+    swaymsg gaps horizontal 0 |\
+    swaymsg gaps vertical 0 |\
+    swaymsg gaps top 0 |\
+    swaymsg gaps right 0 |\
+    swaymsg gaps bottom 0 |\
+    swaymsg gaps left 0

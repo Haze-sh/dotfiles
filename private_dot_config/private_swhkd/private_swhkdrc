@@ -1,0 +1,135 @@
+# Super + {Key}
+super + return
+	$TERMINAL
+super + escape
+	killall $BAR -s USR1
+super + b
+	$MENU
+super + c
+	clipman pich -t wofi
+super + d
+	$MENU # wofi -i --show drun
+super + i
+	$BROWSER
+super + n
+	$TERMINAL -e $FILEMANAGER -de
+super + m
+	$TERMINAL -e $MUSICPLAYER
+super + p
+	keepmenu
+super + t
+	autotiling
+super + F11
+	$TERMINAL -e $SCREENRECORDER -a -f $HOME/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4
+
+# Super + Shift + {Key}
+super + shift + a
+	annotate
+super + shift + c
+	clipman clear -t wofi
+super + shift + f
+	$CHAT
+super + shift + i
+	$TERMINAL -e $IRC
+super + shift + m
+	$MEDIAPLAYER
+super + shift + o
+	$TERMINAL -e $MAILCLIENT
+super + shift + s
+	inkscape
+super + shift + t
+	pkill autotiling
+super + shift + x
+	swaylock -S -f
+super + shift + y
+	wlogout
+super + shift + period
+	gnome-calculator
+super + shift + F11
+	$TERMINAL -e $screenrecorder -g "$($screenclip)" -a -f $HOME/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4
+
+# Alt + {Key}
+alt + return
+	$TERMINAL --class=term-launcher
+alt + a
+	csv-launcher
+alt + b
+	wofibukumenu wofi
+alt + c
+	$TERMINAL --class=fzf-zettelkasten -e zsh -c 'cd $ZET_DIR ; $EDITOR $(FZF_DEFAULT_COMMAND="find . -maxdepth 1 -type f | sed "s/^..//"" fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")'
+alt + d
+	$TERMINAL --class=done-file -e zsh -c '$EDITOR $DONE_FILE'
+alt + e
+	wofi-emoji wofi
+alt + f
+	$TERMINAL --class=fzf-rss -e rss-fzf
+alt + g
+	flavours generate dark $HOME/.local/share/backgrounds/wallpaper.png && flavours apply generated
+alt + h
+	$TERMINAL --class=journal-editor-md -e zsh -c '$EDITOR $GTD_DIR/Journal.md'
+alt + j
+	$TERMINAL --class=journal-launcher -e zsh -c jrnl
+alt + k
+	$TERMINAL --class=journal-editor -e zsh -c 'jrnl --edit default'
+alt + l
+	$TERMINAL --class=fzf-library -e library-fzf
+alt + m
+	$TERMINAL --class=projects-launcher -e zsh -c '$EDITOR $LEDGER_FILE'
+alt + n
+	$TERMINAL --class=note-launcher -e zsh -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
+alt + o
+	$TERMINAL --class=oil -e oil
+alt + p
+	wofipassmenu wofi
+alt + r
+	wofirssmenu wofi
+alt + s
+	old="$(flavours current)" && \
+	flavours list -l | flavours-terminal-fzf --preview="flavours apply -l {}" || \
+	flavours apply "${old}" && \
+	flavours apply "$(flavours current)"
+alt + t
+	$TERMINAL --class=todo -e bash -c '$EDITOR $TODO_FILE'
+alt + u
+	darkmode
+alt + v
+	flavours apply
+alt + w
+	old="$(setwallpaper -Q)" && \
+	setwallpaper -L | flavours-terminal-fzf --preview='setwallpaper {}' || \
+	setwallpaper "${old}" && \
+	setwallpaper "$(setwallpaper -Q)" && flavours apply "$(flavours current)"
+alt + x
+	xournalpp
+alt + y
+	setwallpaper -R
+alt + z
+	$TERMINAL --class=zettelkasten -e zsh -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
+
+# Multimedia
+xf86audioraisevolume
+	volume-up
+xf86audiolowervolume
+	volume-down
+mute
+	pactl set-sink-mute 0 toggle
+xf86audionext
+	playerctl next
+xf86audioplay
+	playerctl play-pause
+xf86audioprev
+	playerctl previous
+xf86audiostop
+	playerctl stop
+xf86monbrightnessup
+	brightness-up
+xf86monbrightnessdown
+	brightness-down
+Print
+	$SCREENSHOTS $HOME/Pictures/Screenshots/scrn-$(date +%d-%m-%Y,%H:%M:%S.png)
+shift + Print
+	$SCREENSHOTS -g "$($SCREENCLIP)" $HOME/Pictures/Screenshots/scrn-$(date +%d-%m-%Y,%H:%M:%S.png)
+control + Print
+	$SCREENSHOTS - | $SNAPEDIT -f - -o $HOME/Pictures/Screenshots/Swappshots/scrn-swp-$(date +%d-%m-%Y,%H:%M:%S.png)
+alt + Print
+	$SCREENSHOTS -g "$($SCREENCLIP)" - | $SNAPEDIT -f - -o $HOME/Pictures/Screenshots/Swappshots/scrn-swp-$(date +%d-%m-%Y,%H:%M:%S.png)

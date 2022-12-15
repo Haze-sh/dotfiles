@@ -2,7 +2,7 @@
 
 # Query
 if [[ $* == *-Q* ]]; then
-    basename $(cat ~/.bg)
+    basename $(cat $HOME/.local/share/backgrounds/wallpaper.png)
     exit
 fi
 
@@ -22,8 +22,7 @@ fi
 
 wallpaper=~/Pictures/Wallpapers/"${wallpaper}"
 
-echo "${wallpaper}" > ~/.bg
-~/.config/sway/swaybg.sh & \
+rsync "${wallpaper}" $HOME/.local/share/backgrounds/wallpaper.png
 
 if [[ $(flavours current) == "generated" ]]; then
     flavours generate $(darkmode query) "${wallpaper}" && flavours apply -l generated

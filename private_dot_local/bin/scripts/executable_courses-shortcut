@@ -22,8 +22,8 @@ case $key in
        pdf_file="$(ls . | rofi -theme ~/.config/rofi/config.rasi -i -dmenu)";
        [ -z "$pdf_file" ] && exit 0;
        [ -f "$pdf_file" ] && zathura "$(realpath "$pdf_file")" || sensible-browser "https://google.com/search?q=$pdf_file" ;;
-   r ) kitty -e nnn $COURSES/Notes/$(date +"%F") ;;
-   n ) kitty -e cd $COURSES/Notes/$(date +"%F"); $EDITOR $COURSES/Notes/$(date +"%F")/note.tex ;;
+   r ) $TERMINAL -e nnn $COURSES/Notes/$(date +"%F") ;;
+   n ) $TERMINAL -e cd $COURSES/Notes/$(date +"%F"); $EDITOR $COURSES/Notes/$(date +"%F")/note.tex ;;
    o ) zathura $COURSES/Notes/master.pdf ;;
    x ) open_xournal ;;
    f ) $node $root/copy-pdf-reference.js ;;

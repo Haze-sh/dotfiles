@@ -57,14 +57,14 @@ start = "/* Start flavours */"
 end = "/* End flavours */"
 light = false
 
-[[item]]
-file = "~/.config/sway/config"
-template = "sway"
-subtemplate = "colors"
-hook = "sway-borders & swaymsg reload & mostcolors"
-start = "# Start flavours"
-end = "# End flavours"
-light = false
+# [[item]]
+# file = "~/.config/sway/config"
+# template = "sway"
+# subtemplate = "colors"
+# hook = "sway-borders & swaymsg reload & mostcolors"
+# start = "# Start flavours"
+# end = "# End flavours"
+# light = false
 
 [[item]]
 file = "~/.local/bin/scripts/fzf"

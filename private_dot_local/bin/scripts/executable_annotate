@@ -2,19 +2,22 @@
 
 file="$ZET_DIR/annotations.md"
 
-function exists_or_create() {
-    if [[ -f "$2" ]]; then
-        echo "Not Creating the note: File is already there"
-    else
-        echo -e "$1 \n$2"
-        echo -e "Book: $1 \n---" > "$2"
-    fi
-}
+# function exists_or_create() {
+#     if [[ -f "$2" ]]; then
+#         echo "Not Creating the note: File is already there"
+#     else
+#         echo -e "$1 \n$2"
+#         echo -e "Book: $1 \n---" > "$2"
+#     fi
+# }
+
 
 function add_annotation() {
-    echo -e "---\n" >> "$1";
-    wl-paste -t text >> "$1";
-    echo -e "\n> <!!>\n\n" >> $1
+    echo -e "\n# $(date '+%Y-%m-%d %H:%M:%S')\n" >> "$1"
+#    wl-paste -t text >> "$1";
+    selected=$(xsel)
+    echo $selected >> "$1"
+#    echo -e "\n> <!!>\n\n" >> $1
 }
 
 add_annotation "$file"

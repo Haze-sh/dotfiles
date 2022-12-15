@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-#PS1="%B 🍺%{$fg[yellow]%}%~%{$reset_color%}%b "
-
 # $PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin/:$PATH
@@ -24,7 +22,7 @@ export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
 # export PATH="$PATH:${$(find $HOME/.local/lib/cargo/bin -type d -printf %p:)%%:}"
 # unsetopt PROMPT_SP
 
-# Default programs:
+# Default programs
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
@@ -32,15 +30,29 @@ export PAGER="bat"
     #export PAGER="less"
     #export PAGER="most"
 export PLUMBER="web-xdg-open"
-#export GDK_BACKEND=wayland
+export BAR="waybar"
+export IDLE="swayidle"
+export LOCK="swaylock"
+export BACKGROUND="swaybg"
+export FILEMANAGER="nnn"
+export MAILCLIENT="neomutt"
+export CHAT="weechat"
+export SCREENSHOTS="grim"
+export SCREENCLIP="slurp"
+export SCREENRECORDER="wf-recorder"
+export SNAPEDIT="swappy"
+export MENU="bemenu-run"
+export NOTIFICATIONS="mako"
+
+# Default Variables
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
 export QT_SCALE_FACTOR=1
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export XDG_SESSION_TYPE=wayland
-# export XDG_CURRENT_DESKTOP=sway
-export DOTFILES=~/.local/share/repos/personal/dotfiles
 export YDOTOOL_SOCKET=/tmp/.ydotool_socket
+# export XDG_CURRENT_DESKTOP=sway
+#export GDK_BACKEND=wayland
 
 # Themes
     export GTK3_THEME=adw-gtk3
@@ -56,13 +68,13 @@ export YDOTOOL_SOCKET=/tmp/.ydotool_socket
     #export QT_QPA_PLATFORM=wayland-egl
 
 # Non-elogind system
-#if test -z "${XDG_RUNTIME_DIR}"; then
-#    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
-#    if ! test -d "${XDG_RUNTIME_DIR}"; then
-#        mkdir "${XDG_RUNTIME_DIR}"
-#        chmod 0700 "${XDG_RUNTIME_DIR}"
-#    fi
-#fi
+if test -z "${XDG_RUNTIME_DIR}"; then
+    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+    if ! test -d "${XDG_RUNTIME_DIR}"; then
+        mkdir "${XDG_RUNTIME_DIR}"
+        chmod 0700 "${XDG_RUNTIME_DIR}"
+    fi
+fi
 
 # Remove CSD
 #export GTK_CSD=0
@@ -100,13 +112,6 @@ export YARN_CACHE_FOLDER="${XDG_CACHE_HOME:-$HOME/.cache}/yarn"
 
 ## Other
 export LESS=-R
-#export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
-#export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
-#export LESS_TERMCAP_me="$(printf '%b' '[0m')"
-#export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
-#export LESS_TERMCAP_se="$(printf '%b' '[0m')"
-#export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
-#export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -126,8 +131,6 @@ export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
 export MAILCAP_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/mailcap"
 export MAILDIR="${XDG_CONFIG_HOME:-$HOME/.local/share}/mail"
-#export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
-#export ALSA_CONFIG_PATH=/usr/share/alsa/alsa.conf
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
@@ -144,11 +147,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 export PYDORO_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/pydoro/pydoro.conf"
 export DICS="/usr/share/stardict/dic/"
 export SUDO_ASKPASS="$HOME/.local/bin/wofipassmenu"
+#export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+#export ALSA_CONFIG_PATH=/usr/share/alsa/alsa.conf
 #eval $(thefuck --alias)
-
-## Passwords
-# export HYPOTHESIS_USER="$(pass show user)"
-# export HYPOTHESIS_PASS="$(pass show hypothesis)"
 
 ## Directory Structure
 export NOTES_DIR="$HOME/Documents/Notes"
