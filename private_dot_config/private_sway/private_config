@@ -50,12 +50,12 @@
 
 # Idle, Lock and Logout
 exec swayidle \
-#    timeout 610 'pactl set-source-mute @DEFAULT_SOURCE@ yes' \
-#        resume 'pactl set-source-mute @DEFAULT_SOURCE@ no' \
     timeout 300 'swaylock --screenshots --daemonize' \
     timeout 600  'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
     timeout 620 'gpg-connect-agent reloadagent /bye'
+#    timeout 610 'pactl set-source-mute @DEFAULT_SOURCE@ yes' \
+#        resume 'pactl set-source-mute @DEFAULT_SOURCE@ no' \
 
 # Basic Shortcuts
     bindsym $mod+Shift+q kill

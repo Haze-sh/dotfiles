@@ -1,6 +1,7 @@
 map <C-f> feedkeys ":exec clipboard-tts<Return>"
 map <C-o> feedkeys ":exec zathura-annotate $FILE<Return>"
 map <C-r> feedkeys ":exec wl-copy \pdfref{$FILE}{$PAGE}{}<Return>"
+map <C-c> set recolor
 set selection-clipboard clipboard
 
 # Start flavours

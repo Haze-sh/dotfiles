@@ -6,7 +6,7 @@ super + escape
 super + b
 	$MENU
 super + c
-	clipman pich -t wofi
+	clipman pick -t wofi
 super + d
 	$MENU # wofi -i --show drun
 super + i
@@ -49,6 +49,8 @@ super + shift + F11
 	$TERMINAL -e $screenrecorder -g "$($screenclip)" -a -f $HOME/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4
 
 # Alt + {Key}
+alt + 0
+	bash courses-shortcut 0
 alt + return
 	$TERMINAL --class=term-launcher
 alt + a
@@ -81,8 +83,10 @@ alt + o
 	$TERMINAL --class=oil -e oil
 alt + p
 	wofipassmenu wofi
+alt + q
+	bash courses-shortcut q
 alt + r
-	wofirssmenu wofi
+	bash courses-shortcut r #wofirssmenu wofi
 alt + s
 	old="$(flavours current)" && \
 	flavours list -l | flavours-terminal-fzf --preview="flavours apply -l {}" || \
@@ -100,11 +104,17 @@ alt + w
 	setwallpaper "${old}" && \
 	setwallpaper "$(setwallpaper -Q)" && flavours apply "$(flavours current)"
 alt + x
-	xournalpp
+	courses-shortcut x
 alt + y
 	setwallpaper -R
 alt + z
 	$TERMINAL --class=zettelkasten -e zsh -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
+
+# Control + {Key}
+alt + q
+	bash courses-shortcut q
+control + alt + r
+	references
 
 # Multimedia
 xf86audioraisevolume
@@ -127,6 +137,8 @@ xf86monbrightnessdown
 	brightness-down
 Print
 	$SCREENSHOTS $HOME/Pictures/Screenshots/scrn-$(date +%d-%m-%Y,%H:%M:%S.png)
+
+# Other
 shift + Print
 	$SCREENSHOTS -g "$($SCREENCLIP)" $HOME/Pictures/Screenshots/scrn-$(date +%d-%m-%Y,%H:%M:%S.png)
 control + Print

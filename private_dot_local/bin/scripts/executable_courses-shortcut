@@ -1,9 +1,9 @@
 #!/bin/sh
 
-root="$(dirname "$(realpath "$0")")"
 key="$1"
+# root="$(dirname "$(realpath "$0")")"
 # terminal="x-terminal-emulator -e zsh -i -c"
-node="/usr/bin/node"
+# node="/usr/bin/node"
 
 open_xournal () {
     cd $COURSES/Notes/$(date +"%F");
@@ -18,13 +18,12 @@ open_xournal () {
 mkdir -p $COURSES/Notes/$(date +"%F");
 
 case $key in
-   p ) cd $COURSES/Papers;
-       pdf_file="$(ls . | rofi -theme ~/.config/rofi/config.rasi -i -dmenu)";
+   q ) pdf_file="$(ls $COURSES/Papers | rofi -theme ~/.config/rofi/config.rasi -i -dmenu)";
        [ -z "$pdf_file" ] && exit 0;
        [ -f "$pdf_file" ] && zathura "$(realpath "$pdf_file")" || sensible-browser "https://google.com/search?q=$pdf_file" ;;
-   r ) $TERMINAL -e nnn $COURSES/Notes/$(date +"%F") ;;
-   n ) $TERMINAL -e cd $COURSES/Notes/$(date +"%F"); $EDITOR $COURSES/Notes/$(date +"%F")/note.tex ;;
-   o ) zathura $COURSES/Notes/master.pdf ;;
+   r ) $TERMINAL -e $FILEMANAGER $COURSES/Notes/$(date +"%F") ;;
    x ) open_xournal ;;
-   f ) $node $root/copy-pdf-reference.js ;;
+   0 ) zathura $COURSES/Notes/master.pdf ;;
+#   n ) $TERMINAL -e cd $COURSES/Notes/$(date +"%F"); $EDITOR $COURSES/Notes/$(date +"%F")/note.tex ;;
+#   f ) $node $root/copy-pdf-reference.js ;;
 esac
