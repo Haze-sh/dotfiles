@@ -43,6 +43,7 @@ export SCREENRECORDER="wf-recorder"
 export SNAPEDIT="swappy"
 export MENU="bemenu-run"
 export NOTIFICATIONS="mako"
+export MUSICPLAYER="ncmpcpp"
 
 # Default Variables
 export MOZ_ENABLE_WAYLAND=1
@@ -68,13 +69,13 @@ export YDOTOOL_SOCKET=/tmp/.ydotool_socket
     #export QT_QPA_PLATFORM=wayland-egl
 
 # Non-elogind system
-if test -z "${XDG_RUNTIME_DIR}"; then
-    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
-    if ! test -d "${XDG_RUNTIME_DIR}"; then
-        mkdir "${XDG_RUNTIME_DIR}"
-        chmod 0700 "${XDG_RUNTIME_DIR}"
-    fi
-fi
+# if test -z "${XDG_RUNTIME_DIR}"; then
+#     export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+#     if ! test -d "${XDG_RUNTIME_DIR}"; then
+#         mkdir "${XDG_RUNTIME_DIR}"
+#         chmod 0700 "${XDG_RUNTIME_DIR}"
+#     fi
+# fi
 
 # Remove CSD
 #export GTK_CSD=0
