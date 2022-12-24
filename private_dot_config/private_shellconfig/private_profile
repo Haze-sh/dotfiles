@@ -52,8 +52,8 @@ export QT_SCALE_FACTOR=1
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export XDG_SESSION_TYPE=wayland
 export YDOTOOL_SOCKET=/tmp/.ydotool_socket
+export GDK_BACKEND=wayland
 # export XDG_CURRENT_DESKTOP=sway
-#export GDK_BACKEND=wayland
 
 # Themes
     export GTK3_THEME=adw-gtk3

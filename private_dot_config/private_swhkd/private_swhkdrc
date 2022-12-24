@@ -1,6 +1,6 @@
 # Super + {Key}
-super + return
-	$TERMINAL
+# super + return
+# 	$TERMINAL
 super + escape
 	killall $BAR -s USR1
 super + b
