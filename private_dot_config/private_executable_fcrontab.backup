@@ -53,6 +53,7 @@
 @ 1d rm -r $HOME/.electron-gyp
 @ 1d rm -r $HOME/.nuget
 @ 1d rm -r $HOME/.dotnet
+@ 1d rm -r $HOME/.pki
 
 # Backup
 @ 1d dconf dump / > $HOME/.config/saved_settings.dconf

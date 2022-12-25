@@ -1,0 +1,3 @@
+#!/bin/sh
+
+HOME=~/Documents/Notes/Workspace/ /bin/Fritzing
