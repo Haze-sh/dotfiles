@@ -9,7 +9,7 @@
 @ 01 . $HOME/.zshenv; jrnl --config-override journals.default $DEFAULT_JRNL --format md > $GTD_DIR/Journal.md
 @ 01 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
 @ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
-@ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
+@ 20 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
 @ 30 calcurse -x > $HOME/.local/share/calendars/main/main.ics
 @ 180 . $HOME/.zshenv; promnesia index
 
@@ -25,7 +25,7 @@
 @ 60 . $HOME/.zshenv; browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
 @ 60 . $HOME/.zshenv; merge-browser-history
 @ 60 . $HOME/.zshenv; merge-mpv-data
-@ 60 chezmoi add --encrypt $HOME/.cache/zsh
+@ 60 . $HOME/.pam_environment; . $HOME/.zshenv; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
 @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log

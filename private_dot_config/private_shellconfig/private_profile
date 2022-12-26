@@ -18,9 +18,15 @@ export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH=/usr/local/share/pkgconfig:$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
-# export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
-# export PATH="$PATH:${$(find $HOME/.local/lib/cargo/bin -type d -printf %p:)%%:}"
-# unsetopt PROMPT_SP
+
+# Non-elogind system
+# if test -z "${XDG_RUNTIME_DIR}"; then
+#     export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+#     if ! test -d "${XDG_RUNTIME_DIR}"; then
+#         mkdir "${XDG_RUNTIME_DIR}"
+#         chmod 0700 "${XDG_RUNTIME_DIR}"
+#     fi
+# fi
 
 # Default programs
 export EDITOR="nvim"
@@ -56,30 +62,21 @@ export GDK_BACKEND=wayland
 # export XDG_CURRENT_DESKTOP=sway
 
 # Themes
-    export GTK3_THEME=adw-gtk3
-    export GTK4_THEME=Adwaita
-    #export GTK_THEME=FlatColor
-    #export GTK_THEME=Arc-Dark
-    #export CLUTTER_BACKEND=wayland
-    export QT_QPA_PLATFORMTHEME='gnome'
-        #export QT_QPA_PLATFORMTHEME=adwaita-qt6
-        #export QT_QPA_PLATFORMTHEME=gtk2
-        #export QT_QPA_PLATFORMTHEME=qt5ct
-        #export QT_QPA_PLATFORMTHEME=qt6ct
-    #export QT_QPA_PLATFORM=wayland-egl
-
-# Non-elogind system
-# if test -z "${XDG_RUNTIME_DIR}"; then
-#     export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
-#     if ! test -d "${XDG_RUNTIME_DIR}"; then
-#         mkdir "${XDG_RUNTIME_DIR}"
-#         chmod 0700 "${XDG_RUNTIME_DIR}"
-#     fi
-# fi
+export GTK3_THEME=adw-gtk3
+export GTK4_THEME=Adwaita
+#export GTK_THEME=FlatColor
+#export GTK_THEME=Arc-Dark
+#export CLUTTER_BACKEND=wayland
+export QT_QPA_PLATFORMTHEME='gnome'
+    #export QT_QPA_PLATFORMTHEME=adwaita-qt6
+    #export QT_QPA_PLATFORMTHEME=gtk2
+    #export QT_QPA_PLATFORMTHEME=qt5ct
+    #export QT_QPA_PLATFORMTHEME=qt6ct
+#export QT_QPA_PLATFORM=wayland-egl
 
 # Remove CSD
-#export GTK_CSD=0
-#export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
+export GTK_CSD=0
+export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
 
 # Clean-up:
 ## GPG

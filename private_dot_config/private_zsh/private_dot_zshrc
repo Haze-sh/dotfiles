@@ -1,7 +1,6 @@
 # Defaults
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-#PS1="%B 🍺%{$fg[yellow]%}%~%{$reset_color%}%b "
 
 ## Git
 my_precmd() {
@@ -29,12 +28,14 @@ zstyle ':vcs_info:git:*' formats '%b'
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd my_precmd
 PROMPT='%B 🍺%{$fg[yellow]%}%~%{$fg[blue]%}%1v%{$reset_color%}%b '
+#PS1="%B 🍺%{$fg[yellow]%}%~%{$reset_color%}%b "
 
 autoload -U colors && colors
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 setopt prompt_subst
+# unsetopt PROMPT_SP
 
 # Tab completion
 autoload -U compinit && compinit -u
