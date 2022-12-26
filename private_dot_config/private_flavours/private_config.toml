@@ -112,7 +112,7 @@ rewrite = true
 ## hook = "gsettings set org.gnome.desktop.interface gtk-theme dummy && gsettings set org.gnome.desktop.interface gtk-theme FlatColor"
 
 [[item]]
-file = "~/.vscode-oss/extensions/golf1052.base16-generator/themes/base16-default-dark.json"
+file = "~/.local/share/vscode/golf1052.base16-generator/themes/base16-default-dark.json"
 # file = "~/.local/share/vscode/golf1052.base16-generator-1.15.0/themes/base16-default-dark.json"
 template = "vscode"
 rewrite = true

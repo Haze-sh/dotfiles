@@ -40,20 +40,21 @@
 %hours * 06-09,21-00 * * * newsboat --url-file=$HOME/.config/newsboat/urls -x reload
 
 # Cleanup
-@ 60 rm $HOME/core
+@ 1d rm $HOME/core
 @ 1d rm $HOME/.bg
 @ 1d rm $HOME/.yarnrc
 @ 1d rm $HOME/package.json
 @ 1d rm $HOME/package-lock.json
 @ 1d rm $HOME/.autotiling.bolt
-@ 1d rm -r $HOME/.npm
-@ 1d rm -r $HOME/node_modules
-@ 1d rm -r $HOME/.node-gyp
-@ 1d rm -r $HOME/.electron
-@ 1d rm -r $HOME/.electron-gyp
-@ 1d rm -r $HOME/.nuget
-@ 1d rm -r $HOME/.dotnet
-@ 1d rm -r $HOME/.pki
+@ 1d rm -rf $HOME/.npm
+@ 1d rm -rf $HOME/node_modules
+@ 1d rm -rf $HOME/.node-gyp
+@ 1d rm -rf $HOME/.electron
+@ 1d rm -rf $HOME/.electron-gyp
+@ 1d rm -rf $HOME/.nuget
+@ 1d rm -rf $HOME/.dotnet
+@ 1d rm -rf $HOME/.pki
+@ 1d rm -rf $HOME/.vscode-oss
 
 # Backup
 @ 1d dconf dump / > $HOME/.config/saved_settings.dconf
