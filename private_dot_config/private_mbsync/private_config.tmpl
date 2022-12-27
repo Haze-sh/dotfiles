@@ -1,0 +1,77 @@
+
+IMAPStore {{ .email_1 }}-remote
+Host imap.gmail.com
+Port 993
+User {{ .email_1 }}
+PassCmd "pass {{ .email_1 }}"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore {{ .email_1 }}-local
+Subfolders Verbatim
+Path ~/.local/share/mail/{{ .email_1 }}/
+Inbox ~/.local/share/mail/{{ .email_1 }}/INBOX
+
+Channel {{ .email_1 }}
+Expunge Both
+Far :{{ .email_1 }}-remote:
+Near :{{ .email_1 }}-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+IMAPStore {{ .email_2 }}-remote
+Host imap.gmail.com
+Port 993
+User {{ .email_2 }}
+PassCmd "pass {{ .email_2 }}"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore {{ .email_2 }}-local
+Subfolders Verbatim
+Path ~/.local/share/mail/{{ .email_2 }}/
+Inbox ~/.local/share/mail/{{ .email_2 }}/INBOX
+
+Channel {{ .email_2 }}
+Expunge Both
+Far :{{ .email_2 }}-remote:
+Near :{{ .email_2 }}-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+
+IMAPStore {{ .email_3 }}-remote
+Host {{ .host }}
+Port 993
+User {{ .email_3 }}
+PassCmd "pass {{ .email_3 }}"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore {{ .email_3 }}-local
+Subfolders Verbatim
+Path ~/.local/share/mail/{{ .email_3 }}/
+Inbox ~/.local/share/mail/{{ .email_3 }}/INBOX
+
+Channel {{ .email_3 }}
+Expunge Both
+Far :{{ .email_3 }}-remote:
+Near :{{ .email_3 }}-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
