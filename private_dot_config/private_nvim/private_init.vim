@@ -327,6 +327,12 @@ filetype plugin indent on
   nmap <leader>dj i[<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]<Esc>
   imap <leader>dj [<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]
 
+" NERDTree
+  nnoremap <leader>n :NERDTreeFocus<CR>
+  nnoremap <C-n> :NERDTree<CR>
+  nnoremap <C-t> :NERDTreeToggle<CR>
+  nnoremap <C-f> :NERDTreeFind<CR>
+
 " Adding new note
   let g:zettelkasten = $ZET_DIR
   command! -nargs=1 Zet :execute ":e" zettelkasten . "/<args>.md"
