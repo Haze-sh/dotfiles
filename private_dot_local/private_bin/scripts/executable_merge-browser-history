@@ -3,8 +3,6 @@
 set -o pipefail
 set -ex
 
-HPIDATA=$HOME/Documents/Notes/Personal/Journal/Collections/References/Data
-
 epoch() {
 	date +"%s"
 }

@@ -43,5 +43,3 @@ pass add totp # KeePass TOTP
 - Some scripts are path dependant
 	* setwallpaper
 	* syncbuku
-	* merge-browser-history
-	* merge-mpv-data

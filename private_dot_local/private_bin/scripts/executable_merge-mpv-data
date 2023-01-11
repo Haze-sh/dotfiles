@@ -3,8 +3,6 @@
 set -o pipefail
 set -ex
 
-HPIDATA=$HOME/Documents/Notes/Personal/Journal/Collections/References/Data
-
 main() {
 	local write_to mpv_dir move_to
 	mpv_dir=${HPIDATA}/MPV
