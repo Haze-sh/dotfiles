@@ -1,0 +1,117 @@
+#!/bin/env python
+""" bukuding, a 'ding' for buku bookmark manager """
+
+import sys
+import asyncio
+import buku
+import configargparse
+from aiohttp import ClientSession
+from aiolinkding import Client
+
+
+def parse_args(args):
+    """ parse from config files or command line """
+    conf_files = ['~/.config/bukuding/*.conf']
+    parser = configargparse.ArgParser(default_config_files=conf_files)
+    parser.add('-c', '--config', is_config_file=True,
+               help='config file path')
+    parser.add('--client', required=True,
+               help='linkding client')
+    parser.add('--token', required=True,
+               help='token')
+    args = parser.parse_args(args)
+    return args
+
+
+def item_to_dict(b_item):
+    """ put item to a dictionary """
+    out = {
+        'url': b_item[1],
+        'title': b_item[2],
+        'tags': sorted(b_item[3].split(',')[1:-1]),
+        'timestamp': b_item[0]
+    }
+
+    return out
+
+
+def sort_dict_items(item_list):
+    """ sort dictionaries by timestamp """
+    return sorted(item_list, key=lambda x: x['timestamp'])
+
+
+def dict_list_difference(list1, list2):
+    """ return items in list1 but not in list2 """
+    return [i for i in list1 if i['url'] not in [j['url'] for j in list2]]
+
+
+async def main() -> None:
+    """ main function """
+    args = parse_args(sys.argv[1:])
+    client_url = args.client
+    token_key = args.token
+    client = Client(client_url, token_key)
+
+    linkding_all_bookmarks = await client.bookmarks.async_get_all(limit=100000)
+    linkding_all_bookmarks = linkding_all_bookmarks.get('results')
+    for dictionary in linkding_all_bookmarks:
+        dictionary['tags'] = dictionary.pop('tag_names')
+        dictionary['timestamp'] = dictionary.pop('id')
+        del dictionary['description']
+        del dictionary['website_title']
+        del dictionary['website_description']
+        del dictionary['is_archived']
+        del dictionary['unread']
+        del dictionary['shared']
+        del dictionary['date_added']
+        del dictionary['date_modified']
+    linkding_all_bookmarks = sort_dict_items(linkding_all_bookmarks)
+
+#   print(linkding_all_bookmarks, file=open('linkding_all_bookmarks.txt', 'a'))
+    count = 0
+    for i in linkding_all_bookmarks:
+        count = count+1
+    print('linkding all bookmarks: ', count)
+
+    bukudb = buku.BukuDb()
+    buku_all_bookmarks = [item_to_dict(i) for i in bukudb.get_rec_all()]
+    buku_all_bookmarks = sort_dict_items(buku_all_bookmarks)
+
+#   print(buku_all_bookmarks, file=open('buku_all_bookmarks.txt', 'a'))
+    count = 0
+    for i in buku_all_bookmarks:
+        count = count+1
+    print('buku all bookmarks: ', count)
+
+    linkding_new_bookmarks = dict_list_difference(
+        buku_all_bookmarks, linkding_all_bookmarks)
+
+#   print(linkding_new_bookmarks, file=open('linkding_new_bookmarks.txt', 'a'))
+    count = 0
+    for i in linkding_new_bookmarks:
+        count = count+1
+    print('linkding new bookmarks: ', count)
+
+    buku_new_bookmarks = dict_list_difference(
+        linkding_all_bookmarks, buku_all_bookmarks)
+
+#   print(buku_new_bookmarks, file=open('buku_new_bookmarks.txt', 'a'))
+    count = 0
+    for i in buku_new_bookmarks:
+        count = count+1
+    print('buku new bookmarks: ', count)
+
+    for buku_import in buku_new_bookmarks:
+        bukudb.add_rec(buku_import['url'], title_in=buku_import['title'],
+                       delay_commit=True, fetch=False)
+    bukudb.conn.commit()
+
+    async with ClientSession() as session:
+        client = Client(client_url, token_key, session=session)
+        for i in linkding_new_bookmarks:
+            await client.bookmarks.async_create(
+                i.get('url'),
+                title=i.get('title'),
+            )
+
+asyncio.run(main())
