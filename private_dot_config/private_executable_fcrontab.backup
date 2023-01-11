@@ -1,33 +1,40 @@
 #!/bin/sh
 
-# Sync Tasks
+# Sync Local
 @ 01 topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE --reverse
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE --reverse
-@ 01 . $HOME/.zshenv; cd $JOURNAL_DIR ; $HOME/.local/bin/scripts/autogit
 @ 05 . $HOME/.zshenv; jrnl --config-override journals.default $DEFAULT_JRNL --format md > $GTD_DIR/Journal.md
-@ 05 . $HOME/.zshenv; $HOME/.local/bin/scripts/bukuding ; date &>/tmp/cron-bukuding.log
+@ 30 . $HOME/.zshenv; calcurse -x > $HOME/.local/share/calendars/main/main.ics
+@ 1d . $HOME/.zshenv; promnesia index
+
+## Sync Servers
 @ 01 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
+@ 05 . $HOME/.zshenv; $HOME/.local/bin/scripts/bukuding ; date &>/tmp/cron-bukuding.log
 @ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
 @ 20 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
-@ 30 calcurse -x > $HOME/.local/share/calendars/main/main.ics
-@ 180 . $HOME/.zshenv; promnesia index
 
-## Exports
+## Local Imports
+@ 60 . $HOME/.zshenv; tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
 @ 1d . $HOME/.zshenv; python -m hypexport.export --username $(pass show user) --token $(pass show hypothesis) > $ZET_DIR/hyp-annotations.json
 @ 1d . $HOME/.zshenv; python -m orger.modules.hypothesis --to $ZET_DIR/hyp-annotations.org
 @ 1d . $HOME/.zshenv; torsimany $ZET_DIR/hyp-annotations.json
-@ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt
-@ 60 . $HOME/.zshenv; tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
-@ 60 . $HOME/.zshenv; rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA
-@ 60 . $HOME/.zshenv; browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser
-@ 60 . $HOME/.zshenv; browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json
-@ 60 . $HOME/.zshenv; merge-browser-history
+
+## Local Backups
+@ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $HPIDATA/tree.txt
+@ 60 . $HOME/.zshenv; rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA/Music
 @ 60 . $HOME/.zshenv; merge-mpv-data
-@ 60 . $HOME/.pam_environment; . $HOME/.zshenv; chezmoi add --encrypt $HOME/.cache/zsh
+@ 60 . $HOME/.zshenv; \
+	browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser ; \
+	browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json ; \
+	merge-browser-history
 @ 1w . $HOME/.zshenv; wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
+
+## Git Backups
+@ 01 . $HOME/.zshenv; cd $JOURNAL_DIR ; $HOME/.local/bin/scripts/autogit
+@ 60 . $HOME/.pam_environment; . $HOME/.zshenv; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
 @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
