@@ -240,6 +240,11 @@ mode "resize" {
         resize set width 700 px height 500 px
         border pixel 0
         }
+    for_window [app_id="^master-launcher$"] {
+        floating enable
+        resize set width 700 px height 500 px
+        border pixel 0
+        }
     for_window [app_id="^note-launcher$"] {
         floating enable
         resize set width 700 px height 500 px

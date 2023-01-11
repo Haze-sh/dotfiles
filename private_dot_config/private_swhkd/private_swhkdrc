@@ -1,6 +1,4 @@
 # Super + {Key}
-# super + return
-# 	$TERMINAL
 super + escape
 	killall $BAR -s USR1
 super + b
@@ -11,16 +9,26 @@ super + d
 	$MENU # wofi -i --show drun
 super + i
 	$BROWSER
-super + n
-	$TERMINAL -e $FILEMANAGER -de
+super + l
+	$HOME/.local/bin/university-setup/scripts/rofi-lectures.py
 super + m
 	$TERMINAL -e $MUSICPLAYER
+super + n
+	$TERMINAL -e $FILEMANAGER -de
 super + p
 	keepmenu
 super + t
 	autotiling
+super + x
+	$HOME/.local/bin/university-setup/scripts/rofi-courses.py
+super + y
+	$HOME/.local/bin/university-setup/scripts/compile-all-masters.py
+super + z
+	inkscape-figures edit $COURSES/Current/figures
 super + F11
 	$TERMINAL -e $SCREENRECORDER -a -f $HOME/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4
+# super + return
+# 	$TERMINAL
 
 # Super + Shift + {Key}
 super + shift + a
@@ -31,6 +39,8 @@ super + shift + f
 	$CHAT
 super + shift + i
 	$TERMINAL -e $IRC
+super + shift + l
+	$HOME/.local/bin/university-setup/scripts/rofi-lectures-view.py
 super + shift + m
 	$MEDIAPLAYER
 super + shift + o
@@ -47,6 +57,10 @@ super + shift + period
 	gnome-calculator
 super + shift + F11
 	$TERMINAL -e $screenrecorder -g "$($screenclip)" -a -f $HOME/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4
+
+# Super + Alt + {Key}
+super + alt + x
+	flavours generate dark $HOME/.local/share/backgrounds/wallpaper.png && flavours apply generated
 
 # Alt + {Key}
 alt + 0
@@ -66,7 +80,7 @@ alt + e
 alt + f
 	$TERMINAL --class=fzf-rss -e rss-fzf
 alt + g
-	flavours generate dark $HOME/.local/share/backgrounds/wallpaper.png && flavours apply generated
+	$TERMINAL --class=projects-launcher -e zsh -c '$EDITOR $LEDGER_FILE'
 alt + h
 	$TERMINAL --class=journal-editor-md -e zsh -c '$EDITOR $GTD_DIR/Journal.md'
 alt + j
@@ -76,7 +90,7 @@ alt + k
 alt + l
 	$TERMINAL --class=fzf-library -e library-fzf
 alt + m
-	$TERMINAL --class=projects-launcher -e zsh -c '$EDITOR $LEDGER_FILE'
+	$TERMINAL --class=master-launcher -e zsh -c '$EDITOR $COURSES/Current/master.tex'
 alt + n
 	$TERMINAL --class=note-launcher -e zsh -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
 alt + o
