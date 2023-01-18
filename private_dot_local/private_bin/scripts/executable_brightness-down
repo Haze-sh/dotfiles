@@ -1,2 +1,3 @@
 #!/bin/sh
-pkexec brillo -q -U 2
+brillo -q -U 2
+# pkexec brillo -q -U 2

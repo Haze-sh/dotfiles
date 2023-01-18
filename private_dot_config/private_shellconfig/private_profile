@@ -31,10 +31,11 @@ export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
 # Default programs
 export EDITOR="nvim"
 export TERMINAL="kitty"
+    # export TERMINAL="gnome-terminal"
 export BROWSER="firefox"
 export PAGER="bat"
-    #export PAGER="less"
-    #export PAGER="most"
+    # export PAGER="less"
+    # export PAGER="most"
 export PLUMBER="web-xdg-open"
 export BAR="waybar"
 export IDLE="swayidle"
@@ -64,15 +65,15 @@ export GDK_BACKEND=wayland
 # Themes
 export GTK3_THEME=adw-gtk3
 export GTK4_THEME=Adwaita
-#export GTK_THEME=FlatColor
-#export GTK_THEME=Arc-Dark
-#export CLUTTER_BACKEND=wayland
+# export GTK_THEME=FlatColor
+# export GTK_THEME=Arc-Dark
+# export CLUTTER_BACKEND=wayland
 export QT_QPA_PLATFORMTHEME='gnome'
-    #export QT_QPA_PLATFORMTHEME=adwaita-qt6
-    #export QT_QPA_PLATFORMTHEME=gtk2
-    #export QT_QPA_PLATFORMTHEME=qt5ct
-    #export QT_QPA_PLATFORMTHEME=qt6ct
-#export QT_QPA_PLATFORM=wayland-egl
+    # export QT_QPA_PLATFORMTHEME=adwaita-qt6
+    # export QT_QPA_PLATFORMTHEME=gtk2
+    # export QT_QPA_PLATFORMTHEME=qt5ct
+    # export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_QPA_PLATFORM=wayland-egl
 
 # Remove CSD
 export GTK_CSD=0
@@ -149,9 +150,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 export PYDORO_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/pydoro/pydoro.conf"
 export DICS="/usr/share/stardict/dic/"
 export SUDO_ASKPASS="$HOME/.local/bin/wofipassmenu"
-#export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
-#export ALSA_CONFIG_PATH=/usr/share/alsa/alsa.conf
-#eval $(thefuck --alias)
+# export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+# export ALSA_CONFIG_PATH=/usr/share/alsa/alsa.conf
+# eval $(thefuck --alias)
 
 ## Directory Structure
 export NOTES_DIR="$HOME/Documents/Notes"

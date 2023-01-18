@@ -15,6 +15,8 @@ super + m
 	$TERMINAL -e $MUSICPLAYER
 super + n
 	$TERMINAL -e $FILEMANAGER -de
+super + o
+ 	$TERMINAL --class=oil -e oil
 super + p
 	keepmenu
 super + t
@@ -67,8 +69,8 @@ alt + 0
 	bash courses-shortcut 0
 alt + return
 	$TERMINAL --class=term-launcher
-alt + a
-	csv-launcher
+# alt + a
+# 	csv-launcher
 alt + b
 	wofibukumenu wofi
 alt + c
@@ -93,34 +95,32 @@ alt + m
 	$TERMINAL --class=master-launcher -e zsh -c '$EDITOR $COURSES/Current/master.tex'
 alt + n
 	$TERMINAL --class=note-launcher -e zsh -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
-alt + o
-	$TERMINAL --class=oil -e oil
 alt + p
 	wofipassmenu wofi
 alt + q
 	bash courses-shortcut q
 alt + r
 	bash courses-shortcut r #wofirssmenu wofi
-alt + s
-	old="$(flavours current)" && \
-	flavours list -l | flavours-terminal-fzf --preview="flavours apply -l {}" || \
-	flavours apply "${old}" && \
-	flavours apply "$(flavours current)"
+# alt + s
+# 	old="$(flavours current)" && \
+# 	flavours list -l | flavours-terminal-fzf --preview="flavours apply -l {}" || \
+# 	flavours apply "${old}" && \
+# 	flavours apply "$(flavours current)"
 alt + t
 	$TERMINAL --class=todo -e bash -c '$EDITOR $TODO_FILE'
-alt + u
-	darkmode
-alt + v
-	flavours apply
-alt + w
-	old="$(setwallpaper -Q)" && \
-	setwallpaper -L | flavours-terminal-fzf --preview='setwallpaper {}' || \
-	setwallpaper "${old}" && \
-	setwallpaper "$(setwallpaper -Q)" && flavours apply "$(flavours current)"
+# alt + u
+# 	darkmode
+# alt + v
+# 	flavours apply
+# alt + w
+# 	old="$(setwallpaper -Q)" && \
+# 	setwallpaper -L | flavours-terminal-fzf --preview='setwallpaper {}' || \
+# 	setwallpaper "${old}" && \
+# 	setwallpaper "$(setwallpaper -Q)" && flavours apply "$(flavours current)"
 alt + x
 	courses-shortcut x
-alt + y
-	setwallpaper -R
+# alt + y
+# 	setwallpaper -R
 alt + z
 	$TERMINAL --class=zettelkasten -e zsh -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
 
@@ -145,10 +145,10 @@ xf86audioprev
 	playerctl previous
 xf86audiostop
 	playerctl stop
-xf86monbrightnessup
-	brightness-up
-xf86monbrightnessdown
-	brightness-down
+# xf86monbrightnessup
+# 	brightness-up
+# xf86monbrightnessdown
+# 	brightness-down
 Print
 	$SCREENSHOTS $HOME/Pictures/Screenshots/scrn-$(date +%d-%m-%Y,%H:%M:%S.png)
 
