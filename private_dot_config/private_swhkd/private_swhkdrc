@@ -10,7 +10,7 @@ super + d
 super + i
 	$BROWSER
 super + l
-	$HOME/.local/bin/university-setup/scripts/rofi-lectures.py
+	$HOME/.local/bin/university-setup-max/src/rofi-lectures.py
 super + m
 	$TERMINAL -e $MUSICPLAYER
 super + n
@@ -22,9 +22,9 @@ super + p
 super + t
 	autotiling
 super + x
-	$HOME/.local/bin/university-setup/scripts/rofi-courses.py
+	$HOME/.local/bin/university-setup-max/src/rofi-courses.py
 super + y
-	$HOME/.local/bin/university-setup/scripts/compile-all-masters.py
+	$HOME/.local/bin/university-setup-max/src/compile_all_full_versions.py
 super + z
 	inkscape-figures edit $COURSES/Current/figures
 super + F11
@@ -42,7 +42,7 @@ super + shift + f
 super + shift + i
 	$TERMINAL -e $IRC
 super + shift + l
-	$HOME/.local/bin/university-setup/scripts/rofi-lectures-view.py
+	$HOME/.local/bin/university-setup-max/src/rofi-lectures-view.py
 super + shift + m
 	$MEDIAPLAYER
 super + shift + o
