@@ -11,6 +11,12 @@ WORK_NOTES_DIR = environ.get("WORK_NOTES_DIR")
 SOURCES = [
     Source(
         auto.index,
+        '~/Backups/Data',
+        ignored=['~/Backups/Data/Archive/*', '~/Backups/Data/URLS/*',
+                 '*.tsv', '*.urls']
+    ),
+    Source(
+        auto.index,
         '~/.local/share/mail'
     ),
     Source(

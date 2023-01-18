@@ -149,7 +149,7 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'voldikss/vim-floaterm'
   "Plug 'Shougo/defx.nvim'
   Plug 'sirver/ultisnips'
-    let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $COURSES.'/Snippets']
+    let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips', $COURSES.'/Scripts/Snippets']
     let g:UltiSnipsExpandTrigger='<tab>'
     let g:UltiSnipsJumpForwardTrigger='<tab>'
     let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
