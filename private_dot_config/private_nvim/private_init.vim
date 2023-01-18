@@ -256,7 +256,7 @@ set iskeyword-=],_
 
 set tags+=./tags;,tags
 set path+=**
-set rtp+=$COURSES/current-course
+set rtp+=$COURSES/Current
 set wildmode=longest,list,full
 set wildmenu
 set nospell
