@@ -26,6 +26,7 @@ call plug#begin("~/.config/nvim/plugged")
 
 " Themes
   Plug 'chriskempson/base16-vim'
+  Plug 'waycrate/swhkd-vim'
   "Plug 'mcchrish/vim-no-color-collections'
   "Plug 'rmehri01/onenord.nvim'
   "Plug 'preservim/vim-colors-pencil'
@@ -289,7 +290,7 @@ filetype plugin indent on
 	map <C-l> <C-w>l
 
 " Spell-check set to <leader>s, 'o' for 'othography'
-	map <leader>o :setlocal spell! spelllang=en_us,de_de,ar_ar<CR>
+	map <leader>o :setlocal spell! spelllang=en_us,de,ar<CR>
 
 " Check file in shellcheck
 	map <leader>s :!clear && shellcheck -x %<CR>

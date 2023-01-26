@@ -16,6 +16,8 @@ symbols:
   - BTC-USD
   - ETH-USD
   - XMR-USD
+  - ZEC-USD
+  - SCRT-USD
 
 # Possible values: line, candle, kagi
 chart_type: line
