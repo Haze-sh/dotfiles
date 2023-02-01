@@ -1,4 +1,0 @@
-[console_scripts]
-calcurse_load = calcurse_load.__main__:cli
-gcal_index = gcal_index.__main__:main
-

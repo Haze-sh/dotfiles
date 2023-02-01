@@ -1,2 +1,0 @@
-calcurse_load
-gcal_index
