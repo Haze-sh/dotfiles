@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Sync Local
-@ 01 topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
+@ 01 . $HOME/.zshenv; topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE --reverse
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE
