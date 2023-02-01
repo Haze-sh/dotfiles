@@ -9,9 +9,14 @@ symbols:
   - ^RUT
   - ^CASE30
   - ^EGX30CAPPED.CA
+  - ^EGX50EWI.CA
   - ^EGX70EWI.CA
   - ^EGX100EWI.CA
   - EGP=X
+  - EUREGP=X
+  - EGPUSD=X
+  - EGPEUR=X
+  - EGPMYX=X
   - ^CMC200
   - BTC-USD
   - ETH-USD

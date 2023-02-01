@@ -17,20 +17,20 @@
     exec mpDris2
     exec playerctld daemon
     exec play $HOME/Music/Classical\ Library/'1-01 Beethoven Symphony 5 in C Minor, Op. 67 - 1. Allegro Con Brio (CUT).mp3' >/dev/null 2>&1
-    exec ydotoold --socket-perm 0660
     exec swaymgr
     exec sway-fader
     exec wl-paste -t text --watch clipman store
-    exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     exec wl-paste -t text --watch clipman-clear
+    exec ydotoold --socket-perm 0660
     exec autostart-services
-    #exec lid-lock
-    #exec evscript
-    #exec libinput-gestures
-    #exec libuInputPlus
-    #exec libevdevPlus
-    #exec fusuma
-    #exec wmfocus
+    # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+    # exec lid-lock
+    # exec evscript
+    # exec libinput-gestures
+    # exec libuInputPlus
+    # exec libevdevPlus
+    # exec fusuma
+    # exec wmfocus
 
 # Color
 # Start flavours
