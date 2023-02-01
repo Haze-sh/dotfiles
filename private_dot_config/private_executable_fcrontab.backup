@@ -18,7 +18,7 @@
 
 ## Local Imports
 @ 60 . $HOME/.zshenv; tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
-@ 1d . $HOME/.zshenv; python -m hypexport.export --username $(pass show user) --token $(pass show hypothesis) > $ZET_DIR/hyp-annotations.json
+@ 1d . $HOME/.zshenv; python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $ZET_DIR/hyp-annotations.json
 @ 1d . $HOME/.zshenv; python -m orger.modules.hypothesis --to $ZET_DIR/hyp-annotations.org
 @ 1d . $HOME/.zshenv; torsimany $ZET_DIR/hyp-annotations.json
 
