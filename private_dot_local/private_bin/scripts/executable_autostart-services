@@ -1,21 +1,21 @@
 #!/bin/sh
 
-# Autostart
-# yams & disown ;
+# Autostart Programs
 moonphase ;
+calcurse --daemon ;
 otd.start & disown ;
 safeeyes & disown ;
+mpv_history_daemon_restart $HPIDATA/MPV ;
+#yams & disown ;
+
+# Services
 mopidy & disown ; # 6680 # 6600
 beet web & disown ; # 8337
 python3 ~/.local/bin/inkscape-shortcut-manager/main.py & disown ;
 rsshub.start & disown ; # 1200
 bukuserver run --host 127.0.0.1 --port 5001 & disown ; # 5001
 aw-server & disown ; # 5600
-calcurse --daemon ;
 cd $ARCHIVE/archivebox ; archivebox server 0.0.0.0:8000 & disown ; # 8000
 promnesia serve & disown ; # 13131
 syncthing -no-browser & disown ; # 41441
 openbooks server & disown ; # 5228
-newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=~/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count ;
-mpv_history_daemon_restart $HPIDATA/MPV ;
-tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $ZET_DIR/References/tree.txt ;
