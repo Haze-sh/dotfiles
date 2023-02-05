@@ -37,15 +37,15 @@
 @ 60 . $HOME/.pam_environment; . $HOME/.zshenv; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
-@ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
-@ 60 sfeed_html $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.html
-@ 60 sfeed_plain $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.txt
+# @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
+# @ 60 sfeed_html $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.html
+# @ 60 sfeed_plain $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.txt
 @ 60 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
 
 # Total Feed
-%hours * 06-09,21-00 * * * sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
-%hours * 06-09,21-00 * * * sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
-%hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
+# %hours * 06-09,21-00 * * * sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
+# %hours * 06-09,21-00 * * * sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
+# %hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
 %hours * 06-09,21-00 * * * newsboat --url-file=$HOME/.config/newsboat/urls -x reload
 
 # Cleanup
