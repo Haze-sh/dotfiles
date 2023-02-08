@@ -1,0 +1,11 @@
+[General]
+Hostname = {{ .caldav_server }}
+Path = {{ .caldav_server_path }}
+SyncFilter = cal,todo
+AuthMethod = basic
+DryRun = No
+InsecureSSL = No
+HTTPS = Yes
+Verbose = Yes
+[Auth]
+Username = {{ .caldav_username }}

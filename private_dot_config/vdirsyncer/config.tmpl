@@ -1,0 +1,18 @@
+[general]
+status_path = "~/.local/share/vdirsyncer/status/"
+
+[pair contacts]
+a = "contacts_local"
+b = "contacts_remote"
+collections = ["from a", "from b"]
+
+[storage contacts_local]
+type = "filesystem"
+path = "~/.local/share/contacts/"
+fileext = ".vcf"
+
+[storage contacts_remote]
+type = "carddav"
+url = "{{ .carddav_server_path }}"
+username = "{{ .caldav_username }}"
+password.fetch = ["command", "pass", "show", "caldav"]

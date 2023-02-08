@@ -7,7 +7,7 @@
     set $right l
 
 # Autostart
-    exec_always $BACKGROUND -i $HOME/.local/share/backgrounds/wallpaper.png
+    exec_always $BACKGROUND -m fill -i $HOME/.local/share/backgrounds/wallpaper.png
     exec_always --no-startup-id exec sway-dynamic-names
     exec_always swhks & pkexec swhkd -c $HOME/.config/swhkd/swhkdrc
     exec $BAR

@@ -3,4 +3,4 @@
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-${HOME:-/home/$LOGNAME}/.local/share}/password-store"
 export GNUPGHOME="${XDG_DATA_HOME:-${HOME:-/home/$LOGNAME}/.local/share}/gnupg"
 
-CALCURSE_CALDAV_PASSWORD=$(pass show calcurse) calcurse-caldav
+CALCURSE_CALDAV_PASSWORD=$(pass show caldav) calcurse-caldav

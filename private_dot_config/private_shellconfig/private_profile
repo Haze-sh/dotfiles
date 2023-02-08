@@ -83,7 +83,7 @@ export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
 
 # Clean-up:
 ## GPG
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 export GPG_AGENT_INFO=""
 
 ## Defaults
@@ -179,8 +179,8 @@ export COURSES="$HOME/Documents/Notes/Personal/Courses"
 export CODEBOX="$HOME/Documents/Notes/Workspace/Codebox"
 export REPOS="$HOME/Documents/Notes/Workspace/Repos"
 export KEEPASS_FILE="$JOURNAL_DIR/Documents/passwords.kbdx"
-export BUKU_XBEL="$JOURNAL_DIR/Documents/buku.xbel"
-export BUKU_MD="$JOURNAL_DIR/Documents/buku.md"
+export BUKU_XBEL="$JOURNAL_DIR/Documents/Bookmarks/buku.xbel"
+export BUKU_MD="$JOURNAL_DIR/Documents/Bookmarks/buku.md"
 export CALENDIR="$XDG_DATA_HOME/calendars/spaced"
 export HPIDATA="$HOME/Backups/Data"
 

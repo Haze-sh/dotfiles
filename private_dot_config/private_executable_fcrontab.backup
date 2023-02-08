@@ -11,20 +11,19 @@
 @ 1d . $HOME/.zshenv; promnesia index
 
 ## Sync Servers
-@ 01 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
+@ 05 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
 @ 05 . $HOME/.zshenv; $HOME/.local/bin/scripts/bukuding ; date &>/tmp/cron-bukuding.log
 @ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
 @ 20 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
 
 ## Local Imports
 @ 60 . $HOME/.zshenv; tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
-@ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $JOURNAL_DIR/Documents/tree.txt
 @ 1d . $HOME/.zshenv; python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $ZET_DIR/hyp-annotations.json
 @ 1d . $HOME/.zshenv; python -m orger.modules.hypothesis --to $ZET_DIR/hyp-annotations.org
 @ 1d . $HOME/.zshenv; torsimany $ZET_DIR/hyp-annotations.json
 
 ## Local Backups
-@ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > $HPIDATA/tree.txt
+@ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > ~/Backups/Machines/tree.txt
 @ 60 . $HOME/.zshenv; rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA/Music
 @ 60 . $HOME/.zshenv; merge-mpv-data
 @ 60 . $HOME/.zshenv; \

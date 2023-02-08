@@ -8,5 +8,5 @@
    <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
   </filter>
  </defs>
- <circle fill="#2E3440" stroke="#2E3440"                                                                                                                                                                                                                                                                                                             cx="7.5" cy="7.5" r="4"  filter="url(#a)"  stroke-width="1.2"/>
+ <circle fill="#2E3440" stroke="#2E3440"                                                                                                                                                                                                                                                                                                                                     cx="7.5" cy="7.5" r="4"  filter="url(#a)"  stroke-width="1.2"/>
 </svg>
