@@ -6,6 +6,7 @@ calcurse --daemon ;
 otd.start & disown ;
 safeeyes & disown ;
 mpv_history_daemon_restart $HPIDATA/MPV ;
+ssh-agent -D -a $SSH_AUTH_SOCK & disown
 #yams & disown ;
 
 # Services

@@ -12,6 +12,7 @@
     exec_always swhks & pkexec swhkd -c $HOME/.config/swhkd/swhkdrc
     exec $BAR
     exec $NOTIFICATIONS
+    exec ssh-agent -D -a $SSH_AUTH_SOCK
     exec gammastep
     exec pipewire & pipewire-pulse & wireplumber
     exec mpDris2
