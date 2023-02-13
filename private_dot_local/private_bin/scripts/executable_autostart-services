@@ -5,8 +5,7 @@ moonphase ;
 calcurse --daemon ;
 otd.start & disown ;
 safeeyes & disown ;
-mpv_history_daemon_restart $HPIDATA/MPV ;
-ssh-agent -D -a $SSH_AUTH_SOCK & disown
+mpv_history_daemon_restart $HPIDATA/MPV & disown ;
 #yams & disown ;
 
 # Services
