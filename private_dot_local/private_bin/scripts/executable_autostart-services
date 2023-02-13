@@ -17,5 +17,5 @@ bukuserver run --host 127.0.0.1 --port 5001 & disown ; # 5001
 aw-server & disown ; # 5600
 promnesia serve & disown ; # 13131
 syncthing -no-browser & disown ; # 41441
-openbooks server & disown ; # 5228
+#openbooks server & disown ; # 5228
 #cd $ARCHIVE/archivebox ; archivebox server 0.0.0.0:8000 & disown ; # 8000
