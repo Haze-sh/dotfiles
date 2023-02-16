@@ -23,7 +23,7 @@
 @ 1d . $HOME/.zshenv; torsimany $ZET_DIR/hyp-annotations.json
 
 ## Local Backups
-@ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > ~/Backups/Machines/tree.txt
+# @ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > ~/Backups/Machines/tree.txt
 @ 60 . $HOME/.zshenv; rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA/Music
 @ 60 . $HOME/.zshenv; merge-mpv-data
 @ 60 . $HOME/.zshenv; \
