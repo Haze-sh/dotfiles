@@ -30,6 +30,10 @@
 	browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser ; \
 	browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json ; \
 	merge-browser-history
+@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/buku/bookmarks.db $HOME/Backups/Data/Bookmarks
+@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/buku/firefox-bookmarks.db $HOME/Backups/Data/Bookmarks
+@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/calendars/main/main.ics $HOME/Backups/Data/Calendars
+@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/contacts/a91c12ee-e103-af55-b810-ed96c36f0e03 $HOME/Backups/Data/Contacts
 @ 1w . $HOME/.zshenv; wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
 
 ## Git Backups
