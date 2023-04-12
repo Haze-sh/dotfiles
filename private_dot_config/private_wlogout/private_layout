@@ -18,7 +18,7 @@
 }
 {
     "label" : "shutdown",
-    "action" : "sudo openrc-shutdown --poweroff now",
+    "action" : "loginctl shutdown",
     "text" : "Shutdown",
     "keybind" : "s"
 }
@@ -30,7 +30,7 @@
 }
 {
     "label" : "reboot",
-    "action" : "sudo openrc-shutdown --reboot now",
+    "action" : "loginctl reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }
