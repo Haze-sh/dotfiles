@@ -79,7 +79,7 @@ export QT_QPA_PLATFORMTHEME='qt5ct'
 
 # Remove CSD
 export GTK_CSD=0
-export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
+# export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
 
 # Clean-up:
 ## GPG

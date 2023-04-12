@@ -21,6 +21,7 @@ flavours apply $SCHEME
 ## Backups
 
 ```bash
+chsh -s /bin/zsh
 fcrontab $HOME/.confing/fcrontab.backup # Cron jobs
 setfacl --restore=$HOME/.config/permissions.facl # For mopidy to work on local files
 sudo cp $HOME/.config/issue.txt /etc/issue ## To have a beautiful issue
@@ -32,10 +33,9 @@ sudo cp $HOME/.config/totem.thumbnailer /usr/share/thumbnailers/totem.thumbnaile
 It is easier to use some scripts by saving passwords to gnupass rather than manually doing stuff:
 
 ```bash
-pass add user # Hypothesis username
-pass add hypothesis # Hypothesis token
 pass add keepass # KeePass password
 pass add totp # KeePass TOTP
+pass add caldav # CalDAV password
 ```
 
 ## Minor Caveats

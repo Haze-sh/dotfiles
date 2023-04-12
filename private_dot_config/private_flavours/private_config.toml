@@ -29,7 +29,8 @@ end = "# End flavours"
 file = "~/.config/presets/user/User.json"
 template = "gradience"
 rewrite = true
-hook = "gsettings set org.gnome.desktop.interface gtk-theme dummy && gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3"
+hook = "gradience-cli apply -n User"
+# hook = "gsettings set org.gnome.desktop.interface gtk-theme dummy && gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3"
 
 [[item]]
 file = "~/.config/mako/config"
@@ -80,6 +81,12 @@ end = "# End flavours bemenu"
 
 [[item]]
 file = "~/.local/bin/scripts/bemenu-run"
+template = "bemenu"
+start = "# Start flavours bemenu"
+end = "# End flavours bemenu"
+
+[[item]]
+file = "~/.local/bin/scripts/pinentry-bemenu"
 template = "bemenu"
 start = "# Start flavours bemenu"
 end = "# End flavours bemenu"

@@ -7,7 +7,7 @@
     set $right l
 
 # Autostart
-    exec_always $BACKGROUND -m fill -i $HOME/.local/share/backgrounds/wallpaper.png
+    exec_always $BACKGROUND -m fill -i $HOME/.local/share/backgrounds/wallpaper.jpg
     exec_always --no-startup-id exec sway-dynamic-names
     exec_always swhks & pkexec swhkd -c $HOME/.config/swhkd/swhkdrc
     exec $BAR
@@ -22,7 +22,7 @@
     exec sway-fader
     exec wl-paste -t text --watch clipman store
     exec wl-paste -t text --watch clipman-clear
-    exec ydotoold --socket-perm 0660
+    exec ydotoold --socket-path /tmp/.ydotool_socket --socket-perm 0660
     exec autostart-services
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     # exec lid-lock
@@ -98,17 +98,17 @@ exec swayidle \
     smart_borders on
     default_border none
 
-    gaps inner 25
-    gaps outer -10
+#    gaps inner 25
+#    gaps outer -10
 
 # Sway borders
-    default_border pixel 0
-    for_window [class=".*"] border pixel 0
-
-    border_images.focused $HOME/.config/sway/borders/border-selected.png
-    border_images.focused_inactive $HOME/.config/sway/borders/border.png
-    border_images.unfocused $HOME/.config/sway/borders/border.png
-    border_images.urgent $HOME/.config/sway/borders/border.png
+#    default_border pixel 0
+#    for_window [class=".*"] border pixel 0
+#
+#    border_images.focused $HOME/.config/sway/borders/border-selected.png
+#    border_images.focused_inactive $HOME/.config/sway/borders/border.png
+#    border_images.unfocused $HOME/.config/sway/borders/border.png
+#    border_images.urgent $HOME/.config/sway/borders/border.png
 
 # Moving
     bindsym $mod+$left focus left

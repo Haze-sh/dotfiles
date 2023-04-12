@@ -403,10 +403,11 @@
 
 "custom/todo": {
     "format": " {}",
-    "exec": "topydo ls | wc -l",
+    "exec": "cat $TODOTXT_FILE | wc -l",
     //"exec": "todo list --sort=status | wc -l",
     //"exec": "task status:pending count",
-    "on-click": "$TERMINAL todotxt-machine --config ~/.config/todotxt-machine/todotxt-machinerc",
+    //"on-click": "$TERMINAL todotxt-machine --config ~/.config/todotxt-machine/todotxt-machinerc",
+    "on-click": "$TERMINAL $EDITOR $TODOTXT_FILE",
     "on-click-middle": "$TERMINAL --hold -e topydo ls",
     "on-click-right": "$TERMINAL --hold -e topydo edit",
     "interval": 1
@@ -847,10 +848,11 @@
 
 "custom/todo": {
     "format": " {}",
-    "exec": "topydo ls | wc -l",
+    "exec": "cat $TODOTXT_FILE | wc -l",
     //"exec": "todo list --sort=status | wc -l",
     //"exec": "task status:pending count",
-    "on-click": "$TERMINAL todotxt-machine --config ~/.config/todotxt-machine/todotxt-machinerc",
+    //"on-click": "$TERMINAL todotxt-machine --config ~/.config/todotxt-machine/todotxt-machinerc",
+    "on-click": "$TERMINAL $EDITOR $TODOTXT_FILE",
     "on-click-middle": "$TERMINAL --hold -e topydo ls",
     "on-click-right": "$TERMINAL --hold -e topydo edit",
     "interval": 1
