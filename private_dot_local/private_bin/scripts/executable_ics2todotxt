@@ -159,7 +159,7 @@ def main(argv):
             output_line = ''
             if 'STATUS' in todo and todo['STATUS'] == 'COMPLETED':
                 output_line = 'x '
-            if 'PRIORITY' in todo:
+            if 'PRIORITY' in todo and todo['PRIORITY'] != '0':
                 output_line += '(' + \
                     chr(((ord(todo['PRIORITY']) - 49) >> 2) + 65) + ') '
             dates = set()
@@ -173,8 +173,10 @@ def main(argv):
                 output_line += ' ' + todo['URL']
             if 'DUE' in todo:
                 output_line += ' due:' + normalize_date(todo['DUE'])
-            if 'DESCRIPTION' in todo:
-                output_line += process_description(todo['DESCRIPTION'])
+            if 'UID' in todo:
+                output_line += ' ical:' +todo['UID']
+            # if 'DESCRIPTION' in todo:
+            #     output_line += process_description(todo['DESCRIPTION'])
             print(output_line + appendix, file=output_file)
     except IOError as err:
         print(err, file=sys.stderr)
