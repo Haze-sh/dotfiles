@@ -108,8 +108,12 @@ zinit snippet OMZ::lib/git.zsh
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
 #zinit light softmoth/zsh-vim-mode
-#zinit light zsh-users/zsh-history-substring-search
+zinit light zsh-users/zsh-history-substring-search
 #zinit light TyWR/Nord-zsh
 #zinit light geometry-zsh/geometry
 #zinit light fecat233/garden
 #zinit light tcnksm/oh-my-zsh-beer-theme
+
+# History subtring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down

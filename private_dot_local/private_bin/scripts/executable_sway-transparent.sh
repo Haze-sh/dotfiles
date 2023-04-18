@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export TR_IN_OPACITY="0.9"
 PID=$(pgrep sway-transparent)

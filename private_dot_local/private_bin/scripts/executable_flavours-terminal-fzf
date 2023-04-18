@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Create temp directory
 directory="/run/user/$UID/flavours-terminal-fzf"

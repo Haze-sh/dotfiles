@@ -7,7 +7,8 @@ alias mv='mv -iv'
 alias rm="rm -vI"
 alias bc="bc -ql"
 alias mkdir='mkdir -pv'
-alias ls='lsd --group-dirs=first'
+# alias ls='lsd --group-dirs=first'
+alias lsd='lsd -l --group-dirs=first'
 alias vi='nvim'
 alias vim='nvim'
 alias oldvim='\vim'
@@ -17,7 +18,7 @@ alias paru='paru --color=auto'
 alias grep='grep --color=auto'
 alias diff="diff --color=auto"
 alias ip="ip -color=auto"
-alias sudo='doas'
+# alias sudo='doas'
 alias bemenu='bemenu -i -b'
 alias bemenu-run='bemenu-run -i -b'
 # alias nnn='nnn -C'

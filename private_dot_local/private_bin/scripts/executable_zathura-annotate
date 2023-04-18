@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 NOTES_FOLDER="$ZET_DIR"
 JSON_DB="${NOTES_FOLDER}/books.yml"
