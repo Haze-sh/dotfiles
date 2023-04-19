@@ -1,6 +1,6 @@
 [addressbooks]
 [[all]]
-path = ~/.local/share/contacts/a91c12ee-e103-af55-b810-ed96c36f0e03
+path = ~/.local/share/contacts/{{ .server_path }}
 
 [general]
 debug = no
@@ -21,7 +21,7 @@ preferred_phone_number_type = pref, cell, home
 preferred_email_address_type = pref, work, home
 
 [vcard]
-private_objects = Jabber, Skype, Twitter
+private_objects = Jabber, Skype, Twitter, Telegram
 preferred_version = 3.0
 search_in_source_files = no
 skip_unparsable = no

@@ -160,8 +160,13 @@ def main(argv):
             if 'STATUS' in todo and todo['STATUS'] == 'COMPLETED':
                 output_line = 'x '
             if 'PRIORITY' in todo and todo['PRIORITY'] != '0':
-                output_line += '(' + \
-                    chr(((ord(todo['PRIORITY']) - 49) >> 2) + 65) + ') '
+                if 'PRIORITY' in todo and todo['PRIORITY'] == '6':
+                    output_line += '(C) '
+                elif 'PRIORITY' in todo and todo['PRIORITY'] == '9':
+                    output_line += '(C) '
+                else:
+                    output_line += '(' + \
+                        chr(((ord(todo['PRIORITY']) - 49) >> 2) + 65) + ') '
             dates = set()
             for field in 'DTSTAMP', 'DTSTART', 'LAST-MODIFIED', 'COMPLETED':
                 if field in todo:
