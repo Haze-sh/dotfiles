@@ -148,9 +148,9 @@ def main(argv):
         return 1
     input_file_name = argv[1]
     output_file_name = argv[2]
-    if os.path.exists(output_file_name):
-        print("Error: '" + output_file_name + "' exists.", file=sys.stderr)
-        return 1
+    #if os.path.exists(output_file_name):
+    #    print("Error: '" + output_file_name + "' exists.", file=sys.stderr)
+    #    return 1
     try:
         todos = ICSParser(codecs.open(input_file_name,
                           'r', 'utf-8')).get_root()['VTODO']
