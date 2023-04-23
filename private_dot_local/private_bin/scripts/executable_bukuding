@@ -58,7 +58,6 @@ async def main() -> None:
         dictionary['tags'] = dictionary.pop('tag_names')
         dictionary['timestamp'] = dictionary.pop('id')
         del dictionary['description']
-        del dictionary['website_title']
         del dictionary['website_description']
         del dictionary['is_archived']
         del dictionary['unread']
@@ -102,8 +101,9 @@ async def main() -> None:
     print('buku new bookmarks: ', count)
 
     for buku_import in buku_new_bookmarks:
-        bukudb.add_rec(buku_import['url'], title_in=buku_import['title'],
-                       delay_commit=True, fetch=False)
+        bukudb.add_rec(buku_import['url'],
+                       title_in=buku_import['website_title'],
+                       delay_commit=True, fetch=True)
     bukudb.conn.commit()
 
     async with ClientSession() as session:
