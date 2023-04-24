@@ -1,2 +1,4 @@
 [topydo]
 filename = ~/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt
+[sort]
+sort_string = asc:context,desc:priority,asc:text
