@@ -488,6 +488,11 @@ filetype plugin indent on
 " Enable ncm2 for all buffers
   autocmd BufEnter * call ncm2#enable_for_buffer()
 
+" Enable autocompletion for todo.txt
+  au filetype todo setlocal omnifunc=todo#Complete
+  au filetype todo imap <buffer> + +<C-X><C-O>
+  au filetype todo imap <buffer> @ @<C-X><C-O>
+
 "" Functions
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
   if &diff
