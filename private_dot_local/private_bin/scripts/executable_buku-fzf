@@ -1,3 +1,13 @@
 #!/bin/sh
+##!/usr/bin/env dash
 
-buku -p -f 30 | fzf
+# buku + fzf
+bmark="$(buku -p -f 5 | fzf --tac)"
+index="$(echo "$bmark" | awk '{print $1}')"
+echo "index is $index"
+buku -p "$index"
+buku -o "$index"
+
+# vi:ft=sh
+
+# buku -p -f 30 | fzf | (nohup xargs -I{} brave "{}" >/dev/null 2>&1 &)

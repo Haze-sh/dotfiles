@@ -16,7 +16,7 @@ super + m
 super + n
 	$TERMINAL -e $FILEMANAGER -de
 super + o
- 	$TERMINAL --class=oil -e oil
+ 	$TERMINAL --class=oil -e buku-fzf
 super + p
 	keepmenu
 super + t
