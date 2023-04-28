@@ -7,7 +7,7 @@ alias mv='mv -iv'
 alias rm="rm -vI"
 alias bc="bc -ql"
 alias mkdir='mkdir -pv'
-# alias ls='lsd --group-dirs=first'
+alias ls='ls --group-directories-first --color'
 alias lsd='lsd -l --group-dirs=first'
 alias vi='nvim'
 alias vim='nvim'
