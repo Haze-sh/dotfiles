@@ -1,0 +1,3 @@
+#!/bin/sh
+
+dbus-launch /bin/kdeconnect-app
