@@ -105,10 +105,10 @@ call plug#begin("~/.config/nvim/plugged")
 """ CSV
   Plug 'mechatroner/rainbow_csv'
 """ todo.txt
-  Plug 'dbeniamine/todo.txt-vim'
-    "let g:Todo_fold_char='+'
+  Plug 'haze-sh/todo.txt-vim'
     let g:Todo_update_fold_on_sort=1
     let g:TodoTxtSortDueDateCursorPos = "top"
+    "let g:Todo_fold_char='+'
   Plug 'EdwinWenink/capture-todo.vim'
     let g:todo_location=$TODO_FILE
   Plug 'lgalke/gather-todo.txt-vim'
