@@ -268,7 +268,7 @@
 "custom/gamma": {
     "format": "",
     "format-alt": "",
-    "on-click": "pkill -USR1 gammastep"
+    "on-click": "gammastep.sh toggle"
 },
 
 "memory": {
@@ -721,7 +721,7 @@
 "custom/gamma": {
     "format": "",
     "format-alt": "",
-    "on-click": "pkill -USR1 gammastep"
+    "on-click": "gammastep.sh toggle"
 },
 
 "memory": {
