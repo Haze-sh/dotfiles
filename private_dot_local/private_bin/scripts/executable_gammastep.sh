@@ -12,8 +12,8 @@ fi
 
 if pgrep -x "gammastep" > /dev/null; then
 	echo ""
-	echo "Nightlight is on"
+	notify-send "Nightlight is on"
 else
 	echo ""
-	echo "Nightlight is off"
+	notify-send "Nightlight is off"
 fi
