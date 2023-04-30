@@ -1,2 +1,4 @@
 #!/bin/sh
+# cp rfkill.start /etc/local.d
+
 rfkill unblock all

@@ -1,0 +1,4 @@
+#!/bin/sh
+# cp psmouse.start /etc/local.d/psmouse.start
+
+rmmod psmouse && modprobe psmouse proto=imps elantech=1
