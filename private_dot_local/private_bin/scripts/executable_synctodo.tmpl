@@ -9,6 +9,8 @@ md5sum -c --quiet $ICSSUM
 if [ $? -eq 1 ]; then
 	$HOME/.local/bin/scripts/ics2todotxt $TODOICS $TODOFILE
 	topydo -t $TODOFILE sort
+	topydo -t $TODOFILE ls -f ical > $TODOICS
+	truncate -s -1 $TODOICS
 	md5sum $TODOICS > $ICSSUM
 	md5sum $TODOFILE > $TODOSUM
 else
