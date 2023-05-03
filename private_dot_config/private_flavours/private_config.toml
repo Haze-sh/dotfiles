@@ -8,6 +8,12 @@ start = "# Start flavours #"
 end = "# End flavours #"
 
 [[item]]
+file = "~/.config/foot/foot.ini"
+template = "foot"
+start = "# Start flavours #"
+end = "# End flavours #"
+
+[[item]]
 file = "~/.local/bin/scripts/gnome-terminal-base16.sh"
 template = "base16-gnome-terminal"
 hook = "gnome-terminal-base16.sh"
