@@ -23,7 +23,16 @@
     exec wl-paste -t text --watch clipman store
     exec wl-paste -t text --watch clipman-clear
     exec ydotoold --socket-path /tmp/.ydotool_socket --socket-perm 0660
-    exec autostart-services
+    exec moonphase
+    exec calcurse --daemon
+    exec safeeyes
+    exec mpv_history_daemon_restart $HPIDATA/MPV
+    exec python3 ~/.local/bin/inkscape-shortcut-manager/main.py
+    exec syncthing -no-browser ; # 41441
+    exec mopidy
+    exec beet web
+    exec aw-server
+    exec promnesia serve
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     # exec lid-lock
     # exec evscript
