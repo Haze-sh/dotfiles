@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # Sync Local
-@ 01 . $HOME/.zshenv; topydo ls -f ical > $HOME/.local/share/calendars/todo/todo.ics
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE --reverse
 @ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE
@@ -11,6 +10,7 @@
 @ 1d . $HOME/.zshenv; promnesia index
 
 ## Sync Servers
+@ 01 . $HOME/.zshenv; $HOME/.local/bin/scripts/synctodo; vdirsyncer sync ; date &>/tmp/cron-todo-sync.log
 @ 05 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
 @ 05 . $HOME/.zshenv; $HOME/.local/bin/scripts/bukuding ; date &>/tmp/cron-bukuding.log
 @ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
@@ -23,7 +23,6 @@
 @ 1d . $HOME/.zshenv; torsimany $ZET_DIR/hyp-annotations.json
 
 ## Local Backups
-# @ 60 . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > ~/Backups/Machines/tree.txt
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA/Music
 @ 1d . $HOME/.zshenv; merge-mpv-data
 @ 1d . $HOME/.zshenv; \
@@ -34,24 +33,26 @@
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/buku/bookmarks.db $HOME/Backups/Data/Bookmarks
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/buku/firefox-bookmarks.db $HOME/Backups/Data/Bookmarks
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/calendars/main/main.ics $HOME/Backups/Data/Calendars
-@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/contacts/a91c12ee-e103-af55-b810-ed96c36f0e03 $HOME/Backups/Data/Contacts
+@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/contacts $HOME/Backups/Data/Contacts
 @ 1w . $HOME/.zshenv; wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
+@ 1w . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > ~/Backups/Machines/tree.txt
 
 ## Git Backups
-@ 01 . $HOME/.zshenv; cd $JOURNAL_DIR ; $HOME/.local/bin/scripts/autogit
+@ 01 . $HOME/.zshenv; cd $ZET_DIR; $HOME/.local/bin/scripts/autogit
+@ 01 . $HOME/.zshenv; cd $GTD_DIR; $HOME/.local/bin/scripts/autogit
 @ 60 . $HOME/.pam_environment; . $HOME/.zshenv; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
+@ 60 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
 # @ 60 sfeed_update $HOME/.config/sfeed/sfeedrc-daily ; date $>/tmp/cron-sfeed-daily.log
 # @ 60 sfeed_html $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.html
 # @ 60 sfeed_plain $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.txt
-@ 60 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
 
 # Total Feed
+%hours * 06-09,21-00 * * * newsboat --url-file=$HOME/.config/newsboat/urls -x reload
 # %hours * 06-09,21-00 * * * sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
 # %hours * 06-09,21-00 * * * sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
 # %hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
-%hours * 06-09,21-00 * * * newsboat --url-file=$HOME/.config/newsboat/urls -x reload
 
 # Cleanup
 @ 1d rm $HOME/core
