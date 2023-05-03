@@ -1,21 +1,23 @@
 #!/bin/sh
 
 # Autostart Programs
+
 moonphase ;
 calcurse --daemon ;
-otd.start ;
 safeeyes ;
 mpv_history_daemon_restart $HPIDATA/MPV ;
-#yams ;
+python3 ~/.local/bin/inkscape-shortcut-manager/main.py ;
+# otd.start ;
+# yams ;
 
 # Services
+
+syncthing -no-browser ; # 41441
 mopidy ; # 6680 # 6600
 beet web ; # 8337
-python3 ~/.local/bin/inkscape-shortcut-manager/main.py ;
-rsshub.start ; # 1200
-bukuserver run --host 127.0.0.1 --port 5001 ; # 5001
 aw-server ; # 5600
 promnesia serve ; # 13131
-syncthing -no-browser ; # 41441
-#openbooks server ; # 5228
-#cd $ARCHIVE/archivebox ; archivebox server 0.0.0.0:8000 ; # 8000
+# rsshub.start ; # 1200
+# bukuserver run --host 127.0.0.1 --port 5001 ; # 5001
+# openbooks server ; # 5228
+# cd $ARCHIVE/archivebox ; archivebox server 0.0.0.0:8000 ; # 8000
