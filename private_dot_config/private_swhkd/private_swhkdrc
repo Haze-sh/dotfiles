@@ -16,7 +16,7 @@ super + m
 super + n
 	$TERMINAL -e $FILEMANAGER -de
 super + o
- 	$TERMINAL --class=oil -e buku-fzf
+ 	$TERMINAL --app-id=oil -e buku-fzf
 super + p
 	keepmenu
 super + t
@@ -68,33 +68,33 @@ super + alt + x
 alt + 0
 	bash courses-shortcut 0
 alt + return
-	$TERMINAL --class=term-launcher
+	$TERMINAL --app-id=term-launcher
 # alt + a
 # 	csv-launcher
 alt + b
 	wofibukumenu wofi
 alt + c
-	$TERMINAL --class=fzf-zettelkasten -e zsh -c 'cd $ZET_DIR ; $EDITOR $(FZF_DEFAULT_COMMAND="find . -maxdepth 1 -type f | sed "s/^..//"" fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")'
+	$TERMINAL --app-id=fzf-zettelkasten -e zsh -c 'cd $ZET_DIR ; $EDITOR $(FZF_DEFAULT_COMMAND="find . -maxdepth 1 -type f | sed "s/^..//"" fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")'
 alt + d
-	$TERMINAL --class=done-file -e zsh -c '$EDITOR $DONE_FILE'
+	$TERMINAL --app-id=done-file -e zsh -c '$EDITOR $DONE_FILE'
 alt + e
 	wofi-emoji wofi
 alt + f
-	$TERMINAL --class=fzf-rss -e rss-fzf
+	$TERMINAL --app-id=fzf-rss -e rss-fzf
 alt + g
-	$TERMINAL --class=projects-launcher -e zsh -c '$EDITOR $LEDGER_FILE'
+	$TERMINAL --app-id=projects-launcher -e zsh -c '$EDITOR $LEDGER_FILE'
 alt + h
-	$TERMINAL --class=journal-editor-md -e zsh -c '$EDITOR $GTD_DIR/Journal.md'
+	$TERMINAL --app-id=journal-editor-md -e zsh -c '$EDITOR $GTD_DIR/Journal.md'
 alt + j
-	$TERMINAL --class=journal-launcher -e zsh -c jrnl
+	$TERMINAL --app-id=journal-launcher -e zsh -c jrnl
 alt + k
-	$TERMINAL --class=journal-editor -e zsh -c 'jrnl --edit default'
+	$TERMINAL --app-id=journal-editor -e zsh -c 'jrnl --edit default'
 alt + l
-	$TERMINAL --class=fzf-library -e library-fzf
+	$TERMINAL --app-id=fzf-library -e library-fzf
 alt + m
-	$TERMINAL --class=master-launcher -e zsh -c '$EDITOR $COURSES/Current/master.tex'
+	$TERMINAL --app-id=master-launcher -e zsh -c '$EDITOR $COURSES/Current/master.tex'
 alt + n
-	$TERMINAL --class=note-launcher -e zsh -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
+	$TERMINAL --app-id=note-launcher -e zsh -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
 alt + p
 	wofipassmenu wofi
 alt + q
@@ -107,7 +107,7 @@ alt + r
 # 	flavours apply "${old}" && \
 # 	flavours apply "$(flavours current)"
 alt + t
-	$TERMINAL --class=todo -e bash -c '$EDITOR $TODO_FILE'
+	$TERMINAL --app-id=todo -e bash -c '$EDITOR $TODO_FILE'
 # alt + u
 # 	darkmode
 # alt + v
@@ -122,7 +122,7 @@ alt + x
 # alt + y
 # 	setwallpaper -R
 alt + z
-	$TERMINAL --class=zettelkasten -e zsh -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
+	$TERMINAL --app-id=zettelkasten -e zsh -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
 
 # Control + {Key}
 control + alt + r
