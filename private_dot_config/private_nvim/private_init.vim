@@ -184,6 +184,13 @@ call plug#begin("~/.config/nvim/plugged")
   "Plug 'pseewald/vim-anyfold'
   "Plug 'goolord/alpha-nvim'
 
+""" AI
+  Plug 'aduros/ai.vim'
+  Plug 'github/copilot.vim'
+  Plug 'tom-doerr/vim_codex'
+  Plug 'ryicoh/deepl.vim'
+  Plug 'voldikss/vim-translator'
+
 """ Zettelkasten
   Plug 'mickael-menu/zk-nvim'
   "Plug 'xolox/vim-notes'
