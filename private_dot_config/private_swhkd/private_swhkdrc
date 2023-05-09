@@ -56,7 +56,7 @@ super + shift + x
 super + shift + y
 	wlogout
 super + shift + period
-	qcalculate-gtk
+	qalculate-gtk
 super + shift + F11
 	$TERMINAL -e $screenrecorder -g "$($screenclip)" -a -f $HOME/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4
 
