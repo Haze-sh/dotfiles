@@ -168,9 +168,9 @@ def main(argv):
                     output_line += '(' + \
                         chr(((ord(todo['PRIORITY']) - 49) >> 2) + 65) + ') '
             dates = set()
-            for field in 'DTSTAMP', 'DTSTART', 'LAST-MODIFIED', 'COMPLETED':
-                if field in todo:
-                    dates.add(normalize_date(todo[field]))
+            # for field in 'DTSTAMP', 'DTSTART', 'LAST-MODIFIED', 'COMPLETED':
+            #     if field in todo:
+            #         dates.add(normalize_date(todo[field]))
             for date in sorted(dates, reverse=True):
                 output_line += date + ' '
             output_line += unescape(todo['SUMMARY'])
