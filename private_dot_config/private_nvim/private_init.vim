@@ -40,6 +40,7 @@ call plug#begin("~/.config/nvim/plugged")
     let g:airline_theme='base16'
   Plug 'romainl/vim-cool'
   Plug 'nvim-treesitter/nvim-treesitter' " , {'do': ':TSUpdate'}
+  Plug 'bounceme/poppy.vim'
 
 " Language support
 """ IDE
@@ -190,6 +191,7 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'tom-doerr/vim_codex'
   Plug 'ryicoh/deepl.vim'
   Plug 'voldikss/vim-translator'
+  "Plug 'https://github.com/ggerganov/whisper.cpp/blob/master/examples/whisper.nvim/whisper.nvim'
 
 """ Zettelkasten
   Plug 'mickael-menu/zk-nvim'
@@ -483,6 +485,13 @@ filetype plugin indent on
       call matchadd('Conceal', '- \DONE', 10, -1, { 'conceal': ''})
       call matchadd('Conceal', '^\s*\zs-\ze [^\[]', 10, -1, { 'conceal': ''})
   augroup END
+
+" Poppy
+  augroup Poppy
+  au!
+  augroup END
+  nnoremap <silent> <leader>hp :call clearmatches() \| let g:poppy = -get(g:,'poppy',-1) \|
+        \ exe 'au! Poppy CursorMoved *' . (g:poppy > 0 ? ' call PoppyInit()' : '') <cr>
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 	autocmd BufWritePre * %s/\s\+$//e

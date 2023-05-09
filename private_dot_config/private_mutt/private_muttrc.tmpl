@@ -11,3 +11,5 @@ macro index,pager i4 '<sync-mailbox><enter-command>source $HOME/.config/mutt/acc
 
 bind index,pager V  noop
 macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit>"
+
+macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>khard add-email<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to khard"
