@@ -55,7 +55,6 @@
 # %hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
 
 # Cleanup
-@ 1d rm $HOME/core
 @ 1d rm $HOME/.bg
 @ 1d rm $HOME/.yarnrc
 @ 1d rm $HOME/package.json

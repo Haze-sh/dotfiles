@@ -26,6 +26,16 @@ hook = "reloadnvim"
 rewrite = true
 
 [[item]]
+file = "~/.config/helix/themes/base16.toml"
+template = "helix"
+rewrite = true
+
+[[item]]
+file = "~/.emacs.d/base16-theme.el"
+template = "emacs"
+rewrite = true
+
+[[item]]
 file = "~/.config/zathura/zathurarc"
 template = "zathura"
 start = "# Start flavours"
