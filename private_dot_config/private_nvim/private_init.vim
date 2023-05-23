@@ -261,7 +261,7 @@ set grepprg=grep\ -IrsnH
 
 set completeopt=noinsert,menuone,noselect
 set clipboard+=unnamedplus
-set encoding=utf-8
+set encoding=UTF-8
 set iskeyword-=],_
 
 set tags+=./tags;,tags
@@ -469,7 +469,7 @@ filetype plugin indent on
 
   augroup Tasks
   au! Filetype pandoc.markdown
-      call matchadd('Conceal', '- \[ \]', 10, -1, { 'conceal': ''})
+      call matchadd('Conceal', '- \[ \]', 10, -1, { 'conceal': '󰝦'})
       call matchadd('Conceal', '- \[x\]', 10, -1, { 'conceal': ''})
       call matchadd('Conceal', '- \[X\]', 10, -1, { 'conceal': ''})
       call matchadd('Conceal', '- \[o\]', 10, -1, { 'conceal': '◐'})
