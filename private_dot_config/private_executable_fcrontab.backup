@@ -33,9 +33,8 @@
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/buku/bookmarks.db $HOME/Backups/Data/Bookmarks
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/buku/firefox-bookmarks.db $HOME/Backups/Data/Bookmarks
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/calendars/main/main.ics $HOME/Backups/Data/Calendars
-@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/contacts $HOME/Backups/Data/Contacts
+@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/contacts/6fd4bfa5-cacf-adc2-96f3-b4455cc084f8 $HOME/Backups/Data/Contacts
 @ 1w . $HOME/.zshenv; wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
-@ 1w . $HOME/.zshenv; tree -f -L 1 -I "*.txt|*.html|*/" $ZET_DIR > ~/Backups/Machines/tree.txt
 
 ## Git Backups
 @ 01 . $HOME/.zshenv; cd $ZET_DIR; $HOME/.local/bin/scripts/autogit
