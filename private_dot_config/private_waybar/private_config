@@ -347,7 +347,7 @@
 },
 
 "custom/stock": {
-    "format": "",
+    "format": "󰠟",
     "on-click": "$TERMINAL -e tickrs --summary"
 },
 
@@ -800,7 +800,7 @@
 },
 
 "custom/stock": {
-    "format": "",
+    "format": "󰠟",
     "on-click": "$TERMINAL -e tickrs --summary"
 },
 

@@ -23,17 +23,18 @@
 @ 1d . $HOME/.zshenv; torsimany $ZET_DIR/hyp-annotations.json
 
 ## Local Backups
-@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA/Music
 @ 1d . $HOME/.zshenv; merge-mpv-data
 @ 1d . $HOME/.zshenv; \
 	browserexport save --profile sx15jrar.User.js -b firefox --to $HPIDATA/Browser ; \
 	browserexport merge --json $HPIDATA/Browser/*.sqlite > $HPIDATA/Browser/firefox-history.json ; \
 	merge-browser-history
-@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/mail $HOME/Backups/Data/Mail
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/buku/bookmarks.db $HOME/Backups/Data/Bookmarks
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/buku/firefox-bookmarks.db $HOME/Backups/Data/Bookmarks
-@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/calendars/main/main.ics $HOME/Backups/Data/Calendars
-@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/contacts/6fd4bfa5-cacf-adc2-96f3-b4455cc084f8 $HOME/Backups/Data/Contacts
+@ 1d . $HOME/.zshenv; rsync -a $HOME/.local/share/mail/* $HOME/Backups/Data/Mail
+@ 1d . $HOME/.zshenv; rsync -a $HOME/.local/share/calendars/* $HOME/Backups/Data/Calendars
+@ 1d . $HOME/.zshenv; rsync -a $HOME/.local/share/contacts/* $HOME/Backups/Data/Contacts
+@ 1d . $HOME/.zshenv; rsync -a $HOME/.local/share/passwords/* $HPIDATA/Passwords
+@ 1d . $HOME/.zshenv; rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA/Music
 @ 1w . $HOME/.zshenv; wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
 
 ## Git Backups
