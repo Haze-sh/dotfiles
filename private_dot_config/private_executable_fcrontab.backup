@@ -1,20 +1,16 @@
 #!/bin/sh
 
 # Sync Local
-@ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE
-@ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE --reverse
-@ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE
-@ 01 . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE --reverse
-@ 05 . $HOME/.zshenv; jrnl --config-override journals.default $DEFAULT_JRNL --format md > $GTD_DIR/Journal.md
-@ 30 . $HOME/.zshenv; calcurse -x > $HOME/.local/share/calendars/main/main.ics
-@ 1d . $HOME/.zshenv; promnesia index
+@ 720 . $HOME/.zshenv; promnesia index
+# @ 30 . $HOME/.zshenv; calcurse -x > $HOME/.local/share/calendars/main/main.ics # GNOME & KDE
 
 ## Sync Servers
-@ 01 . $HOME/.zshenv; $HOME/.local/bin/scripts/synctodo; vdirsyncer sync ; date &>/tmp/cron-todo-sync.log
-@ 05 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
+@ 05 . $HOME/.zshenv; vdirsyncer sync ; date &>/tmp/cron-vdirsyncer.log
 @ 05 . $HOME/.zshenv; $HOME/.local/bin/scripts/bukuding ; date &>/tmp/cron-bukuding.log
-@ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
-@ 20 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
+@ 15 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncmail ; date &>/tmp/cron-syncmail.log
+# @ 30 . $HOME/.zshenv; $HOME/.local/bin/scripts/synctodo; vdirsyncer sync ; date &>/tmp/cron-todo-sync.log
+# @ 30 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncbuku ; date &>/tmp/cron-buku-sync.log
+# @ 30 . $HOME/.zshenv; $HOME/.local/bin/scripts/syncalendar ; date &>/tmp/cron-calcurse.log
 
 ## Local Imports
 @ 1d . $HOME/.zshenv; tree-index-md $ZET_DIR > $ZET_DIR/000-index.md
@@ -35,11 +31,16 @@
 @ 1d . $HOME/.zshenv; rsync -a $HOME/.local/share/contacts/* $HOME/Backups/Data/Contacts
 @ 1d . $HOME/.zshenv; rsync -a $HOME/.local/share/passwords/* $HPIDATA/Passwords
 @ 1d . $HOME/.zshenv; rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HPIDATA/Music
+@ 1d . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE
+@ 1d . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $TODO_FILE --reverse
+@ 1d . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE
+@ 1d . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE --reverse
+@ 1d . $HOME/.zshenv; jrnl --config-override journals.default $DEFAULT_JRNL --format md > $GTD_DIR/Journal.md
 @ 1w . $HOME/.zshenv; wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
 
 ## Git Backups
-@ 01 . $HOME/.zshenv; cd $ZET_DIR; $HOME/.local/bin/scripts/autogit
-@ 01 . $HOME/.zshenv; cd $GTD_DIR; $HOME/.local/bin/scripts/autogit
+@ 05 . $HOME/.zshenv; cd $ZET_DIR; $HOME/.local/bin/scripts/autogit
+@ 05 . $HOME/.zshenv; cd $GTD_DIR; $HOME/.local/bin/scripts/autogit
 @ 60 . $HOME/.pam_environment; . $HOME/.zshenv; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed

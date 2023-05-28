@@ -1,10 +1,14 @@
 [general]
 status_path = "~/.local/share/vdirsyncer/status/"
 
-[storage contacts_local]
-type = "filesystem"
-path = "~/.local/share/contacts/"
-fileext = ".vcf"
+####################
+# CONTACTS
+####################
+
+[pair contacts]
+a = "contacts_local"
+b = "contacts_remote"
+collections = ["from a", "from b"]
 
 [storage contacts_remote]
 type = "carddav"
@@ -12,9 +16,38 @@ url = "{{ .carddav_server_url }}"
 username = "Hazem"
 password.fetch = ["command", "pass", "show", "caldav"]
 
-[pair contacts]
-a = "contacts_local"
-b = "contacts_remote"
+[storage contacts_local]
+type = "filesystem"
+path = "~/.local/share/contacts/"
+fileext = ".vcf"
+
+####################
+# CALENDAR
+####################
+
+[pair calendars]
+a = "calendars_local"
+b = "calendars_remote"
+collections = ["from a", "from b"]
+
+[storage calendars_remote]
+type = "caldav"
+url = "{{ .caldav_server_url }}"
+username = "Hazem"
+password.fetch = ["command", "pass", "show", "caldav"]
+
+[storage calendars_local]
+type = "filesystem"
+path = "~/.local/share/calendars/main"
+fileext = ".ics"
+
+####################
+# TASKS
+####################
+
+[pair todoman]
+a = "todo_remote"
+b = "todoman_local"
 collections = ["from a", "from b"]
 
 [storage todo_remote]
@@ -28,17 +61,3 @@ item_types = ["VTODO"]
 type = "filesystem"
 path = "~/.local/share/calendars/todoman"
 fileext = ".ics"
-
-[storage todotxt_local]
-type = "singlefile"
-path = "~/.local/share/calendars/todotxt/%s.ics"
-
-[pair todoman]
-a = "todo_remote"
-b = "todoman_local"
-collections = ["from a", "from b"]
-
-[pair todotxt]
-a = "todo_remote"
-b = "todotxt_local"
-collections = ["from a", "from b"]
