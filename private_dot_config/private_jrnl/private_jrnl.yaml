@@ -13,11 +13,11 @@ journals:
   default: $DEFAULT_JRNL
   habits: $HABITS_JRNL
   learn: $LEARN_JRNL
+  meetings: $MEETINGS_JRNL
   work: $WORK_JRNL
   workout: $WORKOUT_JRNL
-  meetings: $MEETINGS_JRNL
 linewrap: 79
 tagsymbols: '@'
 template: false
 timeformat: '%Y-%m-%d %H:%M'
-version: v2.8.3
+version: v4.0
