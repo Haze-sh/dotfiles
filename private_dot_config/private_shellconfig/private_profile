@@ -1,18 +1,17 @@
 #!/bin/zsh
 
 # $PATH
+export PATH=/opt:$PATH
+export PATH=/opt/appimages:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/.local/bin/scripts:$PATH
 export PATH=$HOME/.local/share/junest/bin:$PATH
 export PATH=$HOME/.local/lib/go/bin/:$PATH
 export PATH=$HOME/.local/lib/cargo/bin/:$PATH
-export PATH=$HOME/.local/lib/python3.10/site-packages/:$PATH
 export PATH=$HOME/.local/lib/cabal/packages/hackage.haskell.org/:$PATH
 export PATH=$HOME/.local/lib/node_modules/bin/:$PATH
-export PATH=$HOME/.local/lib/gem/ruby/3.0.0/bin/:$PATH
-export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
-export PATH=$HOME/.loca/lib/cargo/bin/:$PATH
+export PATH=$HOME/.local/lib/cargo/bin/:$PATH
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH=/usr/local/share/pkgconfig:$PKG_CONFIG_PATH
