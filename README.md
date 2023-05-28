@@ -33,9 +33,15 @@ sudo cp $HOME/.config/totem.thumbnailer /usr/share/thumbnailers/totem.thumbnaile
 It is easier to use some scripts by saving passwords to gnupass rather than manually doing stuff:
 
 ```bash
-pass add keepass # KeePass password
-pass add totp # KeePass TOTP
 pass add caldav # CalDAV password
+pass add manager/keepass # KeePass password
+pass add manager/totp # KeePass TOTP
+```
+
+## Other
+
+```
+sudo ln -s $HOME/.local/bin/scripts/pinentry-bemenu /opt/
 ```
 
 ## Minor Caveats

@@ -16,10 +16,10 @@ if [ $? -eq 1 ]; then
 else
 	md5sum -c --quiet $TODOSUM
 	if [ $? -eq 1 ]; then
-	topydo -t $TODOFILE sort
-	topydo -t $TODOFILE ls -f ical > $TODOICS
-	truncate -s -1 $TODOICS
-	md5sum $TODOICS > $ICSSUM
-	md5sum $TODOFILE > $TODOSUM
+		topydo -t $TODOFILE sort
+		topydo -t $TODOFILE ls -f ical > $TODOICS
+		truncate -s -1 $TODOICS
+		md5sum $TODOICS > $ICSSUM
+		md5sum $TODOFILE > $TODOSUM
 	fi
 fi
