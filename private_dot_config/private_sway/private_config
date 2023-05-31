@@ -227,7 +227,7 @@ mode "resize" {
     for_window [app_id="zenity"] floating enable
     for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable
     for_window [app_id="org.kde.kdeconnect-urlhandler"] floating enable
-    for_window [app_id="org.gnome.Calculator"] floating enable
+    for_window [app_id="qalculate-gtk"] floating enable
     for_window [app_id="^term-launcher$"] {
         floating enable
         resize set width 700 px height 500 px
