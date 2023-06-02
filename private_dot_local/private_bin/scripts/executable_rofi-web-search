@@ -31,7 +31,7 @@ URLS=(
   ["imdb"]="http://www.imdb.com/find?ref_=nv_sr_fn&q="
   ["rottentomatoes"]="https://www.rottentomatoes.com/search/?search="
   ["piratebay"]="https://thepiratebay.org/search/"
-  ["youtube"]="https://invidio.us/search?q="
+  ["youtube"]="https://youtube.com/search?q="
   ["vimawesome"]="http://vimawesome.com/?q="
   ["invidious"]="https://invidio.us/search?q="
 )
@@ -46,10 +46,10 @@ gen_list() {
 
 main() {
   # Pass the list to rofi
-  platform=$( (gen_list) | wofi -d -p "Search > " )
+  platform=$( (gen_list) | rofi -dmenu -p "Search > " )
 
   if [[ -n "$platform" ]]; then
-    query=$( (echo ) | wofi  -d -p "Query > " )
+    query=$( (echo ) | rofi -dmenu -p "Query > " )
 
     if [[ -n "$query" ]]; then
       url=${URLS[$platform]}$query

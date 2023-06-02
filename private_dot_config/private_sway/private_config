@@ -9,7 +9,7 @@
 # Autostart
     exec_always $BACKGROUND -m fill -i $HOME/.local/share/backgrounds/wallpaper.jpg
     exec_always --no-startup-id exec sway-dynamic-names
-    exec_always swhks & pkexec swhkd -c $HOME/.config/swhkd/swhkdrc
+    exec_always swhkd.start
     exec $BAR
     exec $NOTIFICATIONS
     exec ssh-agent -D -a $SSH_AUTH_SOCK

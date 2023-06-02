@@ -1,12 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-pid=$(pgrep gammastep)
-
-if [[ $1 = "toggle" ]]; then
+if [ "$1" = "toggle" ]; then
 	if pgrep -x "gammastep" > /dev/null; then
 		kill -9 $(pgrep -x "gammastep");
 	else
-		gammastep -O ${GAMMASTEP_NIGHT:-4500} &
+		gammastep -O "${GAMMASTEP_NIGHT:-4500}" &
 	fi
 fi
 

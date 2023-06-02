@@ -1,5 +1,0 @@
-#!/bin/sh
-
-/bin/zathura "$@"
-
-# /bin/swayhide /bin/zathura "$@"

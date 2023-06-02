@@ -268,7 +268,7 @@
 "custom/gamma": {
     "format": "",
     "format-alt": "",
-    "on-click": "gammastep.sh toggle"
+    "on-click": "changegammastep toggle"
 },
 
 "memory": {
@@ -721,7 +721,7 @@
 "custom/gamma": {
     "format": "",
     "format-alt": "",
-    "on-click": "gammastep.sh toggle"
+    "on-click": "changegammastep toggle"
 },
 
 "memory": {
