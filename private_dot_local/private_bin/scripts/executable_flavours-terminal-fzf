@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Create temp directory
 directory="/run/user/$UID/flavours-terminal-fzf"
@@ -20,7 +20,7 @@ EOF
 # Make it executable
 chmod +x "${directory}/inner"
 
-alacritty --title "Selector" --class FloatingSelector -e "${directory}/inner" "$@"
+$EDITOR --title "Selector" --class FloatingSelector -e "${directory}/inner" "$@"
 
 # Outputs fzf output
 cat "${directory}/output"

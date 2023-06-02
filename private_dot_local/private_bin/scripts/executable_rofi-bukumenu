@@ -1,0 +1,3 @@
+#!/bin/sh
+
+buku -p -f 5 | rofi -dmenu -i

@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
 export LANG=en_US.UTF-8
+
 x=$(pactl list sinks | grep '^[[:space:]]Volume:' | sed 1q | sed -e 's,.* \(.*[0-9].*.*\.[0-9][0-9]*\).*dB.*,\1,' )
+
 min=-120.00
-if (( $(echo "$x > $min" | bc -l) ))
-then
+
+if [ "$(echo "$x > $min" | bc -l)" ]; then
       pactl set-sink-volume 0 -2db | pactl set-sink-mute 0 0
 fi

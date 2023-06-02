@@ -1,5 +1,0 @@
-#!/bin/sh
-
-MOZ_ENABLE_WAYLAND=1 /bin/firefox "$@"
-
-# GDK_BACKEND=x11 MOZ_ENABLE_WAYLAND=0 /bin/firefox "$@"

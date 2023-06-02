@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -f "/boot/vmlinuz-linux" ]; then
         /usr/bin/mv /boot/vmlinuz-linux /boot/EFI/Arch/vmlinuz-linux
 else
-        echo -e "\033[0;31mFile could not be found. Skipping...\033[0m"
+        printf '%s\n' "\033[0;31mFile could not be found. Skipping...\033[0m"
 fi

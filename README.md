@@ -41,6 +41,7 @@ pass add manager/totp # KeePass TOTP
 ## Other
 
 ```
+sudo ln -sfT dash /usr/bin/sh
 sudo ln -s $HOME/.local/bin/scripts/pinentry-bemenu /opt/
 ```
 

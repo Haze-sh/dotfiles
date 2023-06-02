@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function try_scheme() {
     if [ -z "$1" ] || [ -z "$2" ]; then
