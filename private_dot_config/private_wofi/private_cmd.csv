@@ -1,7 +1,7 @@
 window switcher,windows
-passmenu,wofipassmenu
-bukumenu,wofibukumenu
-rssmenu,wofirssmenu
-web search,web-search
-web searx,web-searx
+passmenu,wofi-passmenu
+bukumenu,wofi-bukumenu
+rssmenu,wofi-rssmenu
+web search,wofi-web-search
+web searx,wofi-web-searx
 emoji,wofi-emoji

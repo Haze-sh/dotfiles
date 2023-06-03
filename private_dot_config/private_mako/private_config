@@ -12,17 +12,17 @@ border-size=2
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#2E3440
-text-color=#E5E9F0
-border-color=#81A1C1
+background-color=#2e3440
+text-color=#e5e9f0
+border-color=#81a1c1
 
 [urgency=low]
-background-color=#2E3440
-text-color=#EBCB8B
-border-color=#81A1C1
+background-color=#2e3440
+text-color=#ebcb8b
+border-color=#81a1c1
 
 [urgency=high]
-background-color=#2E3440
-text-color=#BF616A
-border-color=#81A1C1
+background-color=#2e3440
+text-color=#bf616a
+border-color=#81a1c1
 # End flavours

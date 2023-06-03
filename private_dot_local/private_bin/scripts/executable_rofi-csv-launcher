@@ -1,9 +1,9 @@
 #!/bin/sh
 
-WORKINGDIR="$HOME/.config/wofi/"
+WORKINGDIR="$HOME/.config/rofi/"
 MAP="$WORKINGDIR/cmd.csv"
 
-LINES="$(wc -l < $MAP)"
+LINES="$(wc -l < "$MAP")"
 if [ "$LINES" -gt 15 ]
 then
 	HEIGHT="500"
@@ -13,11 +13,11 @@ fi
 
 cat "$MAP" \
     | cut -d ',' -f 1 \
-    | wofi -dmenu -p "Util " \
+    | rofi -dmenu -p "Util " \
     | head -n 1 \
-    | xargs -i --no-run-if-empty grep "{}" "$MAP" \
+    | xargs -I{} --no-run-if-empty grep "{}" "$MAP" \
     | cut -d ',' -f 2 \
     | head -n 1 \
-    | xargs -i --no-run-if-empty /bin/bash -c "{}"
+    | xargs -I{} --no-run-if-empty /bin/bash -c "{}"
 
 exit 0

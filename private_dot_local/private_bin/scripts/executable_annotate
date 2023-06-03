@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 file="$ZET_DIR/annotations.md"
 
@@ -12,11 +12,11 @@ file="$ZET_DIR/annotations.md"
 # }
 
 
-function add_annotation() {
-    echo -e "\n# $(date '+%Y-%m-%d %H:%M:%S')\n" >> "$1"
+add_annotation() {
+    printf '%s/n' "\n# $(date '+%Y-%m-%d %H:%M:%S')\n" >> "$1"
 #    wl-paste -t text >> "$1";
     selected=$(xsel)
-    echo $selected >> "$1"
+    echo "$selected" >> "$1"
 #    echo -e "\n> <!!>\n\n" >> $1
 }
 

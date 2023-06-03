@@ -1,11 +1,11 @@
 # Basic Settings
 set shell sh
-set previewer ~/.local/bin/scripts/lf-previewer
-set cleaner ~/.local/bin/scripts/lf-cleaner
 set preview true
-#set hidden false
+set previewer ~/.local/bin/scripts/lf-kitty-previewer
+set cleaner ~/.local/bin/scripts/lf-kitty-cleaner
 set icons true
 set ignorecase true
+#set hidden false
 
 # Custom Functions
 cmd open ${{

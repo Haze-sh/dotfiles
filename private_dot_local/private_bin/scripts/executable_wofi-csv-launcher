@@ -1,0 +1,23 @@
+#!/bin/sh
+
+WORKINGDIR="$HOME/.config/wofi/"
+MAP="$WORKINGDIR/cmd.csv"
+
+LINES="$(wc -l < "$MAP")"
+if [ "$LINES" -gt 15 ]
+then
+	HEIGHT="500"
+else
+	HEIGHT=$(( $LINES * 31))
+fi
+
+cat "$MAP" \
+    | cut -d ',' -f 1 \
+    | wofi -dmenu -p "Util " \
+    | head -n 1 \
+    | xargs -I{} --no-run-if-empty grep "{}" "$MAP" \
+    | cut -d ',' -f 2 \
+    | head -n 1 \
+    | xargs -I{} --no-run-if-empty /bin/bash -c "{}"
+
+exit 0

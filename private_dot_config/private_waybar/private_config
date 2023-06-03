@@ -435,10 +435,14 @@
 },
 
 "custom/AUR": {
-    "exec": "AUR-waybar",
-    "interval": 3600,
-    "format": "{}",
-    "tooltip": true
+    "format": "{icon}{}",
+    "return-type": "json",
+    "format-icons": {
+      "pending-updates": " ",
+      "updated": ""
+    },
+    "exec-if": "which waybar-updates",
+    "exec": "waybar-updates"
 },
 
 "custom/wireshark": {
@@ -880,10 +884,14 @@
 },
 
 "custom/AUR": {
-    "exec": "AUR-waybar",
-    "interval": 3600,
-    "format": "{}",
-    "tooltip": true
+    "format": "{icon}{}",
+    "return-type": "json",
+    "format-icons": {
+      "pending-updates": " ",
+      "updated": ""
+    },
+    "exec-if": "which waybar-updates",
+    "exec": "waybar-updates"
 },
 
 "custom/wireshark": {
