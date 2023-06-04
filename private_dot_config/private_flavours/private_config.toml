@@ -7,11 +7,17 @@ hook = "kitty @ set-colors -a -c ~/.config/kitty/kitty.conf"
 start = "# Start flavours #"
 end = "# End flavours #"
 
+# [[item]]
+# file = "~/.config/foot/foot.ini"
+# template = "foot"
+# start = "# Start flavours #"
+# end = "# End flavours #"
+
 [[item]]
-file = "~/.config/foot/foot.ini"
-template = "foot"
-start = "# Start flavours #"
-end = "# End flavours #"
+file = "~/.config/wezterm/wezterm.lua"
+template = "wezterm"
+start = "-- Start flavours"
+end = "-- End flavours"
 
 [[item]]
 file = "~/.local/bin/scripts/gnome-terminal-base16.sh"
@@ -25,15 +31,15 @@ template = "vim"
 hook = "reloadnvim"
 rewrite = true
 
-[[item]]
-file = "~/.config/helix/themes/base16.toml"
-template = "helix"
-rewrite = true
+# [[item]]
+# file = "~/.config/helix/themes/base16.toml"
+# template = "helix"
+# rewrite = true
 
-[[item]]
-file = "~/.emacs.d/base16-theme.el"
-template = "emacs"
-rewrite = true
+# [[item]]
+# file = "~/.emacs.d/base16-theme.el"
+# template = "emacs"
+# rewrite = true
 
 [[item]]
 file = "~/.config/zathura/zathurarc"

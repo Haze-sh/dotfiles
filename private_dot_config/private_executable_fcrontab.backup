@@ -42,7 +42,7 @@
 ## Git Backups
 @ 05 . $HOME/.zshenv; cd $ZET_DIR; $HOME/.local/bin/scripts/autogit
 @ 05 . $HOME/.zshenv; cd $GTD_DIR; $HOME/.local/bin/scripts/autogit
-@ 60 . $HOME/.pam_environment; . $HOME/.zshenv; chezmoi add --encrypt $HOME/.cache/zsh
+@ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
 @ 720 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
