@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+export LC_ALL=de_DE.UTF-8
+export LANG=de_DE.UTF-8
+
 # $PATH
 export PATH=/opt:$PATH
 export PATH=/opt/appimages:$PATH

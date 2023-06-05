@@ -1,23 +1,23 @@
 shell = "sh -c '{}'"
 
 [[item]]
-file = "~/.config/kitty/kitty.conf"
-template = "kitty"
-hook = "kitty @ set-colors -a -c ~/.config/kitty/kitty.conf"
-start = "# Start flavours #"
-end = "# End flavours #"
+file = "~/.config/wezterm/wezterm.lua"
+template = "wezterm"
+start = "-- Start flavours"
+end = "-- End flavours"
+
+# [[item]]
+# file = "~/.config/kitty/kitty.conf"
+# template = "kitty"
+# hook = "kitty @ set-colors -a -c ~/.config/kitty/kitty.conf"
+# start = "# Start flavours #"
+# end = "# End flavours #"
 
 # [[item]]
 # file = "~/.config/foot/foot.ini"
 # template = "foot"
 # start = "# Start flavours #"
 # end = "# End flavours #"
-
-[[item]]
-file = "~/.config/wezterm/wezterm.lua"
-template = "wezterm"
-start = "-- Start flavours"
-end = "-- End flavours"
 
 [[item]]
 file = "~/.local/bin/scripts/gnome-terminal-base16.sh"
@@ -123,8 +123,7 @@ end = "# End flavours bemenu"
 [[item]]
 file = "~/.config/waybar/colors.css"
 template = "waybar"
-#hook = "pkill -SIGRTMIN+7 waybar"
-hook = "killall waybar ; waybar & disown"
+hook = "pkill -SIGUSR2 waybar"
 rewrite = true
 
 # [[item]]
@@ -142,7 +141,6 @@ rewrite = true
 
 [[item]]
 file = "~/.local/share/vscode/golf1052.base16-generator/themes/base16-default-dark.json"
-# file = "~/.local/share/vscode/golf1052.base16-generator-1.15.0/themes/base16-default-dark.json"
 template = "vscode"
 rewrite = true
 

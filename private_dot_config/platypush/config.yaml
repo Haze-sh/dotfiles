@@ -1,7 +1,0 @@
-music.mpd:
-  host: localhost
-  port: 6600
-
-backend.music.mopidy:
-  host: localhost
-  port: 6680

@@ -25,7 +25,6 @@ chsh -s /bin/zsh
 fcrontab $HOME/.config/fcrontab.backup # Cron jobs
 setfacl --restore=$HOME/.config/permissions.facl # For mopidy to work on local files
 sudo cp $HOME/.local/share/themes/issue.txt /etc/issue ## To have a beautiful issue
-sudo cp $HOME/.config/totem.thumbnailer /usr/share/thumbnailers/totem.thumbnailer # Better thumbnails
 ```
 
 ## Passwords
@@ -44,9 +43,3 @@ pass add manager/totp # KeePass TOTP
 sudo ln -sfT dash /usr/bin/sh
 sudo ln -s $HOME/.local/bin/scripts/pinentry-bemenu /opt/
 ```
-
-## Minor Caveats
-
-- Some scripts are path dependant
-	* setwallpaper
-	* syncbuku
