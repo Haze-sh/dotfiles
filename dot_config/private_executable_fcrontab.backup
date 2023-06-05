@@ -37,7 +37,7 @@
 @ 1d . $HOME/.zshenv; python $HOME/.local/bin/scripts/todo2org.py $DONE_FILE --reverse
 @ 1d . $HOME/.zshenv; jrnl --config-override journals.default $DEFAULT_JRNL --format md > $GTD_DIR/Journal.md
 @ 1w . $HOME/.zshenv; wget http://localhost:5600/api/0/export -O $HPIDATA/ActivityWatch/export.json
-@ 1d dconf dump / > $HOME/.config/saved_settings.dconf
+@ 1d dconf dump / > $HOME/Backups/Machines/Linux/saved_settings.dconf
 
 ## Git Backups
 @ 05 . $HOME/.zshenv; cd $ZET_DIR; $HOME/.local/bin/scripts/autogit
