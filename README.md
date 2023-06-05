@@ -24,7 +24,7 @@ flavours apply $SCHEME
 chsh -s /bin/zsh
 fcrontab $HOME/.config/fcrontab.backup # Cron jobs
 setfacl --restore=$HOME/.config/permissions.facl # For mopidy to work on local files
-sudo cp $HOME/.config/issue.txt /etc/issue ## To have a beautiful issue
+sudo cp $HOME/.local/share/themes/issue.txt /etc/issue ## To have a beautiful issue
 sudo cp $HOME/.config/totem.thumbnailer /usr/share/thumbnailers/totem.thumbnailer # Better thumbnails
 ```
 
