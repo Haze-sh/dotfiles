@@ -7,12 +7,12 @@ if wezterm.config_builder then
 end
 
 return {
-  font = wezterm.font_with_fallback{
-    { family = 'DejaVu Sans Mono'},
-    'Hack',
-    'Noto Color Emoji',
-    'icons-in-terminal'
-  },
+-- font = wezterm.font_with_fallback{
+--   { family = 'DejaVu Sans Mono'},
+--   'Hack',
+--   'Noto Color Emoji',
+--   'icons-in-terminal'
+-- },
 
   window_close_confirmation = 'NeverPrompt',
   default_cursor_style = 'SteadyBar',
