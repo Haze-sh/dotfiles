@@ -32,13 +32,19 @@
   <property name="layoutRightToLeft" value="false"/>
   <property name="layoutBottomToTop" value="false"/>
   <property name="numPairsOffset" value="1"/>
+  <!--The icon theme, allowed values are "disabled", "onDrawOfLastPage", and "onScrollOfLastPage"-->
+  <property name="emptyLastPageAppend" value="disabled"/>
   <property name="presentationMode" value="false"/>
-  <!--Which gui elements are hidden if you are in Fullscreen mode, separated by a colon (,)-->
-  <property name="fullscreenHideElements" value="mainMenubar"/>
-  <!--Which gui elements are hidden if you are in Presentation mode, separated by a colon (,)-->
-  <property name="presentationHideElements" value="mainMenubar,sidebarContents"/>
+  <!--Which GUI elements are shown in default view mode, separated by a colon (,)-->
+  <property name="defaultViewModeAttributes" value="showMenubar,showToolbar,showSidebar"/>
+  <!--Which GUI elements are shown in fullscreen view mode, separated by a colon (,)-->
+  <property name="fullscreenViewModeAttributes" value="goFullscren,showToolbar,showSidebar"/>
+  <!--Which GUI elements are shown in presentation view mode, separated by a colon (,)-->
+  <property name="presentationViewModeAttributes" value="goFullscren,showToolbar"/>
   <!--The cursor icon used with a stylus, allowed values are "none", "dot", "big", "arrow"-->
   <property name="stylusCursorType" value="dot"/>
+  <!--The eraser cursor visibility used with a stylus, allowed values are "never", "always", "hover", "touch"-->
+  <property name="eraserVisibility" value="always"/>
   <!--The icon theme, allowed values are "iconsColor", "iconsLucide"-->
   <property name="iconTheme" value="iconsLucide"/>
   <property name="highlightPosition" value="false"/>
@@ -54,6 +60,7 @@
   <property name="autoloadMostRecent" value="false"/>
   <property name="autoloadPdfXoj" value="true"/>
   <property name="defaultSaveName" value="%F-Note-%H-%M"/>
+  <property name="defaultPdfExportName" value="%{name}_annotated"/>
   <property name="autosaveEnabled" value="true"/>
   <property name="autosaveTimeout" value="3"/>
   <property name="addHorizontalSpace" value="false"/>
@@ -67,6 +74,7 @@
   <property name="snapGrid" value="true"/>
   <property name="snapGridTolerance" value="0.5"/>
   <property name="snapGridSize" value="14.17"/>
+  <property name="strokeRecognizerMinSize" value="40"/>
   <property name="touchDrawing" value="false"/>
   <property name="gtkTouchInertialScrolling" value="true"/>
   <property name="pressureGuessing" value="false"/>
@@ -215,6 +223,12 @@
       <attribute name="style" type="string" value="plain"/>
     </data>
     <data name="playObject">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectMultiLayerRect">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectMultiLayerRegion">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectObject">

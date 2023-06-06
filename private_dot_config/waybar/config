@@ -121,15 +121,15 @@
     "tooltip-format-disconnected": " Disconnected ",
     "max-length": 50,
     "on-click": "iwgtk",
-    "on-click-right": "$TERMINAL --hold -e wifi-stations",
+    "on-click-right": "$TERMINAL -e wifi-stations",
     "interval": 60
 },
 
 "idle_inhibitor": {
    "format": "{icon}",
    "format-icons": {
-     "activated": "",
-     "deactivated": ""
+     "activated": "󰿆",
+     "deactivated": "󰌾"
 //     "activated": "",
 //     "deactivated": ""
     }
@@ -321,8 +321,6 @@
     "tooltip": true,
     "interval": 3600,
     "exec": "waybar-wttr",
-    "on-click": "$TERMINAL --hold -e curl https://wttr.in/Cairo",
-    "on-click-right": "$TERMINAL --hold -e curl https://wttr.in/Alexandria",
     "return-type": "json"
 },
 
@@ -357,7 +355,7 @@
     "exec": "cat ~/.config/newsboat/today-unread-count",
     "on-click": "$TERMINAL -e sfeed_curses ~/.local/share/sfeed/feeds-daily/*",
     "on-click-right": "$TERMINAL -e newsboat --url-file=~/.config/newsboat/daily-list --cache-file=~/.local/share/newsboat/daily-cache.db",
-    "interval": 1,
+    "interval": 60,
     "tooltip": true
 },
 
@@ -377,7 +375,7 @@
     "on-click": "$TERMINAL -e neomutt",
     "on-click-right": "thunderbird",
     "tooltip": true,
-    "interval": 1
+    "interval": 5
 },
 
 "custom/protonmail": {
@@ -395,10 +393,10 @@
     "format-icons": {
         "default": " "
     },
-    "exec": "waybar-calcurse",
+    "exec": "waybar-khal",
     "return-type": "json",
     "max-length": 100,
-    "on-click": "$TERMINAL -e calcurse --read-only"
+    "on-click": "$TERMINAL -e khal interactive"
 },
 
 "custom/todo": {
@@ -407,9 +405,7 @@
     //"exec": "todo list --sort=status | wc -l",
     //"exec": "task status:pending count",
     //"on-click": "$TERMINAL todotxt-machine --config ~/.config/todotxt-machine/todotxt-machinerc",
-    "on-click": "$TERMINAL $EDITOR $TODOTXT_FILE",
-    "on-click-middle": "$TERMINAL --hold -e topydo ls",
-    "on-click-right": "$TERMINAL --hold -e topydo edit",
+    "on-click": "$TERMINAL -e topydo edit",
     "interval": 1
 },
 
@@ -578,15 +574,15 @@
     "tooltip-format-disconnected": " Disconnected ",
     "max-length": 50,
     "on-click": "iwgtk",
-    "on-click-right": "$TERMINAL --hold -e wifi-stations",
+    "on-click-right": "$TERMINAL -e wifi-stations",
     "interval": 60
 },
 
 "idle_inhibitor": {
    "format": "{icon}",
    "format-icons": {
-     "activated": "",
-     "deactivated": ""
+     "activated": "󰿆",
+     "deactivated": "󰌾"
 //     "activated": "",
 //     "deactivated": ""
     }
@@ -778,8 +774,6 @@
     "tooltip": true,
     "interval": 3600,
     "exec": "waybar-wttr",
-    "on-click": "$TERMINAL --hold -e curl https://wttr.in/Cairo",
-    "on-click-right": "$TERMINAL --hold -e curl https://wttr.in/Alexandria",
     "return-type": "json"
 },
 
@@ -814,7 +808,7 @@
     "exec": "cat ~/.config/newsboat/today-unread-count",
     "on-click": "$TERMINAL -e sfeed_curses ~/.local/share/sfeed/feeds-daily/*",
     "on-click-right": "$TERMINAL -e newsboat --url-file=~/.config/newsboat/daily-list --cache-file=~/.local/share/newsboat/daily-cache.db",
-    "interval": 1,
+    "interval": 60,
     "tooltip": true
 },
 
@@ -834,7 +828,7 @@
     "on-click": "$TERMINAL -e neomutt",
     "on-click-right": "thunderbird",
     "tooltip": true,
-    "interval": 1
+    "interval": 5
 },
 
 "custom/events": {
@@ -844,10 +838,10 @@
     "format-icons": {
         "default": " "
     },
-    "exec": "waybar-calcurse",
+    "exec": "waybar-khal",
     "return-type": "json",
     "max-length": 100,
-    "on-click": "$TERMINAL -e calcurse --read-only"
+    "on-click": "$TERMINAL -e khal interactive"
 },
 
 "custom/todo": {
@@ -856,9 +850,7 @@
     //"exec": "todo list --sort=status | wc -l",
     //"exec": "task status:pending count",
     //"on-click": "$TERMINAL todotxt-machine --config ~/.config/todotxt-machine/todotxt-machinerc",
-    "on-click": "$TERMINAL $EDITOR $TODOTXT_FILE",
-    "on-click-middle": "$TERMINAL --hold -e topydo ls",
-    "on-click-right": "$TERMINAL --hold -e topydo edit",
+    "on-click": "$TERMINAL -e topydo edit",
     "interval": 1
 },
 

@@ -22,7 +22,7 @@ return {
   hide_tab_bar_if_only_one_tab = true,
   bidi_enabled = true,
   use_fancy_tab_bar = false,
-  text_blink_rate = 0,
+  -- text_blink_rate = 0,
 
   -- Start flavours
   colors = {

@@ -11,7 +11,7 @@ endif
 
 " Plugins
 call plug#begin("~/.config/nvim/plugged")
-" Basics
+"" Basics
   Plug 'roxma/nvim-yarp'
   "Plug 'roxma/vim-hug-neovim-rpc'
   Plug 'ncm2/ncm2'
@@ -24,7 +24,7 @@ call plug#begin("~/.config/nvim/plugged")
   "  set runtimepath+=~/.config/nvim/plugged/deoplete.nvim
   "  let g:deoplete#enable_at_startup = 1
 
-" Themes
+"" Themes
   Plug 'chriskempson/base16-vim'
   Plug 'waycrate/swhkd-vim'
   "Plug 'mcchrish/vim-no-color-collections'
@@ -32,7 +32,7 @@ call plug#begin("~/.config/nvim/plugged")
   "Plug 'preservim/vim-colors-pencil'
   "Plug 'danilo-augusto/vim-afterglow'
 
-" Highlighting
+"" Highlighting
   Plug 'akinsho/bufferline.nvim'
   "Plug 'bling/vim-bufferline'
   Plug 'vim-airline/vim-airline'
@@ -42,7 +42,7 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'nvim-treesitter/nvim-treesitter' " , {'do': ':TSUpdate'}
   Plug 'bounceme/poppy.vim'
 
-" Language support
+"" Language support
 """ IDE
   Plug 'sheerun/vim-polyglot'
   Plug 'vim-syntastic/syntastic'
@@ -53,7 +53,6 @@ call plug#begin("~/.config/nvim/plugged")
 """ Python
   Plug 'python-mode/python-mode'
   Plug 'sansyrox/vim-python-virtualenv'
-  Plug 'vim-scripts/indentpython.vim'
   Plug 'nvie/vim-flake8'
 """ Markdown
   Plug 'vim-pandoc/vim-pandoc'
@@ -69,27 +68,6 @@ call plug#begin("~/.config/nvim/plugged")
     \ 'scratch'
     \]
   "  let g:bullets_checkbox_markers = '✗○◐●✓'
-  "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-  "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-  "  let g:mkdp_auto_close = 0
-  "Plug 'ellisonleao/glow.nvim'
-  "Plug 'tpope/vim-markdown'
-    "let g:markdown_fenced_languages = ['python']
-  "Plug 'plasticboy/vim-markdown'
-  "  " disable header folding
-  "  let g:vim_markdown_folding_disabled = 0
-  "  " do not use conceal feature, the implementation is not so good
-  "  let g:vim_markdown_conceal = 1
-  "  " disable math tex conceal feature
-  "  let g:tex_conceal = ""
-  "  let g:vim_markdown_math = 1
-  "  " support front matter of various format
-  "  let g:vim_markdown_frontmatter = 1  " for YAML format
-  "  let g:vim_markdown_toml_frontmatter = 1  " for TOML format
-  "  let g:vim_markdown_json_frontmatter = 1  " for JSON format
-  "Plug 'masukomi/vim-markdown-folding'
-  "Plug 'preservim/vim-markdown'
-  "Plug 'jtratner/vim-flavored-markdown'
 """ LaTeX
   Plug 'lervag/vimtex'
     let g:tex_flavor='latex'
@@ -120,7 +98,7 @@ call plug#begin("~/.config/nvim/plugged")
   "Plug 'austintraver/vim-jrnl'
   "Plug 'mode89/vim-jrnl-syntax'
 
-" Tools
+"" Tools
   Plug 'xolox/vim-misc'
   Plug 'pacha/vem-tabline'
   "Plug 'Yggdroot/indentLine'
@@ -167,7 +145,7 @@ call plug#begin("~/.config/nvim/plugged")
 
 """ Functionality
   Plug 'lukesmithxyz/vimling'
-  Plug 'vim-scripts/fountain.vim'
+  Plug 'kblin/vim-fountain'
   Plug 'tpope/vim-commentary'
   Plug 'jiangmiao/auto-pairs'
   Plug 'qpkorr/vim-renamer'
@@ -193,8 +171,8 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'voldikss/vim-translator'
   "Plug 'https://github.com/ggerganov/whisper.cpp/blob/master/examples/whisper.nvim/whisper.nvim'
 
-""" Zettelkasten
-  Plug 'mickael-menu/zk-nvim'
+""" Zettelkasten/Org-mode
+  "Plug 'mickael-menu/zk-nvim'
   "Plug 'xolox/vim-notes'
   "Plug 'fmoralesc/vim-pad'
   "Plug 'MattesGroeger/vim-bookmarks'
@@ -251,6 +229,8 @@ set noruler
 set relativenumber
 set nocompatible
 set arabicshape!
+set guicursor=n-v-c-sm:blinkon1/block-Cursor/lCursor,i-ci-ve:ver25,r-cr-o:hor20
+hi Cursor guifg=Black guibg=White
 
 "set list
 set showmatch ""bracket match jump
