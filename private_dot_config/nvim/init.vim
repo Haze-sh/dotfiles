@@ -3,10 +3,10 @@ let maplocalleader="]"
 
 " Vim-plug install
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
+  echo "Downloading junegunn/vim-plug to manage plugins..."
+  silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+  silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+  autocmd VimEnter * PlugInstall
 endif
 
 " Plugins
@@ -273,31 +273,31 @@ filetype plugin indent on
   endif
 
 " Moving between windows
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
 
 " Spell-check set to <leader>s, 'o' for 'othography'
-	map <leader>o :setlocal spell! spelllang=en_us,de,ar<CR>
+  map <leader>o :setlocal spell! spelllang=en_us,de,ar<CR>
 
 " Check file in shellcheck
-	map <leader>s :!clear && shellcheck -x %<CR>
+  map <leader>s :!clear && shellcheck -x %<CR>
 
 " Goyo plugin makes text more readable when writing prose
-	map <leader>g :Goyo \| set bg=dark \| set linebreak<CR>
+  map <leader>g :Goyo \| set bg=dark \| set linebreak<CR>
   autocmd! User GoyoEnter Limelight
   autocmd! User GoyoLeave Limelight!
 
 " Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
+  map <leader>b :vsp<space>$BIB<CR>
+  map <leader>r :vsp<space>$REFER<CR>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>c :w! \| !compiler "<c-r>%"<CR>
+  map <leader>c :w! \| !compiler "<c-r>%"<CR>
 
 " Open corresponding .pdf/.html or preview
-	map <leader>p :!opout <c-r>%<CR><CR>
+  map <leader>p :!opout <c-r>%<CR><CR>
 
 " Prompt for a command to run in tmux from within vim
   map <Leader>vp :VimuxPromptCommand<CR>
@@ -345,7 +345,7 @@ filetype plugin indent on
   nnoremap <silent> <Leader>t :Toc<cr>
 
 " Binding for searching tags ("search tag")
-	nnoremap <leader>st :CtrlPTag<CR>
+  nnoremap <leader>st :CtrlPTag<CR>
 
 " Find backlinks to current file and open quickfix list with the results
 "  command! -nargs=0 Ngrepl :execute "grep -F '" . " ]( " . expand("%:t") . " )" .  "'" | :copen
@@ -361,19 +361,19 @@ filetype plugin indent on
   nnoremap <leader>nb :Backlinks<CR>
 
 " Generate ctags silently
-	nnoremap <leader>tt :silent !ctags -R . <CR>:redraw!<CR>
+  nnoremap <leader>tt :silent !ctags -R . <CR>:redraw!<CR>
 
 " Replace all is aliased to R.
-	nnoremap R :%s//g<Left><Left>
+  nnoremap R :%s//g<Left><Left>
 
 " Perform dot commands over visual blocks:
-	vnoremap . :normal .<CR>
+  vnoremap . :normal .<CR>
 
 " Save file as sudo on files that require root permission
-	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+  cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Correcting previous spelling mistake.
-	inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+  inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Inkscape
   inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
@@ -384,10 +384,10 @@ filetype plugin indent on
   au BufRead,BufNewFile *.fountain set filetype=fountain
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
-	autocmd VimLeave *.tex !texclear %
+  autocmd VimLeave *.tex !texclear %
 
 " Disables automatic commenting on newline
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Enable markdown top level folding
   autocmd FileType pandoc.markdown set foldexpr=NestedMarkdownFolds()
@@ -404,10 +404,10 @@ filetype plugin indent on
   autocmd BufRead,BufNewFile *.jrnl set filetype=jrnl
 
 " Enable Goyo by default for mutt writing
-	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
+  autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
+  autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
+  autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
+  autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
 
 " Set header title for journal & enter writing mode
 "function! JournalMode()
@@ -474,9 +474,9 @@ filetype plugin indent on
         \ exe 'au! Poppy CursorMoved *' . (g:poppy > 0 ? ' call PoppyInit()' : '') <cr>
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
-	autocmd BufWritePre * %s/\s\+$//e
-	autocmd BufWritePre * %s/\n\+\%$//e
-	autocmd BufWritePre *.[ch] %s/\%$/\r/e
+  autocmd BufWritePre * %s/\s\+$//e
+  autocmd BufWritePre * %s/\n\+\%$//e
+  autocmd BufWritePre *.[ch] %s/\%$/\r/e
 
 " Deoplete
 "  autocmd VimEnter * call deoplete#custom#option('sources', {'md': []})
@@ -528,35 +528,35 @@ filetype plugin indent on
 
 "" CtrlP function for inserting a markdown link with Ctrl-X
   fu! CtrlPOpenFunc(action, line)
-     if a:action =~ '^h$'
-        let filename = fnameescape(fnamemodify(a:line, ':t'))
-  	    let filename_wo_timestamp = fnameescape(fnamemodify(a:line, ':t:s/\d*-//'))
+    if a:action =~ '^h$'
+      let filename = fnameescape(fnamemodify(a:line, ':t'))
+      let filename_wo_timestamp = fnameescape(fnamemodify(a:line, ':t:s/\d*-//'))
 
-        call ctrlp#exit()
-        call ctrlp#mrufiles#add(filename)
+      call ctrlp#exit()
+      call ctrlp#mrufiles#add(filename)
 
-  	    let mdlink = '['.filename_wo_timestamp.']('.filename.')'
-        put = mdlink
-      else
-        call call('ctrlp#acceptfile', [a:action, a:line])
-     endif
+      let mdlink = '['.filename_wo_timestamp.']('.filename.')'
+      put = mdlink
+    else
+      call call('ctrlp#acceptfile', [a:action, a:line])
+    endif
   endfunction
 
   let g:ctrlp_open_func = {
-           \ 'files': 'CtrlPOpenFunc',
-           \ 'mru files': 'CtrlPOpenFunc'
-           \ }
+    \ 'files': 'CtrlPOpenFunc',
+    \ 'mru files': 'CtrlPOpenFunc'
+    \ }
 
 " Function to insert Markdown notes with fzf search
   fu! HandleFZF(file)
-      let filename = fnameescape(fnamemodify(a:file, ':t'))
-      let filename_wo_timestamp = fnameescape(fnamemodify(a:file, ':t:s/^[0-9]*-//'))
-      let mdlink = '['.filename_wo_timestamp.']('.filename.')'
-      put = mdlink
-"      let curfilename = fnameescape(expand('%:t'))
-"      let curfilename_wo_timestamp = fnameescape(fnamemodify(expand('%'), ':t:s/^[0-9]*-//'))
-"      let curmdlink = '[ '.curfilename_wo_timestamp." ]( '.curfilename.' )'
-"      call writefile(add(readfile(filename), curmdlink), filename)
+    let filename = fnameescape(fnamemodify(a:file, ':t'))
+    let filename_wo_timestamp = fnameescape(fnamemodify(a:file, ':t:s/^[0-9]*-//'))
+    let mdlink = '['.filename_wo_timestamp.']('.filename.')'
+    put = mdlink
+    "let curfilename = fnameescape(expand('%:t'))
+    "let curfilename_wo_timestamp = fnameescape(fnamemodify(expand('%'), ':t:s/^[0-9]*-//'))
+    "let curmdlink = '[ '.curfilename_wo_timestamp." ]( '.curfilename.' )'
+    "call writefile(add(readfile(filename), curmdlink), filename)
   endfunction
   command! -nargs=1 HandleFZF :call HandleFZF(<f-args>)
   inoremap <buffer> <C-X><C-F> <esc>:call fzf#run({'source': 'rg --files --max-depth 1 .', 'sink': 'HandleFZF', 'options': '--delimiter / --with-nth -1', 'window': {'width': 0.9, 'height': 0.6}})<CR>
@@ -576,7 +576,5 @@ filetype plugin indent on
 
 " Switch to English - function
   function! EngType()
-" To switch back from Arabic
-"    set keymap=us " Restore default (US) keyboard layout
-    set norightleft
+    set norightleft   "To switch back from Arabic set keymap=us " Restore default (US) keyboard layout
   endfunction
