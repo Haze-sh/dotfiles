@@ -40,8 +40,8 @@
 @ 1d dconf dump / > $HOME/Backups/Machines/Linux/saved_settings.dconf
 
 ## Git Backups
-@ 05 . $HOME/.zshenv; cd $ZET_DIR; $HOME/.local/bin/scripts/autogit
-@ 05 . $HOME/.zshenv; cd $GTD_DIR; $HOME/.local/bin/scripts/autogit
+@ 01 source $HOME/.zshenv; cd $ZET_DIR; $HOME/.local/bin/scripts/autogit
+@ 01 source $HOME/.zshenv; cd $GTD_DIR; $HOME/.local/bin/scripts/autogit
 @ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
@@ -51,7 +51,7 @@
 # @ 60 sfeed_plain $HOME/.local/share/sfeed/feeds-daily/* > $HOME/.local/share/sfeed/feeds-daily.txt
 
 # Total Feed
-%hours * 06-09,21-00 * * * newsboat --url-file=$HOME/.config/newsboat/urls -x reload
+#%hours * 06-09,21-00 * * * newsboat --url-file=$HOME/.config/newsboat/urls -x reload
 # %hours * 06-09,21-00 * * * sfeed_update $HOME/.config/sfeed/sfeedrc ; date $>/tmp/cron-sfeed.log
 # %hours * 06-09,21-00 * * * sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
 # %hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
