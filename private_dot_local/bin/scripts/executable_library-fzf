@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # find ~/Documents/Library | fzf | sed 's/.*/"&"/' | xargs -r zathura
 # zathura $(find ~/Documents/Library | fzf | sed 's/.*/"&"/')

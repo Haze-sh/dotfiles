@@ -33,7 +33,7 @@ export $(dbus-launch)
 
 # Default programs
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="wezterm"
     # export TERMINAL="gnome-terminal"
 export BROWSER="firefox"
 export PAGER="bat"
