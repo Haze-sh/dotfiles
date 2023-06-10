@@ -1,6 +1,4 @@
 # Defaults
-# export LC_ALL=de_DE.UTF-8
-# export LANG=de_DE.UTF-8
 export GPG_TTY=$TTY
 
 ## Git
@@ -29,7 +27,6 @@ zstyle ':vcs_info:git:*' formats '%b'
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd my_precmd
 PROMPT='%B 🍺%{$fg[yellow]%}%~%{$fg[blue]%}%1v%{$reset_color%}%b '
-#PS1="%B 🍺%{$fg[yellow]%}%~%{$reset_color%}%b "
 
 autoload -U colors && colors
 setopt autocd		# Automatically cd into typed directory.
@@ -55,7 +52,7 @@ if [ -f ~/.config/shellconfig/aliases ]; then
 fi
 
 # VI mode
-bindkey -v
+bindkey -v '^?' backward-delete-char
 export KEYTIMEOUT=1
 
 ## Change cursor shape for different vi modes.
@@ -107,8 +104,8 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::lib/git.zsh
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
-#zinit light softmoth/zsh-vim-mode
 zinit light zsh-users/zsh-history-substring-search
+#zinit light softmoth/zsh-vim-mode
 #zinit light TyWR/Nord-zsh
 #zinit light geometry-zsh/geometry
 #zinit light fecat233/garden
