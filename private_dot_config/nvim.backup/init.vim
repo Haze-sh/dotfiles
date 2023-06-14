@@ -169,6 +169,8 @@ call plug#begin("~/.config/nvim/plugged")
   Plug 'tom-doerr/vim_codex'
   Plug 'ryicoh/deepl.vim'
   Plug 'voldikss/vim-translator'
+  Plug 'huggingface/hfcc.nvim'
+  Plug 'codota/tabnine-nvim'
   "Plug 'https://github.com/ggerganov/whisper.cpp/blob/master/examples/whisper.nvim/whisper.nvim'
 
 """ Zettelkasten/Org-mode
@@ -182,7 +184,7 @@ call plug#begin("~/.config/nvim/plugged")
   "Plug 'nvim-neorg/neorg'
   "Plug 'dhruvasagar/vim-dotoo'
   "Plug 'kristijanhusak/orgmode.nvim'
-  "Plug ishchow/nvim-deardiary
+  "Plug 'ishchow/nvim-deardiary'
   "Plug 'vimwiki/vimwiki'
   "Plug 'tools-life/taskwiki'
   "Plug 'blindFS/vim-taskwarrior'

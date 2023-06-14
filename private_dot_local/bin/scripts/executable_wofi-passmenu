@@ -6,7 +6,7 @@ wl_copy_args=("-o")
 wofi_args=("")
 
 usage() {
-	echo -e "Wofi based interface for pass
+	printf '%s/n' "Wofi based interface for pass
 Usage:
 wofipassmenu [Options]
 Options:
@@ -18,8 +18,8 @@ Options:
 
 
 while getopts ":hpn" option; do
-	echo $option
-	case $option in
+	echo "$option"
+	case "$option" in
 		h )
 			usage
 			exit 0
@@ -36,21 +36,20 @@ while getopts ":hpn" option; do
 	esac
 done
 
-shift $(expr $OPTIND - 1 )
+shift $(expr $OPTIND - 1)
 
-[[ $1 = "--" ]] && shift
+[ $1 = "--" ] && shift
 wofi_args=$@
 prefix=${PASSWORD_STORE_DIR-~/.password-store}
 password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | wofi -m -i -p "Password name" -O alphabetical --show dmenu $wofi_args)
+password=$(printf '%s\n' "${password_files[@]}" | wofi -m -i -p "Password name" -O alphabetical --show dmenu "$wofi_args")
 
-[[ -n $password ]] || exit
+[ -n "$password" ] || exit
 
-pass show "$password" | head -n1 | wl-copy $wl_copy_args 2>/dev/null
-if [[ $? != 0 ]]; then
+if ! pass show "$password" | head -n1 | wl-copy "$wl_copy_args" 2>/dev/null ; then
 	echo "Some error has occured"
 else
 	echo "Password copyied to clipboard"

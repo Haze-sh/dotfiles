@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # -----------------------------------------------------------------------------
 # Info:
@@ -20,16 +20,13 @@
 
 searx="https://searx.thegpm.org/?q="
 
+query=$(wofi -d -p "Search: " -W 600 -H 100 -k ~/.cache/wofi-web)
 
-query=$( wofi -d -p "Search: " -W 600 -H 100 -k ~/.cache/wofi-web)
-
-if [[ -n "$query" ]]; then
+if [ -n "$query" ]; then
   url="$searx$query"
-  xdg-open "$url"
+  web-xdg-open "$url"
 else
   exit
 fi
-
-
 
 exit 0

@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Query
+if echo "$*" | grep -q "-Q" ; then
+    basename "$(cat "$HOME"/.local/share/backgrounds/wallpaper.png)"
+    exit
+fi
+
+# List
+if echo "$*" | grep -q "-L" ; then
+    ls -1R ~/Pictures/Wallpapers/"*.png|*.jpg|*.jpeg"
+    exit
+fi
+
+# Random
+if echo "$*" | grep -q "-R" ; then
+    wallpaper=$(setwallpaper -L | shuf -n 1)
+# Specified
+else
+    wallpaper="$1"
+fi
+
+wallpaper=~/Pictures/Wallpapers/"${wallpaper}"
+
+rsync "${wallpaper}" "$HOME"/.local/share/backgrounds/wallpaper.png
+
+if "$(flavours current)" | grep -q "generated" ; then
+    flavours generate "$(darkmode query)" "${wallpaper}" && flavours apply -l generated
+fi

@@ -79,7 +79,7 @@ def convert_to_org(lines):
     """ Convert list of strings in todo.txt format to Emacs Org mode formatted string """
     projects = defaultdict(list)
     priority_regex = re.compile(r'\(([A-Z])\)')
-    project_regex = re.compile(r"(?:^|\s)\+([^\s]+)")
+    project_regex = re.compile(r'(?:^|\s)\+([^\s]+)/g')
     context_regex = re.compile(r'(?:^|\s)@([^\s]+)')
     key_value_regex = re.compile(r'(?:^|\s)([^\s:]+:[^\s]+)')
 

@@ -31,10 +31,10 @@ template = "vim"
 hook = "reloadnvim"
 rewrite = true
 
-[[item]]
-file = "~/.config/helix/themes/base16.toml"
-template = "helix"
-rewrite = true
+# [[item]]
+# file = "~/.config/helix/themes/base16.toml"
+# template = "helix"
+# rewrite = true
 
 # [[item]]
 # file = "~/.emacs.d/base16-theme.el"

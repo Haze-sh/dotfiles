@@ -1,13 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -o pipefail
 
-[[ ! "$1" ]] &&
+[ ! "$1" ] &&
     echo "Usage: $0 link" &&
     exit 1
 
 #readonly CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/wxorc"
-readonly APP_NAME="$(basename "$0")"
+readonly APP_NAME
+APP_NAME="$(basename "$0")"
 
 ## ============== PUBLIC OVERRIDABLE METHODS ================
 notify() {
@@ -20,7 +21,7 @@ image() {
 }
 
 video() {
-    if command -V mpv &>/dev/null; then
+    if command -V mpv >/dev/null 2>&1; then
         notify 'Playing in mpv' "$1" -u low
         mpv "$1" || {
             notify 'Retrying in mpv' "$1" -u low
@@ -54,7 +55,7 @@ git() {
 }
 
 gif() {
-    if command -V mpv &>/dev/null; then
+    if command -V mpv >/dev/null 2>&1; then
         mpv --loop-file "$1"
     else
         dl "$1" && xdg-open "$TEMPFILE"
@@ -66,7 +67,7 @@ pdf() {
 }
 
 clipboard() {
-    if command -V wl-copy &>/dev/null; then
+    if command -V wl-copy >/dev/null 2>&1; then
         dl "$1" | wl-copy && notify 'Key coppied to clipboard' -u low
     else
         notify 'wl-copy not installed' \
@@ -82,9 +83,8 @@ archive() {
 
 fallback() {
     notify 'Using fallback' -u low
-    if [[ "$BROWSER" ]]; then
+    if [ "$BROWSER" ]; then
         "$BROWSER" "$1" &
-        disown
     else
         notify 'Browser not set' \
             "Please set the \$BROWSER enviroment variable" \
@@ -99,7 +99,7 @@ dl() {
         local error
         if ! error=$(curl -# --fail "$1" 3>&2 2>&1 1>&3); then
             notify 'Download failed' \
-                "$(tail -1 <<<"$error" | sed -E 's/curl:\s*\([0-9]*\)//g')" \
+                "$($error | tail -1 | sed -E 's/curl:\s*\([0-9]*\)//g')" \
                 -u critical
             return 1
         fi
@@ -109,9 +109,9 @@ dl() {
 
 __temp_file() {
     TEMPFILE=$(mktemp) || return 1
-    if [[ "$1" ]]; then
+    if [ "$1" ]; then
         name="$(basename "$1")"
-        [[ "$name" = */* ]] && return 0
+        echo "$name" | grep -q '/' && return 0
         mv "$TEMPFILE" "$TEMPFILE-$name" || return 1
         TEMPFILE="$TEMPFILE-$name"
     fi
@@ -121,7 +121,7 @@ __temp_file() {
 
 __cleanup() {
     sleep 30
-    [[ "$TEMPFILE" ]] && rm -f "$TEMPFILE"
+    [ "$TEMPFILE" ] && rm -f "$TEMPFILE"
     :
 }
 
@@ -130,14 +130,14 @@ trap __cleanup EXIT
 readonly target="$1"
 
 __try() {
-    clean_link=${target,,}
+    clean_link=${target}
     clean_link=${clean_link%\?*}
     case "$clean_link" in
-        *github*blob*)
-            raw_link="${target//github/raw.githubusercontent}"
-            raw_link="${raw_link//blob\//}"
-            git "$raw_link"
-            ;;
+        # *github*blob*)
+            # raw_link="${target//github/raw.githubusercontent}"
+            # raw_link="${raw_link//blob\//}"
+            # git "$raw_link"
+            # ;;
         *.txt | *.sh | *.c | *.cpp | *.h | *.hpp | *.rs | *.spell | *.tool | *.hs | *.conf | *.tex | *.log | *.lhs | *.java | *.py | *.awk | *.pl | *.cs | *.css | *.js | *.scss | *.lua | *.bash | *makefile | *.md | *.yml | *.yaml)
             text "$target"
             ;;

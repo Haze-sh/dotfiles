@@ -12,19 +12,15 @@ chezmoi init --apply --exclude=encrypted,templates https://github.com/Haze-sh/do
 ## Themes
 
 ```bash
-flavours update all
-flavours apply $SCHEME
+flavours update all && flavours apply $SCHEME
 ```
-
-- Manually add user preset to gradience (Until there is a command to do so)
 
 ## Backups
 
 ```bash
 chsh -s /bin/zsh
-fcrontab $HOME/.config/fcrontab.backup # Cron jobs
-setfacl --restore=$HOME/.config/permissions.facl # For mopidy to work on local files
-sudo cp $HOME/.local/share/themes/issue.txt /etc/issue ## To have a beautiful issue
+fcrontab $HOME/.config/shellconfig/fcrontab.backup # Cron jobs
+setfacl --restore=$HOME/.config/shellconfig/permissions.factl # For mopidy to work on local files
 ```
 
 ## Passwords
@@ -39,7 +35,8 @@ pass add manager/totp # KeePass TOTP
 
 ## Other
 
-```
+```bash
 sudo ln -sfT dash /usr/bin/sh
 sudo ln -s $HOME/.local/bin/scripts/pinentry-bemenu /opt/
+sudo cp $HOME/.local/share/themes/issue.txt /etc/issue ## To have a beautiful issue
 ```

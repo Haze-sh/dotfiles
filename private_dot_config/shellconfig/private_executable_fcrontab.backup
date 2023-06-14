@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# Archiving
+@ 720 promnesia index
+@ 1d cd $HOME/Documents/Notes/Personal/Journal/Collections && tree-index-md > 000-index.md
+@ 1d jrnl --format md > $HOME/Documents/Notes/Personal/Journal/GTD/Journal.md
+@ 1d \
+    python todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt ; \
+    python todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.org --reverse
+@ 1d \
+    python todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.txt ; \
+    python todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.org --reverse
+@ 1d \
+    python -m orger.modules.hypothesis --to $HOME/Documents/Notes/Personal/Journal/Collections/hyp-annotations.org ; \
+    torsimany $HOME/Documents/Notes/Personal/Journal/Collections/hyp-annotations.json
+
+## Sync Servers
+@ 10 vdirsyncer sync
+@ 10 $HOME/.local/bin/scripts/bukuding
+@ 15 $HOME/.local/bin/scripts/syncmail
+
+## Local Backups
+@ 1d \
+	  $HOME/.local/bin/browserexport save --profile sx15jrar.User.js -b firefox --to $HOME/Backups/Data/Browser ; \
+	  $HOME/.local/bin/browserexport merge --json $HOME/Backups/Data/Browser/*.sqlite > \
+    $HOME/Backups/Data/Browser/firefox-history.json ; \
+	  $HOME/.local/bin/scripts/merge-browser-history
+@ 1d $HOME/.local/bin/scripts/merge-mpv-data
+@ 1d rsync -a $HOME/.local/share/mail/* $HOME/Backups/Data/Mail
+@ 1d rsync -a $HOME/.local/share/calendars/* $HOME/Backups/Data/Calendars
+@ 1d rsync -a $HOME/.local/share/contacts/* $HOME/Backups/Data/Contacts
+@ 1d rsync -a $HOME/.local/share/passwords/* $HOME/Backups/Data/Passwords
+@ 1d rsync $HOME/.local/share/buku/bookmarks.db $HOME/Backups/Data/Bookmarks
+@ 1d rsync $HOME/.local/share/buku/firefox-bookmarks.db $HOME/Backups/Data/Bookmarks
+@ 1d rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music
+@ 1w wget http://localhost:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
+@ 1w python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Backups/Data/SocialMedia/hyp-annotations.json
+
+## Git Backups
+@ 01 cd $HOME/Documents/Notes/Personal/Journal/GTD && $HOME/.local/bin/scripts/autogit
+@ 01 cd $HOME/Documents/Notes/Personal/Journal/Collections && $HOME/.local/bin/scripts/autogit
+@ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
+
+# Daily Feed
+@ 360 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
+
+# Total Feed
+%hours * 06-09,21-00 * * * sfeed_update $HOME/.config/sfeed/sfeedrc
+%hours * 06-09,21-00 * * * sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
+%hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
