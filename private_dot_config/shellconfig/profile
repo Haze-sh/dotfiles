@@ -32,6 +32,9 @@ export $(dbus-launch)
 #     fi
 # fi
 
+# Secrets
+source "$HOME/.config/shellconfig/secrets"
+
 # Default programs
 export SCHEME="nord"
 export EDITOR="nvim"
@@ -70,9 +73,9 @@ export GDK_BACKEND=wayland
 # Themes
 export GTK3_THEME=adw-gtk3
 export GTK4_THEME=Adwaita
-# export GTK_THEME=FlatColor
-# export GTK_THEME=Arc-Dark
-# export CLUTTER_BACKEND=wayland
+    # export GTK_THEME=FlatColor
+    # export GTK_THEME=Arc-Dark
+    # export CLUTTER_BACKEND=wayland
 export QT_QPA_PLATFORMTHEME='qt5ct'
     # export QT_QPA_PLATFORMTHEME=adwaita-qt6
     # export QT_QPA_PLATFORMTHEME=gtk2

@@ -33,6 +33,7 @@
 @ 1d rsync $HOME/.local/share/buku/bookmarks.db $HOME/Backups/Data/Bookmarks
 @ 1d rsync $HOME/.local/share/buku/firefox-bookmarks.db $HOME/Backups/Data/Bookmarks
 @ 1d rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music
+@ 1d rsync $HOME/.config/chezmoi/* $HOME/Backups/Machines/Linux/chezmoi
 @ 1w wget http://localhost:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
 @ 1w python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Backups/Data/SocialMedia/hyp-annotations.json
 
