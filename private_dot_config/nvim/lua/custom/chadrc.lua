@@ -25,8 +25,6 @@ M.ui = {
   },
 }
 
-M.mappings = require "custom.mappings"
-
 -- vim.cmd('colorscheme base16')
 vim.cmd("hi Cursor guifg=Black guibg=Grey")
 vim.g.markdown_folding=1
@@ -63,5 +61,6 @@ vim.api.nvim_set_keymap("n", "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' }
 vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkTags<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>zf", "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>", opts)
 vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
+vim.api.nvim_set_keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
 
 return M
