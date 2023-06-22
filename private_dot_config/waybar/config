@@ -353,8 +353,8 @@
     "format": " {}",
     //"exec": "rss-count",
     "exec": "cat ~/.config/newsboat/today-unread-count",
-    "on-click": "$TERMINAL -e sfeed_curses ~/.local/share/sfeed/feeds-daily/*",
-    "on-click-right": "$TERMINAL -e newsboat --url-file=~/.config/newsboat/daily-list --cache-file=~/.local/share/newsboat/daily-cache.db",
+    "on-click": "$TERMINAL -e newsboat --url-file=~/.config/newsboat/daily-list --cache-file=~/.local/share/newsboat/daily-cache.db",
+    "on-click-right": "$TERMINAL -e sfeed_curses ~/.local/share/sfeed/feeds/*",
     "interval": 60,
     "tooltip": true
 },
@@ -806,8 +806,8 @@
     "format": " {}",
     //"exec": "rss-count",
     "exec": "cat ~/.config/newsboat/today-unread-count",
-    "on-click": "$TERMINAL -e sfeed_curses ~/.local/share/sfeed/feeds-daily/*",
-    "on-click-right": "$TERMINAL -e newsboat --url-file=~/.config/newsboat/daily-list --cache-file=~/.local/share/newsboat/daily-cache.db",
+    "on-click": "$TERMINAL -e newsboat --url-file=~/.config/newsboat/daily-list --cache-file=~/.local/share/newsboat/daily-cache.db",
+    "on-click-right": "$TERMINAL -e sfeed_curses ~/.local/share/sfeed/feeds/*",
     "interval": 60,
     "tooltip": true
 },

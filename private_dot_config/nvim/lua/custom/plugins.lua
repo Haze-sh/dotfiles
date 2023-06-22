@@ -34,6 +34,13 @@ local plugins = {
     end
   },
   {
+    'mickael-menu/zk-nvim',
+    ft = 'markdown',
+    config = function()
+      require("zk").setup()
+    end,
+  },
+  {
     'lervag/vimtex',
     ft = { 'tex', 'bib' },
     config = function ()
@@ -42,6 +49,14 @@ local plugins = {
       Vimtex_quickfix_mode=0
       Tex_conceal='abdmg'
     end,
+  },
+  {
+    'iurimateus/luasnip-latex-snippets.nvim',
+    -- requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    config = function()
+      require'luasnip-latex-snippets'.setup()
+    end,
+    ft = { 'tex' },
   },
   {
     'wren/jrnl.vim',

@@ -1,0 +1,4 @@
+[format.markdown]
+link-format = 'markdown'
+link-encode-path = false
+link-drop-extension = false
