@@ -19,7 +19,7 @@ local plugins = {
 
   -- Languages
   {
-    'haze-sh/todo.txt-vim',
+    'Haze-sh/todo.txt-vim',
     ft = 'todo',
     config = function ()
       Todo_update_fold_on_sort=1
@@ -39,6 +39,14 @@ local plugins = {
     config = function()
       require("zk").setup()
     end,
+  },
+  {
+    'dkarter/bullets.vim',
+    ft = 'markdown',
+  },
+  {
+    'Haze-sh/tasks-conceal.vim',
+    ft = 'markdown',
   },
   {
     'lervag/vimtex',

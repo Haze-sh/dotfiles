@@ -11,3 +11,5 @@ if require("zk.util").notebook_root(vim.fn.expand('%:p')) ~= nil then
   map("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
   map("v", "<leader>za", ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", opts)
 end
+
+vim.opt_local.spell = true
