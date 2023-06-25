@@ -31,6 +31,7 @@ vim.g.markdown_folding=1
 vim.opt.conceallevel=1
 vim.opt.arabicshape = false
 vim.opt.guicursor = 'n-v-c-sm:blinkon1/block-Cursor/lCursor,i-ci-ve:ver25,r-cr-o:hor20'
+vim.opt_local.spell = false
 
 -- Functions
 function M.grep_notes(opts)
