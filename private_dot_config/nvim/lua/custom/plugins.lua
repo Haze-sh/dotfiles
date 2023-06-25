@@ -60,7 +60,6 @@ local plugins = {
   },
   {
     'iurimateus/luasnip-latex-snippets.nvim',
-    -- requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
     config = function()
       require'luasnip-latex-snippets'.setup()
     end,
@@ -77,7 +76,6 @@ local plugins = {
     lazy = false,
     opts = {
       model = "bigcode/starcoder",
-      -- model = "OpenAssistant/oasst-sft-6-llama-30b-xor",
       -- parameters that are added to the request body
       query_params = {
         max_new_tokens = 60,
@@ -93,8 +91,8 @@ local plugins = {
         suffix = "<fim_suffix>",
       },
       debounce_ms = 80,
-      accept_keymap = "<Tab>",
-      dismiss_keymap = "<S-Tab>",
+      accept_keymap = "<C-CR>",
+      dismiss_keymap = "<S-CR>",
     },
   },
   {

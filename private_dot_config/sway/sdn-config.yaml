@@ -7,6 +7,7 @@ clients:
   firefox: firefox
   x-terminal-emulator: terminal
   kitty: terminal
+  wezterm: terminal
   thunderbird: envelope
   ferdi: envelope
   signal: envelope
