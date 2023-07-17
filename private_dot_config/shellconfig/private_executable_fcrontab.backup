@@ -2,17 +2,12 @@
 
 # Archiving
 @ 720 promnesia index
-@ 1d cd $HOME/Documents/Notes/Personal/Journal/Collections && $HOME/.local/bin/scripts/tree-index-md > 000-index.md
-@ 1d jrnl --format md > $HOME/Documents/Notes/Personal/Journal/GTD/Journal.md
-@ 1d \
-    python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt ; \
-    python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/todo.org --reverse
-@ 1d \
-    python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.txt ; \
-    python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Journal/GTD/TODO/done.org --reverse
-@ 1d \
-    python -m orger.modules.hypothesis --to $HOME/Documents/Notes/Personal/Journal/Collections/hyp-annotations.org ; \
-    torsimany $HOME/Documents/Notes/Personal/Journal/Collections/hyp-annotations.json
+# @ 1d \
+#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.txt ; \
+#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.org --reverse
+# @ 1d \
+#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.txt ; \
+#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.org --reverse
 
 ## Sync Servers
 @ 10 vdirsyncer sync
@@ -38,8 +33,7 @@
 @ 1w python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Backups/Data/SocialMedia/hyp-annotations.json
 
 ## Git Backups
-@ 01 cd $HOME/Documents/Notes/Personal/Journal/GTD && $HOME/.local/bin/scripts/autogit
-@ 01 cd $HOME/Documents/Notes/Personal/Journal/Collections && $HOME/.local/bin/scripts/autogit
+@ 01 cd $HOME/Documents/Notes/Personal/Collections && $HOME/.local/bin/scripts/autogit
 @ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed

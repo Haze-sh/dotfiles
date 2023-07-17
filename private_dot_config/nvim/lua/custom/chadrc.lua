@@ -27,8 +27,8 @@ M.ui = {
 
 -- vim.cmd('colorscheme base16')
 vim.cmd("hi Cursor guifg=Black guibg=Grey")
-vim.g.markdown_folding=1
-vim.opt.conceallevel=1
+vim.g.markdown_folding = 1
+vim.opt.conceallevel = 1
 vim.opt.arabicshape = false
 vim.opt.guicursor = 'n-v-c-sm:blinkon1/block-Cursor/lCursor,i-ci-ve:ver25,r-cr-o:hor20'
 vim.opt_local.spell = false
@@ -65,5 +65,6 @@ vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
 vim.api.nvim_set_keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
 vim.api.nvim_set_keymap("n", "<leader>st", ":CtrlPTag<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>tt", ":silent !ctags -R . <CR>:redraw<CR>", opts)
+-- vim.api.nvim_set_keymap("n", "<leader>a", "<Cmd>set rightleft<CR>", opts)
 
 return M

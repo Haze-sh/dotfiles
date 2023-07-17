@@ -8,7 +8,7 @@ gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true ;
 gsettings set org.gnome.shell.extensions.user-theme name "gnome-bar" ;
 gsettings set org.gnome.desktop.interface icon-theme "Papirus" ;
 gsettings set org.gnome.desktop.background picture-uri $HOME/.local/share/backgrounds/wallpaper.png ;
-gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com ;
+# gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com ;
 gnome-extensions enable apps-menu@gnome-shell-extensions.gcampax.github.com ;
 gnome-extensions enable System_Monitor@bghome.gmail.com ;
 gnome-extensions enable pomodoro@arun.codito.in ;

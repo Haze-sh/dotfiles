@@ -1,0 +1,9 @@
+[core]
+markdown.file_extensions = ["md", "markdown"]
+text_sync = "full"
+
+[code_action]
+toc.enable = true
+
+[completion]
+wiki.style = "title-slug"

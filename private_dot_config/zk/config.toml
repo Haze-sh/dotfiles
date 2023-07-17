@@ -1,4 +1,10 @@
+[note]
+template = 'default.md'
+
 [format.markdown]
 link-format = 'markdown'
 link-encode-path = false
 link-drop-extension = false
+
+[alias]
+review = "zk list --quiet --format json | zk-spaced"
