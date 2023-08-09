@@ -31,7 +31,7 @@
     exec syncthing -no-browser ; # 41441
     exec mopidy
     exec beet web
-    exec aw-server
+    exec aw-server-rust
     exec promnesia serve
     exec dbus-launch kdeconnect-cli -l
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -45,25 +45,25 @@
 
 # Color
 # Start flavours
-## Base16 Nord
-# Author: arcticicestudio
+## Base16 Tokyo Night Terminal Dark
+# Author: Michaël Ball
 
-set $base00 #2e3440
-set $base01 #3b4252
-set $base02 #434c5e
-set $base03 #4c566a
-set $base04 #d8dee9
-set $base05 #e5e9f0
-set $base06 #eceff4
-set $base07 #8fbcbb
-set $base08 #bf616a
-set $base09 #d08770
-set $base0A #ebcb8b
-set $base0B #a3be8c
-set $base0C #88c0d0
-set $base0D #81a1c1
-set $base0E #b48ead
-set $base0F #5e81ac
+set $base00 #16161e
+set $base01 #1a1b26
+set $base02 #2f3549
+set $base03 #444b6a
+set $base04 #787c99
+set $base05 #787c99
+set $base06 #cbccd1
+set $base07 #d5d6db
+set $base08 #f7768e
+set $base09 #ff9e64
+set $base0A #e0af68
+set $base0B #41a6b5
+set $base0C #7dcfff
+set $base0D #7aa2f7
+set $base0E #bb9af7
+set $base0F #d18616
 # End flavours
 client.focused           $base04 $base00 $base05 $base01 $base03
 client.unfocused         $base02 $base00 $base04 $base00 $base00

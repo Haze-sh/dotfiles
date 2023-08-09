@@ -2,12 +2,6 @@
 
 # Archiving
 @ 720 promnesia index
-# @ 1d \
-#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.txt ; \
-#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.org --reverse
-# @ 1d \
-#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.txt ; \
-#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.org --reverse
 
 ## Sync Servers
 @ 10 vdirsyncer sync
@@ -30,7 +24,6 @@
 @ 1d rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music
 @ 1d rsync $HOME/.config/chezmoi/* $HOME/Backups/Machines/Linux/chezmoi
 @ 1w wget http://localhost:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
-@ 1w python -m hypexport.export --secrets $HOME/.config/hypothesis/secrets.py > $HOME/Backups/Data/SocialMedia/hyp-annotations.json
 
 ## Git Backups
 @ 01 cd $HOME/Documents/Notes/Personal/Collections && $HOME/.local/bin/scripts/autogit
@@ -43,3 +36,11 @@
 %hours * 06-09,21-00 * * * sfeed_update $HOME/.config/sfeed/sfeedrc
 %hours * 06-09,21-00 * * * sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
 %hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
+
+# Convertions
+# @ 1d \
+#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.txt ; \
+#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.org --reverse
+# @ 1d \
+#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.txt ; \
+#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.org --reverse

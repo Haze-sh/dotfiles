@@ -74,7 +74,7 @@ alt + return
 alt + b
 	wofibukumenu wofi
 alt + c
-	$TERMINAL start --class fzf-zettelkasten -e zsh -c 'cd $ZET_DIR ; $EDITOR $(FZF_DEFAULT_COMMAND="find . -maxdepth 1 -type f | sed "s/^..//"" fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")'
+  $TERMINAL start --class fzf-zettelkasten -e zsh -c '$EDITOR $(FZF_DEFAULT_COMMAND="rg --column --files $VAULTS_DIR" fzf --delimiter / --with-nth -1 --preview "bat --color=always --style=numbers --line-range=:500 {}")'
 alt + d
 	$TERMINAL start --class done-file -e zsh -c '$EDITOR $DONE_FILE'
 alt + e
