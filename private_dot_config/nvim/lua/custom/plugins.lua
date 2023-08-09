@@ -40,10 +40,10 @@ local plugins = {
       require("zk").setup()
     end,
   },
-  {
-    'dkarter/bullets.vim',
-    ft = 'markdown',
-  },
+--  {
+--    'dkarter/bullets.vim',
+--    ft = 'markdown',
+--  },
   {
     'Haze-sh/tasks-conceal.vim',
     ft = 'markdown',
