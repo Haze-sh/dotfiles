@@ -72,7 +72,7 @@ local plugins = {
 
   -- AI
   {
-    'huggingface/hfcc.nvim',
+    'huggingface/llm.nvim',
     lazy = false,
     opts = {
       model = "bigcode/starcoder",

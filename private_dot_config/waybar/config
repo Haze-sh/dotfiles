@@ -86,8 +86,8 @@
 
 "clock": {
     "interval": 1,
-	  "format": "{: <b>%H:%M:%S</b>   %a %d %b #%j}",
-	  "format-alt": "{: %H:%M:%S}",
+	  "format": "{: <b>%H:%M</b>   %a %d %b #%j}",
+	  "format-alt": "{: %H:%M}",
 //    "format-alt": "{:%Y-%m-%d}",
     "tooltip-format": "<big><b>{:%Y %B}</b></big>\n<span font_desc='Hack 10'>{calendar}</span>"
 },
@@ -539,8 +539,8 @@
 
 "clock": {
     "interval": 1,
-	  "format": "{: <b>%H:%M:%S</b>   %a %d %b #%j}",
-	  "format-alt": "{: %H:%M:%S}",
+	  "format": "{: <b>%H:%M</b>   %a %d %b #%j}",
+	  "format-alt": "{: %H:%M}",
 //    "format-alt": "{:%Y-%m-%d}",
     "tooltip-format": "<big><b>{:%Y %B}</b></big>\n<span font_desc='Hack 10'>{calendar}</span>"
 },

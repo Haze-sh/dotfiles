@@ -1,6 +1,6 @@
 account {{ .email_1 }}
 host smtp.gmail.com
-port 587
+port 465
 from {{ .email_1 }}
 user {{ .email_1 }}
 passwordeval "pass {{ .email_1 }}"
@@ -12,7 +12,7 @@ logfile ~/.cache/msmtp/msmtp.log
 
 account {{ .email_2 }}
 host smtp.gmail.com
-port 587
+port 465
 from {{ .email_2 }}
 user {{ .email_2 }}
 passwordeval "pass {{ .email_2 }}"
@@ -34,12 +34,24 @@ tls_trust_file	/etc/ssl/certs/ca-certificates.crt
 logfile ~/.cache/msmtp/msmtp.log
 tls_starttls
 
-account	{{ .email_4 }}
-host smtp.office365.com
-port 587
+account {{ .email_4 }}
+host smtp.gmail.com
+port 465
 from {{ .email_4 }}
 user {{ .email_4 }}
 passwordeval "pass {{ .email_4 }}"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile ~/.cache/msmtp/msmtp.log
+# tls_starttls
+
+account	{{ .email_5 }}
+host smtp.office365.com
+port 587
+from {{ .email_5 }}
+user {{ .email_5 }}
+passwordeval "pass {{ .email_5 }}"
 auth on
 tls on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt

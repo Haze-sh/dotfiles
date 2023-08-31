@@ -145,7 +145,7 @@ template = "vscode"
 rewrite = true
 
 [[item]]
-file = '$JOURNAL_DIR/Vaults/logseq/custom.css'
+file = '$COLLECTIONS_DIR/Vaults/logseq/custom.css'
 template = "logseq"
 start = "/* Start flavours */"
 end = "/* End flavours */"
