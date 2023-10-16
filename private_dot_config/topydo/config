@@ -1,5 +1,5 @@
 [topydo]
-filename = ~/Documents/Notes/Personal/Journal/GTD/TODO/todo.txt
-archive_filename = ~/Documents/Notes/Personal/Journal/GTD/TODO/done.txt
+filename = ~/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.txt
+archive_filename = ~/Documents/Notes/Personal/Collections/Pipelines/Todos/done.txt
 [sort]
 sort_string = asc:context,desc:priority,asc:text
