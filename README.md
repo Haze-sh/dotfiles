@@ -39,4 +39,5 @@ pass add manager/totp # KeePass TOTP
 sudo ln -sfT dash /usr/bin/sh
 sudo ln -s $HOME/.local/bin/scripts/pinentry-bemenu /opt/
 sudo cp $HOME/.local/share/themes/issue.txt /etc/issue ## To have a beautiful issue
+sudo cp rfkill.start /etc/local.d ## If rfkill block is applied
 ```

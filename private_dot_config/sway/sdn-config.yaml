@@ -8,19 +8,25 @@ clients:
   x-terminal-emulator: terminal
   kitty: terminal
   wezterm: terminal
+  neomutt: envelope
   thunderbird: envelope
+  betterbird: envelope
   ferdi: envelope
   signal: envelope
+  telegram-desktop: envelope
+  whatsapp-for-linux: envelope
   nautilus: folder-open
   pcmanfm: folder-open
   clementine: music
   ncmpcpp: music
   vlc: play
   mpv: play
+  neovim: code
   code-oss: code
   vscodium: code
   inkscape: brush
   draw.io: brush
+  xournalpp: 
   zathura: 
 deliminator: " "
 default_icon: dot-circle

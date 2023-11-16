@@ -31,6 +31,7 @@
     exec syncthing -no-browser ; # 41441
     exec mopidy
     exec beet web
+    exec rescrobbled
     exec aw-server-rust
     exec promnesia serve
     exec dbus-launch kdeconnect-cli -l
