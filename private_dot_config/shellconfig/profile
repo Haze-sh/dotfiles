@@ -71,6 +71,7 @@ export GDK_BACKEND=wayland
 # export XDG_CURRENT_DESKTOP=sway
 
 # Themes
+export GTK_THEME=adw-gtk3
 export GTK3_THEME=adw-gtk3
 export GTK4_THEME=Adwaita
     # export GTK_THEME=FlatColor
