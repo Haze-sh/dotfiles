@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Archiving
-@ 720 promnesia index
+@ 720 $HOME/.local/bin/promnesia/scripts/promnesia index
 
 ## Sync Servers
 @ 10 vdirsyncer sync
@@ -38,9 +38,9 @@
 %hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
 
 # Convertions
-# @ 1d \
-#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.txt ; \
-#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.org --reverse
-# @ 1d \
-#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.txt ; \
-#     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.org --reverse
+@ 01 \
+    python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.txt ; \
+    python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.org --reverse
+@ 01 \
+    python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.txt ; \
+    python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.org --reverse
