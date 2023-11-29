@@ -1,7 +1,6 @@
 from os import environ
 from promnesia.common import Source
 from promnesia.sources import auto
-# from promnesia.sources import hypothesis
 
 COURSES = environ.get("COURSES")
 ZET_DIR = environ.get("ZET_DIR")
@@ -18,8 +17,7 @@ SOURCES = [
     Source(
         auto.index,
         '~/Backups/Data',
-        ignored=['~/Backups/Data/Archive/*', '~/Backups/Data/URLS/*',
-                 '*.tsv', '*.urls']
+        ignored=['~/Backups/Data/Archive/*', '*.tsv', '*.urls']
     ),
     Source(
         auto.index,
@@ -32,12 +30,12 @@ SOURCES = [
         auto.index,
         VAULS_DIR,
         ignored=['logseq/*', 'Xournal/*', 'Zettelkasten/*'],
-        name='List Notes',
+        name='Lists',
     ),
     Source(
         auto.index,
         PILLARS_DIR,
-        name='Pillar Notes',
+        name='Pillars',
     ),
     Source(
         auto.index,
@@ -46,21 +44,3 @@ SOURCES = [
         name='Journals & TODO',
     ),
 ]
-#    Source(
-#        auto.index,
-#        COURSES,
-#        ignored=['*.latexmain']
-#    ),
-#    Source(
-#        auto.index,
-#        WORK_NOTES_DIR,
-#    ),
-#    Source(
-#        auto.index,
-#        '~/.local/share/calendars'
-#    ),
-#    Source(
-#        auto.index,
-#        '~/.local/share/mail'
-#    ),
-#   ]
