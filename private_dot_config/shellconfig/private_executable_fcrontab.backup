@@ -4,9 +4,9 @@
 @ 720 $HOME/.local/bin/promnesia/scripts/promnesia index
 
 ## Sync Servers
-@ 10 vdirsyncer sync
-@ 10 $HOME/.local/bin/scripts/bukuding
-@ 10 $HOME/.local/bin/scripts/syncmail
+@ 15 vdirsyncer sync
+@ 15 $HOME/.local/bin/scripts/bukuding
+@ 15 $HOME/.local/bin/scripts/syncmail
 
 ## Local Backups
 @ 1d \
@@ -27,7 +27,7 @@
 
 ## Git Backups
 @ 01 cd $HOME/Documents/Notes/Personal/Collections && $HOME/.local/bin/scripts/autogit
-@ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
+# @ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
 @ 360 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count

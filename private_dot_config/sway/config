@@ -33,8 +33,9 @@
     exec beet web
     exec rescrobbled
     exec aw-server-rust
-    exec ~/.local/bin/promnesia/scripts/promnesia serve
+    exec $HOME/.local/bin/promnesia/scripts/promnesia serve
     exec dbus-launch kdeconnect-cli -l
+    exec otd-daemon
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     # exec lid-lock
     # exec evscript
