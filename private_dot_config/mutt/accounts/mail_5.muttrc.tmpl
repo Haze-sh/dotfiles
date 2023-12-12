@@ -4,9 +4,9 @@ set realname = "{{ .name }}"
 set from = "{{ .email_5 }}"
 set sendmail = "msmtp -a {{ .email_5 }}"
 alias me {{ .name }} <{{ .email_5 }}>
-set folder = "/home/electron/.local/share/mail/{{ .email_5 }}"
-set header_cache = /home/electron/.cache/mutt-wizard/{{ .email_5 }}/headers
-set message_cachedir = /home/electron/.cache/mutt-wizard/{{ .email_5 }}/bodies
+set folder = "/home/{{ .user }}/.local/share/mail/{{ .email_5 }}"
+set header_cache = /home/{{ .user }}/.cache/mutt-wizard/{{ .email_5 }}/headers
+set message_cachedir = /home/{{ .user }}/.cache/mutt-wizard/{{ .email_5 }}/bodies
 set mbox_type = Maildir
 set hostname = "{{ .hostname_2 }}"
 

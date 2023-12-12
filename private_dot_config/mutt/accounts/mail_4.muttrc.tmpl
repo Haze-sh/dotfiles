@@ -4,9 +4,9 @@ set realname = "{{ .name }}"
 set from = "{{ .email_4 }}"
 set sendmail = "msmtp -a {{ .email_4 }}"
 alias me Hazem Hussien <{{ .email_4 }}>
-set folder = "/home/electron/.local/share/mail/{{ .email_4 }}"
-set header_cache = /home/electron/.cache/mutt-wizard/{{ .email_4 }}/headers
-set message_cachedir = /home/electron/.cache/mutt-wizard/{{ .email_4 }}/bodies
+set folder = "/home/{{ .user }}/.local/share/mail/{{ .email_4 }}"
+set header_cache = /home/{{ .user }}/.cache/mutt-wizard/{{ .email_4 }}/headers
+set message_cachedir = /home/{{ .user }}/.cache/mutt-wizard/{{ .email_4 }}/bodies
 set mbox_type = Maildir
 set hostname = "gmail.com"
 source /usr/share/mutt-wizard/switch.muttrc
@@ -19,4 +19,4 @@ macro index o "<shell-escape>mw -y {{ .email_4 }}<enter>" "run mbsync to sync {{
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a {{ .email_4 }}<enter>"  "publish GPG key to WKS provider"
 macro index \eh "<pipe-message>/usr/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a {{ .email_4 }}<enter>" "confirm GPG publication"
 
-mailboxes "=Archive" "=Canvas" "=INBOX" "=Newsletters" "=[Gmail]/All Mail" "=[Gmail]/Drafts" "=[Gmail]/Important" "=[Gmail]/Sent" "=[Gmail]/Sent Mail" "=[Gmail]/Spam" "=[Gmail]/Starred" "=[Gmail]/Trash/Personal"
+mailboxes "=Archive" "=INBOX" "=[Gmail]/All Mail" "=[Gmail]/Bin" "=[Gmail]/Drafts" "=[Gmail]/Important" "=[Gmail]/Sent" "=[Gmail]/Sent Mail" "=[Gmail]/Spam" "=[Gmail]/Starred"
