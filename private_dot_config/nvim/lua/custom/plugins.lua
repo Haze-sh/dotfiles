@@ -75,29 +75,39 @@ local plugins = {
     'huggingface/llm.nvim',
     lazy = false,
     opts = {
-      model = "bigcode/starcoder",
-      -- parameters that are added to the request body
-      query_params = {
+        model = "codellama/CodeLlama-13b-hf",
+        -- model = "bigcode/starcoder",
+        accept_keymap = "<C-CR>",
+        dismiss_keymap = "<S-CR>",
+        tokens_to_clear = { "<EOT>" },
+        -- tokens_to_clear = { "<|endoftext|>" },
+        query_params = {
         max_new_tokens = 60,
         temperature = 0.2,
         top_p = 0.95,
-        stop_token = "<|endoftext|>",
-      },
-      -- set this if the model supports fill in the middle
-      fim = {
-        enabled = true,
-        prefix = "<fim_prefix>",
-        middle = "<fim_middle>",
-        suffix = "<fim_suffix>",
-      },
-      debounce_ms = 80,
-      accept_keymap = "<C-CR>",
-      dismiss_keymap = "<S-CR>",
+        stop_tokens = nil,
+        },
+        fim = {
+          enabled = true,
+          prefix = "<PRE> ",
+          middle = " <MID>",
+          suffix = " <SUF>",
+          -- prefix = "<fim_prefix>",
+          -- middle = "<fim_middle>",
+          -- suffix = "<fim_suffix>",
+        },
+        context_window = 4096,
+        -- context_window = 8192,
+        tokenizer = {
+          repository = "codellama/CodeLlama-13b-hf",
+          -- repository = "bigcode/starcoder",
+        },
+        enable_suggestions_on_startup = true,
+        enable_suggestions_on_files = "*",
     },
   },
   {
     'gsuuon/model.nvim',
-    -- Don't need these if lazy = false
     cmd = { 'M', 'Model', 'Mchat' },
     init = function()
       vim.filetype.add({
@@ -114,7 +124,8 @@ local plugins = {
     },
   },
   {
-    'voldikss/vim-translator',
+    -- 'uga-rosa/translate.nvim'
+    -- 'voldikss/vim-translator',
   },
 }
 return plugins
