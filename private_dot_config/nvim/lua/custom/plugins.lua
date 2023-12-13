@@ -71,33 +71,48 @@ local plugins = {
   },
 
   -- AI
-  -- {
-  --   'huggingface/llm.nvim',
-  --   lazy = false,
-  --   opts = {
-  --     model = "bigcode/starcoder",
-  --     -- parameters that are added to the request body
-  --     query_params = {
-  --       max_new_tokens = 60,
-  --       temperature = 0.2,
-  --       top_p = 0.95,
-  --       stop_token = "<|endoftext|>",
-  --     },
-  --     -- set this if the model supports fill in the middle
-  --     fim = {
-  --       enabled = true,
-  --       prefix = "<fim_prefix>",
-  --       middle = "<fim_middle>",
-  --       suffix = "<fim_suffix>",
-  --     },
-  --     debounce_ms = 80,
-  --     accept_keymap = "<C-CR>",
-  --     dismiss_keymap = "<S-CR>",
-  --   },
-  -- },
-  -- {
-  --   'gsuuon/llm.nvim',
-  -- },
+  {
+    'huggingface/llm.nvim',
+    lazy = false,
+    opts = {
+      model = "bigcode/starcoder",
+      -- parameters that are added to the request body
+      query_params = {
+        max_new_tokens = 60,
+        temperature = 0.2,
+        top_p = 0.95,
+        stop_token = "<|endoftext|>",
+      },
+      -- set this if the model supports fill in the middle
+      fim = {
+        enabled = true,
+        prefix = "<fim_prefix>",
+        middle = "<fim_middle>",
+        suffix = "<fim_suffix>",
+      },
+      debounce_ms = 80,
+      accept_keymap = "<C-CR>",
+      dismiss_keymap = "<S-CR>",
+    },
+  },
+  {
+    'gsuuon/model.nvim',
+    -- Don't need these if lazy = false
+    cmd = { 'M', 'Model', 'Mchat' },
+    init = function()
+      vim.filetype.add({
+        extension = {
+          mchat = 'mchat',
+        }
+      })
+    end,
+    ft = 'mchat',
+    keys = {
+      {'<C-m>d', ':Mdelete<cr>', mode = 'n'},
+      {'<C-m>s', ':Mselect<cr>', mode = 'n'},
+      {'<C-m><space>', ':Mchat<cr>', mode = 'n' }
+    },
+  },
   {
     'voldikss/vim-translator',
   },
