@@ -128,9 +128,9 @@ local plugins = {
     'voldikss/vim-translator',
     ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
   },
-  {
-    'ryicoh/deepl.vim',
-    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
-  },
+  -- {
+  --   'ryicoh/deepl.vim',
+  --   ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
+  -- },
 }
 return plugins
