@@ -31,7 +31,7 @@ local plugins = {
     ft = 'org',
     config = function()
             require('orgmode').setup_ts_grammar()
-    end
+    end,
   },
   {
     'mickael-menu/zk-nvim',
@@ -40,10 +40,10 @@ local plugins = {
       require("zk").setup()
     end,
   },
---  {
---    'dkarter/bullets.vim',
---    ft = 'markdown',
---  },
+  {
+    'dkarter/bullets.vim',
+    ft = 'markdown',
+  },
   {
     'Haze-sh/tasks-conceal.vim',
     ft = 'markdown',
@@ -123,9 +123,14 @@ local plugins = {
       {'<C-m><space>', ':Mchat<cr>', mode = 'n' }
     },
   },
+  -- Translations
   {
-    -- 'uga-rosa/translate.nvim'
-    -- 'voldikss/vim-translator',
+    'voldikss/vim-translator',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
+  },
+  {
+    'ryicoh/deepl.vim',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
   },
 }
 return plugins
