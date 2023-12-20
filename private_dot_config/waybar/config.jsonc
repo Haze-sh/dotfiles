@@ -1,7 +1,7 @@
 [
   {
   "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
-    "layer": "bottom",
+    "layer": "top",
     "output": "eDP-1",
     "position": "top",
     "gtk-layer-shell": true,
