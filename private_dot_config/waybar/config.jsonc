@@ -1,0 +1,106 @@
+[
+  {
+  "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
+    "layer": "bottom",
+    "output": "eDP-1",
+    "position": "top",
+    "gtk-layer-shell": true,
+
+    "modules-left":
+      [
+      "custom/menu",
+      "hyprland/workspaces",
+      "sway/workspaces",
+      "custom/chat",
+      "custom/mail",
+      "custom/stock",
+      "custom/rss",
+      "custom/todo",
+      "custom/timer"
+      ],
+
+    "modules-center":
+      [
+//      "sway/window",
+//      "wlr/taskbar",
+      "tray",
+      "custom/moonphase",
+      "custom/weather",
+      "clock",
+      "custom/events"
+      ],
+
+    "modules-right":
+      [
+      //"custom/safeeyes",
+      //"custom/eyes",
+      "custom/waybar-mpris",
+      "wireplumber",
+      // "pulseaudio",
+      "custom/bluetooth",
+      "cpu",
+      "memory",
+      "disk",
+      "temperature",
+      "custom/gamma",
+      "backlight",
+      "network",
+      "sway/language",
+      "custom/AUR",
+      "custom/vpn",
+      "custom/devices",
+      "idle_inhibitor",
+      "battery#bat0",
+      "custom/powermenu"
+      ]
+
+  },
+  {
+  "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
+    "layer": "bottom",
+    "output": "DP-1",
+    "position": "top",
+    "gtk-layer-shell": true,
+
+    "modules-left":
+      [
+      "custom/menu",
+      "sway/workspaces",
+      "custom/chat",
+      "custom/mail",
+      "custom/stock",
+      "custom/rss",
+      "custom/todo",
+      "custom/timer"
+      ],
+
+    "modules-center":
+      [
+      "custom/moonphase",
+      "custom/weather",
+      "clock",
+      "custom/events"
+      ],
+
+    "modules-right":
+      [
+      "custom/waybar-mpris",
+      "wireplumber",
+      // "pulseaudio",
+      "custom/bluetooth",
+      "cpu",
+      "memory",
+      "disk",
+      "temperature",
+      "backlight",
+      "network",
+      "sway/language",
+      "custom/AUR",
+      "custom/vpn",
+      "custom/devices",
+      "idle_inhibitor",
+      "battery#bat0",
+      "custom/powermenu"
+      ]
+  }
+]

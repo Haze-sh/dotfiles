@@ -9,14 +9,12 @@ super + d
 	$MENU # wofi -i --show drun
 super + i
 	$BROWSER
-super + l
-	$HOME/.local/bin/university-setup/src/rofi-lectures.py
 super + m
 	$TERMINAL -e $MUSICPLAYER
 super + n
 	$TERMINAL -e $FILEMANAGER -de
 super + o
- 	$TERMINAL start --class oil -e buku-fzf
+ 	$TERMINAL --class=oil -e buku-fzf
 super + p
 	keepmenu
 super + t
@@ -41,8 +39,6 @@ super + shift + f
 	$CHAT
 super + shift + i
 	$TERMINAL -e $IRC
-super + shift + l
-	$HOME/.local/bin/university-setup/src/rofi-lectures-view.py
 super + shift + m
 	$MEDIAPLAYER
 super + shift + o
@@ -51,6 +47,8 @@ super + shift + s
 	inkscape
 super + shift + t
 	pkill autotiling
+super + shift + v
+	$HOME/.local/bin/university-setup/src/rofi-lectures.py
 super + shift + x
 	swaylock -S -f
 super + shift + y
@@ -61,6 +59,8 @@ super + shift + F11
 	$TERMINAL -e $screenrecorder -g "$($screenclip)" -a -f $HOME/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4
 
 # Super + Alt + {Key}
+super + alt + v
+	$HOME/.local/bin/university-setup/src/rofi-lectures-view.py
 super + alt + x
 	flavours generate dark $HOME/.local/share/backgrounds/wallpaper.png && flavours apply generated
 
@@ -68,33 +68,33 @@ super + alt + x
 alt + 0
 	bash courses-shortcut 0
 alt + return
-	$TERMINAL start --class term-launcher
+	$TERMINAL --class=term-launcher
 # alt + a
 # 	csv-launcher
 alt + b
 	wofibukumenu wofi
 alt + c
-  $TERMINAL start --class fzf-zettelkasten -e zsh -c '$EDITOR $(FZF_DEFAULT_COMMAND="rg --column --files $VAULTS_DIR" fzf --delimiter / --with-nth -1 --preview "bat --color=always --style=numbers --line-range=:500 {}")'
+  $TERMINAL --class=fzf-zettelkasten -e zsh -c '$EDITOR $(FZF_DEFAULT_COMMAND="rg --column --files $VAULTS_DIR" fzf --delimiter / --with-nth -1 --preview "bat --color=always --style=numbers --line-range=:500 {}")'
 alt + d
-	$TERMINAL start --class done-file -e zsh -c '$EDITOR $DONE_FILE'
+	$TERMINAL --class=done-file -e zsh -c '$EDITOR $DONE_FILE'
 alt + e
 	wofi-emoji wofi
 alt + f
-	$TERMINAL start --class fzf-rss -e rss-fzf
+	$TERMINAL --class=fzf-rss -e rss-fzf
 alt + g
-	$TERMINAL start --class projects-launcher -e zsh -c '$EDITOR $LEDGER_FILE'
+	$TERMINAL --class=projects-launcher -e zsh -c '$EDITOR $LEDGER_FILE'
 alt + h
-	$TERMINAL start --class journal-editor-md -e zsh -c '$EDITOR $GTD_DIR/Journal.md'
+	$TERMINAL --class=journal-editor-md -e zsh -c '$EDITOR $GTD_DIR/Journal.md'
 alt + j
-	$TERMINAL start --class journal-launcher -e zsh -c jrnl
+	$TERMINAL --class=journal-launcher -e zsh -c jrnl
 alt + k
-	$TERMINAL start --class journal-editor -e zsh -c 'jrnl --edit default'
+	$TERMINAL --class=journal-editor -e zsh -c 'jrnl --edit default'
 alt + l
-	$TERMINAL start --class fzf-library -e library-fzf
+	$TERMINAL --class=fzf-library -e library-fzf
 alt + m
-	$TERMINAL start --class master-launcher -e zsh -c '$EDITOR $COURSES/Current/master.tex'
+	$TERMINAL --class=master-launcher -e zsh -c '$EDITOR $COURSES/Current/master.tex'
 alt + n
-	$TERMINAL start --class note-launcher -e zsh -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
+	$TERMINAL --class=note-launcher -e zsh -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
 alt + p
 	wofipassmenu wofi
 alt + q
@@ -107,7 +107,7 @@ alt + r
 # 	flavours apply "${old}" && \
 # 	flavours apply "$(flavours current)"
 alt + t
-	$TERMINAL start --class todo -e bash -c '$EDITOR $TODO_FILE'
+	$TERMINAL --class=todo -e bash -c '$EDITOR $TODO_FILE'
 # alt + u
 # 	darkmode
 # alt + v
@@ -122,7 +122,7 @@ alt + x
 # alt + y
 # 	setwallpaper -R
 alt + z
-	$TERMINAL start --class zettelkasten -e zsh -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
+	$TERMINAL --class=zettelkasten -e zsh -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
 
 # Control + {Key}
 control + alt + r

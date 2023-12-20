@@ -4,10 +4,17 @@
     border-radius: 0;
 	  font-size: 10px;
 	  font-family: Hack, "Font Awesome 5 Free";
-    color: @base07;
     /*font-family: Fira Sans, Fira Code NerdFont; */
+    color: @base07;
     font-size: 8pt;
     margin: 0px 5px 0px 5px;
+}
+
+window#waybar {
+    color: @base04;
+    /* background-color: alpha(@base00, 0.88); */
+    background-color: alpha(@base00, 1);
+    border-bottom: 2px solid @base01;
 }
 
 window#waybar.top {
@@ -16,6 +23,7 @@ window#waybar.top {
     background-color: alpha(@base00, 1);
     border-bottom: 2px solid @base01;
 }
+
 /* window#waybar.bottom {
     color: @text_color;
     background-color: alpha(@bg_color, 0.88);
@@ -26,10 +34,18 @@ window#waybar.hidden {
     opacity: 0;
 }
 
+window#waybar.empty #window {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	background-color: transparent;
+}
+
 #custom-preferredplayer {
     margin-right: 8px;
     margin-left: 10px;
 }
+
 #custom-player {
     margin-right: 10px;
     margin-left: 8px;
@@ -41,28 +57,15 @@ window#waybar.hidden {
 }
 
 #workspaces button.visible {
-    /* background-color: @base00; */
     color: @base07;
-    background-color: @base0A;
+    background-color: @base0D;
 }
 
 #workspaces button.focused {
-    /* background-color: @base03; */
     color: @base07;
     background-color: @base03;
 }
 
-/* #cpu {
-    margin-right: 5px;
+#workspaces button.urgent {
+	color: @base08;
 }
-#memory {
-    margin-left: 5px;
-}
-
-#temperature.cpu {
-    margin-right: 3px;
-}
-
-#temperature.gpu {
-    margin-left: 3px;
-} */
