@@ -1,14 +1,27 @@
 {
+  "custom/separator": {
+      "format": " ",
+      "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+      "format": "<sub>{icon}</sub>\n{windows}",
+      "format-window-separator": "\n",
+      "window-rewrite-default": "",
+      "window-rewrite": {
+        "title<.*youtube.*>": "",
+        "class<firefox>": "",
+        "class<firefox> title<.*github.*>": "",
+        "kitty": "",
+        "code": "󰨞"
+	    }
+  },
+
   "custom/menu": {
       "format": "  ",
       "on-click": "nwg-drawer"
   //    "on-click": "nwggrid -o 0.5"
   //    "on-click": "wofi --show drun"
-  },
-  
-  "custom/separator": {
-      "format": " ",
-      "tooltip": false
   },
   
   "sway/mode": {
@@ -252,6 +265,12 @@
   "sway/language": {
   	  "format": " <b>{}</b>"
   },
+
+  "hyprland/language": {
+  	  "format": " <b>{}</b>",
+      "format-usc": "usc",
+      "format-ar": "ar"
+  },
   
   "custom/weather": {
       "format": "{}",
@@ -304,7 +323,8 @@
   
   "custom/mail": {
       //"format": " 📬 {} ",
-      "format": " {}",
+      //"format": " {}",
+      "format": "  {}",
       "exec": "find ~/.local/share/mail/*/[Ii][Nn][Bb][Oo][Xx]/new -type f | wc -l",
       //"exec": "unread-mail-count",
       "on-click": "$TERMINAL -e neomutt",

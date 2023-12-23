@@ -1,9 +1,12 @@
 [
   {
   "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
+    // "output": "eDP-1",
     "layer": "top",
-    "output": "eDP-1",
     "position": "top",
+    "height": 32,
+    "width": 0,
+    "spacing": 0,
     "gtk-layer-shell": true,
 
     "modules-left":
@@ -11,33 +14,26 @@
       "custom/menu",
       "hyprland/workspaces",
       "sway/workspaces",
-      "custom/chat",
       "custom/mail",
       "custom/stock",
       "custom/rss",
       "custom/todo",
-      "custom/timer"
-      ],
-
-    "modules-center":
-      [
-//      "sway/window",
-//      "wlr/taskbar",
-      "tray",
-      "custom/moonphase",
-      "custom/weather",
+      "custom/timer",
       "clock",
-      "custom/events"
+      "custom/events",
+      "custom/weather",
+      "custom/moonphase",
+      "tray"
       ],
 
     "modules-right":
       [
       //"custom/safeeyes",
       //"custom/eyes",
+      // "pulseaudio",
+      // "custom/bluetooth",
       "custom/waybar-mpris",
       "wireplumber",
-      // "pulseaudio",
-      "custom/bluetooth",
       "cpu",
       "memory",
       "disk",
@@ -45,6 +41,7 @@
       "custom/gamma",
       "backlight",
       "network",
+      "hyprland/language",
       "sway/language",
       "custom/AUR",
       "custom/vpn",
@@ -53,11 +50,22 @@
       "battery#bat0",
       "custom/powermenu"
       ]
+//
+//    "modules-center":
+//      [
+//      "sway/window",
+//      "wlr/taskbar",
+//      "tray",
+//      "custom/moonphase",
+//      "custom/weather",
+//      "clock",
+//      "custom/events"
+//      ],
 
   },
   {
   "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
-    "layer": "bottom",
+    "layer": "top",
     "output": "DP-1",
     "position": "top",
     "gtk-layer-shell": true,
@@ -74,26 +82,18 @@
       "custom/timer"
       ],
 
-    "modules-center":
-      [
-      "custom/moonphase",
-      "custom/weather",
-      "clock",
-      "custom/events"
-      ],
-
     "modules-right":
       [
       "custom/waybar-mpris",
       "wireplumber",
-      // "pulseaudio",
-      "custom/bluetooth",
       "cpu",
       "memory",
       "disk",
       "temperature",
+      "custom/gamma",
       "backlight",
       "network",
+      "hyprland/language",
       "sway/language",
       "custom/AUR",
       "custom/vpn",

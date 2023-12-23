@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/bin/mpv -ao=pulse "$@"

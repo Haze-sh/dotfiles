@@ -108,6 +108,7 @@ local plugins = {
   },
   {
     'gsuuon/model.nvim',
+    ft = 'mchat',
     cmd = { 'M', 'Model', 'Mchat' },
     init = function()
       vim.filetype.add({
@@ -116,7 +117,6 @@ local plugins = {
         }
       })
     end,
-    ft = 'mchat',
     keys = {
       {'<C-m>d', ':Mdelete<cr>', mode = 'n'},
       {'<C-m>s', ':Mselect<cr>', mode = 'n'},

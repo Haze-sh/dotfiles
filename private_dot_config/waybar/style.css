@@ -67,5 +67,5 @@ window#waybar.empty #window {
 }
 
 #workspaces button.urgent {
-	color: @base08;
+	  color: @base08;
 }
