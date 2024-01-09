@@ -30,7 +30,7 @@
   
   "clock": {
       "interval": 1,
-  	  "format": "{: <b>%H:%M</b>   %a %d %b #%j}",
+  	  "format": "{:<b> %H:%M</b>  <b> %a %d %b #%j</b>}",
   	  "format-alt": "{: %H:%M}",
   //    "format-alt": "{:%Y-%m-%d}",
       "tooltip-format": "<big><b>{:%Y %B}</b></big>\n<span font_desc='Hack 10'>{calendar}</span>"

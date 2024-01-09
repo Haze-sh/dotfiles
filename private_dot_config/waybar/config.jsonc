@@ -2,7 +2,7 @@
   {
   "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
     // "output": "eDP-1",
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
     "height": 32,
     "width": 0,
@@ -62,45 +62,5 @@
 //      "custom/events"
 //      ],
 
-  },
-  {
-  "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
-    "layer": "top",
-    "output": "DP-1",
-    "position": "top",
-    "gtk-layer-shell": true,
-
-    "modules-left":
-      [
-      "custom/menu",
-      "sway/workspaces",
-      "custom/chat",
-      "custom/mail",
-      "custom/stock",
-      "custom/rss",
-      "custom/todo",
-      "custom/timer"
-      ],
-
-    "modules-right":
-      [
-      "custom/waybar-mpris",
-      "wireplumber",
-      "cpu",
-      "memory",
-      "disk",
-      "temperature",
-      "custom/gamma",
-      "backlight",
-      "network",
-      "hyprland/language",
-      "sway/language",
-      "custom/AUR",
-      "custom/vpn",
-      "custom/devices",
-      "idle_inhibitor",
-      "battery#bat0",
-      "custom/powermenu"
-      ]
   }
 ]

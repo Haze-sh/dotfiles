@@ -35,6 +35,7 @@
     exec $HOME/.local/bin/promnesia/scripts/promnesia serve
     exec dbus-launch kdeconnect-cli -l
     exec otd-daemon
+    exec blueman-applet
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     # exec lid-lock
     # exec evscript
