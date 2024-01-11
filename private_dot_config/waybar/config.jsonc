@@ -41,7 +41,7 @@
       "custom/gamma",
       "backlight",
       "network",
-      "hyprland/language",
+      // "hyprland/language",
       "sway/language",
       "custom/AUR",
       "custom/vpn",
