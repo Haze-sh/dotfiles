@@ -1,17 +1,17 @@
 shell = "sh -c '{}'"
 
-[[item]]
-file = "~/.config/wezterm/wezterm.lua"
-template = "wezterm"
-start = "-- Start flavours"
-end = "-- End flavours"
-
 # [[item]]
-# file = "~/.config/kitty/kitty.conf"
-# template = "kitty"
-# hook = "kitty @ set-colors -a -c ~/.config/kitty/kitty.conf"
-# start = "# Start flavours #"
-# end = "# End flavours #"
+# file = "~/.config/wezterm/wezterm.lua"
+# template = "wezterm"
+# start = "-- Start flavours"
+# end = "-- End flavours"
+
+[[item]]
+file = "~/.config/kitty/kitty.conf"
+template = "kitty"
+hook = "kitty @ set-colors -a -c ~/.config/kitty/kitty.conf"
+start = "# Start flavours #"
+end = "# End flavours #"
 
 # [[item]]
 # file = "~/.config/foot/foot.ini"
