@@ -30,10 +30,10 @@
       [
       //"custom/safeeyes",
       //"custom/eyes",
-      // "pulseaudio",
-      // "custom/bluetooth",
+      //"custom/bluetooth",
       "custom/waybar-mpris",
-      "wireplumber",
+      "pulseaudio",
+      //"wireplumber",
       "cpu",
       "memory",
       "disk",
