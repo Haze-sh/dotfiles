@@ -22,12 +22,12 @@
 @ 1d rsync $HOME/.local/share/buku/bookmarks.db $HOME/Backups/Data/Bookmarks
 @ 1d rsync $HOME/.local/share/buku/firefox-bookmarks.db $HOME/Backups/Data/Bookmarks
 @ 1d rsync $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music
-@ 1d rsync $HOME/.config/chezmoi/* $HOME/Backups/Machines/Linux/chezmoi
+@ 1d rsync $HOME/.config/chezmoi/chezmoi.toml $HOME/Backups/Machines/Linux/chezmoi/chezmoi.toml
 @ 1w wget http://localhost:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
 
 ## Git Backups
-@ 01 cd $HOME/Documents/Notes/Personal/Collections && $HOME/.local/bin/scripts/autogit
-# @ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
+# @ 01 cd $HOME/Documents/Notes/Personal/Collections && $HOME/.local/bin/scripts/autogit
+@ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
 @ 360 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
@@ -38,9 +38,9 @@
 %hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
 
 # Convertions
-@ 01 \
+@ 1d \
     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.txt ; \
     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.org --reverse
-@ 01 \
+@ 1d \
     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.txt ; \
     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.org --reverse
