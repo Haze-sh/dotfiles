@@ -74,7 +74,7 @@ alt + return
 alt + b
 	wofibukumenu wofi
 alt + c
-  $TERMINAL --class=fzf-zettelkasten -e zsh -c 'zk edit --interactive'
+  $TERMINAL --class=fzf-zettelkasten -e zsh -c 'zk edit --interactive -W $VAULTS_DIR'
 alt + d
 	$TERMINAL --class=done-file -e zsh -c '$EDITOR $DONE_FILE'
 alt + e
