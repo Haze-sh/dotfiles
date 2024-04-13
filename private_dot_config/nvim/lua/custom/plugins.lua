@@ -102,7 +102,7 @@ local plugins = {
           repository = "codellama/CodeLlama-13b-hf",
           -- repository = "bigcode/starcoder",
         },
-        enable_suggestions_on_startup = true,
+        enable_suggestions_on_startup = false,
         enable_suggestions_on_files = "*",
     },
   },
@@ -128,9 +128,13 @@ local plugins = {
     'voldikss/vim-translator',
     ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
   },
-  -- {
-  --   'ryicoh/deepl.vim',
-  --   ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
-  -- },
+  {
+    'Haze-sh/deepl.vim',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
+    config = function ()
+      vim.g.deepl_endpoint = 'https://api-free.deepl.com/v2/translate'
+      vim.g.deepl_auth_key = '00000000-0000-0000-0000-000000000000:fx'
+    end,
+  },
 }
 return plugins

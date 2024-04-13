@@ -33,6 +33,7 @@ pass init {KEY}
 pass add caldav # CalDAV password
 pass add manager/keepass # KeePass password
 pass add manager/totp # KeePass TOTP
+ssh-add ~/.ssh/id_rsa
 ```
 
 ## Other
