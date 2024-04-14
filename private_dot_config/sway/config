@@ -36,6 +36,8 @@
     exec dbus-launch kdeconnect-cli -l
     exec otd-daemon
     exec blueman-applet
+    exec gitwatch ~/Documents/Notes/Personal/Collections
+    exec gitwatch ~/Documents/Notes/Personal/Courses
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     # exec lid-lock
     # exec evscript
