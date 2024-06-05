@@ -56,3 +56,4 @@ audio/mpeg=mpv.desktop
 text/html=web-xdg-open.desktop
 x-scheme-handler/about=web-xdg-open.desktop
 x-scheme-handler/unknown=web-xdg-open.desktop
+x-scheme-handler/anytype=anytype.desktop

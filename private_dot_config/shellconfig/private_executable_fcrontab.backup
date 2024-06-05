@@ -9,53 +9,54 @@
 @ 15 $HOME/.local/bin/scripts/syncmail
 
 ## Local Backups
-@ 1d \
+@ 360 \
 	  $HOME/.local/bin/browserexport save --profile sx15jrar.User.js -b firefox --to $HOME/Backups/Data/Browser ; \
 	  $HOME/.local/bin/browserexport merge --json $HOME/Backups/Data/Browser/*.sqlite > \
     $HOME/Backups/Data/Browser/firefox-history.json ; \
 	  $HOME/.local/bin/scripts/merge-browser-history
-@ 1d $HOME/.local/bin/scripts/merge-mpv-data
 
-@ 1d rsync -a --delete --backup-dir=$HOME/Backups/Data/Mail.bak --suffix=`date +'.%F_%H-%M'` \
+@ 360 $HOME/.local/bin/scripts/merge-mpv-data
+
+@ 360 rsync -a --delete --backup-dir=$HOME/Backups/Data/Mail.bak --suffix=`date +'.%F_%H-%M'` \
     $HOME/.local/share/mail/* $HOME/Backups/Data/Mail
-@ 1d rsync -a --delete --backup-dir=$HOME/Backups/Data/Calendars.bak --suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete --backup-dir=$HOME/Backups/Data/Calendars.bak --suffix=`date +'.%F_%H-%M'` \
     $HOME/.local/share/calendars/* $HOME/Backups/Data/Calendars
-@ 1d rsync -a --delete --backup-dir=$HOME/Backups/Data/Contacts.bak --suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete --backup-dir=$HOME/Backups/Data/Contacts.bak --suffix=`date +'.%F_%H-%M'` \
     $HOME/.local/share/contacts/* $HOME/Backups/Data/Contacts
-@ 1d rsync -a --delete --backup-dir=$HOME/Backups/Data/Passwords --suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete --backup-dir=$HOME/Backups/Data/Passwords --suffix=`date +'.%F_%H-%M'` \
     $HOME/.local/share/passwords/* $HOME/Backups/Data/Passwords
 
-@ 1d rsync -a --delete --backup--suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/Documents/Notes/Personal/Documents/Exports/calls.json $HOME/Backups/Data/Calls
-@ 1d rsync -a --delete --backup--suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/Documents/Notes/Personal/Documents/Exports/contacts.json $HOME/Backups/Data/Contacts/contacts-"$(date +%Y-%m-%d)".json
-@ 1d rsync -a --delete --backup--suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/Documents/Notes/Personal/Documents/Exports/messages.zip $HOME/Backups/Data/SMS/messages-"$(date +%Y-%m-%d)".zip
-@ 1d rsync -a --delete --backup--suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/.local/share/buku/bookmarks.db $HOME/Backups/Data/Bookmarks
-@ 1d rsync -a --delete --backup--suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music
-@ 1d rsync -a --delete --backup--suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/.config/chezmoi/chezmoi.toml $HOME/Backups/Machines/Linux/chezmoi/chezmoi.toml
 
-@ 1w wget http://127.0.0.1:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
+@ 360 wget http://127.0.0.1:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
 
 ## Git Backups
-@ 05 cd $HOME/Documents/Notes/Personal/Collections && $HOME/.local/bin/scripts/autogit
 @ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
-@ 360 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
+@ 360 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread \
+    --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
 
 # Total Feed
-%hours * 06-09,21-00 * * * sfeed_update $HOME/.config/sfeed/sfeedrc
-%hours * 06-09,21-00 * * * sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
-%hours * 06-09,21-00 * * * sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
+@ 720 sfeed_update $HOME/.config/sfeed/sfeedrc
+@ 720 sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
+@ 720 sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
 
 # Convertions
-@ 1d \
+@ 360 \
     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.txt ; \
     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/todo.org --reverse
-@ 1d \
+@ 360 \
     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.txt ; \
     python $HOME/.local/bin/scripts/todo2org.py $HOME/Documents/Notes/Personal/Collections/Pipelines/Todos/done.org --reverse

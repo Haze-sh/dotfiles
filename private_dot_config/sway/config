@@ -27,11 +27,11 @@
     exec safeeyes
     exec mpv_history_daemon_restart $HPIDATA/MPV
     exec python3 ~/.local/bin/inkscape-shortcut-manager/main.py
-    exec syncthing -no-browser ; # 41441
+    exec syncthing -no-browser
     exec mopidy
     exec beet web
     exec rescrobbled
-    exec aw-server-rust
+    exec /opt/activitywatch/aw-server-rust/aw-server-rust
     exec $HOME/.local/bin/promnesia/scripts/promnesia serve
     exec dbus-launch kdeconnect-cli -l
     exec otd-daemon

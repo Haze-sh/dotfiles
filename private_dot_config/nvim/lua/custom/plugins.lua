@@ -72,8 +72,13 @@ local plugins = {
 
   -- AI
   {
-    'huggingface/llm.nvim',
+    'madox2/vim-ai',
     lazy = false,
+  },
+  {
+    'huggingface/llm.nvim',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'py', 'cpp' },
+    -- lazy = false,
     opts = {
         model = "codellama/CodeLlama-13b-hf",
         -- model = "bigcode/starcoder",

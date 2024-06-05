@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# interactively pick one of the active mpv instances,
+# and send it a 'quit' command
+
+set -e
+
+declare chosen
+
+if chosen="$(mpv-pick)"; then
+	exec mpv-communicate "${chosen}" 'quit'
+else
+	exit 1
+fi

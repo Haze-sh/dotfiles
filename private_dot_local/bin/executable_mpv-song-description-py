@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+# same as mpv-song-description, uses python to speedup the string/json manipulation
+# is faster to do this in python,
+# otherwise need to do lots of jq/sed to clean up stuff
+# is about 25-40% faster
+
+import os
+import sys
+import json
+import subprocess
+
+os.environ["MPV_DESC_RAW"] = "1"
+
+proc = subprocess.run("mpv-song-description", stdout=subprocess.PIPE)
+if proc.returncode != 0:
+    sys.exit(proc.returncode)
+
+print_album = "MPV_DESC_SKIP_ALBUM" not in os.environ
+
+data = json.loads(proc.stdout.decode("utf-8"))
+
+
+def fetch(key: str):
+    return data.get(key, "").replace(os.linesep, "").strip()
+
+
+title = fetch("title")
+artist = fetch("artist")
+album = ""
+
+desc = ""
+if print_album:
+    album = fetch("album")
+
+if title:
+    desc = title
+if artist:
+    if desc:
+        desc = f"{desc} - {artist}"
+    else:
+        desc = artist
+
+if album:
+    desc = f"{desc} ({album})"
+
+print(desc)
