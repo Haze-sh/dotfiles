@@ -66,6 +66,11 @@ window#waybar.empty #window {
     background-color: @base03;
 }
 
+#workspaces button.active {
+    color: @base07;
+    background-color: @base03;
+}
+
 #workspaces button.urgent {
 	  color: @base08;
 }

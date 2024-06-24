@@ -1,0 +1,128 @@
+version = "1.1.14"
+
+[class]
+chromium = ""
+libreoffice-writer = ""
+cssh = ""
+mpv = ""
+snappergui = ""
+org-qutebrowser-qutebrowser = ""
+burp-startburp = ""
+libreoffice-startcenter = ""
+spotify = ""
+steam = ""
+dmenu-clipboard = ""
+vlc = ""
+nm-connection-editor = ""
+chrome-faolnafnngnfdaknnbpnkhgohbobgegn-default = ""
+discord = ""
+bleachbit = ""
+darktable = ""
+krita = ""
+sandboxed-tor-browser = ""
+gcr-prompter = ""
+wire = "󰁀"
+element = ""
+Brave = ""
+duolingo = ""
+virt-manager = ""
+wlfreerdp = "󰀄"
+neomutt = ""
+"(?i)alacritty" = ""
+personal = ""
+"(?i)waydroid.*" = "droid"
+dmenu-emoji = ""
+qutepreview = ""
+slack = ""
+streamlink-twitch-gui = ""
+jetbrains-studio = ""
+sun-awt-x11-xframepeer = ""
+shopping = ""
+paperwork = ""
+whatsapp-desktop = ""
+vncviewer = ""
+plexamp = ""
+dmenu-pass = ""
+code-oss = ""
+org-ksnip-ksnip = ""
+Signal = ""
+wayvnc = "󰀄"
+kicad = ""
+nemo = ""
+wireshark-gtk = ""
+libreoffice-calc = ""
+pavucontrol = ""
+qalculate-gtk = ""
+"(?i)thunar" = ""
+dmenu-browser = ""
+scli = ""
+swappy = ""
+org-telegram-desktop = ""
+DEFAULT = ""
+"(?i)firefox" = "<span color='orange'> </span>"
+molotov = ""
+vimiv = ""
+"Gimp-2.10" = ""
+fontforge = ""
+libreoffice-impress = ""
+remote-viewer = ""
+udiskie = ""
+xplr = ""
+calibre-gui = ""
+obsidian = ""
+taskwarrior-tui = ""
+"(?i)kitty" = ""
+zoom = ""
+"dmenu-pass generator" = ""
+"(?i)pcmanfm" = ""
+gsimplecalc = ""
+org-pwmt-zathura = ""
+songrec = ""
+telegramdesktop = ""
+rapid-photo-downloader = ""
+".*transmission.*" = ""
+whatsapp-nativefier-d52542 = ""
+work = ""
+kak = ""
+
+[class_active]
+
+[initial_class]
+
+[initial_class_active]
+
+[workspaces_name]
+
+[title_in_class."(firefox|chrom.*|Brave)"]
+"(?i)youtube" = "<span color='#CE5252'></span>"
+"(?i)twitch" = "<span color='purple'></span>"
+
+[title_in_class_active]
+
+[title_in_initial_class]
+
+[title_in_initial_class_active]
+
+[initial_title_in_class]
+
+[initial_title_in_class_active]
+
+[initial_title_in_initial_class]
+
+[initial_title_in_initial_class_active]
+
+[exclude]
+"" = "^$"
+
+[format]
+dedup = true
+dedup_inactive_fullscreen = false
+delim = " "
+workspace = "<b>{id}:</b>{delim}{clients}"
+workspace_empty = "<b>{id}:</b>{delim}{clients}"
+client = "{icon}{delim}"
+client_fullscreen = "[{icon}]{delim}"
+client_active = "{icon}"
+client_dup = "{icon}{counter_sup}{delim}"
+client_dup_active = "*{icon}*{delim}{icon}{counter_unfocused_sup}"
+client_dup_fullscreen = "[{icon}]{delim}{icon}{counter_unfocused_sup}"

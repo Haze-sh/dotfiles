@@ -1,4 +1,6 @@
 # Super + {Key}
+super + return
+  $TERMINAL
 super + escape
 	killall $BAR -s USR1
 super + b
@@ -17,8 +19,6 @@ super + o
  	$TERMINAL --class=oil -e buku-fzf
 super + p
 	keepmenu
-super + t
-	autotiling
 super + x
 	$HOME/.local/bin/university-setup/src/rofi-courses.py
 super + y
@@ -59,6 +59,8 @@ super + shift + F11
 	$TERMINAL -e $screenrecorder -g "$($screenclip)" -a -f $HOME/Videos/Videos\ Collection/Screenrecords/scrn-rec-$(date +%d-%m-%Y).mp4
 
 # Super + Alt + {Key}
+super + alt + t
+  autotiling
 super + alt + v
 	$HOME/.local/bin/university-setup/src/rofi-lectures-view.py
 super + alt + x

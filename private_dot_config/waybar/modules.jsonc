@@ -5,17 +5,16 @@
   },
 
   "hyprland/workspaces": {
-      "format": "{name}"
-     // "format": "<sub>{icon}</sub>\n{windows}",
-     // "format-window-separator": "\n",
-     // "window-rewrite-default": "",
-     // "window-rewrite": {
-     //   "title<.*youtube.*>": "",
-     //   "class<firefox>": "",
-     //   "class<firefox> title<.*github.*>": "",
-     //   "kitty": "",
-     //   "code": "󰨞"
-	   // }
+      "format": "{name}",
+      "format-window-separator": "\n"
+      // "window-rewrite-default": "",
+      // "window-rewrite": {
+      //   "title<.*youtube.*>": "",
+      //   "class<firefox>": "",
+      //   "class<firefox> title<.*github.*>": "",
+      //   "kitty": "",
+      //   "code": "󰨞"
+	    // }
   },
 
   "custom/menu": {
@@ -204,7 +203,7 @@
       "exec": "cat ~/.cache/waybar-eyes.json",
       "interval": 5,
       "return-type": "json",
-      "on-click": "pkill -f -SIGUSR1 waybar-eyes",
+      "on-click": "pkill -f -SIGUSR1 waybar-eyes"
   },
   
   "backlight": {
@@ -220,7 +219,7 @@
       "format-alt": "",
       "on-click": "changegammastep toggle"
   },
-  
+
   "memory": {
       "format": " {}",
       "states": {
