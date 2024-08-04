@@ -27,6 +27,7 @@ image/vnd.djvu+multipage=org.pwmt.zathura.desktop;
 text/calendar=nvim.desktop;
 audio/mpeg=ncmcpp.desktop;mopidy.desktop;mpv.desktop;mscore.desktop;
 application/xslt+xml=vim.desktop;nvim.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 
 [Default Applications]
 application/epub+zip=org.pwmt.zathura.desktop;
@@ -57,3 +58,4 @@ text/html=web-xdg-open.desktop
 x-scheme-handler/about=web-xdg-open.desktop
 x-scheme-handler/unknown=web-xdg-open.desktop
 x-scheme-handler/anytype=anytype.desktop
+x-scheme-handler/tonsite=org.telegram.desktop.desktop

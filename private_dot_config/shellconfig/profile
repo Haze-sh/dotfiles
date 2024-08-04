@@ -115,6 +115,7 @@ export CABAL_DIR="${XDG_LIB_HOME:-$HOME/.local/lib}/cabal"
 export GEM_HOME="${XDG_LIB_HOME:-$HOME/.local/lib}gem"
 export DOTNET_ROOT="${XDG_LIB_HOME:-$HOME/.local/lib}/dotnet"
 export NUGET_PACKAGES="${XDG_LIB_HOME:-$HOME/.local/lib}/NuGetPackages"
+export NPM_CONFIG_USERCONFIG="{$XDG_CONFIG_HOME}/npm/npmrc"
 export NPM_CONFIG_PREFIX="${XDG_LIB_HOME:-$HOME/.local/lib}/node_modules"
 export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/npm"
 export YARN_CACHE_FOLDER="${XDG_CACHE_HOME:-$HOME/.cache}/yarn"
@@ -164,6 +165,7 @@ export SUDO_ASKPASS="$HOME/.local/bin/wofipassmenu"
 # export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
 # export ALSA_CONFIG_PATH=/usr/share/alsa/alsa.conf
 # eval $(thefuck --alias)
+eval "$(/bin/mise activate zsh)"
 
 ## Directory Structure
 export NOTES_DIR="$HOME/Documents/Notes"
