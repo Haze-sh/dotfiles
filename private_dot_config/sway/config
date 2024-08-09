@@ -33,7 +33,7 @@
     exec rescrobbled
     exec /opt/activitywatch/aw-server-rust/aw-server-rust
     exec $HOME/.local/bin/promnesia/scripts/promnesia serve
-    exec dbus-launch kdeconnect-cli -l
+    exec valent --gapplication-service
     exec otd-daemon
     exec blueman-applet
     exec gitwatch ~/Documents/Notes/Personal/Collections
@@ -230,7 +230,6 @@ mode "resize" {
     assign [app_id="ncmpcpp"] workspace ""
     for_window [app_id="zenity"] floating enable
     for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable
-    for_window [app_id="org.kde.kdeconnect-urlhandler"] floating enable
     for_window [app_id="qalculate-gtk"] floating enable
     for_window [app_id="^term-launcher$"] {
         floating enable

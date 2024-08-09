@@ -27,7 +27,7 @@
     $HOME/.local/share/passwords/* $HOME/Backups/Data/Passwords
 
 @ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
-    $HOME/Documents/Notes/Personal/Documents/Exports/calls.json $HOME/Backups/Data/Calls
+    $HOME/Documents/Notes/Personal/Documents/Exports/calls.json $HOME/Backups/Data/Calls/calls-"$(date +%Y-%m-%d)".json
 @ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/Documents/Notes/Personal/Documents/Exports/contacts.json $HOME/Backups/Data/Contacts/contacts-"$(date +%Y-%m-%d)".json
 @ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
@@ -42,7 +42,7 @@
 @ 360 wget http://127.0.0.1:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
 
 ## Git Backups
-@ 60 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
+@ 360 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
 
 # Daily Feed
 @ 360 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread \
