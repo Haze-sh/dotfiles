@@ -4,7 +4,7 @@ Port 993
 User {{ .email_1 }}
 PassCmd "pass {{ .email_1 }}"
 AuthMechs LOGIN
-SSLType IMAPS
+TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore {{ .email_1 }}-local
@@ -29,7 +29,7 @@ Port 993
 User {{ .email_2 }}
 PassCmd "pass {{ .email_2 }}"
 AuthMechs LOGIN
-SSLType IMAPS
+TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore {{ .email_2 }}-local
@@ -54,8 +54,8 @@ Port 993
 User {{ .email_3 }}
 PassCmd "pass {{ .email_3 }}"
 AuthMechs LOGIN
-SSLType IMAPS
-SSLVersions TLSv1.2
+TLSType IMAPS
+TLSVersions -1.2
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore {{ .email_3 }}-local
@@ -80,7 +80,7 @@ Port 993
 User {{ .email_4 }}
 PassCmd "pass {{ .email_4 }}"
 AuthMechs LOGIN
-SSLType IMAPS
+TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore {{ .email_4 }}-local
@@ -105,7 +105,7 @@ Port 995
 User {{ .email_5 }}
 PassCmd "pass {{ .email_5 }}"
 AuthMechs LOGIN
-SSLType IMAPS
+TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore {{ .email_5 }}-local

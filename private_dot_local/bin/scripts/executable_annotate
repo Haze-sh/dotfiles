@@ -13,7 +13,7 @@ file="$ZET_DIR/annotations.md"
 
 
 add_annotation() {
-    printf '%s' "# $(date '+%Y-%m-%d %H:%M:%S')" >> "$1"
+    printf '%s' "## $(date '+%Y-%m-%d %H:%M:%S')" >> "$1"
     echo "\n>\n" >> $1
     wl-paste -t text >> "$1";
     echo "\n> <!!>\n\n" >> $1

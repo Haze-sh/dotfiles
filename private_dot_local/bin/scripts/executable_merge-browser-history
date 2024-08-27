@@ -13,10 +13,11 @@ main() {
 	browsing_dir=${HPIDATA}/Browser
 	echo $HPIDATA
 	echo $browsing_dir
-	rsync -Pavh "${browsing_dir}"/ ~/.cache/removed/browsing
+  mkdir ~/.cache/browsing_removed
+	rsync -Pavh "${browsing_dir}"/ ~/.cache/browsing_removed
 	tmpfile="${tmpdir}/browsing-$(epoch).json"
 	browserexport --debug merge --json "${browsing_dir}/"* | jq -c >"$tmpfile"
-	rm -v "${browsing_dir}/"*
+	# rm -v "${browsing_dir}/"*
 	mv -v "${tmpfile}" "${browsing_dir}"
 	dust "${browsing_dir}"
 }

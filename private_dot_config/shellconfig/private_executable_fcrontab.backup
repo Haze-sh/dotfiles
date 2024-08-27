@@ -39,6 +39,7 @@
 @ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/.config/chezmoi/chezmoi.toml $HOME/Backups/Machines/Linux/chezmoi/chezmoi.toml
 
+@ 360 buku -e $HOME/Backups/Data/Bookmarks/buku.md
 @ 360 wget http://127.0.0.1:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
 
 ## Git Backups

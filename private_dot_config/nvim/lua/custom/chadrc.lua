@@ -4,7 +4,7 @@ local M = {}
 M.plugins = "custom.plugins"
 
 M.ui = {
-  theme = "nord",
+  theme = "onenord",
   statusline = {
     theme = "vscode_colored",
   },

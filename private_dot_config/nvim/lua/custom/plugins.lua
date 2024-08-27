@@ -19,6 +19,25 @@ local plugins = {
 
   -- Languages
   {
+    'cameron-wags/rainbow_csv.nvim',
+    config = true,
+    ft = {
+        'csv',
+        'tsv',
+        'csv_semicolon',
+        'csv_whitespace',
+        'csv_pipe',
+        'rfc_csv',
+        'rfc_semicolon'
+    },
+    cmd = {
+        'RainbowDelim',
+        'RainbowDelimSimple',
+        'RainbowDelimQuoted',
+        'RainbowMultiDelim'
+    }
+  },
+  {
     'Haze-sh/todo.txt-vim',
     ft = 'todo',
     config = function ()
@@ -30,7 +49,7 @@ local plugins = {
     'nvim-orgmode/orgmode',
     ft = 'org',
     config = function()
-            require('orgmode').setup_ts_grammar()
+      require('orgmode').setup_ts_grammar()
     end,
   },
   {
@@ -72,15 +91,71 @@ local plugins = {
 
   -- AI
   {
-    'madox2/vim-ai',
-    lazy = false,
+    'olimorris/codecompanion.nvim',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-telescope/telescope.nvim',
+      {
+        'stevearc/dressing.nvim', -- Optional: Improves the default Neovim UI
+        opts = {},
+      },
+    },
+    config = function ()
+      require("codecompanion").setup({
+        adapters = {
+          llama3 = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              name = "llama3", -- Ensure the model is differentiated from Ollama
+              schema = {
+                model = {
+                  default = "llama3:latest",
+                },
+                num_ctx = {
+                  default = 16384,
+                },
+                num_predict = {
+                  default = -1,
+                },
+              },
+            })
+          end,
+        },
+        strategies = {
+          chat = { adapter = "ollama" },
+          inline = { adapter = "ollama" },
+          agent = { adapter = "ollama" },
+        },
+        default_prompts = {
+          ['translate to english'] = {
+            strategy = "inline",
+            description = 'Translate the selected text',
+            opts = {
+              mapping = "<LocalLeader>ch"
+            },
+            prompts = {
+              {
+                role = "system",
+                content = "You are a translator",
+              },
+              {
+                role = "user_header",
+                content = "Please translate this text to English. Return the translation only and no markdown codeblocks",
+              },
+            },
+          },
+        },
+      })
+    end
   },
   {
     'huggingface/llm.nvim',
-    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'py', 'cpp' },
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp' },
     -- lazy = false,
     opts = {
         model = "codellama/CodeLlama-13b-hf",
+        -- model = "deepseek-ai/deepseek-coder-7b-base-v1.5",
         -- model = "bigcode/starcoder",
         accept_keymap = "<C-CR>",
         dismiss_keymap = "<S-CR>",
@@ -111,35 +186,10 @@ local plugins = {
         enable_suggestions_on_files = "*",
     },
   },
-  {
-    'gsuuon/model.nvim',
-    ft = 'mchat',
-    cmd = { 'M', 'Model', 'Mchat' },
-    init = function()
-      vim.filetype.add({
-        extension = {
-          mchat = 'mchat',
-        }
-      })
-    end,
-    keys = {
-      {'<C-m>d', ':Mdelete<cr>', mode = 'n'},
-      {'<C-m>s', ':Mselect<cr>', mode = 'n'},
-      {'<C-m><space>', ':Mchat<cr>', mode = 'n' }
-    },
-  },
   -- Translations
   {
     'voldikss/vim-translator',
     ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
-  },
-  {
-    'Haze-sh/deepl.vim',
-    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
-    config = function ()
-      vim.g.deepl_endpoint = 'https://api-free.deepl.com/v2/translate'
-      vim.g.deepl_auth_key = '00000000-0000-0000-0000-000000000000:fx'
-    end,
   },
 }
 return plugins
