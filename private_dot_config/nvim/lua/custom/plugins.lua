@@ -186,6 +186,9 @@ local plugins = {
         enable_suggestions_on_files = "*",
     },
   },
+  {
+    'yetone/avante.nvim'
+  },
   -- Translations
   {
     'voldikss/vim-translator',

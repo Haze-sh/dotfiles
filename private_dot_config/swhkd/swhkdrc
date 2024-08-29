@@ -41,6 +41,8 @@ super + shift + i
 	$TERMINAL -e $IRC
 super + shift + m
 	$MEDIAPLAYER
+super + shift + n
+  $TERMINAL -e newsboat-daily
 super + shift + o
 	$TERMINAL -e $MAILCLIENT
 super + shift + s
