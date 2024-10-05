@@ -151,10 +151,11 @@ local plugins = {
   },
   {
     'huggingface/llm.nvim',
-    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp' },
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
     -- lazy = false,
     opts = {
-        model = "codellama/CodeLlama-13b-hf",
+        model = "meta-llama/Meta-Llama-3.1-70B-Instruct",
+        -- model = "codellama/CodeLlama-13b-hf",
         -- model = "deepseek-ai/deepseek-coder-7b-base-v1.5",
         -- model = "bigcode/starcoder",
         accept_keymap = "<C-CR>",
