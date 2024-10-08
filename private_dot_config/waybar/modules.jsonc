@@ -382,7 +382,7 @@
   },
   
   "custom/AUR": {
-      "format": "{icon}{}",
+      "format": "{icon}{0}",
       "return-type": "json",
       "format-icons": {
         "pending-updates": " ",
