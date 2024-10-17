@@ -231,73 +231,92 @@ mode "resize" {
     assign [app_id="ncmpcpp"] workspace ""
     for_window [app_id="zenity"] floating enable
     for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable
-    for_window [app_id="qalculate-gtk"] floating enable
-    for_window [app_id="^term-launcher$"] {
+    for_window [app_id="qalculate-gtk"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^journal-launcher$"] {
+    for_window [app_id="^term-launcher$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^journal-editor$"] {
+    for_window [app_id="^journal-launcher$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^journal-editor-md$"] {
+    for_window [app_id="^journal-editor$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^projects-launcher$"] {
+    for_window [app_id="^journal-editor-md$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^master-launcher$"] {
+    for_window [app_id="^projects-launcher$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^note-launcher$"] {
+    for_window [app_id="^master-launcher$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^todo$"] {
+    for_window [app_id="^note-launcher$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^done-file$"] {
+    for_window [app_id="^todo$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^zettelkasten$"] {
+    for_window [app_id="^done-file$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^fzf-zettelkasten$"] {
+    for_window [app_id="^zettelkasten$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^fzf-library$"] {
+    for_window [app_id="^fzf-zettelkasten$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id="^fzf-rss$"] {
+    for_window [app_id="^fzf-library$"]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
         }
-    for_window [app_id=^oil] {
+    for_window [app_id="^fzf-rss$"]
+        {
+        floating enable
+        resize set width 700 px height 500 px
+        border pixel 0
+        }
+    for_window [app_id=^oil]
+        {
         floating enable
         resize set width 700 px height 500 px
         border pixel 0
