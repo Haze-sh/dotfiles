@@ -16,7 +16,7 @@ super + m
 super + n
 	$TERMINAL -e $FILEMANAGER -de
 super + o
- 	$TERMINAL --class=oil -e buku-fzf
+ 	$TERMINAL start --class=oil -e buku-fzf
 super + p
 	keepmenu
 super + x
@@ -72,33 +72,33 @@ super + alt + x
 alt + 0
 	bash courses-shortcut 0
 alt + return
-	$TERMINAL --class=term-launcher
+	$TERMINAL start --class=term-launcher
 # alt + a
 # 	csv-launcher
 alt + b
 	wofibukumenu wofi
 alt + c
-  $TERMINAL --class=fzf-zettelkasten -e zsh -c 'zk edit --interactive -W $VAULTS_DIR'
+  $TERMINAL start --class=fzf-zettelkasten -e zsh -c 'zk edit --interactive -W $VAULTS_DIR'
 alt + d
-	$TERMINAL --class=done-file -e zsh -c '$EDITOR $DONE_FILE'
+	$TERMINAL start --class=done-file -e zsh -c '$EDITOR $DONE_FILE'
 alt + e
 	wofi-emoji wofi
 alt + f
-	$TERMINAL --class=fzf-rss -e rss-fzf
+	$TERMINAL start --class=fzf-rss -e rss-fzf
 alt + g
-	$TERMINAL --class=projects-launcher -e zsh -c '$EDITOR $LEDGER_FILE'
+	$TERMINAL start --class=projects-launcher -e zsh -c '$EDITOR $LEDGER_FILE'
 alt + h
-	$TERMINAL --class=journal-editor-md -e zsh -c '$EDITOR $GTD_DIR/Journal.md'
+	$TERMINAL start --class=journal-editor-md -e zsh -c '$EDITOR $GTD_DIR/Journal.md'
 alt + j
-	$TERMINAL --class=journal-launcher -e zsh -c jrnl
+	$TERMINAL start --class=journal-launcher -e zsh -c jrnl
 alt + k
-	$TERMINAL --class=journal-editor -e zsh -c 'jrnl --edit default'
+	$TERMINAL start --class=journal-editor -e zsh -c 'jrnl --edit default'
 alt + l
-	$TERMINAL --class=fzf-library -e library-fzf
+	$TERMINAL start --class=fzf-library -e library-fzf
 alt + m
-	$TERMINAL --class=master-launcher -e zsh -c '$EDITOR $COURSES/Current/master.tex'
+	$TERMINAL start --class=master-launcher -e zsh -c '$EDITOR $COURSES/Current/master.tex'
 alt + n
-	$TERMINAL --class=note-launcher -e zsh -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
+	$TERMINAL start --class=note-launcher -e zsh -c '$EDITOR $COURSES/Notes/$(date +%Y-%m-%d)/note.tex'
 alt + p
 	wofipassmenu wofi
 alt + q
@@ -111,7 +111,7 @@ alt + r
 # 	flavours apply "${old}" && \
 # 	flavours apply "$(flavours current)"
 alt + t
-	$TERMINAL --class=todo -e bash -c '$EDITOR $TODO_FILE'
+	$TERMINAL start --class=todo -e bash -c '$EDITOR $TODO_FILE'
 # alt + u
 # 	darkmode
 # alt + v
@@ -126,7 +126,7 @@ alt + x
 # alt + y
 # 	setwallpaper -R
 alt + z
-	$TERMINAL --class=zettelkasten -e zsh -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
+	$TERMINAL start --class=zettelkasten -e zsh -c '$EDITOR $ZET_DIR/$(date +"%Y%m%d%H%M%S").md'
 
 # Control + {Key}
 control + alt + r

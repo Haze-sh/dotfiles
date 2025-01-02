@@ -38,7 +38,7 @@ source "$HOME/.config/shellconfig/secrets"
 # Default programs
 export SCHEME="nord"
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="wezterm"
     # export TERMINAL="gnome-terminal"
 export BROWSER="firefox"
 export PAGER="bat"
