@@ -91,6 +91,47 @@ local plugins = {
 
   -- AI
   {
+    'huggingface/llm.nvim',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
+    -- lazy = false,
+    opts = {
+        model = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+        -- model = "meta-llama/Meta-Llama-3.1-70B-Instruct",
+        -- model = "codellama/CodeLlama-13b-hf",
+        -- model = "deepseek-ai/deepseek-coder-7b-base-v1.5",
+        -- model = "bigcode/starcoder",
+        accept_keymap = "<C-CR>",
+        dismiss_keymap = "<S-CR>",
+        tokens_to_clear = { "<EOT>" },
+        -- tokens_to_clear = { "<|endoftext|>" },
+        query_params = {
+        max_new_tokens = 60,
+        temperature = 0.2,
+        top_p = 0.95,
+        stop_tokens = nil,
+        },
+        fim = {
+          enabled = true,
+          prefix = "<PRE> ",
+          middle = " <MID>",
+          suffix = " <SUF>",
+          -- prefix = "<fim_prefix>",
+          -- middle = "<fim_middle>",
+          -- suffix = "<fim_suffix>",
+        },
+        context_window = 4096,
+        -- context_window = 8192,
+        tokenizer = {
+          repository = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+          -- repository = "meta-llama/Meta-Llama-3.1-70B-Instruct",
+          -- repository = "codellama/CodeLlama-13b-hf",
+          -- repository = "bigcode/starcoder",
+        },
+        enable_suggestions_on_startup = false,
+        enable_suggestions_on_files = "*",
+    },
+  },
+  {
     'olimorris/codecompanion.nvim',
     ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
     dependencies = {
@@ -148,44 +189,6 @@ local plugins = {
         },
       })
     end
-  },
-  {
-    'huggingface/llm.nvim',
-    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
-    -- lazy = false,
-    opts = {
-        model = "meta-llama/Meta-Llama-3.1-70B-Instruct",
-        -- model = "codellama/CodeLlama-13b-hf",
-        -- model = "deepseek-ai/deepseek-coder-7b-base-v1.5",
-        -- model = "bigcode/starcoder",
-        accept_keymap = "<C-CR>",
-        dismiss_keymap = "<S-CR>",
-        tokens_to_clear = { "<EOT>" },
-        -- tokens_to_clear = { "<|endoftext|>" },
-        query_params = {
-        max_new_tokens = 60,
-        temperature = 0.2,
-        top_p = 0.95,
-        stop_tokens = nil,
-        },
-        fim = {
-          enabled = true,
-          prefix = "<PRE> ",
-          middle = " <MID>",
-          suffix = " <SUF>",
-          -- prefix = "<fim_prefix>",
-          -- middle = "<fim_middle>",
-          -- suffix = "<fim_suffix>",
-        },
-        context_window = 4096,
-        -- context_window = 8192,
-        tokenizer = {
-          repository = "codellama/CodeLlama-13b-hf",
-          -- repository = "bigcode/starcoder",
-        },
-        enable_suggestions_on_startup = false,
-        enable_suggestions_on_files = "*",
-    },
   },
   {
     'yetone/avante.nvim',

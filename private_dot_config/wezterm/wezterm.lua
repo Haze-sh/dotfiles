@@ -13,8 +13,9 @@ font = wezterm.font_with_fallback{
   'Noto Color Emoji',
   'icons-in-terminal'
 },
-  font_size = 13,
+  font_size = 14,
 
+  -- window_decorations = "RESIZE",
   window_close_confirmation = 'NeverPrompt',
   default_cursor_style = 'SteadyBar',
   animation_fps = 1,

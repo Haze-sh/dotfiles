@@ -1,0 +1,7 @@
+# Start flavours #
+background            = #2e3440
+foreground            = #e5e9f0
+selection-background  = #e5e9f0
+selection-foreground  = #2e3440
+cursor-color          = #e5e9f0
+# End flavours #

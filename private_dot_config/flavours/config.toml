@@ -13,11 +13,11 @@ hook = "kitty @ set-colors -a -c ~/.config/kitty/kitty.conf"
 start = "# Start flavours #"
 end = "# End flavours #"
 
-[[item]]
-file = "~/.config/ghostty/themes/theme"
-template = "ghostty"
-start = "# Start flavours #"
-end = "# End flavours #"
+# [[item]]
+# file = "~/.config/ghostty/themes/theme"
+# template = "ghostty"
+# start = "# Start flavours #"
+# end = "# End flavours #"
 
 # [[item]]
 # file = "~/.config/foot/foot.ini"
