@@ -1,17 +1,23 @@
 shell = "sh -c '{}'"
 
-# [[item]]
-# file = "~/.config/wezterm/wezterm.lua"
-# template = "wezterm"
-# start = "-- Start flavours"
-# end = "-- End flavours"
+[[item]]
+file = "~/.local/bin/scripts/gnome-terminal-base16.sh"
+template = "base16-gnome-terminal"
+hook = "gnome-terminal-base16.sh"
+rewrite = true
 
 [[item]]
-file = "~/.config/kitty/kitty.conf"
-template = "kitty"
-hook = "kitty @ set-colors -a -c ~/.config/kitty/kitty.conf"
-start = "# Start flavours #"
-end = "# End flavours #"
+file = "~/.config/wezterm/wezterm.lua"
+template = "wezterm"
+start = "-- Start flavours"
+end = "-- End flavours"
+
+# [[item]]
+# file = "~/.config/kitty/kitty.conf"
+# template = "kitty"
+# hook = "kitty @ set-colors -a -c ~/.config/kitty/kitty.conf"
+# start = "# Start flavours #"
+# end = "# End flavours #"
 
 # [[item]]
 # file = "~/.config/ghostty/themes/theme"
@@ -24,12 +30,6 @@ end = "# End flavours #"
 # template = "foot"
 # start = "# Start flavours #"
 # end = "# End flavours #"
-
-[[item]]
-file = "~/.local/bin/scripts/gnome-terminal-base16.sh"
-template = "base16-gnome-terminal"
-hook = "gnome-terminal-base16.sh"
-rewrite = true
 
 [[item]]
 file = "~/.config/nvim/colors/base16.vim"
