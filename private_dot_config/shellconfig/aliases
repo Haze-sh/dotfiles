@@ -55,7 +55,7 @@ alias feed='SFEED_URL_FILE=~/.local/share/sfeed/urls sfeed_curses ~/.local/share
 alias feed-update='sfeed_update ~/.config/sfeed/sfeedrc'
 alias feed-html='sfeed_html ~/.local/share/sfeed/feeds/* > ~/.local/share/sfeed/feeds.html'
 alias feed-plain='sfeed_plain ~/.local/share/sfeed/feeds/* > ~/.local/share/sfeed/feeds.txt'
-alias newsboat='newsboat --url-file=~/.config/urls'
+alias newsboat='newsboat --url-file=~/.config/newsboat/urls'
 
 # Daily Feed
 alias feed-daily='SFEED_URL_FILE=~/.local/share/sfeed/urls sfeed_curses ~/.local/share/sfeed/feeds-daily/*'

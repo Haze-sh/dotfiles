@@ -298,7 +298,7 @@
   },
   
   "custom/stock": {
-      "format": "󰠟",
+      "format": "📈",
       "on-click": "$TERMINAL -e tickrs --summary"
   },
   

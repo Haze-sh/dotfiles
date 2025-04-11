@@ -1,76 +1,96 @@
 @import "colors.css";
+
 * {
-    border: none;
-    border-radius: 0;
-	  font-size: 10px;
-	  font-family: Hack, "Font Awesome 5 Free";
-    /*font-family: Fira Sans, Fira Code NerdFont; */
-    color: @base07;
-    font-size: 8pt;
+    font-family: "Hack", "Font Awesome 5 Free";
+    color: @base04;
+    font-size: 10pt;
+    font-weight: 600;
     margin: 0px 5px 0px 5px;
+  }
+
+.modules-left,
+.modules-right,
+.modules-center {
+    border-radius: 6px 6px 6px 6px;
+    padding: 2px 2px;
+    background-color: @base03;
 }
 
-window#waybar {
-    color: @base04;
-    /* background-color: alpha(@base00, 0.88); */
-    background-color: alpha(@base00, 1);
-    border-bottom: 2px solid @base01;
-}
-
-window#waybar.top {
-    color: @base04;
-    /* background-color: alpha(@base00, 0.88); */
-    background-color: alpha(@base00, 1);
-    border-bottom: 2px solid @base01;
-}
-
-/* window#waybar.bottom {
-    color: @text_color;
-    background-color: alpha(@bg_color, 0.88);
-    border-top: 2px solid @selected_bg_color;
-} */
-
-window#waybar.hidden {
-    opacity: 0;
-}
-
-window#waybar.empty #window {
-	padding: 0px;
-	margin: 0px;
-	border: 0px;
-	background-color: transparent;
-}
-
-#custom-preferredplayer {
-    margin-right: 8px;
-    margin-left: 10px;
-}
-
-#custom-player {
-    margin-right: 10px;
-    margin-left: 8px;
-}
-
-#workspaces button {
+#custom-mail{
     color: @base0D;
-    margin: 0px 0px 0px 0px;
+}
+#custom-todo{
+    color: @base0D;
+}
+#custom-rss{
+    color: @base0A;
+}
+#custom-timer{
+    color: @base08;
+}
+#clock{
+    color: @base0B;
+}
+#custom-events{
+    color: @base0A;
 }
 
-#workspaces button.visible {
+#workspaces button label {
+    color: @base0C;
+}
+#workspaces button:hover {
+    background: @base02;
+}
+#workspaces button.focused label {
+    color: @base0B;
+}
+
+#custom-waybar-mpris {
+    color: @base0B;
+}
+#pulseaudio {
+    color: @base0B;
+}
+#cpu {
+    color: @base0F;
+}
+#memory {
+    color: @base0A;
+}
+#disk {
+    color: @base0E;
+}
+#temperature {
+    color: @base09;
+}
+
+#custom-gamma{
     color: @base07;
-    background-color: @base0D;
 }
-
-#workspaces button.focused {
-    color: @base07;
-    background-color: @base03;
+#backlight {
+    color: @base0F;
 }
-
-#workspaces button.active {
-    color: @base07;
-    background-color: @base03;
+#network {
+    color: @base0E;
 }
-
-#workspaces button.urgent {
-	  color: @base08;
+#language {
+    color: @base0D;
+}
+#custom-AUR {
+    color: @base0C;
+}
+#idle_inhibitor {
+    color: @base0B;
+}
+#custom-devices {
+    color: @base04;
+}
+#custom-vpn {
+    color: @base04;
+}
+#battery {
+    color: @base09;
+}
+#custom-powermenu {
+    color: @base08;
 }
