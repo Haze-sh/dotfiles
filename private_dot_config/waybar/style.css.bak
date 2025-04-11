@@ -1,0 +1,76 @@
+@import "colors.css";
+* {
+    border: none;
+    border-radius: 0;
+	  font-size: 10px;
+	  font-family: Hack, "Font Awesome 5 Free";
+    /*font-family: Fira Sans, Fira Code NerdFont; */
+    color: @base07;
+    font-size: 8pt;
+    margin: 0px 5px 0px 5px;
+}
+
+window#waybar {
+    color: @base04;
+    /* background-color: alpha(@base00, 0.88); */
+    background-color: alpha(@base00, 1);
+    border-bottom: 2px solid @base01;
+}
+
+window#waybar.top {
+    color: @base04;
+    /* background-color: alpha(@base00, 0.88); */
+    background-color: alpha(@base00, 1);
+    border-bottom: 2px solid @base01;
+}
+
+/* window#waybar.bottom {
+    color: @text_color;
+    background-color: alpha(@bg_color, 0.88);
+    border-top: 2px solid @selected_bg_color;
+} */
+
+window#waybar.hidden {
+    opacity: 0;
+}
+
+window#waybar.empty #window {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	background-color: transparent;
+}
+
+#custom-preferredplayer {
+    margin-right: 8px;
+    margin-left: 10px;
+}
+
+#custom-player {
+    margin-right: 10px;
+    margin-left: 8px;
+}
+
+#workspaces button {
+    color: @base0D;
+    margin: 0px 0px 0px 0px;
+}
+
+#workspaces button.visible {
+    color: @base07;
+    background-color: @base0D;
+}
+
+#workspaces button.focused {
+    color: @base07;
+    background-color: @base03;
+}
+
+#workspaces button.active {
+    color: @base07;
+    background-color: @base03;
+}
+
+#workspaces button.urgent {
+	  color: @base08;
+}
