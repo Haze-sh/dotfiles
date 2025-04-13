@@ -8,6 +8,12 @@ My dotfiles Repo 🗃️!
 ```
 chezmoi init --apply --exclude=encrypted,templates https://github.com/Haze-sh/dotfiles.git
 ```
+OR
+
+```
+cp chezmoi.toml $HOME/.config/chezmoi.toml
+chezmoi init --apply https://github.com/Haze-sh/dotfiles.git
+```
 
 ## Themes
 
