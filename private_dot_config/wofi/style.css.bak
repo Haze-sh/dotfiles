@@ -24,48 +24,42 @@
 @define-color base0F #5e81ac;
 /* End flavours */
 
-#window {
-  background-color: transparent;
+window {
+    border: 0px solid white;
+    background-color: @base0B;
+    border-radius: 8px;
 }
 
 #outer-box {
-  border-radius: 14px;
-  background-color: @base00;
-}
-
-#input {
-  padding: 4px;
-  border-radius: 14px 14px 0 0;
-  font-size: 16px;
-  background-color: @base00;
-  border: none;
-  color: @base04;
-}
-
-#input:focus {
-  box-shadow: none;
-}
-
-#scroll {
-  border-radius: 14px;
-  background-color: @base01;
-  margin: 0 12px 12px;
+    border: 1px solid @base0B;
+    background-color: @base00;
+    padding: 5px;
+    border-radius: 8px;
 }
 
 #inner-box {
-  border-radius: 14px;
-  padding: 12px;
+    background-color: @base00;
+    padding: 5px;
 }
 
-#entry {
-  padding: 8px;
+#input {
+    border: 1px;
+    background-color: @base00;
+    color: @base0B;
+    font-size: 18px;
 }
 
-#entry:selected {
-  border-radius: 8px;
-  background-color: @base03;
+#scroll {
+    lines: 10;
+    padding: 2px 0px 0px;
 }
 
-#entry image {
-  margin-right: 8px;
+#text {
+    margin: 1px;
+    border: 0px solid black;
+    color: @base0D;
+}
+
+#text:selected {
+    color: @base0A;
 }
