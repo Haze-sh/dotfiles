@@ -1,9 +1,10 @@
 [
   {
   "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
-    // "output": "eDP-1",
+    "output": "eDP-1",
     "layer": "bottom",
     "position": "top",
+    "fixed-center": true,
     "height": 32,
     "width": 0,
     "spacing": 0,
@@ -11,13 +12,11 @@
 
     "modules-left":
       [
-      "custom/menu",
-      "hyprland/workspaces",
-      "sway/workspaces",
+      //"custom/menu",
       "custom/mail",
-      "custom/stock",
-      "custom/rss",
       "custom/todo",
+      "custom/rss",
+      "custom/stock",
       "custom/timer",
       "clock",
       "custom/events",
@@ -49,10 +48,12 @@
       "idle_inhibitor",
       "battery#bat0",
       "custom/powermenu"
-      ]
-//
-//    "modules-center":
-//      [
+      ],
+
+    "modules-center":
+      [
+      "hyprland/workspaces",
+      "sway/workspaces"
 //      "sway/window",
 //      "wlr/taskbar",
 //      "tray",
@@ -60,7 +61,60 @@
 //      "custom/weather",
 //      "clock",
 //      "custom/events"
-//      ],
+      ]
+
+  },
+  {
+  "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
+    "output": "HDMI-A-1",
+    "layer": "bottom",
+    "position": "top",
+    "fixed-center": true,
+    "height": 32,
+    "width": 0,
+    "spacing": 0,
+    "gtk-layer-shell": true,
+
+    "modules-left":
+      [
+      "custom/mail",
+      "custom/todo",
+      "custom/rss",
+      "custom/stock",
+      "custom/timer",
+      "clock",
+      "custom/events",
+      "custom/weather",
+      "custom/moonphase",
+      "tray"
+      ],
+
+    "modules-right":
+      [
+      "custom/waybar-mpris",
+      "pulseaudio",
+      "cpu",
+      "memory",
+      "disk",
+      "temperature",
+      "custom/gamma",
+      "backlight",
+      "network",
+      "hyprland/language",
+      "sway/language",
+      "custom/AUR",
+      "custom/vpn",
+      "custom/devices",
+      "idle_inhibitor",
+      "battery#bat0",
+      "custom/powermenu"
+      ],
+
+    "modules-center":
+      [
+      "hyprland/workspaces",
+      "sway/workspaces"
+      ]
 
   }
 ]
