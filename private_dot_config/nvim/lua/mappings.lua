@@ -1,41 +1,20 @@
----@type ChadrcConfig 
-local M = {}
+require "nvchad.mappings"
 
-M.plugins = "custom.plugins"
+-- add yours here
 
-M.ui = {
-  theme = "onenord",
-  statusline = {
-    theme = "vscode_colored",
-  },
-  nvdash = {
-    load_on_startup = true,
-    header = {
-    "           ▄ ▄                   ",
-    "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
-    "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
-    "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
-    "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
-    "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
-    "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
-    "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
-    "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
-    },
-    buttons = {},
-  },
-}
+local map = vim.keymap.set
 
--- vim.cmd('colorscheme base16')
-vim.cmd("hi Cursor guifg=Black guibg=Grey")
-vim.g.markdown_folding = 1
-vim.opt.conceallevel = 1
-vim.opt.arabicshape = false
-vim.opt.guicursor = 'n-v-c-sm:blinkon1/block-Cursor/lCursor,i-ci-ve:ver25,r-cr-o:hor20'
-vim.opt_local.spell = false
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+
+vim.opt.colorcolumn = '80'
+vim.g.loaded_python3_provider = nil
+vim.g.python3_host_prog = "/usr/bin/python3"
 
 -- Global mappings
 local opts = { noremap=true, silent=false }
 
+vim.api.nvim_set_keymap("n", "<Esc>", "<Cmd>Nvdash<CR>", opts)
 vim.api.nvim_set_keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
 vim.api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
@@ -50,7 +29,7 @@ vim.api.nvim_set_keymap("n", "<leader>lr", "<Cmd>set leftright<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>rl", "<Cmd>set rightleft<CR>", opts)
 
 -- Functions
-function M.grep_notes(opts)
+function Grep_notes()
   local collection = {}
   local list_opts = { select = { "title", "path", "absPath" } }
   require("zk.api").list(vim.env.ZK_NOTEBOOK_DIR, list_opts, function(_, notes)
@@ -68,6 +47,6 @@ function M.grep_notes(opts)
   }, opts or {})
   require("telescope.builtin").live_grep(options)
 end
-vim.api.nvim_create_user_command("ZkGrep", M.grep_notes, {})
+vim.api.nvim_create_user_command("ZkGrep", Grep_notes, {})
 
-return M
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

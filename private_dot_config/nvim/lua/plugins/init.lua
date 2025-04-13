@@ -1,253 +1,250 @@
--- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
--- List of all default plugins & their definitions
-local default_plugins = {
-
-  "nvim-lua/plenary.nvim",
-
+return {
   {
-    "NvChad/base46",
-    branch = "v2.0",
-    build = function()
-      require("base46").load_all_highlights()
-    end,
+    "stevearc/conform.nvim",
+    -- event = 'BufWritePre', -- uncomment for format on save
+    opts = require "configs.conform",
   },
 
-  {
-    "NvChad/ui",
-    branch = "v2.0",
-    lazy = false,
-  },
-
-  {
-    "zbirenbaum/nvterm",
-    init = function()
-      require("core.utils").load_mappings "nvterm"
-    end,
-    config = function(_, opts)
-      require "base46.term"
-      require("nvterm").setup(opts)
-    end,
-  },
-
-  {
-    "NvChad/nvim-colorizer.lua",
-    event = "User FilePost",
-    config = function(_, opts)
-      require("colorizer").setup(opts)
-
-      -- execute colorizer as soon as possible
-      vim.defer_fn(function()
-        require("colorizer").attach_to_buffer(0)
-      end, 0)
-    end,
-  },
-
-  {
-    "nvim-tree/nvim-web-devicons",
-    opts = function()
-      return { override = require "nvchad.icons.devicons" }
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "devicons")
-      require("nvim-web-devicons").setup(opts)
-    end,
-  },
-
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    version = "2.20.7",
-    event = "User FilePost",
-    opts = function()
-      return require("plugins.configs.others").blankline
-    end,
-    config = function(_, opts)
-      require("core.utils").load_mappings "blankline"
-      dofile(vim.g.base46_cache .. "blankline")
-      require("indent_blankline").setup(opts)
-    end,
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
-    tag = "v0.9.2",
-    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    build = ":TSUpdate",
-    opts = function()
-      return require "plugins.configs.treesitter"
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "syntax")
-      require("nvim-treesitter.configs").setup(opts)
-    end,
-  },
-
-  -- git stuff
-  {
-    "lewis6991/gitsigns.nvim",
-    event = "User FilePost",
-    opts = function()
-      return require("plugins.configs.others").gitsigns
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "git")
-      require("gitsigns").setup(opts)
-    end,
-  },
-
-  -- lsp stuff
-  {
-    "williamboman/mason.nvim",
-    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-    opts = function()
-      return require "plugins.configs.mason"
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "mason")
-      require("mason").setup(opts)
-
-      -- custom nvchad cmd to install all mason binaries listed
-      vim.api.nvim_create_user_command("MasonInstallAll", function()
-        if opts.ensure_installed and #opts.ensure_installed > 0 then
-          vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
-        end
-      end, {})
-
-      vim.g.mason_binaries_list = opts.ensure_installed
-    end,
-  },
-
+  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
-    event = "User FilePost",
     config = function()
-      require "plugins.configs.lspconfig"
+      require "configs.lspconfig"
     end,
   },
 
-  -- load luasnips + cmp related in insert mode only
+  -- Themes
   {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      {
-        -- snippet plugin
-        "L3MON4D3/LuaSnip",
-        dependencies = "rafamadriz/friendly-snippets",
-        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-        config = function(_, opts)
-          require("plugins.configs.others").luasnip(opts)
-        end,
-      },
+    'folke/zen-mode.nvim',
+    lazy = false,
+  },
+  {
+    'folke/twilight.nvim',
+  },
 
-      -- autopairing of (){}[] etc
-      {
-        "windwp/nvim-autopairs",
-        opts = {
-          fast_wrap = {},
-          disable_filetype = { "TelescopePrompt", "vim" },
+  -- Languages
+  {
+    'cameron-wags/rainbow_csv.nvim',
+    config = true,
+    ft = {
+        'csv',
+        'tsv',
+        'csv_semicolon',
+        'csv_whitespace',
+        'csv_pipe',
+        'rfc_csv',
+        'rfc_semicolon'
+    },
+    cmd = {
+        'RainbowDelim',
+        'RainbowDelimSimple',
+        'RainbowDelimQuoted',
+        'RainbowMultiDelim'
+    }
+  },
+  {
+    'Haze-sh/todo.txt-vim',
+    ft = 'todo',
+    config = function ()
+      Todo_update_fold_on_sort=1
+      TodoTxtSortDueDateCursorPos="top"
+    end,
+  },
+  {
+    'nvim-orgmode/orgmode',
+    ft = 'org',
+    config = function()
+      require('orgmode').setup_ts_grammar()
+    end,
+  },
+  {
+    'mickael-menu/zk-nvim',
+    ft = 'markdown',
+    config = function()
+      require("zk").setup()
+    end,
+  },
+  {
+    'dkarter/bullets.vim',
+    ft = 'markdown',
+  },
+  {
+    'Haze-sh/tasks-conceal.vim',
+    ft = 'markdown',
+  },
+  {
+    'lervag/vimtex',
+    ft = { 'tex', 'bib' },
+    config = function ()
+      Tex_flavor='latex'
+      Vimtex_view_method='zathura'
+      Vimtex_quickfix_mode=0
+      Tex_conceal='abdmg'
+    end,
+  },
+  {
+    'iurimateus/luasnip-latex-snippets.nvim',
+    config = function()
+      require'luasnip-latex-snippets'.setup()
+    end,
+    ft = { 'tex' },
+  },
+  {
+    'wren/jrnl.vim',
+    ft = 'jrnl',
+  },
+
+  -- AI
+  {
+    'huggingface/llm.nvim',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
+    -- lazy = false,
+    opts = {
+        model = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+        -- model = "meta-llama/Meta-Llama-3.1-70B-Instruct",
+        -- model = "codellama/CodeLlama-13b-hf",
+        -- model = "deepseek-ai/deepseek-coder-7b-base-v1.5",
+        -- model = "bigcode/starcoder",
+        accept_keymap = "<C-CR>",
+        dismiss_keymap = "<S-CR>",
+        tokens_to_clear = { "<EOT>" },
+        -- tokens_to_clear = { "<|endoftext|>" },
+        query_params = {
+        max_new_tokens = 60,
+        temperature = 0.2,
+        top_p = 0.95,
+        stop_tokens = nil,
         },
-        config = function(_, opts)
-          require("nvim-autopairs").setup(opts)
-
-          -- setup cmp for autopairs
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
-      },
-
-      -- cmp sources plugins
+        fim = {
+          enabled = true,
+          prefix = "<PRE> ",
+          middle = " <MID>",
+          suffix = " <SUF>",
+          -- prefix = "<fim_prefix>",
+          -- middle = "<fim_middle>",
+          -- suffix = "<fim_suffix>",
+        },
+        context_window = 4096,
+        -- context_window = 8192,
+        tokenizer = {
+          repository = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+          -- repository = "meta-llama/Meta-Llama-3.1-70B-Instruct",
+          -- repository = "codellama/CodeLlama-13b-hf",
+          -- repository = "bigcode/starcoder",
+        },
+        enable_suggestions_on_startup = false,
+        enable_suggestions_on_files = "*",
+    },
+  },
+  {
+    'olimorris/codecompanion.nvim',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-telescope/telescope.nvim',
       {
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
+        'stevearc/dressing.nvim', -- Optional: Improves the default Neovim UI
+        opts = {},
       },
     },
-    opts = function()
-      return require "plugins.configs.cmp"
-    end,
-    config = function(_, opts)
-      require("cmp").setup(opts)
-    end,
+    config = function ()
+      require("codecompanion").setup({
+        adapters = {
+          llama3 = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              name = "llama3", -- Ensure the model is differentiated from Ollama
+              schema = {
+                model = {
+                  default = "llama3:latest",
+                },
+                num_ctx = {
+                  default = 16384,
+                },
+                num_predict = {
+                  default = -1,
+                },
+              },
+            })
+          end,
+        },
+        strategies = {
+          chat = { adapter = "ollama" },
+          inline = { adapter = "ollama" },
+          agent = { adapter = "ollama" },
+        },
+        default_prompts = {
+          ['translate to english'] = {
+            strategy = "inline",
+            description = 'Translate the selected text',
+            opts = {
+              mapping = "<LocalLeader>ch"
+            },
+            prompts = {
+              {
+                role = "system",
+                content = "You are a translator",
+              },
+              {
+                role = "user_header",
+                content = "Please translate this text to English. Return the translation only and no markdown codeblocks",
+              },
+            },
+          },
+        },
+      })
+    end
   },
-
   {
-    "numToStr/Comment.nvim",
-    keys = {
-      { "gcc", mode = "n", desc = "Comment toggle current line" },
-      { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-      { "gbc", mode = "n", desc = "Comment toggle current block" },
-      { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
-    },
-    init = function()
-      require("core.utils").load_mappings "comment"
-    end,
-    config = function(_, opts)
-      require("Comment").setup(opts)
-    end,
+    'yetone/avante.nvim',
+      event = "VeryLazy",
+      lazy = false,
+      version = false, -- set this if you want to always pull the latest change
+      opts = {
+        -- add any opts here
+      },
+      -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+      build = "make",
+      -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+      dependencies = {
+        "stevearc/dressing.nvim",
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+        --- The below dependencies are optional,
+        "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+        "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+        "zbirenbaum/copilot.lua", -- for providers='copilot'
+        {
+          -- support for image pasting
+          "HakonHarnes/img-clip.nvim",
+          event = "VeryLazy",
+          opts = {
+            -- recommended settings
+            default = {
+              embed_image_as_base64 = false,
+              prompt_for_file_name = false,
+              drag_and_drop = {
+                insert_mode = true,
+              },
+              -- required for Windows users
+              use_absolute_path = true,
+            },
+          },
+        },
+        {
+          -- Make sure to set this up properly if you have lazy=true
+          'MeanderingProgrammer/render-markdown.nvim',
+          opts = {
+            file_types = { "markdown", "Avante" },
+          },
+          ft = { "markdown", "Avante" },
+        },
+      },
   },
-
-  -- file managing , picker etc
+  -- Translations
   {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    init = function()
-      require("core.utils").load_mappings "nvimtree"
-    end,
-    opts = function()
-      return require "plugins.configs.nvimtree"
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "nvimtree")
-      require("nvim-tree").setup(opts)
-    end,
+    'voldikss/vim-translator',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
   },
 
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    cmd = "Telescope",
-    init = function()
-      require("core.utils").load_mappings "telescope"
-    end,
-    opts = function()
-      return require "plugins.configs.telescope"
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "telescope")
-      local telescope = require "telescope"
-      telescope.setup(opts)
-
-      -- load extensions
-      for _, ext in ipairs(opts.extensions_list) do
-        telescope.load_extension(ext)
-      end
-    end,
-  },
-
-  -- Only load whichkey after all the gui
-  {
-    "folke/which-key.nvim",
-    keys = { "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "v", "g" },
-    init = function()
-      require("core.utils").load_mappings "whichkey"
-    end,
-    cmd = "WhichKey",
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "whichkey")
-      require("which-key").setup(opts)
-    end,
-  },
 }
-
-local config = require("core.utils").load_config()
-
-if #config.plugins > 0 then
-  table.insert(default_plugins, { import = config.plugins })
-end
-
-require("lazy").setup(default_plugins, config.lazy_nvim)
