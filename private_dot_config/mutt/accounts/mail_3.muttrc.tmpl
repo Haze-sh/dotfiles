@@ -4,9 +4,9 @@ set realname = "{{ .name }}"
 set from = "{{ .email_3 }}"
 set sendmail = "msmtp -a {{ .email_3 }}"
 alias me {{ .name }} <{{ .email_3 }}>
-set folder = "/home/{{ .user }}/.local/share/mail/{{ .email_3 }}"
-set header_cache = /home/{{ .user }}/.cache/mutt-wizard/{{ .email_3 }}/headers
-set message_cachedir = /home/{{ .user }}/.cache/mutt-wizard/{{ .email_3 }}/bodies
+set folder = "$HOME/.local/share/mail/{{ .email_3 }}"
+set header_cache = $HOME/.cache/mutt-wizard/{{ .email_3 }}/headers
+set message_cachedir = $HOME/.cache/mutt-wizard/{{ .email_3 }}/bodies
 set mbox_type = Maildir
 set hostname = "{{ .hostname_1 }}"
 source /usr/share/mutt-wizard/switch.muttrc
