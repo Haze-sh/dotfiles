@@ -13,6 +13,17 @@ window.HDMI-A-1 * {
   font-size: 10px;
 }
 
+tooltip {
+  color: @base0C;
+  background-color: @base03;
+  text-shadow: none;
+}
+
+tooltip * {
+  color: @base0C;
+  text-shadow: none;
+}
+
 .modules-left,
 .modules-right,
 .modules-center {
