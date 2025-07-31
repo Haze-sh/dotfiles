@@ -6,6 +6,7 @@
 # Sync Servers
 @ 15 $HOME/.local/bin/scripts/synctodo
 @ 15 $HOME/.local/bin/scripts/syncmail
+@ 15 $HOME/.local/bin/scripts/syncbuku
 @ 15 vdirsyncer -c $HOME/.config/vdirsyncer/config.ini sync
 
 # Local Backups
