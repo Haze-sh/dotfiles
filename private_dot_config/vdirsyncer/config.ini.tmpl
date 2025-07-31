@@ -13,8 +13,8 @@ collections = ["from a", "from b"]
 [storage contacts_remote]
 type = "carddav"
 url = "{{ .carddav_server_url }}"
-username = "Hazem"
-password.fetch = ["command", "pass", "show", "caldav"]
+username = "{{ .short_name }}"
+password.fetch = ["command", "pass", "show", "Hazem"]
 
 [storage contacts_local]
 type = "filesystem"
@@ -33,29 +33,49 @@ collections = ["from a", "from b"]
 [storage calendars_remote]
 type = "caldav"
 url = "{{ .caldav_server_url }}"
-username = "Hazem"
-password.fetch = ["command", "pass", "show", "caldav"]
+username = "{{ .short_name }}"
+password.fetch = ["command", "pass", "show", "Hazem"]
 
 [storage calendars_local]
 type = "filesystem"
-path = "~/.local/share/calendars/main"
+path = "~/.local/share/calendars/main/"
 fileext = ".ics"
 
 ####################
 # TASKS
 ####################
 
+## TODOTXT
+
+[storage todo_remote]
+type = "caldav"
+url = "{{ .todo_server_url }}"
+item_types = ["VTODO"]
+username = "{{ .short_name }}"
+password.fetch = ["command", "pass", "show", "Hazem"]
+
+[storage todotxt_local]
+type = "singlefile"
+path = "~/.local/share/calendars/todotxt/%s.ics"
+
+[pair todotxt]
+a = "todo_remote"
+b = "todotxt_local"
+collections = ["from a", "from b"]
+
+## TODOMAN
+
+# [storage todo_remote]
+# type = "caldav"
+# url = "{{ .todo_server_url }}"
+# item_types = ["VTODO"]
+# username = "{{ .short_name }}"
+# password.fetch = ["command", "pass", "show", "Hazem"]
+
 [pair todoman]
 a = "todo_remote"
 b = "todoman_local"
 collections = ["from a", "from b"]
-
-[storage todo_remote]
-type = "caldav"
-url = "{{ .caldav_server_url }}"
-username = "Hazem"
-password.fetch = ["command", "pass", "show", "caldav"]
-item_types = ["VTODO"]
 
 [storage todoman_local]
 type = "filesystem"

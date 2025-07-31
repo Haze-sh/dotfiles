@@ -3,6 +3,8 @@ user_pref("browser.startup.homepage", "about:home");                        // 0
 user_pref("browser.newtabpage.enabled", true);                              // 0104
 user_pref("keyword.enabled", true); 														            // 0801
 user_pref("layout.css.visited_links_enabled", false); 					            // 0820
-user_pref("privacy.clearOnShutdown.history", false); 						            // 2811
-user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", false); // 2811
+user_pref("privacy.sanitize.sanitizeOnShutdown", true);                     // 2810
+user_pref("privacy.clearOnShutdown_v2.cache", true);                        // 2811
+user_pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", false); // 2812
+user_pref("privacy.clearHistory.browsingHistoryAndDownloads", false);       // 2831
 user_pref("signon.rememberSignons", false); 										            // 5003

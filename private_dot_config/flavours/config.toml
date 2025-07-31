@@ -69,6 +69,12 @@ hook = "killall mako"
 light = false
 
 [[item]]
+file = "~/.config/waybar/colors.css"
+template = "waybar"
+hook = "pkill -SIGUSR2 waybar"
+rewrite = true
+
+[[item]]
 file = "~/.config/wofi/style.css"
 template = "waybar"
 start = "/* Start flavours */"
@@ -125,12 +131,6 @@ end = "# End flavours bemenu"
 # start = "# Start flavours"
 # end = "# End flavours"
 # hook = "reloadqb"
-
-[[item]]
-file = "~/.config/waybar/colors.css"
-template = "waybar"
-hook = "pkill -SIGUSR2 waybar"
-rewrite = true
 
 # [[item]]
 # file = "~/.local/share/themes/FlatColor/colors2"

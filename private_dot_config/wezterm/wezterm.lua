@@ -15,7 +15,7 @@ font = wezterm.font_with_fallback{
 },
   font_size = 14,
 
-  -- window_decorations = "RESIZE",
+  window_decorations = "RESIZE",
   window_close_confirmation = 'NeverPrompt',
   default_cursor_style = 'SteadyBar',
   animation_fps = 1,
@@ -24,6 +24,7 @@ font = wezterm.font_with_fallback{
   hide_tab_bar_if_only_one_tab = true,
   bidi_enabled = true,
   use_fancy_tab_bar = false,
+  warn_about_missing_glyphs=false,
   -- text_blink_rate = 0,
 
   -- Start flavours

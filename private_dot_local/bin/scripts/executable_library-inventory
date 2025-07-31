@@ -1,0 +1,121 @@
+#!/bin/zsh
+
+echo "" > ~/Downloads/output.csv
+
+# General & Information
+cd ~/Documents/Library/'000. General & Information/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - General & Information - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Philosophy
+cd ~/Documents/Library/'100. Philosophy/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Philosophy - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Religion & Mythology
+cd ~/Documents/Library/'200. Religion & Mythology/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Religion & Mythology - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Social Sciences
+cd ~/Documents/Library/'300. Social Sciences/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Social Sciences - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Public Affairs
+cd ~/Documents/Library/'390. Public Affairs/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Public Affairs - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Languages
+cd ~/Documents/Library/'400. Languages/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Languages - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Science & Mathematics
+cd ~/Documents/Library/'500. Science & Mathematics/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Science & Mathematics - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Technology
+cd ~/Documents/Library/'600. Technology/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Technology - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Arts & Recreation
+cd ~/Documents/Library/'700. Arts & Recreation/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Arts & Recreation - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Sports, Games & Entertainment
+cd ~/Documents/Library/'790. Sports, Games & Entertainment/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Sports & Entertainment - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# Literature
+cd ~/Documents/Library/'800. Literature/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - Literature - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+# History & Geography
+cd ~/Documents/Library/'900. History & Geography/'
+for d in */ ; do
+    export FOLDER=$d
+    OUTPUT=$(find "$d" -type f -printf "%f\n")
+    FILE=$(awk 'NR>1{print $0" - History & Geography - "ENVIRON["FOLDER"]}' <<< "$OUTPUT")
+    echo $FILE >> ~/Downloads/output.csv
+done
+
+sed -i '/^[[:space:]]*$/d' ~/Downloads/output.csv
+sed -i 's/ - /|/g' ~/Downloads/output.csv
+sed -i 's/.pdf//' ~/Downloads/output.csv
+sed -i 's/.epub//' ~/Downloads/output.csv
+sed -i 's/.djvu//' ~/Downloads/output.csv
+sed -i 's/\///' ~/Downloads/output.csv
+sed -i 's/|[0-9]\+\. /|/' ~/Downloads/output.csv
+sed -i 's/|[0-9]\+\.[0-9] /|/' ~/Downloads/output.csv
+sed -i 's/|[0-9]\+\.[0-9]\.[0-9] /|/' ~/Downloads/output.csv

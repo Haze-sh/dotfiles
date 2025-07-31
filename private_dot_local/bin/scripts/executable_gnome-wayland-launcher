@@ -1,1 +1,3 @@
+export LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 &
+sudo rc-service NetworkManager start &
 pipewire & pipewire-pulse & wireplumber & MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
