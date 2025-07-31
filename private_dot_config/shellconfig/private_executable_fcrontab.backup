@@ -3,17 +3,19 @@
 # Archiving
 @ 720 $HOME/.local/bin/promnesia/scripts/promnesia index
 
-## Sync Servers
-@ 15 vdirsyncer sync
-@ 15 $HOME/.local/bin/scripts/bukuding
+# Sync Servers
+@ 15 $HOME/.local/bin/scripts/synctodo
 @ 15 $HOME/.local/bin/scripts/syncmail
+@ 15 vdirsyncer -c $HOME/.config/vdirsyncer/config.ini sync
 
-## Local Backups
+# Local Backups
 @ 360 \
-	  $HOME/.local/bin/browserexport save --profile sx15jrar.User.js -b firefox --to $HOME/Backups/Data/Browser ; \
+	  $HOME/.local/bin/browserexport save -b firefox --to $HOME/Backups/Data/Browser ; \
 	  $HOME/.local/bin/browserexport merge --json $HOME/Backups/Data/Browser/*.sqlite > \
     $HOME/Backups/Data/Browser/firefox-history.json ; \
-	  $HOME/.local/bin/scripts/merge-browser-history
+	  $HOME/.local/bin/scripts/merge-browser-history ; \
+    find $HOME/Backups/Data/Browser/browsing-*.json -mtime +7 -delete ; \
+    find $HOME/Backups/Data/Browser/*.sqlite -mtime +7 -delete
 
 @ 360 $HOME/.local/bin/scripts/merge-mpv-data
 
@@ -32,14 +34,17 @@
     $HOME/Documents/Notes/Personal/Documents/Exports/contacts.json $HOME/Backups/Data/Contacts/contacts-"$(date +%Y-%m-%d)".json
 @ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/Documents/Notes/Personal/Documents/Exports/messages.zip $HOME/Backups/Data/SMS/messages-"$(date +%Y-%m-%d)".zip
-@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
-    $HOME/.local/share/buku/bookmarks.db $HOME/Backups/Data/Bookmarks
-@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
-    $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music
-@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
-    $HOME/.config/chezmoi/chezmoi.toml $HOME/Backups/Machines/Linux/chezmoi/chezmoi.toml
 
-@ 360 buku -e $HOME/Backups/Data/Bookmarks/buku.md
+@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` $HOME/.local/share/buku/bookmarks.db \
+    $HOME/Backups/Data/Bookmarks/bookmarks-"$(date +%Y-%m-%d)".db \
+    find $HOME/Backups/Data/Bookmarks/bookmarks-*.db -mtime +7 -delete
+@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
+    $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music/advanced_scrobbler-"$(date +%Y-%m-%d)".db \
+    find $HOME/Backups/Data/Music/advanced_scrobbler-*.db -mtime +7 -delete
+@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
+    $HOME/.config/chezmoi/chezmoi.toml $HOME/Backups/Machines/Linux/chezmoi/chezmoi-"$(date +%Y-%m-%d)".toml \
+    find $HOME/Backups/Machines/Linux/chezmoi/chezmoi-*.toml -mtime +7 -delete
+
 @ 360 wget http://127.0.0.1:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
 
 ## Git Backups
