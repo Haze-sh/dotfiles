@@ -15,7 +15,7 @@ font = wezterm.font_with_fallback{
 },
   font_size = 14,
 
-  window_decorations = "RESIZE",
+  -- window_decorations = "RESIZE",
   window_close_confirmation = 'NeverPrompt',
   default_cursor_style = 'SteadyBar',
   animation_fps = 1,

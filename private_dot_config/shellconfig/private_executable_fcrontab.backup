@@ -37,13 +37,13 @@
     $HOME/Documents/Notes/Personal/Documents/Exports/messages.zip $HOME/Backups/Data/SMS/messages-"$(date +%Y-%m-%d)".zip
 
 @ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` $HOME/.local/share/buku/bookmarks.db \
-    $HOME/Backups/Data/Bookmarks/bookmarks-"$(date +%Y-%m-%d)".db \
+    $HOME/Backups/Data/Bookmarks/bookmarks-"$(date +%Y-%m-%d)".db ; \
     find $HOME/Backups/Data/Bookmarks/bookmarks-*.db -mtime +7 -delete
 @ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
-    $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music/advanced_scrobbler-"$(date +%Y-%m-%d)".db \
+    $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music/advanced_scrobbler-"$(date +%Y-%m-%d)".db ; \
     find $HOME/Backups/Data/Music/advanced_scrobbler-*.db -mtime +7 -delete
 @ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
-    $HOME/.config/chezmoi/chezmoi.toml $HOME/Backups/Machines/Linux/chezmoi/chezmoi-"$(date +%Y-%m-%d)".toml \
+    $HOME/.config/chezmoi/chezmoi.toml $HOME/Backups/Machines/Linux/chezmoi/chezmoi-"$(date +%Y-%m-%d)".toml ; \
     find $HOME/Backups/Machines/Linux/chezmoi/chezmoi-*.toml -mtime +7 -delete
 
 @ 360 wget http://127.0.0.1:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json

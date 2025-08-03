@@ -8,14 +8,14 @@ md5sum -c --quiet $XBELSUM
 if [ $? -eq 1 ]; then
 	$HOME/.local/bin/buku --tacit -i $BUKU_XBEL
 	echo "y" | buku --nostdin -e $BUKU_XBEL
-	echo "y" | buku --nostdin -e $BUKU_MD
+	# echo "y" | buku --nostdin -e $BUKU_MD
 	md5sum $BUKU_XBEL > $XBELSUM
 	md5sum $BUKU_DB > $DBSUM
 else
 	md5sum -c --quiet $DBSUM
 	if [ $? -eq 1 ]; then
 		echo "y" | buku --nostdin -e $BUKU_XBEL
-		echo "y" | buku --nostdin -e $BUKU_MD
+		# echo "y" | buku --nostdin -e $BUKU_MD
 		md5sum $BUKU_XBEL > $XBELSUM
 		md5sum $BUKU_DB > $DBSUM
 	fi
