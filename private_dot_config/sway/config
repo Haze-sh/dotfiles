@@ -39,6 +39,7 @@
     exec gitwatch ~/Documents/Notes/Personal/Collections
     exec gitwatch ~/Documents/Notes/Personal/Courses
     exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh && dbus-update-activation-environment --all
+    exec pm2 --name WebDAV start 'webdav-cli --directory' -- start
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     # exec lid-lock
     # exec evscript
@@ -89,6 +90,16 @@ client.urgent            $base02 $base00 $base04 $base00 $base00
         natural_scroll enabled
         middle_emulation enabled
         }
+
+# Monitors
+    output "eDP-1" {
+        pos 0 0
+    }
+    
+    output "HDMI-A-1" {
+        pos 1920 0
+        transform 270
+    }
 
 # Keyboard Layout
     input type:keyboard {
