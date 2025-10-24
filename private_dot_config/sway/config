@@ -27,7 +27,8 @@
     exec safeeyes
     exec mpv_history_daemon_restart $HPIDATA/MPV
     exec python3 ~/.local/bin/inkscape-shortcut-manager/main.py
-    exec syncthing -no-browser
+    exec radicale --config="$HOME/.config/radicale/radicale.ini" --storage-filesystem-folder="$HOME/.config/radicale/"
+    exec syncthing --no-browser
     exec mopidy
     exec beet web
     exec rescrobbled
@@ -98,7 +99,7 @@ client.urgent            $base02 $base00 $base04 $base00 $base00
     
     output "HDMI-A-1" {
         pos 1920 0
-        transform 270
+        transform 0
     }
 
 # Keyboard Layout

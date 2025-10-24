@@ -62,6 +62,7 @@ path = "~/.local/share/calendars/todotxt/%s.ics"
 a = "todo_remote"
 b = "todotxt_local"
 collections = ["from a", "from b"]
+conflict_resolution = "b wins"
 
 ## TODOMAN
 
@@ -76,6 +77,7 @@ collections = ["from a", "from b"]
 a = "todo_remote"
 b = "todoman_local"
 collections = ["from a", "from b"]
+conflict_resolution = "a wins"
 
 [storage todoman_local]
 type = "filesystem"
