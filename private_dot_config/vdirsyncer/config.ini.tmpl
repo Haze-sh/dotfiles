@@ -5,11 +5,6 @@ status_path = "~/.local/share/vdirsyncer/status/"
 # CONTACTS
 ####################
 
-[pair contacts]
-a = "contacts_local"
-b = "contacts_remote"
-collections = ["from a", "from b"]
-
 [storage contacts_remote]
 type = "carddav"
 url = "{{ .carddav_server_url }}"
@@ -21,14 +16,16 @@ type = "filesystem"
 path = "~/.local/share/contacts/"
 fileext = ".vcf"
 
+[pair contacts]
+a = "contacts_local"
+b = "contacts_remote"
+collections = ["from a", "from b"]
+
 ####################
 # CALENDAR
 ####################
 
-[pair calendars]
-a = "calendars_local"
-b = "calendars_remote"
-collections = ["from a", "from b"]
+## MAIN
 
 [storage calendars_remote]
 type = "caldav"
@@ -40,6 +37,22 @@ password.fetch = ["command", "pass", "show", "Hazem"]
 type = "filesystem"
 path = "~/.local/share/calendars/main/"
 fileext = ".ics"
+
+[pair calendars]
+a = "calendars_local"
+b = "calendars_remote"
+collections = ["from a", "from b"]
+
+## EVENTS
+
+[storage events_local]
+type = "singlefile"
+path = "~/.local/share/calendars/main/events.ics"
+
+[pair events]
+a = "calendars_remote"
+b = "events_local"
+collections = null
 
 ####################
 # TASKS
@@ -73,13 +86,13 @@ conflict_resolution = "b wins"
 # username = "{{ .short_name }}"
 # password.fetch = ["command", "pass", "show", "Hazem"]
 
+[storage todoman_local]
+type = "filesystem"
+path = "~/.local/share/calendars/todoman"
+fileext = ".ics"
+
 [pair todoman]
 a = "todo_remote"
 b = "todoman_local"
 collections = ["from a", "from b"]
 conflict_resolution = "a wins"
-
-[storage todoman_local]
-type = "filesystem"
-path = "~/.local/share/calendars/todoman"
-fileext = ".ics"
