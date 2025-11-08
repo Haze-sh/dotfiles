@@ -1,0 +1,5 @@
+#!/bin/sh
+
+$HOME/.local/bin/scripts/synctodo
+
+vdirsyncer -c $HOME/.config/vdirsyncer/config.ini sync
