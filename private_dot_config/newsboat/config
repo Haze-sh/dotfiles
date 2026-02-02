@@ -3,7 +3,7 @@
 auto-reload no
 max-items 1000
 ignore-mode "display"
-ignore-article "*" "age > 2"
+# ignore-article "*" "age > 2"
 #ignore-article "*" "tags =~ \"List\""
 #ignore-article "*" "tags !# \"List\""
 bookmark-cmd "buku -a"

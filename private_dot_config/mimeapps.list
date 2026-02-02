@@ -1,4 +1,5 @@
 [Added Associations]
+application/xopp=xournalpp.desktop;
 application/epub+zip=org.pwmt.zathura.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 application/djvu=org.pwmt.zathura.desktop;
@@ -30,6 +31,7 @@ application/xslt+xml=vim.desktop;nvim.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 
 [Default Applications]
+application/xopp=xournalpp.desktop;
 application/epub+zip=org.pwmt.zathura.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 application/djvu=org.pwmt.zathura.desktop;
@@ -59,3 +61,4 @@ x-scheme-handler/about=web-xdg-open.desktop
 x-scheme-handler/unknown=web-xdg-open.desktop
 x-scheme-handler/anytype=anytype.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
+x-scheme-handler/tuta=tutanota-desktop.desktop

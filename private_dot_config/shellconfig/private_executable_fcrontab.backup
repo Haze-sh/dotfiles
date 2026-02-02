@@ -4,8 +4,7 @@
 @ 720 $HOME/.local/bin/promnesia/scripts/promnesia index
 
 # Sync Servers
-@ 15 vdirsyncer -c $HOME/.config/vdirsyncer/config.ini sync
-@ 15 $HOME/.local/bin/scripts/synctodo
+@ 15 $HOME/.local/bin/scripts/syncal
 @ 15 $HOME/.local/bin/scripts/syncmail
 
 # Local Backups
