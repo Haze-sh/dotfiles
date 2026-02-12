@@ -41,7 +41,7 @@
     exec gitwatch ~/Documents/Notes/Personal/Courses
     exec pm2 --name WebDAV start 'webdav-cli --directory' -- start
     exec gosuki start
-    # exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh && dbus-update-activation-environment --all
+    exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh && dbus-update-activation-environment --all
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     # exec lid-lock
     # exec evscript
