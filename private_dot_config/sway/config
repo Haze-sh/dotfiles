@@ -8,7 +8,7 @@
 
 # Autostart
     exec_always $BACKGROUND -m fill -i $HOME/.local/share/backgrounds/wallpaper.png
-    exec_always --no-startup-id exec sway-dynamic-names
+    exec_always --no-startup-id i3wsr
     exec_always swhkd.start
     exec $BAR
     exec $NOTIFICATIONS
@@ -41,7 +41,8 @@
     exec gitwatch ~/Documents/Notes/Personal/Courses
     exec pm2 --name WebDAV start 'webdav-cli --directory' -- start
     exec gosuki start
-    exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh && dbus-update-activation-environment --all
+    exec gnome-keyring-daemon --start --daemonize --components=pkcs11,secrets,ssh
+    exec dbus-update-activation-environment --all
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     # exec lid-lock
     # exec evscript

@@ -1,0 +1,32 @@
+[icons]
+# font awesome
+TelegramDesktop = ""
+firefox = ""
+Alacritty = ""
+Termite = ""
+Thunderbird = ""
+Nautilus = "📘"
+wezterm = ""
+# smile emoji
+MyNiceProgram = "😛"
+
+# Sway only
+[aliases.app_id]
+"^firefox$" = "firefox"
+"^org.wezfurlong.wezterm$" = "wezterm"
+
+# Both i3 and sway
+[aliases.name]
+
+[general]
+separator = "  "
+split_at = ":"
+empty_label = "🌕"
+display_property = "name" # class, instance, name
+default_icon = ""
+
+[options]
+remove_duplicates = true
+no_names = true
+no_icon_names = false
+focus_fix = false
