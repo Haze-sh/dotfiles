@@ -21,9 +21,9 @@ MyNiceProgram = "😛"
 [general]
 separator = "  "
 split_at = ":"
-empty_label = "🌕"
 display_property = "name" # class, instance, name
 default_icon = ""
+# empty_label = "🌕"
 
 [options]
 remove_duplicates = true
