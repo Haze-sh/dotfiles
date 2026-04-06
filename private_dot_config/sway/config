@@ -12,6 +12,7 @@
     exec_always swhkd.start
     exec $BAR
     exec $NOTIFICATIONS
+    exec lid-lock
     exec ssh-agent -D -a $SSH_AUTH_SOCK
     exec gammastep
     exec pipewire & pipewire-pulse & wireplumber
@@ -31,7 +32,6 @@
     exec syncthing --no-browser
     exec mopidy
     exec beet web
-    exec rescrobbled
     exec /opt/activitywatch/aw-server-rust/aw-server-rust
     exec promnesia serve
     exec valent --gapplication-service
@@ -44,11 +44,6 @@
     exec gnome-keyring-daemon --start --daemonize --components=pkcs11,secrets,ssh
     exec dbus-update-activation-environment --all
     # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-    # exec lid-lock
-    # exec evscript
-    # exec libinput-gestures
-    # exec libuInputPlus
-    # exec libevdevPlus
     # exec fusuma
     # exec wmfocus
 

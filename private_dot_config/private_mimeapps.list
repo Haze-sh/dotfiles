@@ -62,3 +62,5 @@ x-scheme-handler/unknown=web-xdg-open.desktop
 x-scheme-handler/anytype=anytype.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
 x-scheme-handler/tuta=tutanota-desktop.desktop
+x-scheme-handler/sgnl=signal.desktop
+x-scheme-handler/signalcaptcha=signal.desktop

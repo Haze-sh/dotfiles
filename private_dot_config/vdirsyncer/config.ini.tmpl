@@ -9,7 +9,7 @@ status_path = "~/.local/share/vdirsyncer/status/"
 type = "carddav"
 url = "{{ .carddav_server_url }}"
 username = "{{ .short_name }}"
-password.fetch = ["command", "pass", "show", "Hazem"]
+password.fetch = ["command", "pass", "show", "{{ .short_name }}"]
 
 [storage contacts_local]
 type = "filesystem"
@@ -20,6 +20,7 @@ fileext = ".vcf"
 a = "contacts_local"
 b = "contacts_remote"
 collections = ["from a", "from b"]
+conflict_resolution = "b wins"
 
 ####################
 # CALENDAR
@@ -31,7 +32,7 @@ collections = ["from a", "from b"]
 type = "caldav"
 url = "{{ .caldav_server_url }}"
 username = "{{ .short_name }}"
-password.fetch = ["command", "pass", "show", "Hazem"]
+password.fetch = ["command", "pass", "show", "{{ .short_name }}"]
 
 [storage calendars_local]
 type = "filesystem"
@@ -42,6 +43,7 @@ fileext = ".ics"
 a = "calendars_local"
 b = "calendars_remote"
 collections = ["from a", "from b"]
+conflict_resolution = "b wins"
 
 ## EVENTS
 
@@ -53,6 +55,7 @@ path = "~/.local/share/calendars/main/events.ics"
 a = "calendars_remote"
 b = "events_local"
 collections = null
+conflict_resolution = "a wins"
 
 ####################
 # TASKS
@@ -65,7 +68,7 @@ type = "caldav"
 url = "{{ .todo_server_url }}"
 item_types = ["VTODO"]
 username = "{{ .short_name }}"
-password.fetch = ["command", "pass", "show", "Hazem"]
+password.fetch = ["command", "pass", "show", "{{ .short_name }}"]
 
 [storage todotxt_local]
 type = "singlefile"
@@ -84,7 +87,7 @@ conflict_resolution = "b wins"
 # url = "{{ .todo_server_url }}"
 # item_types = ["VTODO"]
 # username = "{{ .short_name }}"
-# password.fetch = ["command", "pass", "show", "Hazem"]
+# password.fetch = ["command", "pass", "show", "{{ .short_name }}"]
 
 [storage todoman_local]
 type = "filesystem"
