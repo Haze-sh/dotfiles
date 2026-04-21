@@ -9,7 +9,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      -- require "configs.lspconfig"
+      require "configs.lspconfig"
     end,
   },
 
@@ -20,6 +20,9 @@ return {
   },
   {
     'folke/twilight.nvim',
+  },
+  {
+    'karb94/neoscroll.nvim',
   },
 
   -- Languages
@@ -76,10 +79,10 @@ return {
     'dkarter/bullets.vim',
     ft = 'markdown',
   },
-  -- {
-  --   'Haze-sh/tasks-conceal.vim',
-  --   ft = 'markdown',
-  -- },
+  {
+    'Haze-sh/tasks-conceal.vim',
+    ft = 'markdown',
+  },
   {
     'lervag/vimtex',
     ft = { 'tex', 'bib' },
@@ -102,48 +105,13 @@ return {
     ft = 'jrnl',
   },
 
-  -- AI
+  -- Translations
   {
-    'huggingface/llm.nvim',
-    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
-    -- lazy = false,
-    opts = {
-        model = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-        -- model = "meta-llama/Meta-Llama-3.1-70B-Instruct",
-        -- model = "codellama/CodeLlama-13b-hf",
-        -- model = "deepseek-ai/deepseek-coder-7b-base-v1.5",
-        -- model = "bigcode/starcoder",
-        accept_keymap = "<C-CR>",
-        dismiss_keymap = "<S-CR>",
-        tokens_to_clear = { "<EOT>" },
-        -- tokens_to_clear = { "<|endoftext|>" },
-        query_params = {
-        max_new_tokens = 60,
-        temperature = 0.2,
-        top_p = 0.95,
-        stop_tokens = nil,
-        },
-        fim = {
-          enabled = true,
-          prefix = "<PRE> ",
-          middle = " <MID>",
-          suffix = " <SUF>",
-          -- prefix = "<fim_prefix>",
-          -- middle = "<fim_middle>",
-          -- suffix = "<fim_suffix>",
-        },
-        context_window = 4096,
-        -- context_window = 8192,
-        tokenizer = {
-          repository = "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-          -- repository = "meta-llama/Meta-Llama-3.1-70B-Instruct",
-          -- repository = "codellama/CodeLlama-13b-hf",
-          -- repository = "bigcode/starcoder",
-        },
-        enable_suggestions_on_startup = false,
-        enable_suggestions_on_files = "*",
-    },
+    'voldikss/vim-translator',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
   },
+
+  -- AI
   {
     'olimorris/codecompanion.nvim',
     ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
@@ -151,6 +119,7 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
       'nvim-telescope/telescope.nvim',
+      'ravitemer/mcphub.nvim',
       {
         'stevearc/dressing.nvim', -- Optional: Improves the default Neovim UI
         opts = {},
@@ -158,118 +127,38 @@ return {
     },
     config = function ()
       require("codecompanion").setup({
-        strategies = {
+        interactions = {
           chat = { adapter = "ollama" },
           inline = { adapter = "ollama" },
           agent = { adapter = "ollama" },
         },
-        default_prompts = {
-          ['translate to english'] = {
-            strategy = "inline",
-            description = 'Translate the selected text',
-            opts = {
-              mapping = "<LocalLeader>ch"
-            },
-            prompts = {
-              {
-                role = "system",
-                content = "You are a translator",
-              },
-              {
-                role = "user_header",
-                content = "Please translate this text to English. Return the translation only and no markdown codeblocks",
-              },
+        prompt_library = {
+          markdown = {
+            dirs = {
+              vim.fn.getcwd() .. "~/.config/codecompanion_prompts",
             },
           },
+        },
+        extensions = {
+          mcphub = {
+            callback = "mcphub.extensions.codecompanion",
+            opts = {
+              -- MCP Tools
+              make_tools = true,              -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
+              show_server_tools_in_chat = true, -- Show individual tools in chat completion (when make_tools=true)
+              add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
+              show_result_in_chat = true,      -- Show tool results directly in chat buffer
+              format_tool = nil,               -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
+              -- MCP Resources
+              make_vars = false,                -- Convert MCP resources to #variables for prompts
+              -- MCP Prompts
+              make_slash_commands = true,      -- Add MCP prompts as /slash commands
+            }
+          }
         },
       })
     end
   },
-  {
-    "yetone/avante.nvim",
-      -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-      -- ⚠️ must add this setting! ! !
-      build = vim.fn.has("win32")
-          and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-          or "make",
-      event = "VeryLazy",
-      version = false, -- Never set this value to "*"! Never!
-      ---@module 'avante'
-      ---@type avante.Config
-      opts = {
-        -- add any opts here
-        -- for example
-        provider = "claude",
-        providers = {
-          claude = {
-            endpoint = "https://api.anthropic.com",
-            model = "claude-sonnet-4-20250514",
-            timeout = 30000, -- Timeout in milliseconds
-              extra_request_body = {
-                temperature = 0.75,
-                max_tokens = 20480,
-              },
-          },
-          moonshot = {
-            endpoint = "https://api.moonshot.ai/v1",
-            model = "kimi-k2-0711-preview",
-            timeout = 30000, -- Timeout in milliseconds
-            extra_request_body = {
-              temperature = 0.75,
-              max_tokens = 32768,
-            },
-          },
-        },
-      },
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "MunifTanjim/nui.nvim",
-        --- The below dependencies are optional,
-        "echasnovski/mini.pick", -- for file_selector provider mini.pick
-        "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-        "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-        "ibhagwan/fzf-lua", -- for file_selector provider fzf
-        "stevearc/dressing.nvim", -- for input provider dressing
-        "folke/snacks.nvim", -- for input provider snacks
-        "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-        "zbirenbaum/copilot.lua", -- for providers='copilot'
-        {
-          -- support for image pasting
-          "HakonHarnes/img-clip.nvim",
-          event = "VeryLazy",
-          opts = {
-            -- recommended settings
-            default = {
-              embed_image_as_base64 = false,
-              prompt_for_file_name = false,
-              drag_and_drop = {
-                insert_mode = true,
-              },
-              -- required for Windows users
-              use_absolute_path = true,
-            },
-          },
-        },
-        {
-          -- Make sure to set this up properly if you have lazy=true
-          'MeanderingProgrammer/render-markdown.nvim',
-          opts = {
-            file_types = { "markdown", "Avante" },
-          },
-          ft = { "markdown", "Avante" },
-        },
-      },
-  },
-  -- {
-  --   'ravitemer/mcphub.nvim',
-  --   dependencies = {
-  --       "nvim-lua/plenary.nvim",
-  --   },
-  --   build = "npm install -g mcp-hub@latest",  -- Installs `mcp-hub` node binary globally
-  --   config = function()
-  --       require("mcphub").setup()
-  --   end
-  -- },
   {
     "ravitemer/mcphub.nvim",
     dependencies = {
@@ -356,10 +245,4 @@ return {
         })
     end
   },
-  -- Translations
-  {
-    'voldikss/vim-translator',
-    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org' },
-  },
-
 }
