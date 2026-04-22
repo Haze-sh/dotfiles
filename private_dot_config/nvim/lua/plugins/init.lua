@@ -135,7 +135,8 @@ return {
         prompt_library = {
           markdown = {
             dirs = {
-              vim.fn.getcwd() .. "~/.config/codecompanion_prompts",
+              vim.fn.getcwd() .. "/.prompts",
+              "~/.config/nvim/prompts",
             },
           },
         },
