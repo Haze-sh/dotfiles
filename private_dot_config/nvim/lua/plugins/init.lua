@@ -4,13 +4,18 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
     end,
+  },
+  {
+      "nvim-treesitter/nvim-treesitter",
+      branch = "main", -- Changed from master
+      build = ":TSUpdate",
+      main = "nvim-treesitter.config", -- Changed from nvim-treesitter.configs
+      -- opts = { ... }
   },
 
   -- Themes
@@ -55,7 +60,7 @@ return {
   },
   {
     'wllfaria/ledger.nvim',
-    -- tree sitter needs to be loaded before ledger.nvim loads
+    -- treesitter needs to be loaded before ledger.nvim loads
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('ledger').setup()
@@ -112,54 +117,6 @@ return {
   },
 
   -- AI
-  {
-    'olimorris/codecompanion.nvim',
-    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-telescope/telescope.nvim',
-      'ravitemer/mcphub.nvim',
-      {
-        'stevearc/dressing.nvim', -- Optional: Improves the default Neovim UI
-        opts = {},
-      },
-    },
-    config = function ()
-      require("codecompanion").setup({
-        interactions = {
-          chat = { adapter = "ollama" },
-          inline = { adapter = "ollama" },
-          agent = { adapter = "ollama" },
-        },
-        prompt_library = {
-          markdown = {
-            dirs = {
-              vim.fn.getcwd() .. "/.prompts",
-              "~/.config/nvim/prompts",
-            },
-          },
-        },
-        extensions = {
-          mcphub = {
-            callback = "mcphub.extensions.codecompanion",
-            opts = {
-              -- MCP Tools
-              make_tools = true,              -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
-              show_server_tools_in_chat = true, -- Show individual tools in chat completion (when make_tools=true)
-              add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
-              show_result_in_chat = true,      -- Show tool results directly in chat buffer
-              format_tool = nil,               -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
-              -- MCP Resources
-              make_vars = false,                -- Convert MCP resources to #variables for prompts
-              -- MCP Prompts
-              make_slash_commands = true,      -- Add MCP prompts as /slash commands
-            }
-          }
-        },
-      })
-    end
-  },
   {
     "ravitemer/mcphub.nvim",
     dependencies = {
@@ -244,6 +201,64 @@ return {
                 prefix = "MCPHub",
             },
         })
+    end
+  },
+  {
+    'olimorris/codecompanion.nvim',
+    ft = { 'txt', 'tex', 'bib', 'markdown' , 'org', 'python', 'cpp', 'html' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-telescope/telescope.nvim',
+      'ravitemer/mcphub.nvim',
+      {
+        'stevearc/dressing.nvim', -- Optional: Improves the default Neovim UI
+        opts = {},
+      },
+    },
+    config = function ()
+      require("codecompanion").setup({
+        strategies = {
+          chat = { adapter = "ollama" },
+          inline = { adapter = "ollama" },
+          agent = { adapter = "ollama" },
+        },
+        prompt_library = {
+          markdown = {
+            dirs = {
+              vim.fn.getcwd() .. "/.prompts",
+              "~/.config/nvim/prompts",
+            },
+          },
+        },
+        adapters = {
+          opencode = function()
+            return require("codecompanion.adapters").extend("opencode", {
+              -- Add environment variables if your OpenCode CLI requires them
+              -- env = {
+              --   OPENCODE_API_KEY = os.getenv("OPENCODE_API_KEY"),
+              -- }
+            })
+          end,
+        },
+        extensions = {
+          mcphub = {
+            callback = "mcphub.extensions.codecompanion",
+            opts = {
+              -- MCP Tools
+              make_tools = true,              -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
+              show_server_tools_in_chat = true, -- Show individual tools in chat completion (when make_tools=true)
+              add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
+              show_result_in_chat = true,      -- Show tool results directly in chat buffer
+              format_tool = nil,               -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
+              -- MCP Resources
+              make_vars = false,                -- Convert MCP resources to #variables for prompts
+              -- MCP Prompts
+              make_slash_commands = true,      -- Add MCP prompts as /slash commands
+            }
+          }
+        },
+      })
     end
   },
 }

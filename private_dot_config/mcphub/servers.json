@@ -1,7 +1,27 @@
 {
   "mcpServers" : {
+    "mcpServers": {
       "Hub": {
           "url" : "http://localhost:37373/mcp"  
+      },
+      "docker_gateway": {
+          "command": "docker",
+          "args": [
+            "mcp",
+            "gateway",
+            "run",
+            "--profile",
+            "neovim_profile"
+          ]
+      },
+      "filesystem": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@modelcontextprotocol/server-filesystem",
+            "~/Documents/Notes/Workspace/Codebox",
+            "~/.config/nvim"
+          ]
       }
   }
 }
