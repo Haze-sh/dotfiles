@@ -168,6 +168,8 @@ export SUDO_ASKPASS="$HOME/.local/bin/wofipassmenu"
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GEMINI_CLI_HOME="$XDG_CONFIG_HOME"/gemini
 export FEYNMAN_HOME="$HOME/.config/feynman"
+export PI_CODING_AGENT_DIR="$HOME/.config/pi/agent"
+export PI_CODING_AGENT_SESSION_DIR="$HOME/.config/pi"
 # export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
 # export ALSA_CONFIG_PATH=/usr/share/alsa/alsa.conf
 # eval $(thefuck --alias)

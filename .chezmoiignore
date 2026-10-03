@@ -1,3 +1,4 @@
 .cache/zsh/history
 .config/xournalpp/settings.xml
+.ssh/known_hosts
 README.md

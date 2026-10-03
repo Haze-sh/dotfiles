@@ -118,3 +118,6 @@ bindkey '^[[B' history-substring-search-down
 echo
 fortune
 echo
+
+# Pi
+export PATH="/home/quark/.config/pi/agent/bin:$PATH"
