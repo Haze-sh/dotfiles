@@ -4,10 +4,13 @@
 @ 720 $HOME/.local/bin/promnesia/scripts/promnesia index
 
 # Sync Servers
-@ 15 $HOME/.local/bin/scripts/syncal
+@ 05 $HOME/.local/bin/scripts/syncal
 @ 15 $HOME/.local/bin/scripts/syncmail
 
 # Local Backups
+# @ 360 $HOME/.local/bin/scripts/restic-backup >> $HOME/.local/state/restic.log 2>&1
+
+## Firefox
 @ 360 \
 	  $HOME/.local/bin/browserexport save -b firefox --to $HOME/Backups/Data/Browser ; \
 	  $HOME/.local/bin/browserexport merge --json $HOME/Backups/Data/Browser/*.sqlite > \
@@ -16,47 +19,48 @@
     find $HOME/Backups/Data/Browser/browsing-*.json -mtime +7 -delete ; \
     find $HOME/Backups/Data/Browser/*.sqlite -mtime +7 -delete
 
+## Media
 @ 360 $HOME/.local/bin/scripts/merge-mpv-data
-
-@ 360 rsync -a --delete --backup-dir=$HOME/Backups/Data/Mail.bak --suffix=`date +'.%F_%H-%M'` \
-    $HOME/.local/share/mail/* $HOME/Backups/Data/Mail
-@ 360 rsync -a --delete --backup-dir=$HOME/Backups/Data/Calendars.bak --suffix=`date +'.%F_%H-%M'` \
-    $HOME/.local/share/calendars/* $HOME/Backups/Data/Calendars
-@ 360 rsync -a --delete --backup-dir=$HOME/Backups/Data/Contacts.bak --suffix=`date +'.%F_%H-%M'` \
-    $HOME/.local/share/contacts/* $HOME/Backups/Data/Contacts
-@ 360 rsync -a --delete --backup-dir=$HOME/Backups/Data/Passwords --suffix=`date +'.%F_%H-%M'` \
-    $HOME/.local/share/passwords/* $HOME/Backups/Data/Passwords
-
-@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
-    $HOME/Documents/Notes/Personal/Documents/Exports/calls.json $HOME/Backups/Data/Calls/calls-"$(date +%Y-%m-%d)".json
-@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
-    $HOME/Documents/Notes/Personal/Documents/Exports/contacts.json $HOME/Backups/Data/Contacts/contacts-"$(date +%Y-%m-%d)".json
-@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
-    $HOME/Documents/Notes/Personal/Documents/Exports/messages.zip $HOME/Backups/Data/SMS/messages-"$(date +%Y-%m-%d)".zip
-
-@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` $HOME/.local/share/buku/bookmarks.db \
-    $HOME/Backups/Data/Bookmarks/bookmarks-"$(date +%Y-%m-%d)".db ; \
-    find $HOME/Backups/Data/Bookmarks/bookmarks-*.db -mtime +7 -delete
-@ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
+@ 360 rsync -a --delete \
     $HOME/.local/share/mopidy/advanced_scrobbler/advanced_scrobbler.db $HOME/Backups/Data/Music/advanced_scrobbler-"$(date +%Y-%m-%d)".db ; \
     find $HOME/Backups/Data/Music/advanced_scrobbler-*.db -mtime +7 -delete
+
+## Mail, CalDAV
+@ 360 rsync -a --delete $HOME/.local/share/mail/* $HOME/Backups/Data/Mail
+@ 360 rsync -a --delete $HOME/.local/share/calendars/* $HOME/Backups/Data/Calendars
+@ 360 rsync -a --delete $HOME/.local/share/contacts/* $HOME/Backups/Data/Contacts
+
+## Passwords
+@ 360 rsync -a --no-times \
+    $HOME/.local/share/passwords/passwords.kdbx $HOME/Backups/Data/Passwords/passwords-"$(date +%Y-%m-%d)".kdbx ; \
+    find $HOME/Backups/Data/Passwords/*.kdbx -mtime +7 -delete
+@ 360 rsync -a --no-times \
+    $HOME/.local/share/passwords/totp.kdbx $HOME/Backups/Data/Passwords/totp-"$(date +%Y-%m-%d)".kdbx ; \
+    find $HOME/Backups/Data/Passwords/*.kdbx -mtime +7 -delete
+
+## Bookmarks
+@ 360 rsync -a --no-times $HOME/.local/share/buku/bookmarks.db \
+    $HOME/Backups/Data/Bookmarks/bookmarks-"$(date +%Y-%m-%d)".db ; \
+    find $HOME/Backups/Data/Bookmarks/bookmarks-*.db -mtime +7 -delete
+
+## Android
+@ 360 rsync -a --delete $HOME/Documents/Notes/Personal/Documents/Exports/calls.json $HOME/Backups/Data/Calls/
+@ 360 rsync -a --delete $HOME/Documents/Notes/Personal/Documents/Exports/messages.zip $HOME/Backups/Data/SMS/
+@ 360 rsync -a --delete $HOME/Documents/Notes/Personal/Documents/Exports/contacts-*.json $HOME/Backups/Data/Contacts.bak/
+
+## ActivityWatch
+@ 360 wget http://127.0.0.1:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export-"$(date +%Y-%m-%d)".json ; \
+      find $HOME/Backups/Data/ActivityWatch/*.json -mtime +7 -delete
+
+## Git Backups
+@ 360 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
 @ 360 rsync -a --delete --suffix=`date +'.%F_%H-%M'` \
     $HOME/.config/chezmoi/chezmoi.toml $HOME/Backups/Machines/Linux/chezmoi/chezmoi-"$(date +%Y-%m-%d)".toml ; \
     find $HOME/Backups/Machines/Linux/chezmoi/chezmoi-*.toml -mtime +7 -delete
 
-@ 360 wget http://127.0.0.1:5600/api/0/export -O $HOME/Backups/Data/ActivityWatch/export.json
-
-## Git Backups
-@ 360 export GNUPGHOME=$HOME/.local/share/gnupg; chezmoi add --encrypt $HOME/.cache/zsh
-
 # Daily Feed
 @ 360 newsboat --url-file=$HOME/.config/newsboat/daily-list -x reload print-unread \
     --cache-file=$HOME/.local/share/newsboat/daily-cache.db | awk '{print $1;}' > $HOME/.config/newsboat/today-unread-count
-
-# Total Feed
-@ 720 sfeed_update $HOME/.config/sfeed/sfeedrc
-@ 720 sfeed_html $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.html
-@ 720 sfeed_plain $HOME/.local/share/sfeed/feeds/* > $HOME/.local/share/sfeed/feeds.txt
 
 # Convertions
 @ 360 \

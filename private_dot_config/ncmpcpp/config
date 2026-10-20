@@ -4,7 +4,7 @@ lyrics_directory = "~/.local/share/lyrics"
 mpd_music_dir = "~/Music"
 mpd_host = "127.0.0.1"
 mpd_port = "6600"
-#mpoidy_port = "6680"
+# mopidy_port = "6680"
 
 external_editor = nvim
 use_console_editor = yes

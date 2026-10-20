@@ -99,10 +99,13 @@ return {
   },
   {
     'iurimateus/luasnip-latex-snippets.nvim',
-    config = function()
-      require'luasnip-latex-snippets'.setup()
-    end,
     ft = { 'tex' },
+    requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    config = function()
+      require'luasnip-latex-snippets'.setup({use_treesitter = false,
+      allow_on_markdown = false})
+      require("luasnip").config.setup { enable_autosnippets = true }
+    end,
   },
   {
     'wren/jrnl.vim',

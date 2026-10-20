@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -eu
+
+. "$HOME/.config/restic/env"
+
+BACKUP_PATH="$HOME/Backups/"
+
+restic backup \
+    "$BACKUP_PATH" \
+    --exclude-file="$HOME/.config/restic/excludes" \
+    --tag important
+
+restic forget \
+    --tag important \
+    --keep-daily 7 \
+    --keep-weekly 5 \
+    --keep-monthly 12 \
+    --keep-yearly 3

@@ -1,0 +1,5 @@
+export AWS_ACCESS_KEY_ID={{ .aws_access_key | quote }}
+export AWS_SECRET_ACCESS_KEY={{ .aws_secret_key | quote }}
+
+export RESTIC_REPOSITORY={{ .restic_repo | quote }}
+export RESTIC_PASSWORD_FILE="$HOME/.config/restic/password"
